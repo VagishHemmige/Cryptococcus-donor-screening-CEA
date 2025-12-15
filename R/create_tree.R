@@ -16,6 +16,7 @@
 # Load packages ----------------------------------------------------------------
 library(heemod)
 library(dplyr)
+library(tidyverse)
 
 # Parameters -------------------------------------------------------------------
 param <- define_parameters(
@@ -30,8 +31,8 @@ param <- define_parameters(
   # CrAg test performance
   sens = 0.90,
   spec = 0.98,
-  p_fp = 0.02,
-  p_fn = 0.10,
+  p_fp = 1-spec,
+  p_fn = 1-sens,
   
   # Donation rules
   p_donation_blocked = 0.80,
@@ -41,7 +42,6 @@ param <- define_parameters(
   cost_screen = 1404,
   cost_crypto = 110945,
   cost_prophylaxis = 6660,
-  cost_crypto_plus_proph = 117605
 )
 
 # Terminal states -------------------------------------------------------------------
