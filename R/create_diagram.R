@@ -3,6 +3,9 @@
 library(DiagrammeR)
 library(DiagrammeRsvg)
 library(glue)
+library(tibble)
+library(gt)
+library(tidyverse)
 
 #Define size parameters
 circle_diameter<-1.4
@@ -219,4 +222,19 @@ digraph crag {{
 }}
 ")
 
+#Print to viewer
 grViz(grviz_text)
+
+#Save as svg
+g<-grViz(grviz_text)
+svg <- export_svg(g)
+writeLines(svg, "figures/crag_tree.svg")
+
+#Define tibble of outcomes
+
+result_tibble<-tribble(
+  ~strategy, ~donor_dz_status, ~donor_test_result, ~cancellation, ~proph, ~outcome, ~probability, ~cost_total, ~cost_predicted,
+  "Screening",0,0,0,0,0,0,0,0
+)
+
+result_tibble%>%gt()

@@ -21,3 +21,5 @@ The goal of Cryptococcus donor screening CEA is to perform a CEA.
 ## Decision Tree
 
 ![CrAg decision tree](figures/crag_tree.svg)
+
+![CrAg tree table](figures/output_table.png)
