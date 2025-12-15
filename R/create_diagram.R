@@ -240,7 +240,22 @@ result_tibble<-tribble(
   "No Screening","Negative",NA,NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_nospont_cryptococcus,cost_nocryptococcus,
   "Screening","Positive","CrAg+","Cancelled",NA,"Cancelled",p_usage*p_donor_cryptococcus*p_sensitivity*p_cancelled,cost_cancellation+cost_test,
   "Screening","Positive","CrAg+","Not Cancelled","Fluconazole","Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_prophrate*p_breakthrough_donorpos,cost_test+cost_disease+cost_fluconazole,
-  "Screening","Positive","CrAg+","Not Cancelled","Fluconazole","No cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_prophrate*p_nobreakthrough_donorpos,cost_test+cost_nocryptococcus+cost_fluconazole
+  "Screening","Positive","CrAg+","Not Cancelled","Fluconazole","No cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_prophrate*p_nobreakthrough_donorpos,cost_test+cost_nocryptococcus+cost_fluconazole,
+  "Screening","Positive","CrAg+","Not Cancelled","None","Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_noprophrate*p_transmission,cost_test+cost_disease,
+  "Screening","Positive","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_noprophrate*p_nontransmission,cost_test+cost_nocryptococcus,
+  "Screening","Positive","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_falsenegative*p_transmission,cost_test+cost_disease,
+  "Screening","Positive","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_cryptococcus*p_falsenegative*p_nontransmission,cost_test+cost_nocryptococcus,
+  
+  "Screening","Negative","CrAg+","Cancelled",NA,"Cancelled",p_usage*p_donor_nocryptococcus*p_falsepositive*p_cancelled,cost_cancellation+cost_test,
+  "Screening","Negative","CrAg+","Not Cancelled","Fluconazole","Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_prophrate*p_breakthrough_donorneg,cost_test+cost_disease+cost_fluconazole,
+  "Screening","Negative","CrAg+","Not Cancelled","Fluconazole","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_prophrate*p_nobreakthrough_donorneg,cost_test+cost_nocryptococcus+cost_fluconazole,
+  "Screening","Negative","CrAg+","Not Cancelled","None","Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_spont_cryptococcus,cost_test+cost_disease,
+  "Screening","Negative","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,
+  "Screening","Negative","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_spont_cryptococcus,cost_test+cost_disease,
+  "Screening","Negative","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_nospont_cryptococcus,cost_test+cost_nocryptococcus
+  
+  
+  
   
   
 )%>%
