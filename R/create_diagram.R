@@ -191,8 +191,8 @@ digraph crag {{
   transplant_notcancelled_ag_truepos_s-> proph_yes_transplant_notcancelled_ag_truepos_s [label='p = {p_prophrate}']
   transplant_notcancelled_ag_truepos_s-> proph_no_transplant_notcancelled_ag_truepos_s [label='p = {p_noprophrate}']
   
-  donor_neg_s -> ag_trueneg_s [label='p = {p_donor_cryptococcus}']
-  donor_neg_s -> ag_falsepos_s [label='p = {p_donor_cryptococcus}']
+  donor_neg_s -> ag_trueneg_s [label='p = {p_specificity}']
+  donor_neg_s -> ag_falsepos_s [label='p = {p_falsepositive}']
   
   ag_falsepos_s -> transplant_cancelled_ag_falsepos_s [label='p = {p_cancelled}']
   ag_falsepos_s -> transplant_notcancelled_ag_falsepos_s [label='p = {p_nocancelled}']
