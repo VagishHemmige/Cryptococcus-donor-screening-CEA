@@ -233,8 +233,54 @@ writeLines(svg, "figures/crag_tree.svg")
 #Define tibble of outcomes
 
 result_tibble<-tribble(
-  ~strategy, ~donor_dz_status, ~donor_test_result, ~cancellation, ~proph, ~outcome, ~probability, ~cost_total, ~cost_predicted,
-  "Screening",0,0,0,0,0,0,0,0
-)
+  ~strategy, ~donor_dz_status, ~donor_test_result, ~cancellation, ~proph, ~outcome, ~probability, ~cost_total,
+  "No Screening","Positive",NA,NA,NA,"Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_transmission,cost_disease,
+  "No Screening","Positive",NA,NA,NA,"No cryptococcus",p_usage*p_donor_cryptococcus*p_nontransmission,cost_nocryptococcus,
+  "No Screening","Negative",NA,NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_spont_cryptococcus,cost_disease,
+  "No Screening","Negative",NA,NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_nospont_cryptococcus,cost_nocryptococcus,
+  "Screening","Positive","CrAg+","Cancelled",NA,"Cancelled",p_usage*p_donor_cryptococcus*p_sensitivity*p_cancelled,cost_cancellation+cost_test,
+  "Screening","Positive","CrAg+","Not Cancelled","Fluconazole","Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_prophrate*p_breakthrough_donorpos,cost_test+cost_disease+cost_fluconazole,
+  "Screening","Positive","CrAg+","Not Cancelled","Fluconazole","No cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_prophrate*p_nobreakthrough_donorpos,cost_test+cost_nocryptococcus+cost_fluconazole
+  
+  
+)%>%
+  mutate(cost_expected=probability*cost_total)
 
-result_tibble%>%gt()
+result_tibble%>%
+  group_by(strategy)%>%
+  summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected))
+
+result_tibble%>%gt()%>%
+  cols_label(
+    strategy           = "Strategy",
+    donor_dz_status    = "Donor status",
+    donor_test_result  = "Test result",
+    cancellation       = "Transplant cancelled",
+    proph              = "Prophylaxis",
+    outcome            = "Outcome",
+    probability        = "Path probability",
+    cost_total         = "Cost if outcome ($)",
+    cost_expected      = "Expected cost ($)"
+  )%>%
+  tab_style(
+    style = cell_text(align = "center"),
+    locations = cells_column_labels(everything())
+  )
+
+result_tibble%>%gt()%>%
+  cols_label(
+    strategy           = "Strategy",
+    donor_dz_status    = "Donor status",
+    donor_test_result  = "Test result",
+    cancellation       = "Transplant cancelled",
+    proph              = "Prophylaxis",
+    outcome            = "Outcome",
+    probability        = "Path probability",
+    cost_total         = "Cost if outcome ($)",
+    cost_expected      = "Expected cost ($)"
+  )%>%
+  tab_style(
+    style = cell_text(align = "center"),
+    locations = cells_column_labels(everything())
+  )%>%
+  gtsave("figures/output_table.png")
