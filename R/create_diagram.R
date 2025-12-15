@@ -20,7 +20,7 @@ cost_test<-2
 cost_disease<-110945
 cost_fluconazole<-6660
 cost_cancellation<-0
-cost_nocryptococcus<--10
+cost_nocryptococcus<- -10
 
 #N donors
 number_donors<-702
@@ -51,6 +51,42 @@ p_nobreakthrough_donorpos<-1-p_breakthrough_donorpos
 p_breakthrough_donorneg<-(1-p_prophefficacy)*p_spont_cryptococcus
 p_nobreakthrough_donorneg<-1-p_breakthrough_donorneg
 
+
+create_tree_diagram<-function(p_usage=0.43, 
+                              p_donor_cryptococcus=0.001, 
+                              p_transmission=0.867, 
+                              p_spont_cryptococcus=0.005, 
+                              p_sensitivity=0.901,
+                              p_specificity=0.98, 
+                              p_cancelled=0.8, 
+                              p_prophrate=0.51, 
+                              p_prophefficacy=0.88,
+                              number_donors=702,
+                              cost_test=2,
+                              cost_disease=110945,
+                              cost_fluconazole=6660,
+                              cost_cancellation=0,
+                              cost_nocryptococcus=-10
+                              
+                              
+                              )
+{
+
+#Define parameters
+  p_nonusage<-1-p_usage
+  p_donor_nocryptococcus<-1-p_donor_cryptococcus
+  p_nontransmission<-1-p_transmission
+  p_nospont_cryptococcus<-1-p_spont_cryptococcus
+  p_falsenegative<-1-p_sensitivity
+  p_falsepositive<-1-p_specificity
+  p_nocancelled<-1-p_cancelled
+  p_noprophrate<-1-p_prophrate
+  p_noprophefficacy<-1-p_prophefficacy
+  p_breakthrough_donorpos<-(1-p_prophefficacy)*p_transmission
+  p_nobreakthrough_donorpos<-1-p_breakthrough_donorpos
+  p_breakthrough_donorneg<-(1-p_prophefficacy)*p_spont_cryptococcus
+  p_nobreakthrough_donorneg<-1-p_breakthrough_donorneg
+  
 #Text to define tree diagram for grviz
 grviz_text<-glue("
 digraph crag {{
@@ -222,17 +258,14 @@ digraph crag {{
 }}
 ")
 
-#Print to viewer
-grViz(grviz_text)
+#Define return list
+return_list<-list()
 
-#Save as svg
-g<-grViz(grviz_text)
-svg <- export_svg(g)
-writeLines(svg, "figures/crag_tree.svg")
+#Add grviz object to return_list
+return_list$plot<-grViz(grviz_text)
 
 #Define tibble of outcomes
-
-result_tibble<-tribble(
+return_list$path_table<-tribble(
   ~strategy, ~donor_dz_status, ~donor_test_result, ~cancellation, ~proph, ~outcome, ~probability, ~cost_total,
   "No Screening","Positive",NA,NA,NA,"Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_transmission,cost_disease,
   "No Screening","Positive",NA,NA,NA,"No cryptococcus",p_usage*p_donor_cryptococcus*p_nontransmission,cost_nocryptococcus,
@@ -253,13 +286,25 @@ result_tibble<-tribble(
   "Screening","Negative","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,
   "Screening","Negative","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_spont_cryptococcus,cost_test+cost_disease,
   "Screening","Negative","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_nospont_cryptococcus,cost_test+cost_nocryptococcus
-  
-  
-  
-  
-  
 )%>%
   mutate(cost_expected=probability*cost_total)
+
+#Summary object ofr
+return_list$summary_tibble<-return_list$path_table%>%
+  group_by(strategy)%>%
+  summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected))
+
+#Final return
+return(return_list)
+}
+
+
+#Save as svg
+g<-create_tree_diagram()
+svg <- export_svg(g$plot)
+writeLines(svg, "figures/crag_tree.svg")
+
+result_tibble<-g$path_table
 
 #Let's look at the tibble as a gt table
 crag_table<-result_tibble%>%gt()%>%
