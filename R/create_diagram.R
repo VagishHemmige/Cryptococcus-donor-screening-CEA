@@ -261,11 +261,8 @@ result_tibble<-tribble(
 )%>%
   mutate(cost_expected=probability*cost_total)
 
-result_tibble%>%
-  group_by(strategy)%>%
-  summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected))
-
-result_tibble%>%gt()%>%
+#Let's look at the tibble as a gt table
+crag_table<-result_tibble%>%gt()%>%
   cols_label(
     strategy           = "Strategy",
     donor_dz_status    = "Donor status",
@@ -282,20 +279,21 @@ result_tibble%>%gt()%>%
     locations = cells_column_labels(everything())
   )
 
-result_tibble%>%gt()%>%
-  cols_label(
-    strategy           = "Strategy",
-    donor_dz_status    = "Donor status",
-    donor_test_result  = "Test result",
-    cancellation       = "Transplant cancelled",
-    proph              = "Prophylaxis",
-    outcome            = "Outcome",
-    probability        = "Path probability",
-    cost_total         = "Cost if outcome ($)",
-    cost_expected      = "Expected cost ($)"
-  )%>%
-  tab_style(
-    style = cell_text(align = "center"),
-    locations = cells_column_labels(everything())
-  )%>%
-  gtsave("figures/output_table.png")
+crag_table
+
+#Save table
+crag_table%>%
+  gtsave("figures/output_table.png",
+         vwidth = 2000,   # try 1600–2400
+         vheight = 1200,
+         expand = 10)
+
+#Let's also look at the summary statistics for this table
+summary_tibble<-result_tibble%>%
+  group_by(strategy)%>%
+  summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected))
+
+summary_gt<-summary_tibble%>%gt()
+summary_gt
+summary_gt%>%
+  gtsave("figures/summary_table.png")
