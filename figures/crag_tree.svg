@@ -263,7 +263,7 @@
 <title>donor_neg_s&#45;&gt;ag_falsepos_s</title>
 <path fill="none" stroke="#000000" d="M672.6324,-375C714.477,-375 774.0571,-375 818.5435,-375"/>
 <polygon fill="#000000" stroke="#000000" points="818.6491,-378.5001 828.6491,-375 818.649,-371.5001 818.6491,-378.5001"/>
-<text text-anchor="middle" x="722.0528" y="-379.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.001</text>
+<text text-anchor="middle" x="722.0528" y="-379.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.02</text>
 </g>
 <!-- ag_trueneg_s -->
 <g id="node19" class="node">
@@ -277,7 +277,7 @@
 <title>donor_neg_s&#45;&gt;ag_trueneg_s</title>
 <path fill="none" stroke="#000000" d="M662.5853,-344.3167C708.2329,-309.7428 782.3962,-253.5708 831.0745,-216.7014"/>
 <polygon fill="#000000" stroke="#000000" points="833.3981,-219.3321 839.2565,-210.5043 829.1717,-213.752 833.3981,-219.3321"/>
-<text text-anchor="middle" x="722.0528" y="-327.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.001</text>
+<text text-anchor="middle" x="722.0528" y="-327.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.98</text>
 </g>
 <!-- transplant_cancelled_ag_truepos_s -->
 <g id="node20" class="node">
