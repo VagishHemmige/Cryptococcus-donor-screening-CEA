@@ -249,7 +249,7 @@ digraph crag {{
     "No Screening","Accept","Positive",NA,NA,NA,"No cryptococcus",p_usage*p_donor_cryptococcus*p_nontransmission,cost_nocryptococcus,q_nocryptococcus,
     "No Screening","Accept","Negative",NA,NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_spont_cryptococcus,cost_disease,q_cryptococcus,
     "No Screening","Accept","Negative",NA,NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_nospont_cryptococcus,cost_nocryptococcus,q_nocryptococcus,
-    "No Screening","Non-accept",NA,NA,NA,NA,NA,p_nonusage,cost_nonacceptance,q_noacceptance,
+    "No Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance,q_noacceptance,
     
     
     "Screening","Accept","Positive","CrAg+","Cancelled",NA,"Cancelled",p_usage*p_donor_cryptococcus*p_sensitivity*p_cancelled,cost_cancellation+cost_test,q_noacceptance,
@@ -267,7 +267,7 @@ digraph crag {{
     "Screening","Accept","Negative","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,q_nocryptococcus,
     "Screening","Accept","Negative","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_spont_cryptococcus,cost_test+cost_disease,q_cryptococcus,
     "Screening","Accept","Negative","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,q_nocryptococcus,
-    "Screening","Non-accept",NA,NA,NA,NA,NA,p_nonusage,cost_nonacceptance,q_noacceptance,
+    "Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance,q_noacceptance,
     
   )%>%
     mutate(cost_expected=probability*cost_total,
