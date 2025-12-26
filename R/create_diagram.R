@@ -7,14 +7,14 @@ library(tibble)
 library(gt)
 library(tidyverse)
 
-#Define size parameters
+#Define size parameters for the diagram itself
 circle_diameter<-1.4
 box_width<-1.7
 box_height<-1
 diamond_width<-3
 diamond_height<-1.5
 
-#Fixed parameters for the diagram
+#Fixed parameters for the CEA underlying the diagram
 #Costs
 cost_test<-2
 cost_disease<-110945
@@ -298,9 +298,10 @@ return_list$summary_tibble<-return_list$path_table%>%
 return(return_list)
 }
 
+#Run the tree diagram
+g<-create_tree_diagram()
 
 #Save as svg
-g<-create_tree_diagram()
 svg <- export_svg(g$plot)
 writeLines(svg, "figures/crag_tree.svg")
 
