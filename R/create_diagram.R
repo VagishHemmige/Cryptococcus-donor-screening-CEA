@@ -99,22 +99,22 @@ digraph crag {{
   start [shape=box, label='Potential\ndonors\nN = {number_donors}', fixedsize=TRUE, width={box_width}, height={box_height}]
 
   no_screen [shape=box, fillcolor=palegreen, style=filled,
-             label='No CrAg\nscreening\nCost = $0', fixedsize=TRUE, width={box_width}, height={box_height}]
+             label='No CrAg\nscreening\nΔC = $0', fixedsize=TRUE, width={box_width}, height={box_height}]
 
   screen [shape=box, fillcolor=palegreen, style=filled,
-          label='CrAg\nscreening\nCost = ${cost_test}', fixedsize=TRUE, width={box_width}, height={box_height}]
+          label='CrAg\nscreening\nΔC = ${cost_test}', fixedsize=TRUE, width={box_width}, height={box_height}]
 
   used_ns [shape=circle, fillcolor=lightyellow, style=filled,
            label='Organs\nused', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
            
-  notused_ns [shape=circle, fillcolor=lightyellow, style=filled,
-           label='Organs\nnot\nused', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
+  notused_ns [shape=diamond, fillcolor=mistyrose, style=filled,
+           label='Organs\nnot used\nΔC = $0', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
 
   used_s [shape=circle, fillcolor=lightyellow, style=filled,
            label='Organs\nused', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
            
-  notused_s [shape=circle, fillcolor=lightyellow, style=filled,
-           label='Organs\nnot\nused', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
+  notused_s [shape=diamond, fillcolor=mistyrose, style=filled,
+           label='Organs\nnot used\nΔC = $0', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
 
   donor_pos_ns [shape=circle, fillcolor=lightyellow, style=filled,
                 label='Donor\nwith\ncryptococcus', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
@@ -129,14 +129,14 @@ digraph crag {{
                 label='Donor\nwithout\ncryptococcus', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
 
   inf_yes_agpos_ns [shape=diamond, fillcolor=mistyrose, style=filled,
-           label='Recipient\ncryptococcosis\nCost = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+           label='Recipient\ncryptococcosis\nΔC = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
            
   inf_yes_agneg_ns [shape=diamond, fillcolor=mistyrose, style=filled,
-           label='Recipient\ncryptococcosis\nCost = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+           label='Recipient\ncryptococcosis\nΔC = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
 
-  inf_no_agpos_ns [shape=diamond, label='No\ncryptococcus\nCost = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+  inf_no_agpos_ns [shape=diamond, label='No\ncryptococcus\nΔC = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
   
-  inf_no_agneg_ns [shape=diamond, label='No\ncryptococcus\nCost = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+  inf_no_agneg_ns [shape=diamond, label='No\ncryptococcus\nΔC = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
   
   ag_truepos_s [shape=circle, fillcolor=lightyellow, style=filled,
                 label='Donor\nCrAg+', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
@@ -151,50 +151,50 @@ digraph crag {{
                 label='Donor\nCrAg-', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
 
   transplant_cancelled_ag_truepos_s [shape=diamond, fillcolor=lightblue, style=filled,
-                label='Transplant\ncancelled\nCost = ${cost_cancellation}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+                label='Transplant\ncancelled\nΔC = ${cost_cancellation}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
   transplant_notcancelled_ag_truepos_s [shape=circle, fillcolor=lightyellow, style=filled,
                 label='Transplant\nnot\ncancelled', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
   
   transplant_cancelled_ag_falsepos_s [shape=diamond, fillcolor=lightblue, style=filled,
-                label='Transplant\ncancelled\nCost = ${cost_cancellation}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+                label='Transplant\ncancelled\nΔC = ${cost_cancellation}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
   transplant_notcancelled_ag_falsepos_s [shape=circle, fillcolor=lightyellow, style=filled,
                 label='Transplant\nnot\ncancelled', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
                 
   proph_yes_transplant_notcancelled_ag_truepos_s [shape=circle, fillcolor=lightyellow, style=filled,
-                label='Fluconazole\nprophylaxis\nCost = ${cost_fluconazole}', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
+                label='Fluconazole\nprophylaxis\nΔC = ${cost_fluconazole}', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
   proph_no_transplant_notcancelled_ag_truepos_s [shape=circle, fillcolor=lightyellow, style=filled,
                 label='No\nprophylaxis', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
 
   proph_yes_transplant_notcancelled_ag_falsepos_s [shape=circle, fillcolor=lightyellow, style=filled,
-                label='Fluconazole\nprophylaxis\nCost = ${cost_fluconazole}', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
+                label='Fluconazole\nprophylaxis\nΔC = ${cost_fluconazole}', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
   proph_no_transplant_notcancelled_ag_falsepos_s [shape=circle, fillcolor=lightyellow, style=filled,
                 label='No\nprophylaxis', fixedsize=TRUE, width={circle_diameter}, height={circle_diameter}]
 
   inf_y_proph_yes_transplant_notcancelled_ag_truepos_s [shape=diamond, fillcolor=mistyrose, style=filled,
-           label='Recipient\ncryptococcosis\nCost = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
-  inf_n_proph_yes_transplant_notcancelled_ag_truepos_s [shape=diamond, label='No\ncryptococcosis\nCost = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+           label='Recipient\ncryptococcosis\nΔC = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+  inf_n_proph_yes_transplant_notcancelled_ag_truepos_s [shape=diamond, label='No\ncryptococcosis\nΔC = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
 
   inf_y_proph_no_transplant_notcancelled_ag_truepos_s [shape=diamond, fillcolor=mistyrose, style=filled,
-           label='Recipient\ncryptococcosis\nCost = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
-  inf_n_proph_no_transplant_notcancelled_ag_truepos_s [shape=diamond, label='No\ncryptococcosis\nCost = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+           label='Recipient\ncryptococcosis\nΔC = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+  inf_n_proph_no_transplant_notcancelled_ag_truepos_s [shape=diamond, label='No\ncryptococcosis\nΔC = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
 
 
   inf_y_proph_yes_transplant_notcancelled_ag_falsepos_s [shape=diamond, fillcolor=mistyrose, style=filled,
-           label='Recipient\ncryptococcosis\nCost = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
-  inf_n_proph_yes_transplant_notcancelled_ag_falsepos_s [shape=diamond, label='No\ncryptococcus\nCost = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+           label='Recipient\ncryptococcosis\nΔC = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+  inf_n_proph_yes_transplant_notcancelled_ag_falsepos_s [shape=diamond, label='No\ncryptococcus\nΔC = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
 
   inf_y_proph_no_transplant_notcancelled_ag_falsepos_s [shape=diamond, fillcolor=mistyrose, style=filled,
-           label='Recipient\ncryptococcosis\nCost = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
-  inf_n_proph_no_transplant_notcancelled_ag_falsepos_s [shape=diamond, label='No\ncryptococcus\nCost = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+           label='Recipient\ncryptococcosis\nΔC = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+  inf_n_proph_no_transplant_notcancelled_ag_falsepos_s [shape=diamond, label='No\ncryptococcus\nΔC = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
   
   
   inf_y_ag_falseneg_s [shape=diamond, fillcolor=mistyrose, style=filled,
-           label='Recipient\ncryptococcosis\nCost = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
-  inf_n_ag_falseneg_s [shape=diamond, label='No\ncryptococcus\nCost = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+           label='Recipient\ncryptococcosis\nΔC = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+  inf_n_ag_falseneg_s [shape=diamond, label='No\ncryptococcus\nΔC = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
   
   inf_y_ag_trueneg_s [shape=diamond, fillcolor=mistyrose, style=filled,
-           label='Recipient\ncryptococcosis\nCost = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
-  inf_n_ag_trueneg_s [shape=diamond, label='No\ncryptococcus\nCost = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+           label='Recipient\ncryptococcosis\nΔC = ${cost_disease}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
+  inf_n_ag_trueneg_s [shape=diamond, label='No\ncryptococcus\nΔC = ${cost_nocryptococcus}', fixedsize=TRUE, width={diamond_width}, height={diamond_height}]
                 
   # ---- Structure ----
   start -> no_screen
@@ -300,6 +300,9 @@ return(return_list)
 
 #Run the tree diagram
 g<-create_tree_diagram()
+
+#Pring plot
+g$plot
 
 #Save as svg
 svg <- export_svg(g$plot)
