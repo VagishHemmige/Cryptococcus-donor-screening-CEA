@@ -289,7 +289,7 @@ g_QC<-create_tree_diagram_QC()
 g_QC$plot
 
 #Save as svg
-svg_QC <- export_svg(g$plot)
+svg_QC <- export_svg(g_QC$plot)
 writeLines(svg_QC, "figures/crag_tree_QC.svg")
 
 result_tibble_QC<-g_QC$path_table
