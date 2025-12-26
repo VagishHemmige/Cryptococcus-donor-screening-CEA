@@ -336,6 +336,10 @@ summary_gt_QC<-summary_tibble_QC%>%
     total_probability = "Total Probability",
     total_expected_cost = "Total Expected Cost",
     total_expected_qaly = "Total Expected QALY"
+  )%>%
+  tab_style(
+    style = cell_text(align = "center"),
+    locations = cells_column_labels(everything())
   )
 
 summary_gt_QC
