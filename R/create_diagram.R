@@ -350,7 +350,19 @@ summary_tibble<-result_tibble%>%
   group_by(strategy)%>%
   summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected))
 
-summary_gt<-summary_tibble%>%gt()
+summary_gt<-summary_tibble%>%
+  gt()%>%
+  cols_label(
+    strategy = "Strategy",
+    total_probability = "Total Probability",
+    total_expected_cost = "Total Expected Cost"
+  )%>%
+  tab_style(
+    style = cell_text(align = "center"),
+    locations = cells_column_labels(everything())
+  )
+
+
 summary_gt
 summary_gt%>%
   gtsave("figures/summary_table.png")

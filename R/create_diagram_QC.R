@@ -329,7 +329,15 @@ summary_tibble_QC<-result_tibble_QC%>%
   group_by(strategy)%>%
   summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected),total_expected_qaly=sum(qaly_expected))
 
-summary_gt_QC<-summary_tibble_QC%>%gt()
+summary_gt_QC<-summary_tibble_QC%>%
+  gt()%>%
+  cols_label(
+    strategy = "Strategy",
+    total_probability = "Total Probability",
+    total_expected_cost = "Total Expected Cost",
+    total_expected_qaly = "Total Expected QALY"
+  )
+
 summary_gt_QC
 summary_gt_QC%>%
   gtsave("figures/summary_table_QC.png")
