@@ -313,7 +313,8 @@ crag_table_QC<-result_tibble_QC%>%gt()%>%
   tab_style(
     style = cell_text(align = "center"),
     locations = cells_column_labels(everything())
-  )
+  )%>%
+  fmt_missing(everything(), missing_text = "")
 
 crag_table_QC
 
