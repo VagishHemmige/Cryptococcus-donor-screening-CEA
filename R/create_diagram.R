@@ -273,7 +273,7 @@ return_list$path_table<-tribble(
   "No Screening","Accept","Positive",NA,NA,NA,"No cryptococcus",p_usage*p_donor_cryptococcus*p_nontransmission,cost_nocryptococcus,
   "No Screening","Accept","Negative",NA,NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_spont_cryptococcus,cost_disease,
   "No Screening","Accept","Negative",NA,NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_nospont_cryptococcus,cost_nocryptococcus,
-  "No Screening","Non-accept",NA,NA,NA,NA,NA,p_nonusage,cost_nonacceptance,
+  "No Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance,
   
   
   "Screening","Accept","Positive","CrAg+","Cancelled",NA,"Cancelled",p_usage*p_donor_cryptococcus*p_sensitivity*p_cancelled,cost_cancellation+cost_test,
@@ -291,7 +291,7 @@ return_list$path_table<-tribble(
   "Screening","Accept","Negative","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,
   "Screening","Accept","Negative","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_spont_cryptococcus,cost_test+cost_disease,
   "Screening","Accept","Negative","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,
-  "Screening","Non-accept",NA,NA,NA,NA,NA,p_nonusage,cost_nonacceptance,
+  "Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance+cost_test,
   
 )%>%
   mutate(cost_expected=probability*cost_total)
@@ -334,7 +334,8 @@ crag_table<-result_tibble%>%gt()%>%
   tab_style(
     style = cell_text(align = "center"),
     locations = cells_column_labels(everything())
-  )
+  )%>%
+  fmt_missing(everything(), missing_text = "")
 
 crag_table
 
