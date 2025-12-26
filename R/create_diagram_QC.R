@@ -267,7 +267,7 @@ digraph crag {{
     "Screening","Accept","Negative","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,q_nocryptococcus,
     "Screening","Accept","Negative","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_spont_cryptococcus,cost_test+cost_disease,q_cryptococcus,
     "Screening","Accept","Negative","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,q_nocryptococcus,
-    "Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance,q_noacceptance,
+    "Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance+cost_test,q_noacceptance,
     
   )%>%
     mutate(cost_expected=probability*cost_total,
