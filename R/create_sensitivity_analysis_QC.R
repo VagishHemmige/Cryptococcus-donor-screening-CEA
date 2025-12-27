@@ -88,7 +88,7 @@ for (i in 1:nrow(PSA_parameters$probabilities))
 for (i in 1:nrow(PSA_parameters$costs))
 {
   temp_plot<-ggplot(data.frame(x = c(PSA_parameters$costs[[i,6]]-1, 1+PSA_parameters$costs[[i,7]])), aes(x)) +
-    stat_function(fun = dgamma, args = list(shape = PSA_parameters$probabilities[[i,3]], scale = PSA_parameters$probabilities[[i,4]]))+
+    stat_function(fun = dgamma, args = list(shape = PSA_parameters$costs[[i,3]], scale = PSA_parameters$costs[[i,4]]))+
     labs(
       title = glue("Prior distribution for **{PSA_parameters$costs[[i,1]]}**"),
       x = "Cost",
@@ -102,6 +102,22 @@ for (i in 1:nrow(PSA_parameters$costs))
   )
 }
 
+#Loop to save parameter distributions for costs, using base function "curve":
+for (i in 1:nrow(PSA_parameters$costs))
+{
+  svg(glue("figures/PSA_prior_{PSA_parameters$costs[[i,1]]}.svg"), width = 6, height = 4)
+  
+  curve(
+    dgamma(x, shape = PSA_parameters$pcosts[[i,3]], scale = PSA_parameters$costs[[i,4]]),
+    from = 0,
+    to = qgamma(0.995, PSA_parameters$probabilities[[i,3]], PSA_parameters$probabilities[[i,4]]),
+    main = bquote("Prior distribution for " * bold(.(PSA_parameters$costs[[i,1]]))),
+    xlab = "Cost",
+    ylab = "Density"
+  )
+  
+  dev.off()
+}
 
 #Tables
 PSA_parameters$probabilities%>%
