@@ -367,7 +367,7 @@ parameter_table_QC<-g_QC$parameter_tibble%>%
 
 parameter_table_QC
 parameter_table_QC%>%
-  gtsave("figures/parameter_table_QC.png", vwidth = 800)
+  gtsave("figures/parameter_table_QC.png")
 
 
 #Save table
