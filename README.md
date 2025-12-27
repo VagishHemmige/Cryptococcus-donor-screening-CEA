@@ -11,10 +11,11 @@ The goal of Cryptococcus donor screening CEA is to perform a CEA.
 
 ## Decision Tree
 
-<figure>
-<img src="figures/crag_tree_QC.svg" alt="CrAg decision tree" />
-<figcaption aria-hidden="true">CrAg decision tree</figcaption>
-</figure>
+The parameters of the model are as below: ![Model
+parameters](figures/parameter_table_QC.png)
+
+This model leads to the following decision tree: ![CrAg decision
+tree](figures/crag_tree_QC.svg)
 
 ## Results table
 

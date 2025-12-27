@@ -301,6 +301,26 @@ return_list$summary_tibble<-return_list$path_table%>%
   group_by(strategy)%>%
   summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected))
 
+#Create parameter table to return
+return_list$parameter_tibble<-tribble(
+  ~parameter, ~value,
+  "p_usage", p_usage, 
+  "p_donor_cryptococcus",p_donor_cryptococcus, 
+  "p_transmission",p_transmission, 
+  "p_spont_cryptococcus",p_spont_cryptococcus, 
+  "p_sensitivity",p_sensitivity,
+  "p_specificity",p_specificity, 
+  "p_cancelled",p_cancelled, 
+  "p_prophrate",p_prophrate, 
+  "p_prophefficacy",p_prophefficacy,
+  "number_donors",number_donors,
+  "cost_test",cost_test,
+  "cost_disease",cost_disease,
+  "cost_fluconazole",cost_fluconazole,
+  "cost_cancellation",cost_cancellation,
+  "cost_nocryptococcus",cost_nocryptococcus,
+  "cost_nonacceptance",cost_nonacceptance)
+
 #Final return
 return(return_list)
 }

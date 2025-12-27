@@ -277,7 +277,30 @@ digraph crag {{
   return_list$summary_tibble<-return_list$path_table%>%
     group_by(strategy)%>%
     summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected), total_expected_qaly=sum(qaly_expected))
-  
+
+  #Create parameter table to return
+  return_list$parameter_tibble<-tribble(
+    ~parameter, ~value,
+    "p_usage", p_usage, 
+    "p_donor_cryptococcus",p_donor_cryptococcus, 
+    "p_transmission",p_transmission, 
+    "p_spont_cryptococcus",p_spont_cryptococcus, 
+    "p_sensitivity",p_sensitivity,
+    "p_specificity",p_specificity, 
+    "p_cancelled",p_cancelled, 
+    "p_prophrate",p_prophrate, 
+    "p_prophefficacy",p_prophefficacy,
+    "number_donors",number_donors,
+    "cost_test",cost_test,
+    "cost_disease",cost_disease,
+    "cost_fluconazole",cost_fluconazole,
+    "cost_cancellation",cost_cancellation,
+    "cost_nocryptococcus",cost_nocryptococcus,
+    "cost_nonacceptance",cost_nonacceptance,
+    "q_nocryptococcus",q_nocryptococcus,
+    "q_noacceptance",q_noacceptance,
+    "q_loss_cryptococcus",q_loss_cryptococcus)
+    
   #Final return
   return(return_list)
 }
@@ -317,6 +340,35 @@ crag_table_QC<-result_tibble_QC%>%gt()%>%
   fmt_missing(everything(), missing_text = "")
 
 crag_table_QC
+
+#Let's create a table from the parameters
+parameter_table_QC<-g_QC$parameter_tibble%>%
+  gt()%>%
+  cols_label(
+    parameter = "Parameter",
+    value     = "Value"
+  )%>%
+  fmt_number(
+    columns = value,
+    rows = parameter %in% c("number_donors"),
+    decimals = 0
+  )%>%
+  fmt_number(
+    columns = value,
+    rows = parameter %in% c("cost_test", "cost_disease", "cost_fluconazole", "cost_cancellation", 
+                            "cost_cryptococcus", "cost_nonacceptance", "cost_nocryptococcus"),
+    decimals = 2
+  )%>%
+  fmt_number(
+    columns = value,
+    rows = parameter %in% c("q_nocryptococcus", "q_noacceptance", "q_loss_cryptococcus"),
+    decimals = 1
+  )
+
+parameter_table_QC
+parameter_table_QC%>%
+  gtsave("figures/parameter_table_QC.png")
+
 
 #Save table
 crag_table_QC%>%
