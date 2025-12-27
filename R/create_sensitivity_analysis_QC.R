@@ -243,7 +243,23 @@ PSA_simulation_unnested<-PSA_simulation%>%
   )
 
 
-PSA_simulation_unnested%>%
+PSA_plot<-PSA_simulation_unnested%>%
   ggplot()+
   geom_point(mapping = aes(x=qaly_change, y=cost_change), alpha=0.1)+
-  theme_classic()
+  geom_hline(yintercept = 0, linewidth = 0.4, color = "black")+
+  geom_vline(xintercept = 0, linewidth = 0.4, color = "black")+
+  coord_cartesian(xlim = c(-1.5, 1.5),
+                  ylim = c(-300, 300))+
+  theme_classic()+
+  theme(
+    plot.title = element_text(hjust = 0.5)
+  )+
+  labs(
+    title = "Probabilistic sensitivity analysis",
+    x="QALY change",
+    y="Cost change"
+  )
+
+
+ggsave("figures/PSA_plot.svg")
+PSA_plot
