@@ -1,26 +1,24 @@
 #Functions for CEA
 
 #
-calculate_cost_QALY_QC<-function(p_usage=0.43, 
-                                 p_donor_cryptococcus=0.001, 
-                                 p_transmission=0.867, 
-                                 p_spont_cryptococcus=0.005, 
-                                 p_sensitivity=0.901,
-                                 p_specificity=0.98, 
-                                 p_cancelled=0.8, 
-                                 p_prophrate=0.51, 
-                                 p_prophefficacy=0.88,
-                                 number_donors=702,
-                                 cost_test=2,
-                                 cost_disease=110945,
-                                 cost_fluconazole=6660,
-                                 cost_cancellation=0,
-                                 cost_nocryptococcus=-10,
-                                 cost_nonacceptance=0,
-                                 q_nocryptococcus=5.5,
-                                 q_noacceptance=0,
-                                 q_loss_cryptococcus=2.5
-                                 
+calculate_cost_QALY_QC<-function(p_usage, 
+                                 p_donor_cryptococcus, 
+                                 p_transmission, 
+                                 p_spont_cryptococcus, 
+                                 p_sensitivity,
+                                 p_specificity, 
+                                 p_cancelled, 
+                                 p_prophrate, 
+                                 p_prophefficacy,
+                                 cost_test,
+                                 cost_disease,
+                                 cost_fluconazole,
+                                 cost_cancellation,
+                                 cost_nocryptococcus,
+                                 cost_nonacceptance,
+                                 q_nocryptococcus,
+                                 q_noacceptance,
+                                 q_loss_cryptococcus
 )
 {
   
@@ -39,10 +37,6 @@ calculate_cost_QALY_QC<-function(p_usage=0.43,
   p_breakthrough_donorneg<-(1-p_prophefficacy)*p_spont_cryptococcus
   p_nobreakthrough_donorneg<-1-p_breakthrough_donorneg
   q_cryptococcus<-q_nocryptococcus-q_loss_cryptococcus
-  
-
-  #Define return list
-  return_list<-list()
   
   #Define tibble of outcomes
   path_table<-tribble(
@@ -78,12 +72,26 @@ calculate_cost_QALY_QC<-function(p_usage=0.43,
   #Summary object ofr
   summary_tibble<-path_table%>%
     group_by(strategy)%>%
-    summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected), total_expected_qaly=sum(qaly_expected))
+    summarize(total_expected_cost=sum(cost_expected), total_expected_qaly=sum(qaly_expected))%>%
+    mutate(
+      strategy = recode(
+        strategy,
+        "No Screening" = "ns",
+        "Screening"    = "s"
+      )
+    ) %>%
+    tidyr::pivot_wider(
+      names_from  = strategy,
+      values_from = c(
+        total_expected_cost,
+        total_expected_qaly
+      ),
+      names_sep = "_"
+    )
   
   #Final return
-  return(return_list)
+  return(summary_tibble)
 }
-
 
 
 
