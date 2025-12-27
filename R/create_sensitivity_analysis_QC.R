@@ -111,7 +111,8 @@ for (i in 1:nrow(PSA_parameters$qalys))
 
 
 #Tables
-PSA_parameters$probabilities%>%
+PSA_tables<-list()
+PSA_tables$probabilities<-PSA_parameters$probabilities%>%
   gt()%>%
   cols_label(
     parameter = "Parameter",
@@ -121,8 +122,11 @@ PSA_parameters$probabilities%>%
     lb_95 = "Lower bound, 95% CI",
     ub_95 = "Upper bound, 95% CI"
   )
+PSA_tables$probabilities
+PSA_tables$probabilities%>%
+  gtsave("figures/PSA_tables_probabilities.png")
 
-PSA_parameters$costs%>%
+PSA_tables$costs<-PSA_parameters$costs%>%
   gt()%>%
   cols_label(
     parameter = "Parameter",
@@ -132,8 +136,11 @@ PSA_parameters$costs%>%
     lb_95 = "Lower bound, 95% CI",
     ub_95 = "Upper bound, 95% CI"
   )
+PSA_tables$costs
+PSA_tables$costs%>%
+  gtsave("figures/PSA_tables_costs.png")
 
-PSA_parameters$qalys%>%
+PSA_tables$qalys<-PSA_parameters$qalys%>%
   gt()%>%
   cols_label(
     parameter = "Parameter",
@@ -143,6 +150,9 @@ PSA_parameters$qalys%>%
     lb_95 = "Lower bound, 95% CI",
     ub_95 = "Upper bound, 95% CI"
   )
+PSA_tables$qalys
+PSA_tables$qalys%>%
+  gtsave("figures/PSA_tables_qalys.png")
 
 
 #Now, we simulate 10,000 draws from the above.  First, we create the dataset with the simulated values
