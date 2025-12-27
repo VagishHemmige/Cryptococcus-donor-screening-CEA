@@ -366,6 +366,32 @@ crag_table%>%
          vheight = 1200,
          expand = 10)
 
+
+#Let's create a table from the parameters
+parameter_table<-g$parameter_tibble%>%
+  gt()%>%
+  cols_label(
+    parameter = "Parameter",
+    value     = "Value"
+  )%>%
+  fmt_number(
+    columns = value,
+    rows = parameter %in% c("number_donors"),
+    decimals = 0
+  )%>%
+  fmt_number(
+    columns = value,
+    rows = parameter %in% c("cost_test", "cost_disease", "cost_fluconazole", "cost_cancellation", 
+                            "cost_cryptococcus", "cost_nonacceptance", "cost_nocryptococcus"),
+    decimals = 2
+  )
+parameter_table
+parameter_table%>%
+  gtsave("figures/parameter_table.png")
+
+
+
+
 #Let's also look at the summary statistics for this table
 summary_tibble<-result_tibble%>%
   group_by(strategy)%>%
