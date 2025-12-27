@@ -1,42 +1,36 @@
-#This code creates univariate plots and performs sensitivity analysis
-
-library(DiagrammeR)
-library(DiagrammeRsvg)
-library(glue)
-library(tibble)
-library(gt)
-library(tidyverse)
-library(ggtext)
-
+#This code creates univariate sensitivity plots ("tornado plots") and performs probabilistic sensitivity analysis
 
 #First, we source the helper functions for the analysis
-
 source("R/functions.R")
 
-#Next, we parameterize the sensitivity analyses.  From the mean and alpha, we derive beta and then calculate confidence intervals
+#Next, we parameterize the sensitivity analyses.  
+
+#We starts with probabilities.
+#From the mean and alpha, we derive beta and then calculate confidence intervals
 PSA_parameters<-list()
 PSA_parameters$probabilities<-tribble(
   ~parameter, ~mean, ~shape1,
-  "p_usage", 0.43, 10,
-  "p_donor_cryptococcus",0.001, 10, 
-  "p_transmission",0.867,  10,
-  "p_spont_cryptococcus",0.005, 10, 
-  "p_sensitivity",0.901, 10,
-  "p_specificity",0.98,  10,
-  "p_cancelled",0.8,  10,
-  "p_prophrate",0.51,  10,
-  "p_prophefficacy",0.88, 10)%>%
+  "p_usage", expected_value$p_usage, 10,
+  "p_donor_cryptococcus",expected_value$p_donor_cryptococcus, 10, 
+  "p_transmission",expected_value$p_transmission,  10,
+  "p_spont_cryptococcus",expected_value$p_spont_cryptococcus, 10, 
+  "p_sensitivity",expected_value$p_sensitivity, 10,
+  "p_specificity",expected_value$p_specificity, 10,
+  "p_cancelled",expected_value$p_cancelled, 10,
+  "p_prophrate",expected_value$p_prophrate, 10,
+  "p_prophefficacy",expected_value$p_prophefficacy, 10)%>%
   mutate(shape2=shape1 * (1 - mean) / mean)%>%
   rowwise() %>%
   mutate(mu=mean(rbeta(1e6, shape1, shape2)), lb_95=qbeta(0.025, shape1, shape2), ub_95=qbeta(0.975, shape1, shape2))
+#For costs and QALYS, we start from the mean and shape parameter, and we derive scale and then calculate confidence intervals
 PSA_parameters$costs<-tribble(
   ~parameter, ~mean, ~shape,
-  "cost_test",2,4,
-  "cost_disease",110945,4,
-  "cost_fluconazole",6660,4,
-  "cost_cancellation",0,NA,
-  "cost_nocryptococcus",-10,NA,
-  "cost_nonacceptance",0,NA
+  "cost_test",expected_value$cost_test,4,
+  "cost_disease",expected_value$cost_disease,4,
+  "cost_fluconazole",expected_value$cost_fluconazole,4,
+  "cost_cancellation",expected_value$cost_cancellation,NA,
+  "cost_nocryptococcus",expected_value$cost_nocryptococcus,NA,
+  "cost_nonacceptance",expected_value$cost_nonacceptance,NA
   )%>%
   mutate(scale=mean/shape)%>%
   rowwise() %>%
@@ -49,9 +43,9 @@ PSA_parameters$costs<-tribble(
 
 PSA_parameters$qalys<-tribble(
   ~parameter, ~mean, ~shape,
-"q_nocryptococcus",5.5,4,
-"q_noacceptance",0,NA,
-"q_loss_cryptococcus",2.5,4)%>%
+"q_nocryptococcus",expected_value$q_nocryptococcus,4,
+"q_noacceptance",expected_value$q_noacceptance,NA,
+"q_loss_cryptococcus",expected_value$q_loss_cryptococcus,4)%>%
   mutate(scale=mean/shape)%>%
   rowwise() %>%
   mutate(mu=mean(rgamma(1e6, shape=shape, scale=scale)), 
@@ -60,11 +54,6 @@ PSA_parameters$qalys<-tribble(
   mutate(lb_95=ifelse(is.na(lb_95), mean, lb_95),
          ub_95=ifelse(is.na(ub_95), mean, ub_95)
   )
-
-#Plot and save the prior distributions from above (code has yet to be written)
-ggplot(data.frame(x = c(0, 1)), aes(x)) +
-  stat_function(fun = dbeta, args = list(shape1 = 10, shape2 = 20))+
-  theme_classic()
 
 #Loop to save parameter distributions for probabilities
 for (i in 1:nrow(PSA_parameters$probabilities))
@@ -102,22 +91,24 @@ for (i in 1:nrow(PSA_parameters$costs))
   )
 }
 
-#Loop to save parameter distributions for costs, using base function "curve":
-for (i in 1:nrow(PSA_parameters$costs))
+#Loop to save parameter distributions for QALYs
+for (i in 1:nrow(PSA_parameters$qalys))
 {
-  svg(glue("figures/PSA_prior_{PSA_parameters$costs[[i,1]]}.svg"), width = 6, height = 4)
-  
-  curve(
-    dgamma(x, shape = PSA_parameters$pcosts[[i,3]], scale = PSA_parameters$costs[[i,4]]),
-    from = 0,
-    to = qgamma(0.995, PSA_parameters$probabilities[[i,3]], PSA_parameters$probabilities[[i,4]]),
-    main = bquote("Prior distribution for " * bold(.(PSA_parameters$costs[[i,1]]))),
-    xlab = "Cost",
-    ylab = "Density"
+  temp_plot<-ggplot(data.frame(x = c(PSA_parameters$qalys[[i,6]]-1, 1+PSA_parameters$qalys[[i,7]])), aes(x)) +
+    stat_function(fun = dgamma, args = list(shape = PSA_parameters$qalys[[i,3]], scale = PSA_parameters$qalys[[i,4]]))+
+    labs(
+      title = glue("Prior distribution for **{PSA_parameters$qalys[[i,1]]}**"),
+      x = "Cost",
+      y = "Probability density",
+    )+
+    theme_classic()+
+    theme(plot.title = element_markdown())
+  ggsave(
+    glue("figures/PSA_prior_{PSA_parameters$qalys[[i,1]]}.png"),
+    plot = temp_plot,
   )
-  
-  dev.off()
 }
+
 
 #Tables
 PSA_parameters$probabilities%>%
@@ -132,6 +123,17 @@ PSA_parameters$probabilities%>%
   )
 
 PSA_parameters$costs%>%
+  gt()%>%
+  cols_label(
+    parameter = "Parameter",
+    mean = "Mean",
+    shape = "k",
+    scale = "θ",
+    lb_95 = "Lower bound, 95% CI",
+    ub_95 = "Upper bound, 95% CI"
+  )
+
+PSA_parameters$qalys%>%
   gt()%>%
   cols_label(
     parameter = "Parameter",

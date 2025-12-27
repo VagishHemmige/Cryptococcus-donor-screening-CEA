@@ -1,12 +1,5 @@
 #Creates the tree diagram manually in R using grviz language
 
-library(DiagrammeR)
-library(DiagrammeRsvg)
-library(glue)
-library(tibble)
-library(gt)
-library(tidyverse)
-
 #Define size parameters for the diagram itself
 circle_diameter<-1.4
 box_width<-1.7
@@ -14,31 +7,31 @@ box_height<-1
 diamond_width<-3
 diamond_height<-1.5
 
-create_tree_diagram_QC<-function(p_usage=0.43, 
-                              p_donor_cryptococcus=0.001, 
-                              p_transmission=0.867, 
-                              p_spont_cryptococcus=0.005, 
-                              p_sensitivity=0.901,
-                              p_specificity=0.98, 
-                              p_cancelled=0.8, 
-                              p_prophrate=0.51, 
-                              p_prophefficacy=0.88,
-                              number_donors=702,
-                              cost_test=2,
-                              cost_disease=110945,
-                              cost_fluconazole=6660,
-                              cost_cancellation=0,
-                              cost_nocryptococcus=-10,
-                              cost_nonacceptance=0,
-                              q_nocryptococcus=5.5,
-                              q_noacceptance=0,
-                              q_loss_cryptococcus=2.5
+create_tree_diagram_QC<-function(p_usage=expected_value$p_usage, 
+                              p_donor_cryptococcus=expected_value$p_donor_cryptococcus, 
+                              p_transmission=expected_value$p_transmission, 
+                              p_spont_cryptococcus=expected_value$p_spont_cryptococcus, 
+                              p_sensitivity=expected_value$p_sensitivity,
+                              p_specificity=expected_value$p_specificity, 
+                              p_cancelled=expected_value$p_cancelled, 
+                              p_prophrate=expected_value$p_prophrate, 
+                              p_prophefficacy=expected_value$p_prophefficacy,
+                              number_donors=expected_value$number_donors,
+                              cost_test=expected_value$cost_test,
+                              cost_disease=expected_value$cost_disease,
+                              cost_fluconazole=expected_value$cost_fluconazole,
+                              cost_cancellation=expected_value$cost_cancellation,
+                              cost_nocryptococcus=expected_value$cost_nocryptococcus,
+                              cost_nonacceptance=expected_value$cost_nonacceptance,
+                              q_nocryptococcus=expected_value$q_nocryptococcus,
+                              q_noacceptance=expected_value$q_noacceptance,
+                              q_loss_cryptococcus=expected_value$q_loss_cryptococcus
                               
                               
 )
 {
   
-  #Define parameters
+  #Define parameters that are derived from parameters passed to the function
   p_nonusage<-1-p_usage
   p_donor_nocryptococcus<-1-p_donor_cryptococcus
   p_nontransmission<-1-p_transmission
