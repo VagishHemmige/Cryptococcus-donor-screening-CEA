@@ -6,6 +6,7 @@ library(glue)
 library(tibble)
 library(gt)
 library(tidyverse)
+library(ggtext)
 
 
 #First, we source the helper functions for the analysis
@@ -59,6 +60,48 @@ PSA_parameters$qalys<-tribble(
   mutate(lb_95=ifelse(is.na(lb_95), mean, lb_95),
          ub_95=ifelse(is.na(ub_95), mean, ub_95)
   )
+
+#Plot and save the prior distributions from above (code has yet to be written)
+ggplot(data.frame(x = c(0, 1)), aes(x)) +
+  stat_function(fun = dbeta, args = list(shape1 = 10, shape2 = 20))+
+  theme_classic()
+
+#Loop to save parameter distributions for probabilities
+for (i in 1:nrow(PSA_parameters$probabilities))
+{
+  temp_plot<-ggplot(data.frame(x = c(0, 1)), aes(x)) +
+    stat_function(fun = dbeta, args = list(shape1 = PSA_parameters$probabilities[[i,3]], shape2 = PSA_parameters$probabilities[[i,4]]))+
+    labs(
+      title = glue("Prior distribution for **{PSA_parameters$probabilities[[i,1]]}**"),
+      x = "Probability",
+      y = "Density",
+    )+
+    theme_classic()+
+    theme(plot.title = element_markdown())
+  ggsave(
+    glue("figures/PSA_prior_{PSA_parameters$probabilities[[i,1]]}.png"),
+    plot = temp_plot,
+  )
+}
+
+#Loop to save parameter distributions for costs
+for (i in 1:nrow(PSA_parameters$costs))
+{
+  temp_plot<-ggplot(data.frame(x = c(PSA_parameters$costs[[i,6]]-1, 1+PSA_parameters$costs[[i,7]])), aes(x)) +
+    stat_function(fun = dgamma, args = list(shape = PSA_parameters$probabilities[[i,3]], scale = PSA_parameters$probabilities[[i,4]]))+
+    labs(
+      title = glue("Prior distribution for **{PSA_parameters$costs[[i,1]]}**"),
+      x = "Cost",
+      y = "Probability density",
+    )+
+    theme_classic()+
+    theme(plot.title = element_markdown())
+  ggsave(
+    glue("figures/PSA_prior_{PSA_parameters$costs[[i,1]]}.png"),
+    plot = temp_plot,
+  )
+}
+
 
 #Tables
 PSA_parameters$probabilities%>%
@@ -174,4 +217,5 @@ PSA_simulation_unnested<-PSA_simulation%>%
 
 PSA_simulation_unnested%>%
   ggplot()+
-  geom_point(mapping = aes(x=cost_change, y=qaly_change), alpha=0.1)
+  geom_point(mapping = aes(x=qaly_change, y=cost_change), alpha=0.1)+
+  theme_classic()
