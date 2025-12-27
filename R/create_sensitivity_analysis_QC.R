@@ -259,7 +259,5 @@ PSA_plot<-PSA_simulation_unnested%>%
     x="QALY change",
     y="Cost change"
   )
-
-
 ggsave("figures/PSA_plot.svg")
 PSA_plot
