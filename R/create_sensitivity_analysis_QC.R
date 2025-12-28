@@ -169,7 +169,8 @@ tornado_parameters$probabilities<-PSA_parameters$probabilities%>%
   ungroup()%>%
   mutate(
     cost_difference_low=total_expected_cost_s-total_expected_cost_ns,
-    qaly_difference_low=total_expected_qaly_s-total_expected_qaly_ns
+    qaly_difference_low=total_expected_qaly_s-total_expected_qaly_ns,
+    nmb_difference_low=wtp*(qaly_difference_low)-cost_difference_low
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   rowwise() %>%
@@ -183,7 +184,8 @@ tornado_parameters$probabilities<-PSA_parameters$probabilities%>%
   ungroup()%>%
   mutate(
     cost_difference_mean=total_expected_cost_s-total_expected_cost_ns,
-    qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns
+    qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns,
+    nmb_difference_mean=wtp*(qaly_difference_mean)-cost_difference_mean
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   rowwise() %>%
@@ -197,7 +199,8 @@ tornado_parameters$probabilities<-PSA_parameters$probabilities%>%
   ungroup()%>%
   mutate(
     cost_difference_high=total_expected_cost_s-total_expected_cost_ns,
-    qaly_difference_high=total_expected_qaly_s-total_expected_qaly_ns
+    qaly_difference_high=total_expected_qaly_s-total_expected_qaly_ns,
+    nmb_difference_high=wtp*(qaly_difference_high)-cost_difference_high
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   mutate(range_cost=abs(cost_difference_high-cost_difference_low),
@@ -216,7 +219,8 @@ tornado_parameters$costs<-PSA_parameters$costs%>%
   ungroup()%>%
   mutate(
     cost_difference_low=total_expected_cost_s-total_expected_cost_ns,
-    qaly_difference_low=total_expected_qaly_s-total_expected_qaly_ns
+    qaly_difference_low=total_expected_qaly_s-total_expected_qaly_ns,
+    nmb_difference_low=wtp*(qaly_difference_low)-cost_difference_low
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   rowwise() %>%
@@ -230,7 +234,8 @@ tornado_parameters$costs<-PSA_parameters$costs%>%
   ungroup()%>%
   mutate(
     cost_difference_mean=total_expected_cost_s-total_expected_cost_ns,
-    qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns
+    qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns,
+    nmb_difference_low=wtp*(qaly_difference_low)-cost_difference_low
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   rowwise() %>%
@@ -244,7 +249,8 @@ tornado_parameters$costs<-PSA_parameters$costs%>%
   ungroup()%>%
   mutate(
     cost_difference_high=total_expected_cost_s-total_expected_cost_ns,
-    qaly_difference_high=total_expected_qaly_s-total_expected_qaly_ns
+    qaly_difference_high=total_expected_qaly_s-total_expected_qaly_ns,
+    nmb_difference_high=wtp*(qaly_difference_high)-cost_difference_high
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   mutate(range_cost=abs(cost_difference_high-cost_difference_low),
@@ -263,7 +269,8 @@ tornado_parameters$qalys<-PSA_parameters$qalys%>%
   ungroup()%>%
   mutate(
     cost_difference_low=total_expected_cost_s-total_expected_cost_ns,
-    qaly_difference_low=total_expected_qaly_s-total_expected_qaly_ns
+    qaly_difference_low=total_expected_qaly_s-total_expected_qaly_ns,
+    nmb_difference_low=wtp*(qaly_difference_low)-cost_difference_low
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   rowwise() %>%
@@ -277,7 +284,8 @@ tornado_parameters$qalys<-PSA_parameters$qalys%>%
   ungroup()%>%
   mutate(
     cost_difference_mean=total_expected_cost_s-total_expected_cost_ns,
-    qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns
+    qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns,
+    nmb_difference_mean=wtp*(qaly_difference_mean)-cost_difference_mean
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   rowwise() %>%
@@ -291,11 +299,13 @@ tornado_parameters$qalys<-PSA_parameters$qalys%>%
   ungroup()%>%
   mutate(
     cost_difference_high=total_expected_cost_s-total_expected_cost_ns,
-    qaly_difference_high=total_expected_qaly_s-total_expected_qaly_ns
+    qaly_difference_high=total_expected_qaly_s-total_expected_qaly_ns,
+    nmb_difference_high=wtp*(qaly_difference_high)-cost_difference_high
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   mutate(range_cost=abs(cost_difference_high-cost_difference_low),
-         range_qaly=abs(qaly_difference_high-qaly_difference_low))
+         range_qaly=abs(qaly_difference_high-qaly_difference_low),
+         range_nmb=abs(nmb_difference_high-nmb_difference_low))
 
 tornado_parameters_final<-bind_rows(tornado_parameters)%>%
   select(parameter, contains("difference"), contains("range"))
