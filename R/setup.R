@@ -7,6 +7,7 @@ library(tibble)
 library(gt)
 library(tidyverse)
 library(ggtext)
+library(xml2)
 
 #Save simulation parameters
 
@@ -56,3 +57,6 @@ shape_parameter$q_loss_cryptococcus<-4
 
 # willingness-to-pay threshold
 wtp <- 100000  
+
+#Set seed for reproducibility
+set.seed(42)

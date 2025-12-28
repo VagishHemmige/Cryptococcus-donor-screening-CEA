@@ -124,6 +124,8 @@ PSA_tables$probabilities<-PSA_parameters$probabilities%>%
 PSA_tables$probabilities
 PSA_tables$probabilities%>%
   gtsave("figures/PSA_tables_probabilities.png")
+PSA_tables$probabilities%>%
+  gtsave("tables/PSA_tables_probabilities.docx")
 
 PSA_tables$costs<-PSA_parameters$costs%>%
   gt()%>%
@@ -138,6 +140,8 @@ PSA_tables$costs<-PSA_parameters$costs%>%
 PSA_tables$costs
 PSA_tables$costs%>%
   gtsave("figures/PSA_tables_costs.png")
+PSA_tables$costs%>%
+  gtsave("tables/PSA_tables_costs.docx")
 
 PSA_tables$qalys<-PSA_parameters$qalys%>%
   gt()%>%
@@ -152,6 +156,8 @@ PSA_tables$qalys<-PSA_parameters$qalys%>%
 PSA_tables$qalys
 PSA_tables$qalys%>%
   gtsave("figures/PSA_tables_qalys.png")
+PSA_tables$qalys%>%
+  gtsave("tables/PSA_tables_qalys.docx")
 
 #One-way sensivity analysis (tornado diagrams)
 tornado_parameters<-list()
