@@ -153,7 +153,88 @@ PSA_tables$qalys
 PSA_tables$qalys%>%
   gtsave("figures/PSA_tables_qalys.png")
 
+#One-way sensivity analysis (tornado diagrams)
+tornado_parameters<-list()
 
+#Add the results of low, mean, and high values of the CI to the dataframe
+tornado_parameters$probabilities<-PSA_parameters$probabilities%>%
+  rowwise() %>%
+  mutate(
+    result = do.call(
+      calculate_cost_QALY_QC,
+      setNames(list(lb_95), parameter)
+    )
+  ) %>%
+  unnest(cols = c(result))%>%
+  ungroup()%>%
+  mutate(
+    cost_difference_low=total_expected_cost_s-total_expected_cost_ns,
+    qaly_difference_low=total_expected_qaly_s-total_expected_qaly_ns
+  )%>%
+  select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
+  rowwise() %>%
+  mutate(
+    result = do.call(
+      calculate_cost_QALY_QC,
+      setNames(list(mean), parameter)
+    )
+  ) %>%
+  unnest(cols = c(result))%>%
+  ungroup()%>%
+  mutate(
+    cost_difference_mean=total_expected_cost_s-total_expected_cost_ns,
+    qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns
+  )%>%
+  select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
+  rowwise() %>%
+  mutate(
+    result = do.call(
+      calculate_cost_QALY_QC,
+      setNames(list(ub_95), parameter)
+    )
+  ) %>%
+  unnest(cols = c(result))%>%
+  ungroup()%>%
+  mutate(
+    cost_difference_high=total_expected_cost_s-total_expected_cost_ns,
+    qaly_difference_high=total_expected_qaly_s-total_expected_qaly_ns
+  )%>%
+  select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
+  mutate(range_cost=abs(cost_difference_high-cost_difference_low),
+         range_qaly=abs(qaly_difference_high-qaly_difference_low))
+
+tornado_parameters$probabilities
+
+#Tornado plot of costs for probabilities
+temp_df<-tornado_parameters$probabilities%>%
+  arrange(range_cost)%>%
+  mutate(rownum=row_number())
+
+temp_df%>%
+  ggplot()+
+  geom_rect(mapping=aes(xmin=cost_difference_low,
+                          xmax=cost_difference_mean,
+                          ymin=rownum-0.4,
+                          ymax=rownum+0.4),
+            fill="blue")+
+  geom_rect(mapping=aes(xmin=cost_difference_mean,
+                        xmax=cost_difference_high,
+                        ymin=rownum-0.4,
+                        ymax=rownum+0.4),
+            fill="red")+
+  geom_vline(xintercept = first(temp_df$cost_difference_mean))+
+  scale_y_continuous(
+    breaks = temp_df$rownum,
+    labels = temp_df$parameter
+  )+
+  labs(
+    x="Cost difference",
+    y="Parameter",
+    title="Tornado plot of cost",
+  )
+  
+
+#Probabilistic sensitivity analysis
 #Now, we simulate 10,000 draws from the above.  First, we create the dataset with the simulated values
 
 #Define number of simulations

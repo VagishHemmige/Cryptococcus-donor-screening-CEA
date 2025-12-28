@@ -1,24 +1,25 @@
 #Functions for CEA
 
 #Function for the calculations needed for PSA.  
-calculate_cost_QALY_QC<-function(p_usage, 
-                                 p_donor_cryptococcus, 
-                                 p_transmission, 
-                                 p_spont_cryptococcus, 
-                                 p_sensitivity,
-                                 p_specificity, 
-                                 p_cancelled, 
-                                 p_prophrate, 
-                                 p_prophefficacy,
-                                 cost_test,
-                                 cost_disease,
-                                 cost_fluconazole,
-                                 cost_cancellation,
-                                 cost_nocryptococcus,
-                                 cost_nonacceptance,
-                                 q_nocryptococcus,
-                                 q_noacceptance,
-                                 q_loss_cryptococcus
+calculate_cost_QALY_QC<-function(p_usage=expected_value$p_usage, 
+                                 p_donor_cryptococcus=expected_value$p_donor_cryptococcus, 
+                                 p_transmission=expected_value$p_transmission, 
+                                 p_spont_cryptococcus=expected_value$p_spont_cryptococcus, 
+                                 p_sensitivity=expected_value$p_sensitivity,
+                                 p_specificity=expected_value$p_specificity, 
+                                 p_cancelled=expected_value$p_cancelled, 
+                                 p_prophrate=expected_value$p_prophrate, 
+                                 p_prophefficacy=expected_value$p_prophefficacy,
+                                 number_donors=expected_value$number_donors,
+                                 cost_test=expected_value$cost_test,
+                                 cost_disease=expected_value$cost_disease,
+                                 cost_fluconazole=expected_value$cost_fluconazole,
+                                 cost_cancellation=expected_value$cost_cancellation,
+                                 cost_nocryptococcus=expected_value$cost_nocryptococcus,
+                                 cost_nonacceptance=expected_value$cost_nonacceptance,
+                                 q_nocryptococcus=expected_value$q_nocryptococcus,
+                                 q_noacceptance=expected_value$q_noacceptance,
+                                 q_loss_cryptococcus=expected_value$q_loss_cryptococcus
 )
 {
   
