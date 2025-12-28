@@ -17,10 +17,9 @@ writeLines(svg_QC, "figures/crag_tree_QC.svg")
 svg_doc <- read_xml(svg_QC)
 add_svg_annotation(
   svg_doc,
-  c(
-    glue("ΔC={g_QC$cost_difference}"),
-    glue("ΔQ={g_QC$qaly_difference}")
-  )
+  c("Screening vs no screening:",
+    glue("• ΔC = {scales::number(g_QC$cost_difference, accuracy = 0.01)}"),
+    glue("• ΔQ = {formatC(g_QC$qaly_difference, format = 'f', digits = 4)}")  )
 )
 write_xml(svg_doc, "figures/crag_tree_QC_annotated.svg")
 

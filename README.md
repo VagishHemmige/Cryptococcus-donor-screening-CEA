@@ -19,9 +19,11 @@ The parameters of the model are as below:
 ## Decision tree
 
 This model leads to the following decision tree: ![CrAg decision
-tree](figures/crag_tree_QC.svg)
+tree](figures/crag_tree_QC_annotated.svg)
 
-## Results table
+## Path table
+
+The decision tree above yields the following path table:
 
 <figure>
 <img src="figures/output_table_QC.png" alt="CrAg tree table" />
@@ -30,7 +32,5 @@ tree](figures/crag_tree_QC.svg)
 
 ## Summary table
 
-<figure>
-<img src="figures/summary_table_QC.png" alt="Summary table" />
-<figcaption aria-hidden="true">Summary table</figcaption>
-</figure>
+The analysis above yields the following final summary table: ![Summary
+table](figures/summary_table_QC.png)
