@@ -31,3 +31,6 @@ expected_value$cost_nonacceptance<-0
 expected_value$q_nocryptococcus<-5.5
 expected_value$q_noacceptance<-0
 expected_value$q_loss_cryptococcus<-2.5
+
+# willingness-to-pay threshold
+wtp <- 100000  

@@ -55,7 +55,7 @@ PSA_parameters$qalys<-tribble(
          ub_95=ifelse(is.na(ub_95), mean, ub_95)
   )
 
-#Loop to save parameter distributions for probabilities
+#Loop to save plots parameter distributions for probabilities
 for (i in 1:nrow(PSA_parameters$probabilities))
 {
   temp_plot<-ggplot(data.frame(x = c(0, 1)), aes(x)) +
@@ -109,8 +109,7 @@ for (i in 1:nrow(PSA_parameters$qalys))
   )
 }
 
-
-#Tables
+#Create and save summary tables of the parameters
 PSA_tables<-list()
 PSA_tables$probabilities<-PSA_parameters$probabilities%>%
   gt()%>%
@@ -230,8 +229,6 @@ PSA_simulation<-bind_cols(PSA_simulation)%>%
                                         q_loss_cryptococcus=q_loss_cryptococcus
   )))%>%
   ungroup()
-
-wtp <- 100000  # willingness-to-pay
 
 PSA_simulation_unnested<-PSA_simulation%>%
   unnest(results)%>%
