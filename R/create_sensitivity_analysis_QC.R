@@ -156,7 +156,7 @@ PSA_tables$qalys%>%
 #One-way sensivity analysis (tornado diagrams)
 tornado_parameters<-list()
 
-#Add the results of low, mean, and high values of the CI to the dataframe
+#Add the results of low, mean, and high values of the CI to the dataframes
 tornado_parameters$probabilities<-PSA_parameters$probabilities%>%
   rowwise() %>%
   mutate(
@@ -203,36 +203,172 @@ tornado_parameters$probabilities<-PSA_parameters$probabilities%>%
   mutate(range_cost=abs(cost_difference_high-cost_difference_low),
          range_qaly=abs(qaly_difference_high-qaly_difference_low))
 
-tornado_parameters$probabilities
+#Add the results of low, mean, and high values of the CI to the dataframes for cost
+tornado_parameters$costs<-PSA_parameters$costs%>%
+  rowwise() %>%
+  mutate(
+    result = do.call(
+      calculate_cost_QALY_QC,
+      setNames(list(lb_95), parameter)
+    )
+  ) %>%
+  unnest(cols = c(result))%>%
+  ungroup()%>%
+  mutate(
+    cost_difference_low=total_expected_cost_s-total_expected_cost_ns,
+    qaly_difference_low=total_expected_qaly_s-total_expected_qaly_ns
+  )%>%
+  select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
+  rowwise() %>%
+  mutate(
+    result = do.call(
+      calculate_cost_QALY_QC,
+      setNames(list(mean), parameter)
+    )
+  ) %>%
+  unnest(cols = c(result))%>%
+  ungroup()%>%
+  mutate(
+    cost_difference_mean=total_expected_cost_s-total_expected_cost_ns,
+    qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns
+  )%>%
+  select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
+  rowwise() %>%
+  mutate(
+    result = do.call(
+      calculate_cost_QALY_QC,
+      setNames(list(ub_95), parameter)
+    )
+  ) %>%
+  unnest(cols = c(result))%>%
+  ungroup()%>%
+  mutate(
+    cost_difference_high=total_expected_cost_s-total_expected_cost_ns,
+    qaly_difference_high=total_expected_qaly_s-total_expected_qaly_ns
+  )%>%
+  select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
+  mutate(range_cost=abs(cost_difference_high-cost_difference_low),
+         range_qaly=abs(qaly_difference_high-qaly_difference_low))
+
+#Add the results of low, mean, and high values of the CI to the dataframes for qaly
+tornado_parameters$qalys<-PSA_parameters$qalys%>%
+  rowwise() %>%
+  mutate(
+    result = do.call(
+      calculate_cost_QALY_QC,
+      setNames(list(lb_95), parameter)
+    )
+  ) %>%
+  unnest(cols = c(result))%>%
+  ungroup()%>%
+  mutate(
+    cost_difference_low=total_expected_cost_s-total_expected_cost_ns,
+    qaly_difference_low=total_expected_qaly_s-total_expected_qaly_ns
+  )%>%
+  select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
+  rowwise() %>%
+  mutate(
+    result = do.call(
+      calculate_cost_QALY_QC,
+      setNames(list(mean), parameter)
+    )
+  ) %>%
+  unnest(cols = c(result))%>%
+  ungroup()%>%
+  mutate(
+    cost_difference_mean=total_expected_cost_s-total_expected_cost_ns,
+    qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns
+  )%>%
+  select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
+  rowwise() %>%
+  mutate(
+    result = do.call(
+      calculate_cost_QALY_QC,
+      setNames(list(ub_95), parameter)
+    )
+  ) %>%
+  unnest(cols = c(result))%>%
+  ungroup()%>%
+  mutate(
+    cost_difference_high=total_expected_cost_s-total_expected_cost_ns,
+    qaly_difference_high=total_expected_qaly_s-total_expected_qaly_ns
+  )%>%
+  select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
+  mutate(range_cost=abs(cost_difference_high-cost_difference_low),
+         range_qaly=abs(qaly_difference_high-qaly_difference_low))
+
+tornado_parameters_final<-bind_rows(tornado_parameters)%>%
+  select(parameter, contains("difference"), contains("range"))
 
 #Tornado plot of costs for probabilities
-temp_df<-tornado_parameters$probabilities%>%
+tornado_cost_df<-tornado_parameters_final%>%
   arrange(range_cost)%>%
   mutate(rownum=row_number())
-
-temp_df%>%
+tornado_cost_df%>%
   ggplot()+
   geom_rect(mapping=aes(xmin=cost_difference_low,
-                          xmax=cost_difference_mean,
-                          ymin=rownum-0.4,
-                          ymax=rownum+0.4),
-            fill="blue")+
+                        xmax=cost_difference_mean,
+                        ymin=rownum-0.4,
+                        ymax=rownum+0.4,
+                        fill="Lower bound of CI"))+
   geom_rect(mapping=aes(xmin=cost_difference_mean,
                         xmax=cost_difference_high,
                         ymin=rownum-0.4,
-                        ymax=rownum+0.4),
-            fill="red")+
-  geom_vline(xintercept = first(temp_df$cost_difference_mean))+
+                        ymax=rownum+0.4,
+                        fill="Upper bound of CI"))+
+  geom_vline(xintercept = first(tornado_cost_df$cost_difference_mean))+
   scale_y_continuous(
-    breaks = temp_df$rownum,
-    labels = temp_df$parameter
+    breaks = tornado_cost_df$rownum,
+    labels = tornado_cost_df$parameter
   )+
   labs(
     x="Cost difference",
     y="Parameter",
     title="Tornado plot of cost",
-  )
-  
+  )+scale_fill_manual(
+    name = "Parameter value",
+    values = c(
+      "Lower bound of CI" = "steelblue",
+      "Upper bound of CI" = "firebrick"
+    )
+  )+ 
+  theme(legend.position = "bottom")
+ggsave("figures/tornado_cost.svg")
+
+#Tornado plot of QALYs
+tornado_qaly_df<-tornado_parameters_final%>%
+  arrange(range_qaly)%>%
+  mutate(rownum=row_number())
+tornado_qaly_df%>%
+  ggplot()+
+  geom_rect(mapping=aes(xmin=qaly_difference_low,
+                        xmax=qaly_difference_mean,
+                        ymin=rownum-0.4,
+                        ymax=rownum+0.4,
+                        fill="Lower bound of CI"))+
+  geom_rect(mapping=aes(xmin=qaly_difference_mean,
+                        xmax=qaly_difference_high,
+                        ymin=rownum-0.4,
+                        ymax=rownum+0.4,
+                        fill="Upper bound of CI"))+
+  geom_vline(xintercept = first(tornado_qaly_df$qaly_difference_mean))+
+  scale_y_continuous(
+    breaks = tornado_qaly_df$rownum,
+    labels = tornado_qaly_df$parameter
+  )+
+  labs(
+    x="QALY difference",
+    y="Parameter",
+    title="Tornado plot of QALYs",
+  )+scale_fill_manual(
+    name = "Parameter value",
+    values = c(
+      "Lower bound of CI" = "steelblue",
+      "Upper bound of CI" = "firebrick"
+    )
+  )+ 
+  theme(legend.position = "bottom")
+ggsave("figures/tornado_qaly.svg")
 
 #Probabilistic sensitivity analysis
 #Now, we simulate 10,000 draws from the above.  First, we create the dataset with the simulated values
