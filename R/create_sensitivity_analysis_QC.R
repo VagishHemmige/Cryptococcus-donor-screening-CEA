@@ -466,10 +466,35 @@ PSA_simulation_unnested<-PSA_simulation%>%
     nmb = wtp * qaly_change - cost_change
   )
 
+#Calculate the 95% ellipse
+PSA_min_df <- PSA_simulation_unnested %>%
+  select(qaly_change, cost_change)
 
+# Create mu and sigma vectors for ellipse
+ellipse_mu <- colMeans(PSA_min_df)
+ellipse_Sigma <- cov(PSA_min_df)
+# Generate ellipse points
+ellipse_df <- as.data.frame(
+  ellipse(
+    ellipse_Sigma,
+    centre = ellipse_mu,
+    level = 0.95,
+    npoints = 200
+  )
+)
+colnames(ellipse_df) <- c("qaly_change", "cost_change")
+
+
+#Create PSA plot
 PSA_plot<-PSA_simulation_unnested%>%
   ggplot()+
   geom_point(mapping = aes(x=qaly_change, y=cost_change), alpha=0.1)+
+  geom_path(
+    data = ellipse_df,
+    color = "red",
+    mapping = aes(x=qaly_change, y=cost_change),
+    linewidth = 1
+  )+
   geom_hline(yintercept = 0, linewidth = 0.4, color = "black")+
   geom_vline(xintercept = 0, linewidth = 0.4, color = "black")+
   coord_cartesian(xlim = c(-1.5, 1.5),

@@ -13,6 +13,18 @@ g_QC$plot
 svg_QC <- export_svg(g_QC$plot)
 writeLines(svg_QC, "figures/crag_tree_QC.svg")
 
+#Annotate figure
+svg_doc <- read_xml(svg_QC)
+add_svg_annotation(
+  svg_doc,
+  c(
+    glue("ΔC={g_QC$cost_difference}"),
+    glue("ΔQ={g_QC$qaly_difference}")
+  )
+)
+write_xml(svg_doc, "figures/crag_tree_QC_annotated.svg")
+
+#Now, we look at the path table
 result_tibble_QC<-g_QC$path_table
 
 #Let's look at the tibble as a gt table

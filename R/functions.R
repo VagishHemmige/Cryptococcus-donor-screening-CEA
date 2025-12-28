@@ -141,6 +141,72 @@ create_tree_diagram_QC<-function(p_usage=expected_value$p_usage,
   p_nobreakthrough_donorneg<-1-p_breakthrough_donorneg
   q_cryptococcus<-q_nocryptococcus-q_loss_cryptococcus
   
+  
+  #Define return list
+  return_list<-list()
+  
+  #Define tibble of outcomes
+  return_list$path_table<-tribble(
+    ~strategy, ~acceptance, ~donor_dz_status, ~donor_test_result, ~cancellation, ~proph, ~outcome, ~probability, ~cost_total, ~qaly_total,
+    "No Screening","Accept","Positive",NA,NA,NA,"Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_transmission,cost_disease,q_cryptococcus,
+    "No Screening","Accept","Positive",NA,NA,NA,"No cryptococcus",p_usage*p_donor_cryptococcus*p_nontransmission,cost_nocryptococcus,q_nocryptococcus,
+    "No Screening","Accept","Negative",NA,NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_spont_cryptococcus,cost_disease,q_cryptococcus,
+    "No Screening","Accept","Negative",NA,NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_nospont_cryptococcus,cost_nocryptococcus,q_nocryptococcus,
+    "No Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance,q_noacceptance,
+    
+    
+    "Screening","Accept","Positive","CrAg+","Cancelled",NA,"Cancelled",p_usage*p_donor_cryptococcus*p_sensitivity*p_cancelled,cost_cancellation+cost_test,q_noacceptance,
+    "Screening","Accept","Positive","CrAg+","Not Cancelled","Fluconazole","Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_prophrate*p_breakthrough_donorpos,cost_test+cost_disease+cost_fluconazole,q_cryptococcus,
+    "Screening","Accept","Positive","CrAg+","Not Cancelled","Fluconazole","No cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_prophrate*p_nobreakthrough_donorpos,cost_test+cost_nocryptococcus+cost_fluconazole,q_nocryptococcus,
+    "Screening","Accept","Positive","CrAg+","Not Cancelled","None","Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_noprophrate*p_transmission,cost_test+cost_disease,q_cryptococcus,
+    "Screening","Accept","Positive","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_noprophrate*p_nontransmission,cost_test+cost_nocryptococcus,q_nocryptococcus,
+    "Screening","Accept","Positive","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_falsenegative*p_transmission,cost_test+cost_disease,q_cryptococcus,
+    "Screening","Accept","Positive","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_cryptococcus*p_falsenegative*p_nontransmission,cost_test+cost_nocryptococcus,q_nocryptococcus,
+    
+    "Screening","Accept","Negative","CrAg+","Cancelled",NA,"Cancelled",p_usage*p_donor_nocryptococcus*p_falsepositive*p_cancelled,cost_cancellation+cost_test,q_noacceptance,
+    "Screening","Accept","Negative","CrAg+","Not Cancelled","Fluconazole","Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_prophrate*p_breakthrough_donorneg,cost_test+cost_disease+cost_fluconazole,q_cryptococcus,
+    "Screening","Accept","Negative","CrAg+","Not Cancelled","Fluconazole","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_prophrate*p_nobreakthrough_donorneg,cost_test+cost_nocryptococcus+cost_fluconazole,q_nocryptococcus,
+    "Screening","Accept","Negative","CrAg+","Not Cancelled","None","Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_spont_cryptococcus,cost_test+cost_disease,q_cryptococcus,
+    "Screening","Accept","Negative","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,q_nocryptococcus,
+    "Screening","Accept","Negative","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_spont_cryptococcus,cost_test+cost_disease,q_cryptococcus,
+    "Screening","Accept","Negative","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,q_nocryptococcus,
+    "Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance+cost_test,q_noacceptance,
+    
+  )%>%
+    mutate(cost_expected=probability*cost_total,
+           qaly_expected=probability*qaly_total)
+  
+  #Summary object ofr
+  return_list$summary_tibble<-return_list$path_table%>%
+    group_by(strategy)%>%
+    summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected), total_expected_qaly=sum(qaly_expected))
+  
+  #Create parameter table to return
+  return_list$parameter_tibble<-tribble(
+    ~parameter, ~value,
+    "p_usage", p_usage, 
+    "p_donor_cryptococcus",p_donor_cryptococcus, 
+    "p_transmission",p_transmission, 
+    "p_spont_cryptococcus",p_spont_cryptococcus, 
+    "p_sensitivity",p_sensitivity,
+    "p_specificity",p_specificity, 
+    "p_cancelled",p_cancelled, 
+    "p_prophrate",p_prophrate, 
+    "p_prophefficacy",p_prophefficacy,
+    "number_donors",number_donors,
+    "cost_test",cost_test,
+    "cost_disease",cost_disease,
+    "cost_fluconazole",cost_fluconazole,
+    "cost_cancellation",cost_cancellation,
+    "cost_nocryptococcus",cost_nocryptococcus,
+    "cost_nonacceptance",cost_nonacceptance,
+    "q_nocryptococcus",q_nocryptococcus,
+    "q_noacceptance",q_noacceptance,
+    "q_loss_cryptococcus",q_loss_cryptococcus)
+
+  return_list$cost_difference<-return_list$summary_tibble[[2,3]]-return_list$summary_tibble[[1,3]]
+  return_list$qaly_difference<-return_list$summary_tibble[[2,4]]-return_list$summary_tibble[[1,4]]
+  
   #Text to define tree diagram for grviz
   grviz_text<-glue("
 digraph crag {{
@@ -151,7 +217,7 @@ digraph crag {{
 
   # ---- Nodes ----
   start [shape=box, label='Potential\ndonors\nN = {number_donors}', fixedsize=TRUE, width={box_width}, height={box_height}]
-
+  
   no_screen [shape=box, fillcolor=palegreen, style=filled,
              label='No CrAg\nscreening\nΔC = $0', fixedsize=TRUE, width={box_width}, height={box_height}]
 
@@ -323,76 +389,40 @@ digraph crag {{
 }}
 ")
   
-  #Define return list
-  return_list<-list()
-  
   #Add grviz object to return_list
   return_list$plot<-grViz(grviz_text)
   
-  #Define tibble of outcomes
-  return_list$path_table<-tribble(
-    ~strategy, ~acceptance, ~donor_dz_status, ~donor_test_result, ~cancellation, ~proph, ~outcome, ~probability, ~cost_total, ~qaly_total,
-    "No Screening","Accept","Positive",NA,NA,NA,"Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_transmission,cost_disease,q_cryptococcus,
-    "No Screening","Accept","Positive",NA,NA,NA,"No cryptococcus",p_usage*p_donor_cryptococcus*p_nontransmission,cost_nocryptococcus,q_nocryptococcus,
-    "No Screening","Accept","Negative",NA,NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_spont_cryptococcus,cost_disease,q_cryptococcus,
-    "No Screening","Accept","Negative",NA,NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_nospont_cryptococcus,cost_nocryptococcus,q_nocryptococcus,
-    "No Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance,q_noacceptance,
-    
-    
-    "Screening","Accept","Positive","CrAg+","Cancelled",NA,"Cancelled",p_usage*p_donor_cryptococcus*p_sensitivity*p_cancelled,cost_cancellation+cost_test,q_noacceptance,
-    "Screening","Accept","Positive","CrAg+","Not Cancelled","Fluconazole","Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_prophrate*p_breakthrough_donorpos,cost_test+cost_disease+cost_fluconazole,q_cryptococcus,
-    "Screening","Accept","Positive","CrAg+","Not Cancelled","Fluconazole","No cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_prophrate*p_nobreakthrough_donorpos,cost_test+cost_nocryptococcus+cost_fluconazole,q_nocryptococcus,
-    "Screening","Accept","Positive","CrAg+","Not Cancelled","None","Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_noprophrate*p_transmission,cost_test+cost_disease,q_cryptococcus,
-    "Screening","Accept","Positive","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_cryptococcus*p_sensitivity*p_nocancelled*p_noprophrate*p_nontransmission,cost_test+cost_nocryptococcus,q_nocryptococcus,
-    "Screening","Accept","Positive","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_cryptococcus*p_falsenegative*p_transmission,cost_test+cost_disease,q_cryptococcus,
-    "Screening","Accept","Positive","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_cryptococcus*p_falsenegative*p_nontransmission,cost_test+cost_nocryptococcus,q_nocryptococcus,
-    
-    "Screening","Accept","Negative","CrAg+","Cancelled",NA,"Cancelled",p_usage*p_donor_nocryptococcus*p_falsepositive*p_cancelled,cost_cancellation+cost_test,q_noacceptance,
-    "Screening","Accept","Negative","CrAg+","Not Cancelled","Fluconazole","Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_prophrate*p_breakthrough_donorneg,cost_test+cost_disease+cost_fluconazole,q_cryptococcus,
-    "Screening","Accept","Negative","CrAg+","Not Cancelled","Fluconazole","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_prophrate*p_nobreakthrough_donorneg,cost_test+cost_nocryptococcus+cost_fluconazole,q_nocryptococcus,
-    "Screening","Accept","Negative","CrAg+","Not Cancelled","None","Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_spont_cryptococcus,cost_test+cost_disease,q_cryptococcus,
-    "Screening","Accept","Negative","CrAg+","Not Cancelled","None","No cryptococcus",p_usage*p_donor_nocryptococcus*p_falsepositive*p_nocancelled*p_noprophrate*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,q_nocryptococcus,
-    "Screening","Accept","Negative","CrAg-",NA,NA,"Recipient cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_spont_cryptococcus,cost_test+cost_disease,q_cryptococcus,
-    "Screening","Accept","Negative","CrAg-",NA,NA,"No cryptococcus",p_usage*p_donor_nocryptococcus*p_specificity*p_nospont_cryptococcus,cost_test+cost_nocryptococcus,q_nocryptococcus,
-    "Screening","Non-accept",NA,NA,NA,NA,"Non-accept",p_nonusage,cost_nonacceptance+cost_test,q_noacceptance,
-    
-  )%>%
-    mutate(cost_expected=probability*cost_total,
-           qaly_expected=probability*qaly_total)
   
-  #Summary object ofr
-  return_list$summary_tibble<-return_list$path_table%>%
-    group_by(strategy)%>%
-    summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected), total_expected_qaly=sum(qaly_expected))
-  
-  #Create parameter table to return
-  return_list$parameter_tibble<-tribble(
-    ~parameter, ~value,
-    "p_usage", p_usage, 
-    "p_donor_cryptococcus",p_donor_cryptococcus, 
-    "p_transmission",p_transmission, 
-    "p_spont_cryptococcus",p_spont_cryptococcus, 
-    "p_sensitivity",p_sensitivity,
-    "p_specificity",p_specificity, 
-    "p_cancelled",p_cancelled, 
-    "p_prophrate",p_prophrate, 
-    "p_prophefficacy",p_prophefficacy,
-    "number_donors",number_donors,
-    "cost_test",cost_test,
-    "cost_disease",cost_disease,
-    "cost_fluconazole",cost_fluconazole,
-    "cost_cancellation",cost_cancellation,
-    "cost_nocryptococcus",cost_nocryptococcus,
-    "cost_nonacceptance",cost_nonacceptance,
-    "q_nocryptococcus",q_nocryptococcus,
-    "q_noacceptance",q_noacceptance,
-    "q_loss_cryptococcus",q_loss_cryptococcus)
-  
+    
   #Final return
   return(return_list)
 }
 
 
-
-
-
+add_svg_annotation <- function(svg, lines,
+                               x = 40, y = 1200,
+                               fontsize = 50,
+                               lineheight = 1.3) {
+  
+  text_node <- xml_add_child(
+    svg,
+    "text",
+    x = x,
+    y = y,
+    fill = "black",
+    `font-size` = fontsize,
+    `font-family` = "Helvetica"
+  )
+  
+  for (i in seq_along(lines)) {
+    xml_add_child(
+      text_node,
+      "tspan",
+      lines[[i]],
+      x = x,
+      dy = if (i == 1) "0" else as.character(fontsize * lineheight)
+    )
+  }
+  
+  invisible(svg)
+}
