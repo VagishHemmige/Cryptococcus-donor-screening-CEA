@@ -32,5 +32,27 @@ expected_value$q_nocryptococcus<-5.5
 expected_value$q_noacceptance<-0
 expected_value$q_loss_cryptococcus<-2.5
 
+#Shape parameters
+shape_parameter<-list()
+shape_parameter$p_usage<-10
+shape_parameter$p_donor_cryptococcus<-10
+shape_parameter$p_transmission<-10
+shape_parameter$p_spont_cryptococcus<-10 
+shape_parameter$p_sensitivity<-10
+shape_parameter$p_specificity<-10 
+shape_parameter$p_cancelled<-10
+shape_parameter$p_prophrate<-10 
+shape_parameter$p_prophefficacy<-10
+shape_parameter$cost_test<-4
+shape_parameter$cost_disease<-4
+shape_parameter$cost_fluconazole<-4
+shape_parameter$cost_cancellation<-NA
+shape_parameter$cost_nocryptococcus<-NA
+shape_parameter$cost_nonacceptance<-NA
+shape_parameter$q_nocryptococcus<-4
+shape_parameter$q_noacceptance<-NA
+shape_parameter$q_loss_cryptococcus<-4
+
+
 # willingness-to-pay threshold
 wtp <- 100000  

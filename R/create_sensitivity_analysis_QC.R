@@ -5,32 +5,32 @@ source("R/functions.R")
 
 #Next, we parameterize the sensitivity analyses.  
 
-#We starts with probabilities.
+#We start with probabilities.  we derive the mean and a shape parameter from the setup file 
 #From the mean and alpha, we derive beta and then calculate confidence intervals
 PSA_parameters<-list()
 PSA_parameters$probabilities<-tribble(
   ~parameter, ~mean, ~shape1,
-  "p_usage", expected_value$p_usage, 10,
-  "p_donor_cryptococcus",expected_value$p_donor_cryptococcus, 10, 
-  "p_transmission",expected_value$p_transmission,  10,
-  "p_spont_cryptococcus",expected_value$p_spont_cryptococcus, 10, 
-  "p_sensitivity",expected_value$p_sensitivity, 10,
-  "p_specificity",expected_value$p_specificity, 10,
-  "p_cancelled",expected_value$p_cancelled, 10,
-  "p_prophrate",expected_value$p_prophrate, 10,
-  "p_prophefficacy",expected_value$p_prophefficacy, 10)%>%
+  "p_usage", expected_value$p_usage, shape_parameter$p_usage,
+  "p_donor_cryptococcus",expected_value$p_donor_cryptococcus, shape_parameter$p_donor_cryptococcus, 
+  "p_transmission",expected_value$p_transmission,  shape_parameter$p_transmission,
+  "p_spont_cryptococcus",expected_value$p_spont_cryptococcus, shape_parameter$p_spont_cryptococcus, 
+  "p_sensitivity",expected_value$p_sensitivity, shape_parameter$p_sensitivity,
+  "p_specificity",expected_value$p_specificity, shape_parameter$p_specificity,
+  "p_cancelled",expected_value$p_cancelled, shape_parameter$p_cancelled,
+  "p_prophrate",expected_value$p_prophrate, shape_parameter$p_prophrate,
+  "p_prophefficacy",expected_value$p_prophefficacy, shape_parameter$p_prophefficacy)%>%
   mutate(shape2=shape1 * (1 - mean) / mean)%>%
   rowwise() %>%
   mutate(mu=mean(rbeta(1e6, shape1, shape2)), lb_95=qbeta(0.025, shape1, shape2), ub_95=qbeta(0.975, shape1, shape2))
 #For costs and QALYS, we start from the mean and shape parameter, and we derive scale and then calculate confidence intervals
 PSA_parameters$costs<-tribble(
   ~parameter, ~mean, ~shape,
-  "cost_test",expected_value$cost_test,4,
-  "cost_disease",expected_value$cost_disease,4,
-  "cost_fluconazole",expected_value$cost_fluconazole,4,
-  "cost_cancellation",expected_value$cost_cancellation,NA,
-  "cost_nocryptococcus",expected_value$cost_nocryptococcus,NA,
-  "cost_nonacceptance",expected_value$cost_nonacceptance,NA
+  "cost_test",expected_value$cost_test,shape_parameter$cost_test,
+  "cost_disease",expected_value$cost_disease,shape_parameter$cost_disease,
+  "cost_fluconazole",expected_value$cost_fluconazole,shape_parameter$cost_fluconazole,
+  "cost_cancellation",expected_value$cost_cancellation,shape_parameter$cost_cancellation,
+  "cost_nocryptococcus",expected_value$cost_nocryptococcus,shape_parameter$cost_nocryptococcus,
+  "cost_nonacceptance",expected_value$cost_nonacceptance,shape_parameter$cost_nonacceptance
   )%>%
   mutate(scale=mean/shape)%>%
   rowwise() %>%
@@ -43,9 +43,9 @@ PSA_parameters$costs<-tribble(
 
 PSA_parameters$qalys<-tribble(
   ~parameter, ~mean, ~shape,
-"q_nocryptococcus",expected_value$q_nocryptococcus,4,
-"q_noacceptance",expected_value$q_noacceptance,NA,
-"q_loss_cryptococcus",expected_value$q_loss_cryptococcus,4)%>%
+"q_nocryptococcus",expected_value$q_nocryptococcus,shape_parameter$q_nocryptococcus,
+"q_noacceptance",expected_value$q_noacceptance,shape_parameter$q_noacceptance,
+"q_loss_cryptococcus",expected_value$q_loss_cryptococcus,shape_parameter$q_loss_cryptococcus)%>%
   mutate(scale=mean/shape)%>%
   rowwise() %>%
   mutate(mu=mean(rgamma(1e6, shape=shape, scale=scale)), 
