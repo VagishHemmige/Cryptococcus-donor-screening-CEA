@@ -9,12 +9,14 @@
 
 The goal of Cryptococcus donor screening CEA is to perform a CEA.
 
+# Base case analysis
+
 ## Model parameters
 
 The parameters of the model are as below:
 
 <img src="figures/parameter_table_QC.png"
-     style="display:block; margin-left:auto; margin-right:auto; max-width:200px; height:auto;">
+     style="display:block; margin-left:auto; margin-right:auto; max-width:150px; height:auto;">
 
 ## Decision tree
 
@@ -34,3 +36,16 @@ The decision tree above yields the following path table:
 
 The analysis above yields the following final summary table: ![Summary
 table](figures/summary_table_QC.png)
+
+# Sensitivity analyses
+
+## Tornado diagrams
+
+One-way sensitivity analysis yields the following tornado diagrams for
+cost and QALYs: ![Cost tornado diagram](figures/tornado_cost.svg) ![QALY
+tornado diagram](figures/tornado_qaly.svg)
+
+## Probabilistic sensitivity analysis
+
+We perform 10,000 simulations, yielding the following results for
+sensitivity analysis: ![PSA plot](figures/PSA_plot.svg)
