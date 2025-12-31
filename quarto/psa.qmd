@@ -13,7 +13,7 @@ source(here::here("R", "setup.R"))
 
 ## What is a probabilistic sensitivity analysis?
 
-The decision tree analysis in the [base case analysis](quarto/base_case.qmd) assumes that the parameters of the model are known with certainty.
+The decision tree analysis in the [base case analysis](/quarto/base_case.qmd) assumes that the parameters of the model are known with certainty.
 
 In reality, the true values of these parameters are unknown.  We are either estimating them from prior literature or assuming values based on expert opinion.
 
