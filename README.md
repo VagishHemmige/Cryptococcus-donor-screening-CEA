@@ -7,7 +7,9 @@
 
 <!-- badges: end -->
 
-The goal of Cryptococcus donor screening CEA is to perform a CEA.
+The goal of Cryptococcus donor screening CEA is to perform a CEA. The
+full analysis Github website is available at
+<https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/>
 
 # Base case analysis
 
