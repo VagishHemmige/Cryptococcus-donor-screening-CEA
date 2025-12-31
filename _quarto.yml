@@ -8,13 +8,15 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: analysis/model.qmd
-        text: Model
-      - href: analysis/results.qmd
-        text: Results
-      - href: analysis/sensitivity.qmd
-        text: Sensitivity
-      - href: about.qmd
+      - href: quarto/base_case.qmd
+        text: Base case analysis
+      - href: quarto/additional_trees.qmd
+        text: Additional tree analyses
+      - href: quarto/tornado.qmd
+        text: One-way sensitivity analysis (tornado plot)
+      - href: quarto/psa.qmd
+        text: Probabilistic sensitivity analyses
+      - href: quarto/about.qmd
         text: About
 
 format:
