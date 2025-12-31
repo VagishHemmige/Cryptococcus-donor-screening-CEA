@@ -389,9 +389,6 @@ ggsave("figures/tornado_qaly.svg")
 #Probabilistic sensitivity analysis
 #Now, we simulate 10,000 draws from the above.  First, we create the dataset with the simulated values
 
-#Define number of simulations
-nsim<-10000
-
 #Extract values from above
 PSA_simulation<-list()
 PSA_simulation$probabilities <- PSA_parameters$probabilities %>%

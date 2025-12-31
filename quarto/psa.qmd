@@ -4,17 +4,37 @@ format: html
 editor: visual
 ---
 
-## Probabilistic sensitivity analysis
+```{r setup, include=false}
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+source("R/setup.R")
+
+```
+
+
+## What is a probabilistic sensitivity analysis?
+
+The decision tree analysis in the [base case analysis](quarto/base_case.qmd) assumes that the parameters of the model are known with certainty.
+
+In reality, the true values of these parameters are unknown.  We are either estimating them from prior literature or assuming values based on expert opinion.
+
+A **probabilistic sensitivity analysis (PSA)** is a way of explicitly incorporating that uncertainty into a cost-effectiveness model.
+
+Instead of assigning a single fixed value to each model input (for example, “the probability of cryptococcal transmission is X%”), PSA allows each uncertain parameter to vary across a plausible range based on the available evidence. For each parameter, we specify a probability distribution that reflects how uncertain we are about its true value.
+
+The model is then run many times. In each run, the model randomly draws one value for each parameter from its corresponding distribution and calculates the resulting costs and health outcomes. This produces a distribution of possible results rather than a single point estimate.
+
+For the purposes of this analysis, we have
+
+We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**.  From this, we derive a **95% confidence ellipse** representing the joint uncertainty of the true cost and QALY change from screening.
 
 ::: callout-note
 ### Source code
 
 The probabilistic sensitivity analysis shown on this page is implemented in:
 
-- [`R/psa.R`](https://github.com/USERNAME/REPO/blob/main/R/psa.R)
+- [`R/create_sensitivity_analysis_QC.R.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R)
 
 This script defines parameter distributions, runs Monte Carlo simulations,
 and computes expected costs and QALYs.
 :::
+

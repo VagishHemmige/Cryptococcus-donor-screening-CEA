@@ -60,3 +60,6 @@ wtp <- 100000
 
 #Set seed for reproducibility
 set.seed(42)
+
+#Define number of simulations in PSA
+nsim<-10000
