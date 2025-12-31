@@ -4,9 +4,9 @@ format: html
 editor: visual
 ---
 
-```{r setup, include=false}
-
-source("R/setup.R")
+```{r setup, include=FALSE}
+library(here)
+source(here::here("R", "setup.R"))
 
 ```
 
@@ -23,7 +23,7 @@ Instead of assigning a single fixed value to each model input (for example, “t
 
 The model is then run many times. In each run, the model randomly draws one value for each parameter from its corresponding distribution and calculates the resulting costs and health outcomes. This produces a distribution of possible results rather than a single point estimate.
 
-For the purposes of this analysis, we have
+For the purposes of this analysis, we have run the analysis `r nsim` times
 
 We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**.  From this, we derive a **95% confidence ellipse** representing the joint uncertainty of the true cost and QALY change from screening.
 
