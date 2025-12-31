@@ -14,10 +14,10 @@ Because donor-derived cryptococcosis is rare, organ procurement organizations **
 
 -   clinical donor history,
 -   cause of death,
--   gross or histopathologic findings,
--   and post-transplant vigilance.
+-   gross or histopathologic findings, and
+-   post-transplant vigilance.
 
-However, advances in antigen testing and increasing attention to donor-derived infections have renewed debate about whether **systematic donor screening** could prevent severe outcomes at an acceptable cost.
+However, [advances in antigen testing](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011140) and [increasing attention to donor-derived infections](https://onlinelibrary.wiley.com/doi/abs/10.1111/ctr.13547) have renewed debate about whether **systematic donor screening** could prevent severe outcomes at an acceptable cost.
 
 ------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ Because these tradeoffs involve **rare events with high impact**, intuition alon
 
 ## What this analysis does
 
-This project uses **decision-analytic modeling** to evaluate different strategies for managing cryptococcus risk in organ donors. In practical terms, the analysis asks:
+This project uses [**decision-analytic modeling**](https://pmc.ncbi.nlm.nih.gov/articles/PMC3746772/) to evaluate different strategies for managing cryptococcus risk in organ donors. In practical terms, the analysis asks:
 
 > *If we adopt a particular donor screening or management strategy, what are the expected clinical outcomes and costs across many transplants?*
 
@@ -49,7 +49,7 @@ Rather than focusing on individual cases, the model estimates **average outcomes
 The analysis compares:
 
 -   no routine screening *vs.*
--   donor screening with cryptococcal antigen testing, combined with recipient prophylaxis or treatment,
+-   donor screening with cryptococcal antigen testing, combined with recipient prophylaxis,
 
 ## What “cost-effectiveness” means here
 
@@ -65,5 +65,5 @@ Cost-effectiveness analysis estimates:
 -   [**Base case analysis**](quarto/base_case.qmd): primary results and interpretation\
 -   [**Additional tree analyses**](quarto/additional_trees.qmd): alternative clinical assumptions\
 -   [**One-way sensitivity analysis**](quarto/tornado.qmd): key drivers of results\
--   [**Probabilistic sensitivity analyses**](qmd/quarto/psa.qmd): uncertainty and robustness\
+-   [**Probabilistic sensitivity analyses**](quarto/psa.qmd): uncertainty and robustness\
 -   [**About**](quarto/about.qmd): methods, assumptions, and disclosures
