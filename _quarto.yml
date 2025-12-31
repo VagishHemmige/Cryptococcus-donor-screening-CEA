@@ -2,7 +2,10 @@ project:
   type: website
   output-dir: docs
 
+
+
 website:
+  site-url: https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/
   title: "Cryptococcus donor screening cost effectiveness analysis"
   navbar:
     left:
