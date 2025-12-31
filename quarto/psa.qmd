@@ -17,7 +17,7 @@ The decision tree analysis in the [base case analysis](/quarto/base_case.qmd) as
 
 In reality, the true values of these parameters are unknown.  We are either estimating them from prior literature or assuming values based on expert opinion.
 
-A **probabilistic sensitivity analysis (PSA)** is a way of explicitly incorporating that uncertainty into a cost-effectiveness model.
+A [**probabilistic sensitivity analysis (PSA)**](https://journals.sagepub.com/doi/10.1177/0962280211419832) is a way of explicitly ascertaining the effects of that uncertainty on a cost-effectiveness model.
 
 Instead of assigning a single fixed value to each model input (for example, “the probability of cryptococcal transmission is X%”), PSA allows each uncertain parameter to vary across a plausible range based on the available evidence. For each parameter, we specify a probability distribution that reflects how uncertain we are about its true value.
 
