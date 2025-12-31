@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Index",
+    "title": "Overview",
     "section": "",
-    "text": "Cryptococcosis in kidney transplant recipients is uncommon but potentially catastrophic. When transmission occurs through the donor, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.\nBecause donor-derived cryptococcosis is rare, most transplant programs do not routinely screen donors for cryptococcus. Instead, current practice typically relies on: - clinical donor history, - cause of death, - gross or histopathologic findings, - and post-transplant vigilance.\nHowever, advances in antigen testing and increasing attention to donor-derived infections have renewed debate about whether systematic donor screening could prevent severe outcomes at an acceptable cost."
+    "text": "Cryptococcosis in kidney transplant recipients is uncommon but potentially catastrophic. When transmission occurs through the donor, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.\nBecause donor-derived cryptococcosis is rare, organ procurement organizations do not routinely screen donors for cryptococcus. Instead, current practice typically relies on: - clinical donor history, - cause of death, - gross or histopathologic findings, - and post-transplant vigilance.\nHowever, advances in antigen testing and increasing attention to donor-derived infections have renewed debate about whether systematic donor screening could prevent severe outcomes at an acceptable cost."
   },
   {
     "objectID": "index.html#quarto",
@@ -51,37 +51,37 @@
   {
     "objectID": "index.html#clinical-background",
     "href": "index.html#clinical-background",
-    "title": "Index",
+    "title": "Overview",
     "section": "",
-    "text": "Cryptococcosis in kidney transplant recipients is uncommon but potentially catastrophic. When transmission occurs through the donor, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.\nBecause donor-derived cryptococcosis is rare, most transplant programs do not routinely screen donors for cryptococcus. Instead, current practice typically relies on: - clinical donor history, - cause of death, - gross or histopathologic findings, - and post-transplant vigilance.\nHowever, advances in antigen testing and increasing attention to donor-derived infections have renewed debate about whether systematic donor screening could prevent severe outcomes at an acceptable cost."
+    "text": "Cryptococcosis in kidney transplant recipients is uncommon but potentially catastrophic. When transmission occurs through the donor, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.\nBecause donor-derived cryptococcosis is rare, organ procurement organizations do not routinely screen donors for cryptococcus. Instead, current practice typically relies on: - clinical donor history, - cause of death, - gross or histopathologic findings, - and post-transplant vigilance.\nHowever, advances in antigen testing and increasing attention to donor-derived infections have renewed debate about whether systematic donor screening could prevent severe outcomes at an acceptable cost."
   },
   {
     "objectID": "index.html#why-screening-is-controversial",
     "href": "index.html#why-screening-is-controversial",
-    "title": "Index",
+    "title": "Overview",
     "section": "Why screening is controversial",
     "text": "Why screening is controversial\nRoutine cryptococcal screening of donors raises several competing concerns:\n\nLow incidence: Donor-derived cryptococcosis is rare, so most screened donors would test negative.\nFalse positives: Even highly specific tests can generate false positives when prevalence is very low, potentially leading to unnecessary organ discard or recipient prophylaxis.\nDownstream consequences: A positive donor test may trigger recipient antifungal treatment, delayed transplant, or organ non-use, each with its own harms and costs.\nSevere consequences when missed: When donor-derived infection does occur, outcomes can be devastating.\n\nBecause these tradeoffs involve rare events with high impact, intuition alone is often insufficient to guide policy."
   },
   {
     "objectID": "index.html#what-this-analysis-does",
     "href": "index.html#what-this-analysis-does",
-    "title": "Index",
+    "title": "Overview",
     "section": "What this analysis does",
     "text": "What this analysis does\nThis project uses decision-analytic modeling to evaluate different strategies for managing cryptococcus risk in organ donors. In practical terms, the analysis asks:\n\nIf we adopt a particular donor screening or management strategy, what are the expected clinical outcomes and costs across many transplants?\n\nRather than focusing on individual cases, the model estimates average outcomes across a large hypothetical cohort of transplants, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs."
   },
   {
     "objectID": "index.html#strategies-evaluated",
     "href": "index.html#strategies-evaluated",
-    "title": "Index",
+    "title": "Overview",
     "section": "Strategies evaluated",
-    "text": "Strategies evaluated\nDepending on the page, the analysis compares strategies such as: - no routine screening, - donor screening with cryptococcal antigen testing, - screening combined with recipient prophylaxis or treatment, - alternative decision trees reflecting different clinical responses to test results.\nEach strategy represents a plausible real-world approach, not an idealized or experimental one."
+    "text": "Strategies evaluated\nThe analysis compares: - no routine screening vs. - donor screening with cryptococcal antigen testing, combined with recipient prophylaxis or treatment,"
   },
   {
     "objectID": "index.html#what-cost-effectiveness-means-here",
     "href": "index.html#what-cost-effectiveness-means-here",
-    "title": "Index",
+    "title": "Overview",
     "section": "What “cost-effectiveness” means here",
-    "text": "What “cost-effectiveness” means here\nCost-effectiveness analysis does not ask whether a strategy is cheap.\nInstead, it asks: - how much additional cost is associated with a strategy, and - how much additional health benefit it produces (e.g., survival or quality-adjusted life years).\nThe results are intended to help clinicians and policymakers understand tradeoffs, not to dictate care for individual patients."
+    "text": "What “cost-effectiveness” means here\nCost-effectiveness analysis estimates: - how much additional cost is associated with a strategy, and - how much additional health benefit it produces in [quality-adjusted life years](https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219)."
   },
   {
     "objectID": "index.html#how-to-read-the-results",
@@ -107,7 +107,7 @@
   {
     "objectID": "index.html#how-to-navigate-the-site",
     "href": "index.html#how-to-navigate-the-site",
-    "title": "Index",
+    "title": "Overview",
     "section": "How to navigate the site",
     "text": "How to navigate the site\n\nBase case analysis: primary results and interpretation\n\nAdditional tree analyses: alternative clinical assumptions\n\nOne-way sensitivity analysis: key drivers of results\n\nProbabilistic sensitivity analyses: uncertainty and robustness\n\nAbout: methods, assumptions, and disclosures"
   },
