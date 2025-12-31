@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Index",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+    "text": "Cryptococcosis in kidney transplant recipients is uncommon but potentially catastrophic. When transmission occurs through the donor, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.\nBecause donor-derived cryptococcosis is rare, most transplant programs do not routinely screen donors for cryptococcus. Instead, current practice typically relies on: - clinical donor history, - cause of death, - gross or histopathologic findings, - and post-transplant vigilance.\nHowever, advances in antigen testing and increasing attention to donor-derived infections have renewed debate about whether systematic donor screening could prevent severe outcomes at an acceptable cost."
   },
   {
     "objectID": "index.html#quarto",
@@ -45,6 +45,153 @@
     "objectID": "quarto/base_case.html#running-code",
     "href": "quarto/base_case.html#running-code",
     "title": "Base case analysis",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\nCode\n1 + 1\n\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "index.html#clinical-background",
+    "href": "index.html#clinical-background",
+    "title": "Index",
+    "section": "",
+    "text": "Cryptococcosis in kidney transplant recipients is uncommon but potentially catastrophic. When transmission occurs through the donor, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.\nBecause donor-derived cryptococcosis is rare, most transplant programs do not routinely screen donors for cryptococcus. Instead, current practice typically relies on: - clinical donor history, - cause of death, - gross or histopathologic findings, - and post-transplant vigilance.\nHowever, advances in antigen testing and increasing attention to donor-derived infections have renewed debate about whether systematic donor screening could prevent severe outcomes at an acceptable cost."
+  },
+  {
+    "objectID": "index.html#why-screening-is-controversial",
+    "href": "index.html#why-screening-is-controversial",
+    "title": "Index",
+    "section": "Why screening is controversial",
+    "text": "Why screening is controversial\nRoutine cryptococcal screening of donors raises several competing concerns:\n\nLow incidence: Donor-derived cryptococcosis is rare, so most screened donors would test negative.\nFalse positives: Even highly specific tests can generate false positives when prevalence is very low, potentially leading to unnecessary organ discard or recipient prophylaxis.\nDownstream consequences: A positive donor test may trigger recipient antifungal treatment, delayed transplant, or organ non-use, each with its own harms and costs.\nSevere consequences when missed: When donor-derived infection does occur, outcomes can be devastating.\n\nBecause these tradeoffs involve rare events with high impact, intuition alone is often insufficient to guide policy."
+  },
+  {
+    "objectID": "index.html#what-this-analysis-does",
+    "href": "index.html#what-this-analysis-does",
+    "title": "Index",
+    "section": "What this analysis does",
+    "text": "What this analysis does\nThis project uses decision-analytic modeling to evaluate different strategies for managing cryptococcus risk in organ donors. In practical terms, the analysis asks:\n\nIf we adopt a particular donor screening or management strategy, what are the expected clinical outcomes and costs across many transplants?\n\nRather than focusing on individual cases, the model estimates average outcomes across a large hypothetical cohort of transplants, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs."
+  },
+  {
+    "objectID": "index.html#strategies-evaluated",
+    "href": "index.html#strategies-evaluated",
+    "title": "Index",
+    "section": "Strategies evaluated",
+    "text": "Strategies evaluated\nDepending on the page, the analysis compares strategies such as: - no routine screening, - donor screening with cryptococcal antigen testing, - screening combined with recipient prophylaxis or treatment, - alternative decision trees reflecting different clinical responses to test results.\nEach strategy represents a plausible real-world approach, not an idealized or experimental one."
+  },
+  {
+    "objectID": "index.html#what-cost-effectiveness-means-here",
+    "href": "index.html#what-cost-effectiveness-means-here",
+    "title": "Index",
+    "section": "What “cost-effectiveness” means here",
+    "text": "What “cost-effectiveness” means here\nCost-effectiveness analysis does not ask whether a strategy is cheap.\nInstead, it asks: - how much additional cost is associated with a strategy, and - how much additional health benefit it produces (e.g., survival or quality-adjusted life years).\nThe results are intended to help clinicians and policymakers understand tradeoffs, not to dictate care for individual patients."
+  },
+  {
+    "objectID": "index.html#how-to-read-the-results",
+    "href": "index.html#how-to-read-the-results",
+    "title": "Index",
+    "section": "How to read the results",
+    "text": "How to read the results\n\nBase case analyses show expected outcomes using best estimates from the literature.\nOne-way sensitivity analyses (tornado plots) show which assumptions matter most.\nProbabilistic sensitivity analyses (PSA) reflect uncertainty across all parameters simultaneously.\n\nIf you are primarily interested in clinical implications, the base case and figures will be most informative; the sensitivity analyses show how robust those conclusions are."
+  },
+  {
+    "objectID": "index.html#what-this-analysis-does-not-do",
+    "href": "index.html#what-this-analysis-does-not-do",
+    "title": "Index",
+    "section": "What this analysis does not do",
+    "text": "What this analysis does not do\n\nIt does not make patient-level recommendations.\nIt does not assume that cost alone should drive transplant decisions.\nIt does not replace clinical judgment, ethical considerations, or regulatory guidance."
+  },
+  {
+    "objectID": "index.html#intended-audience",
+    "href": "index.html#intended-audience",
+    "title": "Index",
+    "section": "Intended audience",
+    "text": "Intended audience\nThis site is designed for: - transplant clinicians, - infectious diseases physicians, - transplant program leadership, - and others involved in donor evaluation and policy decisions.\nTechnical details are included for transparency, but pages are written so that clinicians can focus on interpretation rather than methods."
+  },
+  {
+    "objectID": "index.html#how-to-navigate-the-site",
+    "href": "index.html#how-to-navigate-the-site",
+    "title": "Index",
+    "section": "How to navigate the site",
+    "text": "How to navigate the site\n\nBase case analysis: primary results and interpretation\n\nAdditional tree analyses: alternative clinical assumptions\n\nOne-way sensitivity analysis: key drivers of results\n\nProbabilistic sensitivity analyses: uncertainty and robustness\n\nAbout: methods, assumptions, and disclosures"
+  },
+  {
+    "objectID": "quarto/tornado.html",
+    "href": "quarto/tornado.html",
+    "title": "One-way sensitivity analyses (tornado diagrams)",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "quarto/tornado.html#quarto",
+    "href": "quarto/tornado.html#quarto",
+    "title": "One-way sensitivity analyses (tornado diagrams)",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "quarto/tornado.html#running-code",
+    "href": "quarto/tornado.html#running-code",
+    "title": "One-way sensitivity analyses (tornado diagrams)",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\nCode\n1 + 1\n\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "quarto/additional_trees.html",
+    "href": "quarto/additional_trees.html",
+    "title": "Additional analyses",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "quarto/additional_trees.html#quarto",
+    "href": "quarto/additional_trees.html#quarto",
+    "title": "Additional analyses",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "quarto/additional_trees.html#running-code",
+    "href": "quarto/additional_trees.html#running-code",
+    "title": "Additional analyses",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\nCode\n1 + 1\n\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "quarto/about.html",
+    "href": "quarto/about.html",
+    "title": "About",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "quarto/about.html#quarto",
+    "href": "quarto/about.html#quarto",
+    "title": "About",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "quarto/about.html#running-code",
+    "href": "quarto/about.html#running-code",
+    "title": "About",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\nCode\n1 + 1\n\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "quarto/psa.html",
+    "href": "quarto/psa.html",
+    "title": "Probabilistic sensitivity analyses",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "quarto/psa.html#quarto",
+    "href": "quarto/psa.html#quarto",
+    "title": "Probabilistic sensitivity analyses",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "quarto/psa.html#running-code",
+    "href": "quarto/psa.html#running-code",
+    "title": "Probabilistic sensitivity analyses",
     "section": "Running Code",
     "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\nCode\n1 + 1\n\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
   }

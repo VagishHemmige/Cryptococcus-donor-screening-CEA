@@ -4,23 +4,101 @@ format: html
 editor: visual
 ---
 
-## Quarto
+## Clinical background
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+[Cryptococcosis in kidney transplant recipients](https://academic.oup.com/ofid/article/12/5/ofaf263/8121609) is uncommon but potentially catastrophic. When transmission occurs through the donor, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.
 
-## Running Code
+Because donor-derived cryptococcosis is rare, most transplant programs **do not routinely screen donors for cryptococcus**. Instead, current practice typically relies on:
+- clinical donor history,
+- cause of death,
+- gross or histopathologic findings,
+- and post-transplant vigilance.
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+However, advances in antigen testing and increasing attention to donor-derived infections have renewed debate about whether **systematic donor screening** could prevent severe outcomes at an acceptable cost.
 
-```{r}
-1 + 1
-```
+---
 
-You can add options to executable code like this
+## Why screening is controversial
 
-```{r}
-#| echo: false
-2 * 2
-```
+Routine cryptococcal screening of donors raises several competing concerns:
 
-The `echo: false` option disables the printing of code (only output is displayed).
+- **Low incidence**: Donor-derived cryptococcosis is rare, so most screened donors would test negative.
+- **False positives**: Even highly specific tests can generate false positives when prevalence is very low, potentially leading to unnecessary organ discard or recipient prophylaxis.
+- **Downstream consequences**: A positive donor test may trigger recipient antifungal treatment, delayed transplant, or organ non-use, each with its own harms and costs.
+- **Severe consequences when missed**: When donor-derived infection does occur, outcomes can be devastating.
+
+Because these tradeoffs involve **rare events with high impact**, intuition alone is often insufficient to guide policy.
+
+---
+
+## What this analysis does
+
+This project uses **decision-analytic modeling** to evaluate different strategies for managing cryptococcus risk in organ donors. In practical terms, the analysis asks:
+
+> *If we adopt a particular donor screening or management strategy, what are the expected clinical outcomes and costs across many transplants?*
+
+Rather than focusing on individual cases, the model estimates **average outcomes across a large hypothetical cohort of transplants**, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs.
+
+---
+
+## Strategies evaluated
+
+Depending on the page, the analysis compares strategies such as:
+- no routine screening,
+- donor screening with cryptococcal antigen testing,
+- screening combined with recipient prophylaxis or treatment,
+- alternative decision trees reflecting different clinical responses to test results.
+
+Each strategy represents a **plausible real-world approach**, not an idealized or experimental one.
+
+---
+
+## What “cost-effectiveness” means here
+
+Cost-effectiveness analysis does **not** ask whether a strategy is cheap.
+
+Instead, it asks:
+- how much additional cost is associated with a strategy, and
+- how much additional health benefit it produces (e.g., survival or quality-adjusted life years).
+
+The results are intended to help clinicians and policymakers understand **tradeoffs**, not to dictate care for individual patients.
+
+---
+
+## How to read the results
+
+- **Base case analyses** show expected outcomes using best estimates from the literature.
+- **One-way sensitivity analyses (tornado plots)** show which assumptions matter most.
+- **Probabilistic sensitivity analyses (PSA)** reflect uncertainty across *all* parameters simultaneously.
+
+If you are primarily interested in clinical implications, the **base case and figures** will be most informative; the sensitivity analyses show how robust those conclusions are.
+
+---
+
+## What this analysis does *not* do
+
+- It does not make patient-level recommendations.
+- It does not assume that cost alone should drive transplant decisions.
+- It does not replace clinical judgment, ethical considerations, or regulatory guidance.
+
+---
+
+## Intended audience
+
+This site is designed for:
+- transplant clinicians,
+- infectious diseases physicians,
+- transplant program leadership,
+- and others involved in donor evaluation and policy decisions.
+
+Technical details are included for transparency, but pages are written so that clinicians can focus on **interpretation rather than methods**.
+
+---
+
+## How to navigate the site
+
+- **Base case analysis**: primary results and interpretation  
+- **Additional tree analyses**: alternative clinical assumptions  
+- **One-way sensitivity analysis**: key drivers of results  
+- **Probabilistic sensitivity analyses**: uncertainty and robustness  
+- **About**: methods, assumptions, and disclosures
