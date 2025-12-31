@@ -9,17 +9,17 @@ website:
   title: "Cryptococcus donor screening cost effectiveness analysis"
   navbar:
     left:
-      - href: /index.qmd
+      - href: index.html
         text: Home
-      - href: /quarto/base_case.qmd
+      - href: quarto/base_case.html
         text: Base case analysis
-      - href: /quarto/additional_trees.qmd
+      - href: quarto/additional_trees.html
         text: Additional tree analyses
-      - href: /quarto/tornado.qmd
+      - href: quarto/tornado.html
         text: One-way sensitivity analysis (tornado plot)
-      - href: /quarto/psa.qmd
+      - href: quarto/psa.html
         text: Probabilistic sensitivity analyses
-      - href: /quarto/about.qmd
+      - href: quarto/about.html
         text: About
 
 format:
