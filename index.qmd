@@ -49,24 +49,21 @@ Rather than focusing on individual cases, the model estimates **average outcomes
 The analysis compares:
 
 -   no routine screening *vs.*
-
--   
-
-    ## donor screening with cryptococcal antigen testing, combined with recipient prophylaxis or treatment,
+-   donor screening with cryptococcal antigen testing, combined with recipient prophylaxis or treatment,
 
 ## What “cost-effectiveness” means here
 
 Cost-effectiveness analysis estimates:
 
 -   how much additional **cost** is associated with a strategy, and
--   how much additional health benefit it produces in **\[quality-adjusted life years\]**(https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219).
+-   how much additional health benefit it produces in [**quality-adjusted life years**](https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219).
 
 ------------------------------------------------------------------------
 
 ## How to navigate the site
 
--   [**Base case analysis**](base_case.qmd): primary results and interpretation\
--   [**Additional tree analyses**](additional_trees.qmd): alternative clinical assumptions\
--   [**One-way sensitivity analysis**](tornado.qmd): key drivers of results\
--   [**Probabilistic sensitivity analyses**](psa.qmd): uncertainty and robustness\
--   [**About**](about.qmd): methods, assumptions, and disclosures
+-   [**Base case analysis**](quarto/base_case.qmd): primary results and interpretation\
+-   [**Additional tree analyses**](quarto/additional_trees.qmd): alternative clinical assumptions\
+-   [**One-way sensitivity analysis**](quarto/tornado.qmd): key drivers of results\
+-   [**Probabilistic sensitivity analyses**](qmd/quarto/psa.qmd): uncertainty and robustness\
+-   [**About**](quarto/about.qmd): methods, assumptions, and disclosures
