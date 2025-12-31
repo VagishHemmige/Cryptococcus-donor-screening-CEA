@@ -12,27 +12,27 @@ editor: visual
 
 Because donor-derived cryptococcosis is rare, organ procurement organizations **do not routinely screen donors for cryptococcus**. Instead, current practice typically relies on:
 
-- clinical donor history,
-- cause of death,
-- gross or histopathologic findings,
-- and post-transplant vigilance.
+-   clinical donor history,
+-   cause of death,
+-   gross or histopathologic findings,
+-   and post-transplant vigilance.
 
 However, advances in antigen testing and increasing attention to donor-derived infections have renewed debate about whether **systematic donor screening** could prevent severe outcomes at an acceptable cost.
 
----
+------------------------------------------------------------------------
 
 ## Why screening is controversial
 
 Routine cryptococcal screening of donors raises several competing concerns:
 
-- **Low incidence**: Donor-derived cryptococcosis is rare, so most screened donors would test negative.
-- **False positives**: Even highly specific tests can generate false positives when prevalence is very low, potentially leading to unnecessary organ discard or recipient prophylaxis.
-- **Downstream consequences**: A positive donor test may trigger recipient antifungal treatment, delayed transplant, or organ non-use, each with its own harms and costs.
-- **Severe consequences when missed**: When donor-derived infection does occur, outcomes can be devastating.
+-   **Low incidence**: Donor-derived cryptococcosis is rare, so most screened donors would test negative.
+-   **False positives**: Even highly specific tests can generate false positives when prevalence is very low, potentially leading to unnecessary organ discard or recipient prophylaxis.
+-   **Downstream consequences**: A positive donor test may trigger recipient antifungal treatment, delayed transplant, or organ non-use, each with its own harms and costs.
+-   **Severe consequences when missed**: When donor-derived infection does occur, outcomes can be devastating.
 
 Because these tradeoffs involve **rare events with high impact**, intuition alone is often insufficient to guide policy.
 
----
+------------------------------------------------------------------------
 
 ## What this analysis does
 
@@ -42,29 +42,31 @@ This project uses **decision-analytic modeling** to evaluate different strategie
 
 Rather than focusing on individual cases, the model estimates **average outcomes across a large hypothetical cohort of transplants**, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs.
 
----
+------------------------------------------------------------------------
 
 ## Strategies evaluated
 
 The analysis compares:
 
-- no routine screening *vs.*
-- donor screening with cryptococcal antigen testing, combined with recipient prophylaxis or treatment,
----
+-   no routine screening *vs.*
+
+-   
+
+    ## donor screening with cryptococcal antigen testing, combined with recipient prophylaxis or treatment,
 
 ## What “cost-effectiveness” means here
 
 Cost-effectiveness analysis estimates:
 
-- how much additional **cost** is associated with a strategy, and
-- how much additional health benefit it produces in **[quality-adjusted life years]**(https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219).
+-   how much additional **cost** is associated with a strategy, and
+-   how much additional health benefit it produces in **\[quality-adjusted life years\]**(https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219).
 
----
+------------------------------------------------------------------------
 
 ## How to navigate the site
 
-- **[Base case analysis](base_case.qmd)**: primary results and interpretation  
-- **[Additional tree analyses](additional_trees.qmd)**: alternative clinical assumptions  
-- **[One-way sensitivity analysis](tornado.qmd)**: key drivers of results  
-- **[Probabilistic sensitivity analyses](psa.qmd)**: uncertainty and robustness  
-- **[About](about.qmd)**: methods, assumptions, and disclosures
+-   [**Base case analysis**](base_case.qmd): primary results and interpretation\
+-   [**Additional tree analyses**](additional_trees.qmd): alternative clinical assumptions\
+-   [**One-way sensitivity analysis**](tornado.qmd): key drivers of results\
+-   [**Probabilistic sensitivity analyses**](psa.qmd): uncertainty and robustness\
+-   [**About**](about.qmd): methods, assumptions, and disclosures
