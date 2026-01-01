@@ -54,7 +54,9 @@ We chose values of $\alpha$ and $\beta$ which yield the mean from the base case 
 The final table is below
 
 ![](../figures/PSA_tables_probabilities.png)
+
 ### Costs
+
 We parameterize the costs portion of the model based on the [**gamma distribution**](https://en.wikipedia.org/wiki/Gamma_distribution).
 
 The gamma distribution has a long right tail, and is therefore particularly suited for cost data, which are skewed.
@@ -76,7 +78,7 @@ We parameterize the QALY portion of the model also based on the [**gamma distrib
 
 Again, we chose values of $k$ and $\theta$ which yield the mean from the base case analysis and confidence intervals consistent with prior literature.
 
-Of note, since all QALY data are relative to a baseline where there is no transplant performed, `q_noacceptance` are parameterized, not as functions of the gamma distribution, but as fixed constants set at 0.
+Of note, since all QALY data are relative to a baseline where there is no transplant performed, `q_noacceptance` is parameterized, not as functions of the gamma distribution, but as a fixed constant set at 0.
 
 The final table is below:
 
@@ -221,4 +223,4 @@ PSA_plot
 
 We create a cost effectiveness plane with 95% confidence ellipse marked in red below:
 
-![Cost-effectiveness plane showing results of the probabilistic sensitivity analysis. Each point represents one simulation; the red ellipse indicates the 95% confidence region.](figures/PSA_plot.svg)
+![Cost-effectiveness plane showing results of the probabilistic sensitivity analysis. Each point represents one simulation; the red ellipse indicates the 95% confidence region.](../figures/PSA_plot.svg)
