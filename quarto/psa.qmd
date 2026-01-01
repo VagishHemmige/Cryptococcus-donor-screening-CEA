@@ -126,6 +126,18 @@ The final table is below:
 
 ![](../figures/PSA_tables_qalys.png)
 
+This yields the following parameter distributions:
+
+::: {layout-ncol=3}
+
+![](../figures/PSA_prior_q_nocryptococcus.png)
+
+![](../figures/PSA_prior_q_noacceptance.png)
+
+![](../figures/PSA_prior_q_loss_cryptococcus.png)
+
+:::
+
 ## Source code
 
 Click below to open up the source code from [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R) that is used to perform this analysis.  Of note, the analysis assumes the existence of objects created in the [**One-way sensitivity analysis**](tornado.qmd) file.
