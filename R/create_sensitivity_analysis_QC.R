@@ -513,3 +513,27 @@ PSA_plot<-PSA_simulation_unnested%>%
   )
 ggsave("figures/PSA_plot.svg")
 PSA_plot
+
+#Now we use the BCEA package in R for further analysis of the PCA data.  We start by creating the matrices needed for the analysis and then creating the BCEA object
+PSA_cost_matrix<-PSA_simulation_unnested%>%
+  select(starts_with("total_expected_cost"))%>%
+  rename(ns=total_expected_cost_ns, s=total_expected_cost_s)%>%
+  as.matrix()
+
+PSA_qaly_matrix<-PSA_simulation_unnested%>%
+  select(starts_with("total_expected_qaly"))%>%
+  rename(ns=total_expected_qaly_ns, s=total_expected_qaly_s)%>%
+  as.matrix()
+
+bcea_object<-bcea(eff = PSA_qaly_matrix, cost = PSA_cost_matrix, ref = 2, Kmax = wtp)
+
+#Now we create the plots defined in the BCEA package
+ceplane.plot(bcea_object, wtp = wtp, comparison=1)
+eib.plot(bcea_object)
+contour(bcea_object)
+contour2(bcea_object)
+ceac.plot(bcea_object)
+evi.plot(bcea_object)
+
+#Summary statistics
+summary(bcea_object)

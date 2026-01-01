@@ -8,6 +8,7 @@ library(gt)
 library(tidyverse)
 library(ggtext)
 library(xml2)
+library(BCEA)
 
 #Save simulation parameters
 
