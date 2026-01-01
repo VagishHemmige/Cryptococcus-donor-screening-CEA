@@ -6,5 +6,33 @@ format: html
 
 ## Alternative case #1
 
-Does eliminating organ wastage affect the results above?
+Does the near-elimination of organ wastage (`p_cancelled`=0.01) affect the results of the base case?
 
+![](../figures/alternative_tree_1_annotated.svg)
+We see that this improves the NMB associated with screening but does not make screening the preferred strategy.
+
+
+## Alternative case #2
+
+Does the near-elimination of organ wastage (`p_cancelled`=0.01) **and** near-universal prophylaxis (`p_prophrate`=0.99) affect the results of the base case?
+
+![](../figures/alternative_tree_2_annotated.svg)
+
+While screening is no longer cost-saving in this scenario due to increased fluconazole costs, NMB is now expected to be positive, suggesting some benefit of screening.
+
+## Alternative case #3
+
+If the cost of cryptococcus is dramatically higher (`cost_disease`=3000000), does this affect our conclusions?
+
+![](../figures/alternative_tree_3_annotated.svg)
+
+In this setting, the effects of organ wastage still appear to win out over the costs of disease.
+
+
+## Alternative case #4
+
+IF we set the cost of cryptococcal disease markedly higher (`cost_disease`=3000000) while also assuming the near-elimination of organ wastage (`p_cancelled`=0.01) **and** near-universal prophylaxis (`p_prophrate`=0.99), what do we conclude?
+
+![](../figures/alternative_tree_4_annotated.svg)
+
+Screening is clearly the preferred strategy under these circumstances

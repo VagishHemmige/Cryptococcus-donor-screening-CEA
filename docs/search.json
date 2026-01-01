@@ -137,7 +137,7 @@
     "href": "quarto/additional_trees.html",
     "title": "Additional analyses",
     "section": "",
-    "text": "Does eliminating organ wastage affect the\n\n\nCode\ncreate_tree_diagram_QC()$plot"
+    "text": "Does the near-elimination of organ wastage (p_cancelled=0.01) affect the results of the base case?\n We see that this improves the NMB associated with screening but does not make screening the preferred strategy."
   },
   {
     "objectID": "quarto/additional_trees.html#quarto",
@@ -368,6 +368,27 @@
     "href": "quarto/additional_trees.html#alternative-case-1",
     "title": "Additional analyses",
     "section": "",
-    "text": "Does eliminating organ wastage affect the\n\n\nCode\ncreate_tree_diagram_QC()$plot"
+    "text": "Does the near-elimination of organ wastage (p_cancelled=0.01) affect the results of the base case?\n We see that this improves the NMB associated with screening but does not make screening the preferred strategy."
+  },
+  {
+    "objectID": "quarto/additional_trees.html#alternative-case-2",
+    "href": "quarto/additional_trees.html#alternative-case-2",
+    "title": "Additional analyses",
+    "section": "Alternative case #2",
+    "text": "Alternative case #2\nDoes the near-elimination of organ wastage (p_cancelled=0.01) and near-universal prophylaxis (p_prophrate=0.99) affect the results of the base case?\n\nWhile screening is no longer cost-saving in this scenario due to increased fluconazole costs, NMB is now expected to be positive, suggesting some benefit of screening."
+  },
+  {
+    "objectID": "quarto/additional_trees.html#alternative-case-3",
+    "href": "quarto/additional_trees.html#alternative-case-3",
+    "title": "Additional analyses",
+    "section": "Alternative case #3",
+    "text": "Alternative case #3\nIf the cost of cryptococcus is dramatically higher (cost_disease=3000000), does this affect our conclusions?\n\nIn this setting, the effects of organ wastage still appear to win out over the costs of disease."
+  },
+  {
+    "objectID": "quarto/additional_trees.html#alternative-case-4",
+    "href": "quarto/additional_trees.html#alternative-case-4",
+    "title": "Additional analyses",
+    "section": "Alternative case #4",
+    "text": "Alternative case #4\nIF we set the cost of cryptococcal disease markedly higher (cost_disease=3000000) while also assuming the near-elimination of organ wastage (p_cancelled=0.01) and near-universal prophylaxis (p_prophrate=0.99), what do we conclude?\n\nScreening is clearly the preferred strategy under these circumstances"
   }
 ]

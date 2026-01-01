@@ -169,7 +169,7 @@
       <polygon fill="#ffe4e1" stroke="#000000" points="994.531,-1354 886.531,-1300 994.531,-1246 1102.531,-1300 994.531,-1354"/>
       <text text-anchor="middle" x="994.531" y="-1321.75" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">Recipient</text>
       <text text-anchor="middle" x="994.531" y="-1304.35" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">cryptococcosis</text>
-      <text text-anchor="middle" x="994.531" y="-1286.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $110945</text>
+      <text text-anchor="middle" x="994.531" y="-1286.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $3000000</text>
       <text text-anchor="middle" x="994.531" y="-1269.55" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔQ = 3</text>
     </g>
     <!-- donor_pos_ns&#45;&gt;inf_yes_agpos_ns -->
@@ -201,7 +201,7 @@
       <polygon fill="#ffe4e1" stroke="#000000" points="994.531,-1102 886.531,-1048 994.531,-994 1102.531,-1048 994.531,-1102"/>
       <text text-anchor="middle" x="994.531" y="-1069.75" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">Recipient</text>
       <text text-anchor="middle" x="994.531" y="-1052.35" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">cryptococcosis</text>
-      <text text-anchor="middle" x="994.531" y="-1034.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $110945</text>
+      <text text-anchor="middle" x="994.531" y="-1034.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $3000000</text>
       <text text-anchor="middle" x="994.531" y="-1017.55" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔQ = 3</text>
     </g>
     <!-- donor_neg_ns&#45;&gt;inf_yes_agneg_ns -->
@@ -297,7 +297,7 @@
       <title>ag_truepos_s-&gt;transplant_cancelled_ag_truepos_s</title>
       <path fill="none" stroke="#000000" d="M1041.6832,-817.7138C1094.1343,-838.5306 1179.4001,-872.3709 1239.6097,-896.2669"/>
       <polygon fill="#000000" stroke="#000000" points="1238.4631,-899.5774 1249.049,-900.0132 1241.0454,-893.071 1238.4631,-899.5774"/>
-      <text text-anchor="middle" x="1152.0093" y="-877.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.01</text>
+      <text text-anchor="middle" x="1152.0093" y="-877.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.8</text>
     </g>
     <!-- transplant_notcancelled_ag_truepos_s -->
     <g id="node21" class="node">
@@ -312,7 +312,7 @@
       <title>ag_truepos_s-&gt;transplant_notcancelled_ag_truepos_s</title>
       <path fill="none" stroke="#000000" d="M1045.1342,-799.3213C1100.4975,-799.6729 1189.2287,-800.2363 1248.4203,-800.6122"/>
       <polygon fill="#000000" stroke="#000000" points="1248.727,-804.1141 1258.749,-800.6778 1248.7715,-797.1143 1248.727,-804.1141"/>
-      <text text-anchor="middle" x="1152.0093" y="-805.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.99</text>
+      <text text-anchor="middle" x="1152.0093" y="-805.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.2</text>
     </g>
     <!-- inf_y_ag_falseneg_s -->
     <g id="node36" class="node">
@@ -320,7 +320,7 @@
       <polygon fill="#ffe4e1" stroke="#000000" points="1309.4875,-732 1201.4875,-678 1309.4875,-624 1417.4875,-678 1309.4875,-732"/>
       <text text-anchor="middle" x="1309.4875" y="-699.75" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">Recipient</text>
       <text text-anchor="middle" x="1309.4875" y="-682.35" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">cryptococcosis</text>
-      <text text-anchor="middle" x="1309.4875" y="-664.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $110945</text>
+      <text text-anchor="middle" x="1309.4875" y="-664.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $3000000</text>
       <text text-anchor="middle" x="1309.4875" y="-647.55" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔQ = 3</text>
     </g>
     <!-- ag_falseneg_s&#45;&gt;inf_y_ag_falseneg_s -->
@@ -360,7 +360,7 @@
       <title>ag_falsepos_s-&gt;transplant_cancelled_ag_falsepos_s</title>
       <path fill="none" stroke="#000000" d="M1044.4368,-383.0811C1090.8261,-390.5928 1161.0712,-401.9674 1217.5928,-411.1197"/>
       <polygon fill="#000000" stroke="#000000" points="1217.1862,-414.5994 1227.6171,-412.743 1218.3052,-407.6894 1217.1862,-414.5994"/>
-      <text text-anchor="middle" x="1152.0093" y="-410.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.01</text>
+      <text text-anchor="middle" x="1152.0093" y="-410.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.8</text>
     </g>
     <!-- transplant_notcancelled_ag_falsepos_s -->
     <g id="node23" class="node">
@@ -375,7 +375,7 @@
       <title>ag_falsepos_s-&gt;transplant_notcancelled_ag_falsepos_s</title>
       <path fill="none" stroke="#000000" d="M1044.0894,-363.6708C1099.9319,-350.905 1190.6587,-330.1646 1250.2088,-316.5513"/>
       <polygon fill="#000000" stroke="#000000" points="1251.2496,-319.9037 1260.2181,-314.2631 1249.6896,-313.0798 1251.2496,-319.9037"/>
-      <text text-anchor="middle" x="1152.0093" y="-350.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.99</text>
+      <text text-anchor="middle" x="1152.0093" y="-350.5" font-family="Helvetica,sans-Serif" font-size="15.00" fill="#000000">p = 0.2</text>
     </g>
     <!-- inf_y_ag_trueneg_s -->
     <g id="node38" class="node">
@@ -383,7 +383,7 @@
       <polygon fill="#ffe4e1" stroke="#000000" points="1309.4875,-234 1201.4875,-180 1309.4875,-126 1417.4875,-180 1309.4875,-234"/>
       <text text-anchor="middle" x="1309.4875" y="-201.75" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">Recipient</text>
       <text text-anchor="middle" x="1309.4875" y="-184.35" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">cryptococcosis</text>
-      <text text-anchor="middle" x="1309.4875" y="-166.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $110945</text>
+      <text text-anchor="middle" x="1309.4875" y="-166.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $3000000</text>
       <text text-anchor="middle" x="1309.4875" y="-149.55" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔQ = 3</text>
     </g>
     <!-- ag_trueneg_s&#45;&gt;inf_y_ag_trueneg_s -->
@@ -473,7 +473,7 @@
       <polygon fill="#ffe4e1" stroke="#000000" points="1832.739,-1035 1724.739,-981 1832.739,-927 1940.739,-981 1832.739,-1035"/>
       <text text-anchor="middle" x="1832.739" y="-1002.75" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">Recipient</text>
       <text text-anchor="middle" x="1832.739" y="-985.35" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">cryptococcosis</text>
-      <text text-anchor="middle" x="1832.739" y="-967.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $110945</text>
+      <text text-anchor="middle" x="1832.739" y="-967.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $3000000</text>
       <text text-anchor="middle" x="1832.739" y="-950.55" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔQ = 3</text>
     </g>
     <!-- proph_yes_transplant_notcancelled_ag_truepos_s&#45;&gt;inf_y_proph_yes_transplant_notcancelled_ag_truepos_s -->
@@ -505,7 +505,7 @@
       <polygon fill="#ffe4e1" stroke="#000000" points="1832.739,-783 1724.739,-729 1832.739,-675 1940.739,-729 1832.739,-783"/>
       <text text-anchor="middle" x="1832.739" y="-750.75" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">Recipient</text>
       <text text-anchor="middle" x="1832.739" y="-733.35" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">cryptococcosis</text>
-      <text text-anchor="middle" x="1832.739" y="-715.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $110945</text>
+      <text text-anchor="middle" x="1832.739" y="-715.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $3000000</text>
       <text text-anchor="middle" x="1832.739" y="-698.55" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔQ = 3</text>
     </g>
     <!-- proph_no_transplant_notcancelled_ag_truepos_s&#45;&gt;inf_y_proph_no_transplant_notcancelled_ag_truepos_s -->
@@ -537,7 +537,7 @@
       <polygon fill="#ffe4e1" stroke="#000000" points="1832.739,-511 1724.739,-457 1832.739,-403 1940.739,-457 1832.739,-511"/>
       <text text-anchor="middle" x="1832.739" y="-478.75" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">Recipient</text>
       <text text-anchor="middle" x="1832.739" y="-461.35" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">cryptococcosis</text>
-      <text text-anchor="middle" x="1832.739" y="-443.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $110945</text>
+      <text text-anchor="middle" x="1832.739" y="-443.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $3000000</text>
       <text text-anchor="middle" x="1832.739" y="-426.55" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔQ = 3</text>
     </g>
     <!-- proph_yes_transplant_notcancelled_ag_falsepos_s&#45;&gt;inf_y_proph_yes_transplant_notcancelled_ag_falsepos_s -->
@@ -569,7 +569,7 @@
       <polygon fill="#ffe4e1" stroke="#000000" points="1832.739,-259 1724.739,-205 1832.739,-151 1940.739,-205 1832.739,-259"/>
       <text text-anchor="middle" x="1832.739" y="-226.75" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">Recipient</text>
       <text text-anchor="middle" x="1832.739" y="-209.35" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">cryptococcosis</text>
-      <text text-anchor="middle" x="1832.739" y="-191.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $110945</text>
+      <text text-anchor="middle" x="1832.739" y="-191.95" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔC = $3000000</text>
       <text text-anchor="middle" x="1832.739" y="-174.55" font-family="Helvetica,sans-Serif" font-size="14.50" fill="#000000">ΔQ = 3</text>
     </g>
     <!-- proph_no_transplant_notcancelled_ag_falsepos_s&#45;&gt;inf_y_proph_no_transplant_notcancelled_ag_falsepos_s -->
@@ -598,8 +598,8 @@
   </g>
   <text x="40" y="1100" fill="black" font-size="50" font-family="Helvetica">
     <tspan x="40" dy="0">Screening vs no screening:</tspan>
-    <tspan x="40" dy="65">• ΔC = 13.10</tspan>
-    <tspan x="40" dy="65">• ΔQ = -0.0001</tspan>
-    <tspan x="40" dy="65">• NMB = -19.45</tspan>
+    <tspan x="40" dy="65">• ΔC = -1 003.11</tspan>
+    <tspan x="40" dy="65">• ΔQ = -0.0387</tspan>
+    <tspan x="40" dy="65">• NMB = -2 863.30</tspan>
   </text>
 </svg>
