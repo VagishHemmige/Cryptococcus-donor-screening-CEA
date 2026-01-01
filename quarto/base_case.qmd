@@ -4,23 +4,27 @@ format: html
 editor: visual
 ---
 
-## Quarto
+## What is a decision tree?
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
-## Running Code
+## Model parameters
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+The parameters of the model are as below:
 
-```{r}
-1 + 1
-```
+<img src="../figures/parameter_table_QC.png"
+     style="display:block; margin-left:auto; margin-right:auto; max-width:150px; height:auto;">
 
-You can add options to executable code like this
+## Decision tree
 
-```{r}
-#| echo: false
-2 * 2
-```
+This model leads to the following decision tree:
+![CrAg decision tree](../figures/crag_tree_QC_annotated.svg)
 
-The `echo: false` option disables the printing of code (only output is displayed).
+## Path table
+The decision tree above yields the following path table:
+
+![CrAg tree table](../figures/output_table_QC.png)
+
+## Summary table
+The analysis above yields the following final summary table:
+![Summary table](../figures/summary_table_QC.png)
