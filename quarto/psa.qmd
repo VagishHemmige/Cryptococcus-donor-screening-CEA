@@ -97,6 +97,23 @@ The final table is below:
 
 ![](../figures/PSA_tables_costs.png)
 
+This yields the following parameter distributions:
+
+::: {layout-ncol=3}
+![](../figures/PSA_prior_cost_test.png)
+
+![](../figures/PSA_prior_cost_disease.png)
+
+![](../figures/PSA_prior_cost_fluconazole.png)
+
+![](../figures/PSA_prior_cost_cancellation.png)
+
+![](../figures/PSA_prior_cost_nocryptococcus.png)
+
+![](../figures/PSA_prior_cost_nonacceptance.png)
+
+:::
+
 ### QALYs
 
 We parameterize the QALY portion of the model also based on the [**gamma distribution**](https://en.wikipedia.org/wiki/Gamma_distribution).
