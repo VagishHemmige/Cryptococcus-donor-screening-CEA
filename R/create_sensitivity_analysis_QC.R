@@ -124,6 +124,9 @@ PSA_tables$probabilities<-PSA_parameters$probabilities%>%
 PSA_tables$probabilities
 PSA_tables$probabilities%>%
   gtsave("figures/PSA_tables_probabilities.png")
+if (file.exists("tables/PSA_tables_probabilities.docx")) {
+  unlink("tables/PSA_tables_probabilities.docx")
+}
 PSA_tables$probabilities%>%
   gtsave("tables/PSA_tables_probabilities.docx")
 
@@ -140,6 +143,9 @@ PSA_tables$costs<-PSA_parameters$costs%>%
 PSA_tables$costs
 PSA_tables$costs%>%
   gtsave("figures/PSA_tables_costs.png")
+if (file.exists("tables/PSA_tables_costs.docx")) {
+  unlink("tables/PSA_tables_costs.docx")
+}
 PSA_tables$costs%>%
   gtsave("tables/PSA_tables_costs.docx")
 
@@ -156,6 +162,9 @@ PSA_tables$qalys<-PSA_parameters$qalys%>%
 PSA_tables$qalys
 PSA_tables$qalys%>%
   gtsave("figures/PSA_tables_qalys.png")
+if (file.exists("tables/PSA_tables_qalys.docx")) {
+  unlink("tables/PSA_tables_qalys.docx")
+}
 PSA_tables$qalys%>%
   gtsave("tables/PSA_tables_qalys.docx")
 

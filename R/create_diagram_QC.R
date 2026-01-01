@@ -62,7 +62,9 @@ add_svg_annotation(
   svg_doc,
   c("Screening vs no screening:",
     glue("• ΔC = {scales::number(g_QC$cost_difference, accuracy = 0.01)}"),
-    glue("• ΔQ = {formatC(g_QC$qaly_difference, format = 'f', digits = 4)}")  )
+    glue("• ΔQ = {formatC(g_QC$qaly_difference, format = 'f', digits = 4)}"),
+    glue("• NMB = {scales::number(g_QC$nmb, accuracy = 0.01)}")
+    )
 )
 write_xml(svg_doc, "figures/crag_tree_QC_annotated.svg")
 
@@ -94,12 +96,15 @@ crag_table_QC<-result_tibble_QC%>%gt()%>%
 #Print the table
 crag_table_QC
 
-#Save table
+#Save table as figure and docx, after deleting prior docx
 crag_table_QC%>%
   gtsave("figures/output_table_QC.png",
          vwidth = 2000,   # try 1600–2400
          vheight = 1200,
          expand = 10)
+if (file.exists("tables/output_table_QC.docx")) {
+  unlink("tables/output_table_QC.docx")
+}
 crag_table_QC%>%
   gtsave("tables/output_table_QC.docx")
 
@@ -130,13 +135,17 @@ parameter_table_QC<-g_QC$parameter_tibble%>%
 parameter_table_QC
 parameter_table_QC%>%
   gtsave("figures/parameter_table_QC.png")
+if (file.exists("tables/parameter_table_QC.docx")) {
+  unlink("tables/parameter_table_QC.docx")
+}
 parameter_table_QC%>%
   gtsave("tables/parameter_table_QC.docx")
 
 #Let's also look at the summary statistics for this table
 summary_tibble_QC<-result_tibble_QC%>%
   group_by(strategy)%>%
-  summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected),total_expected_qaly=sum(qaly_expected))
+  summarize(total_probability=sum(probability), total_expected_cost=sum(cost_expected),total_expected_qaly=sum(qaly_expected))%>%
+  mutate(NMV=wtp*total_expected_qaly-total_expected_cost)
 
 summary_gt_QC<-summary_tibble_QC%>%
   gt()%>%
@@ -144,7 +153,8 @@ summary_gt_QC<-summary_tibble_QC%>%
     strategy = "Strategy",
     total_probability = "Total Probability",
     total_expected_cost = "Total Expected Cost",
-    total_expected_qaly = "Total Expected QALY"
+    total_expected_qaly = "Total Expected QALY",
+    NMV = "Net Monetary Value"
   )%>%
   tab_style(
     style = cell_text(align = "center"),
@@ -154,5 +164,8 @@ summary_gt_QC<-summary_tibble_QC%>%
 summary_gt_QC
 summary_gt_QC%>%
   gtsave("figures/summary_table_QC.png")
+if (file.exists("tables/summary_table_QC.docx")) {
+  unlink("tables/summary_table_QC.docx")
+}
 summary_gt_QC%>%
   gtsave("tables/summary_table_QC.docx")
