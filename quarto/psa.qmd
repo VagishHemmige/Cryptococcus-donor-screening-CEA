@@ -55,6 +55,23 @@ The final table is below
 
 ![](../figures/PSA_tables_probabilities.png)
 
+This yields the following parameter distributions:
+
+::: {layout-ncol=3}
+![](../figures/PSA_prior_p_usage.png)
+![](../figures/PSA_prior_p_donor_cryptococcus.png)
+![](../figures/PSA_prior_p_transmission.png)
+![](../figures/PSA_prior_spont_cryptococcus.png)
+![](../figures/PSA_prior_p_sensitivity.png)
+![](../figures/PSA_prior_p_specificity.png)
+![](../figures/PSA_prior_p_cancelled.png)
+![](../figures/PSA_prior_p_prophrate.png)
+![](../figures/PSA_prior_p_prophefficacy.png.png)
+
+
+:::
+
+
 ### Costs
 
 We parameterize the costs portion of the model based on the [**gamma distribution**](https://en.wikipedia.org/wiki/Gamma_distribution).
@@ -221,6 +238,6 @@ PSA_plot
 
 ## Cost effectiveness plane
 
-We create a cost effectiveness plane with 95% confidence ellipse marked in red below:
+We create a cost effectiveness plane with 95% confidence ellipse marked in red below by plotting the costs from each of the simulations on the y axis and the QALYs on the x axis:
 
 ![Cost-effectiveness plane showing results of the probabilistic sensitivity analysis. Each point represents one simulation; the red ellipse indicates the 95% confidence region.](../figures/PSA_plot.svg)
