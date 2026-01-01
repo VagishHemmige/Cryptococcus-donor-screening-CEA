@@ -59,14 +59,22 @@ This yields the following parameter distributions:
 
 ::: {layout-ncol=3}
 ![](../figures/PSA_prior_p_usage.png)
+
 ![](../figures/PSA_prior_p_donor_cryptococcus.png)
+
 ![](../figures/PSA_prior_p_transmission.png)
-![](../figures/PSA_prior_spont_cryptococcus.png)
+
+![](../figures/PSA_prior_p_spont_cryptococcus.png)
+
 ![](../figures/PSA_prior_p_sensitivity.png)
+
 ![](../figures/PSA_prior_p_specificity.png)
+
 ![](../figures/PSA_prior_p_cancelled.png)
+
 ![](../figures/PSA_prior_p_prophrate.png)
-![](../figures/PSA_prior_p_prophefficacy.png.png)
+
+![](../figures/PSA_prior_p_prophefficacy.png)
 
 
 :::
