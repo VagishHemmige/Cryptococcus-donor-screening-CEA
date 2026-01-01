@@ -1,7 +1,6 @@
 ---
 title: "Overview"
 format: html
-editor: visual
 ---
 
 ![CrAg decision tree](figures/crag_tree_QC_annotated.svg)
@@ -19,7 +18,6 @@ Because donor-derived cryptococcosis is rare, organ procurement organizations **
 
 However, [advances in antigen testing](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011140) and [increasing attention to donor-derived infections](https://onlinelibrary.wiley.com/doi/abs/10.1111/ctr.13547) have renewed debate about whether **systematic donor screening** could prevent severe outcomes at an acceptable cost.
 
-------------------------------------------------------------------------
 
 ## Why screening is controversial
 
@@ -32,7 +30,6 @@ Routine cryptococcal screening of donors raises several competing concerns:
 
 Because these tradeoffs involve **rare events with high impact**, intuition alone is often insufficient to guide policy.
 
-------------------------------------------------------------------------
 
 ## What this analysis does
 
@@ -42,7 +39,6 @@ This project uses [**decision-analytic modeling**](https://pmc.ncbi.nlm.nih.gov/
 
 Rather than focusing on individual cases, the model estimates **average outcomes across a large hypothetical cohort of transplants**, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs.
 
-------------------------------------------------------------------------
 
 ## Strategies evaluated
 
@@ -51,6 +47,7 @@ The analysis compares:
 -   no routine screening *vs.*
 -   donor screening with cryptococcal antigen testing, combined with recipient prophylaxis,
 
+
 ## What “cost-effectiveness” means here
 
 Cost-effectiveness analysis estimates:
@@ -58,7 +55,11 @@ Cost-effectiveness analysis estimates:
 -   how much additional **cost** is associated with a strategy, and
 -   how much additional health benefit it produces in [**quality-adjusted life years**](https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219).
 
-------------------------------------------------------------------------
+
+## Abstracts/manuscripts
+
+This analysis is based on a prior abstract ![presented at American Transplant Congress](https://atcmeetingabstracts.com/abstract/preventing-donor-derived-cryptococcal-infections-should-we-screen-potential-organ-donors-with-a-serum-cryptococcal-antigen-a-cost-analysis/?utm_) in 2019.  It has yet to be published to date.
+
 
 ## How to navigate the site
 

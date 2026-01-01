@@ -166,6 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-this-analysis-does" id="toc-what-this-analysis-does" class="nav-link" data-scroll-target="#what-this-analysis-does">What this analysis does</a></li>
   <li><a href="#strategies-evaluated" id="toc-strategies-evaluated" class="nav-link" data-scroll-target="#strategies-evaluated">Strategies evaluated</a></li>
   <li><a href="#what-cost-effectiveness-means-here" id="toc-what-cost-effectiveness-means-here" class="nav-link" data-scroll-target="#what-cost-effectiveness-means-here">What “cost-effectiveness” means here</a></li>
+  <li><a href="#abstractsmanuscripts" id="toc-abstractsmanuscripts" class="nav-link" data-scroll-target="#abstractsmanuscripts">Abstracts/manuscripts</a></li>
   <li><a href="#how-to-navigate-the-site" id="toc-how-to-navigate-the-site" class="nav-link" data-scroll-target="#how-to-navigate-the-site">How to navigate the site</a></li>
   </ul>
 </nav>
@@ -209,7 +210,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>post-transplant vigilance.</li>
 </ul>
 <p>However, <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011140">advances in antigen testing</a> and <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/ctr.13547">increasing attention to donor-derived infections</a> have renewed debate about whether <strong>systematic donor screening</strong> could prevent severe outcomes at an acceptable cost.</p>
-<hr>
 </section>
 <section id="why-screening-is-controversial" class="level2">
 <h2 class="anchored" data-anchor-id="why-screening-is-controversial">Why screening is controversial</h2>
@@ -221,7 +221,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Severe consequences when missed</strong>: When donor-derived infection does occur, outcomes can be devastating.</li>
 </ul>
 <p>Because these tradeoffs involve <strong>rare events with high impact</strong>, intuition alone is often insufficient to guide policy.</p>
-<hr>
 </section>
 <section id="what-this-analysis-does" class="level2">
 <h2 class="anchored" data-anchor-id="what-this-analysis-does">What this analysis does</h2>
@@ -230,7 +229,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>If we adopt a particular donor screening or management strategy, what are the expected clinical outcomes and costs across many transplants?</em></p>
 </blockquote>
 <p>Rather than focusing on individual cases, the model estimates <strong>average outcomes across a large hypothetical cohort of transplants</strong>, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs.</p>
-<hr>
 </section>
 <section id="strategies-evaluated" class="level2">
 <h2 class="anchored" data-anchor-id="strategies-evaluated">Strategies evaluated</h2>
@@ -247,7 +245,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>how much additional <strong>cost</strong> is associated with a strategy, and</li>
 <li>how much additional health benefit it produces in <a href="https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219"><strong>quality-adjusted life years</strong></a>.</li>
 </ul>
-<hr>
+</section>
+<section id="abstractsmanuscripts" class="level2">
+<h2 class="anchored" data-anchor-id="abstractsmanuscripts">Abstracts/manuscripts</h2>
+<p>This analysis is based on a prior abstract <img src="https://atcmeetingabstracts.com/abstract/preventing-donor-derived-cryptococcal-infections-should-we-screen-potential-organ-donors-with-a-serum-cryptococcal-antigen-a-cost-analysis/?utm_.png" class="img-fluid" alt="presented at American Transplant Congress"> in 2019. It has yet to be published to date.</p>
 </section>
 <section id="how-to-navigate-the-site" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-navigate-the-site">How to navigate the site</h2>
@@ -740,72 +741,73 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Overview"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="al">![CrAg decision tree](figures/crag_tree_QC_annotated.svg)</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clinical background</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Cryptococcosis in kidney transplant recipients</span><span class="co">](https://academic.oup.com/ofid/article/12/5/ofaf263/8121609)</span> is uncommon but potentially catastrophic. When <span class="co">[</span><span class="ot">transmission occurs through the donor</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC8096655/)</span>, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>Because donor-derived cryptococcosis is rare, organ procurement organizations **do not routinely screen donors for cryptococcus**. Instead, current practice typically relies on:</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>clinical donor history,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>cause of death,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>gross or histopathologic findings, and</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>post-transplant vigilance.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>However, <span class="co">[</span><span class="ot">advances in antigen testing</span><span class="co">](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011140)</span> and <span class="co">[</span><span class="ot">increasing attention to donor-derived infections</span><span class="co">](https://onlinelibrary.wiley.com/doi/abs/10.1111/ctr.13547)</span> have renewed debate about whether **systematic donor screening** could prevent severe outcomes at an acceptable cost.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="al">![CrAg decision tree](figures/crag_tree_QC_annotated.svg)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clinical background</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Cryptococcosis in kidney transplant recipients</span><span class="co">](https://academic.oup.com/ofid/article/12/5/ofaf263/8121609)</span> is uncommon but potentially catastrophic. When <span class="co">[</span><span class="ot">transmission occurs through the donor</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC8096655/)</span>, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Because donor-derived cryptococcosis is rare, organ procurement organizations **do not routinely screen donors for cryptococcus**. Instead, current practice typically relies on:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>clinical donor history,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>cause of death,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>gross or histopathologic findings, and</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>post-transplant vigilance.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>However, <span class="co">[</span><span class="ot">advances in antigen testing</span><span class="co">](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011140)</span> and <span class="co">[</span><span class="ot">increasing attention to donor-derived infections</span><span class="co">](https://onlinelibrary.wiley.com/doi/abs/10.1111/ctr.13547)</span> have renewed debate about whether **systematic donor screening** could prevent severe outcomes at an acceptable cost.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why screening is controversial</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why screening is controversial</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Routine cryptococcal screening of donors raises several competing concerns:</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Routine cryptococcal screening of donors raises several competing concerns:</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Low incidence**: Donor-derived cryptococcosis is rare, so most screened donors would test negative.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**False positives**: Even highly specific tests can generate false positives when prevalence is very low, potentially leading to unnecessary organ discard or recipient prophylaxis.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Downstream consequences**: A positive donor test may trigger recipient antifungal treatment, delayed transplant, or organ non-use, each with its own harms and costs.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Severe consequences when missed**: When donor-derived infection does occur, outcomes can be devastating.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Low incidence**: Donor-derived cryptococcosis is rare, so most screened donors would test negative.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**False positives**: Even highly specific tests can generate false positives when prevalence is very low, potentially leading to unnecessary organ discard or recipient prophylaxis.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Downstream consequences**: A positive donor test may trigger recipient antifungal treatment, delayed transplant, or organ non-use, each with its own harms and costs.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Severe consequences when missed**: When donor-derived infection does occur, outcomes can be devastating.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Because these tradeoffs involve **rare events with high impact**, intuition alone is often insufficient to guide policy.</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Because these tradeoffs involve **rare events with high impact**, intuition alone is often insufficient to guide policy.</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## What this analysis does</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>This project uses <span class="co">[</span><span class="ot">**decision-analytic modeling**</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC3746772/)</span> to evaluate different strategies for managing cryptococcus risk in organ donors. In practical terms, the analysis asks:</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; *If we adopt a particular donor screening or management strategy, what are the expected clinical outcomes and costs across many transplants?*</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## What this analysis does</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>This project uses <span class="co">[</span><span class="ot">**decision-analytic modeling**</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC3746772/)</span> to evaluate different strategies for managing cryptococcus risk in organ donors. In practical terms, the analysis asks:</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; *If we adopt a particular donor screening or management strategy, what are the expected clinical outcomes and costs across many transplants?*</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Rather than focusing on individual cases, the model estimates **average outcomes across a large hypothetical cohort of transplants**, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Rather than focusing on individual cases, the model estimates **average outcomes across a large hypothetical cohort of transplants**, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs.</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Strategies evaluated</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>The analysis compares:</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Strategies evaluated</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>The analysis compares:</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>no routine screening *vs.*</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>donor screening with cryptococcal antigen testing, combined with recipient prophylaxis,</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>no routine screening *vs.*</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>donor screening with cryptococcal antigen testing, combined with recipient prophylaxis,</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## What “cost-effectiveness” means here</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Cost-effectiveness analysis estimates:</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## What “cost-effectiveness” means here</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>Cost-effectiveness analysis estimates:</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional **cost** is associated with a strategy, and</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional health benefit it produces in <span class="co">[</span><span class="ot">**quality-adjusted life years**</span><span class="co">](https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219)</span>.</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional **cost** is associated with a strategy, and</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional health benefit it produces in <span class="co">[</span><span class="ot">**quality-adjusted life years**</span><span class="co">](https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219)</span>.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abstracts/manuscripts</span></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>This analysis is based on a prior abstract <span class="al">![presented at American Transplant Congress](https://atcmeetingabstracts.com/abstract/preventing-donor-derived-cryptococcal-infections-should-we-screen-potential-organ-donors-with-a-serum-cryptococcal-antigen-a-cost-analysis/?utm_)</span> in 2019.  It has yet to be published to date.</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## How to navigate the site</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Base case analysis**</span><span class="co">](quarto/base_case.qmd)</span>: primary results and interpretation\</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Additional tree analyses**</span><span class="co">](quarto/additional_trees.qmd)</span>: alternative clinical assumptions\</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**One-way sensitivity analysis**</span><span class="co">](quarto/tornado.qmd)</span>: key drivers of results\</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Probabilistic sensitivity analyses**</span><span class="co">](quarto/psa.qmd)</span>: uncertainty and robustness\</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**About**</span><span class="co">](quarto/about.qmd)</span>: methods, assumptions, and disclosures</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## How to navigate the site</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Base case analysis**</span><span class="co">](quarto/base_case.qmd)</span>: primary results and interpretation\</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Additional tree analyses**</span><span class="co">](quarto/additional_trees.qmd)</span>: alternative clinical assumptions\</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**One-way sensitivity analysis**</span><span class="co">](quarto/tornado.qmd)</span>: key drivers of results\</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Probabilistic sensitivity analyses**</span><span class="co">](quarto/psa.qmd)</span>: uncertainty and robustness\</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**About**</span><span class="co">](quarto/about.qmd)</span>: methods, assumptions, and disclosures</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
