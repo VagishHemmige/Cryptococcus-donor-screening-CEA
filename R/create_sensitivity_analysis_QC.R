@@ -475,7 +475,8 @@ PSA_simulation_unnested<-PSA_simulation%>%
          qaly_change=total_expected_qaly_s-total_expected_qaly_ns)%>%
   mutate(icer=cost_change/qaly_change)%>%
   mutate(
-    nmb = wtp * qaly_change - cost_change
+    nmb = wtp * qaly_change - cost_change,
+    sim_number=row_number()
   )
 
 #Calculate the 95% ellipse
@@ -522,6 +523,79 @@ PSA_plot<-PSA_simulation_unnested%>%
   )
 ggsave("figures/PSA_plot.svg")
 PSA_plot
+
+
+
+#Create a cost-effectiveness acceptability curve
+#Create a data set that depicts the fraction of simulations that are cost-effective
+lambda_grid <- seq(0, 200000, by = 1000)
+
+ceac_df <- expand.grid(
+  sim_number = PSA_simulation_unnested$sim_number,
+  lambda = lambda_grid
+) %>%
+  left_join(PSA_simulation_unnested, by = "sim_number") %>%
+  mutate(
+    nmb = lambda * qaly_change - cost_change
+  ) %>%
+  group_by(lambda) %>%
+  summarise(
+    p_ce = mean(nmb > 0),
+    .groups = "drop"
+  )
+
+#Plot the curve
+ggplot(ceac_df, aes(lambda, p_ce)) +
+  geom_line(linewidth = 1) +
+  scale_y_continuous(limits = c(0, 1)) +
+  labs(
+    x = "Willingness-to-pay per QALY",
+    y = "Probability cost-effective",
+    title = "Cost effectiveness acceptability curve"
+  ) +
+  theme_classic()+
+  theme(
+    plot.title = element_text(hjust = 0.5)
+  )
+ggsave("figures/PSA_CEAC_plot.svg")
+
+#Calculate EVPI
+evpi_at_wtp<-with(PSA_simulation_unnested, {
+  mean(pmax(nmb, 0)) - pmax(mean(nmb), 0)
+})
+
+#We summarize the PSA results in a data frame.
+#Note, since the simulation is non-linear, the mean of the simulations wouldn't be expected to exactly be the base case results
+PSA_summary_df <- PSA_simulation_unnested %>%
+  summarise(
+    mean_delta_cost = mean(cost_change),
+    mean_delta_qaly = mean(qaly_change),
+    mean_nmb        = mean(nmb),
+    p_ce            = mean(nmb > 0)
+  )%>%
+  mutate(evpi=evpi_at_wtp)
+
+PSA_summary_gt<-PSA_summary_df%>%
+  gt()%>%
+  cols_label(
+    mean_delta_cost = "Mean cost change",
+    mean_delta_qaly = "Mean QALY change",
+    mean_nmb = "Mean NMB",
+    p_ce = "Probability of cost effectiveness",
+    evpi = "Estimated value of partial information"
+  )%>%
+  tab_style(
+    style = cell_text(align = "center"),
+    locations = cells_column_labels(everything())
+  )
+PSA_summary_gt
+PSA_summary_gt%>%
+  gtsave("figures/PSA_summary_table.png")
+if (file.exists("tables/PSA_summary_table.docx")) {
+  unlink("tables/PSA_summary_table.docx")
+}
+summary_gt_QC%>%
+  gtsave("tables/PSA_summary_table.docx")
 
 #Now we use the BCEA package in R for further analysis of the PCA data.  We start by creating the matrices needed for the analysis and then creating the BCEA object
 PSA_cost_matrix<-PSA_simulation_unnested%>%
