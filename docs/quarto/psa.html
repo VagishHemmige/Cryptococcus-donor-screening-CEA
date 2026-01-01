@@ -199,6 +199,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#source-code-1" id="toc-source-code-1" class="nav-link" data-scroll-target="#source-code-1">Source code</a></li>
   <li><a href="#cost-effectiveness-plane" id="toc-cost-effectiveness-plane" class="nav-link" data-scroll-target="#cost-effectiveness-plane">Cost effectiveness plane</a></li>
+  <li><a href="#cost-effectiveness-acceptability-curve" id="toc-cost-effectiveness-acceptability-curve" class="nav-link" data-scroll-target="#cost-effectiveness-acceptability-curve">Cost effectiveness acceptability curve</a></li>
+  <li><a href="#summary-table" id="toc-summary-table" class="nav-link" data-scroll-target="#summary-table">Summary table</a></li>
   </ul>
 </nav>
     </div>
@@ -509,6 +511,19 @@ Source code
 <figcaption>Cost-effectiveness plane showing results of the probabilistic sensitivity analysis. Each point represents one simulation; the red ellipse indicates the 95% confidence region.</figcaption>
 </figure>
 </div>
+</section>
+<section id="cost-effectiveness-acceptability-curve" class="level2">
+<h2 class="anchored" data-anchor-id="cost-effectiveness-acceptability-curve">Cost effectiveness acceptability curve</h2>
+<p>A cost effectiveness acceptability curve estimates the probability of screening being cost-effective as a function of the willingness-to-pay per QALY:</p>
+<p><img src="../figures/PSA_CEAC_plot.svg" class="img-fluid"></p>
+<p>In this case, we see that the probability that screening is cost effective is under 10% at most reasonable thresholds of willingness-to-pay.</p>
+</section>
+<section id="summary-table" class="level2">
+<h2 class="anchored" data-anchor-id="summary-table">Summary table</h2>
+<p>We summarize our findings with the following summary table:</p>
+<p><img src="../figures/PSA_summary_table.png" class="img-fluid"></p>
+<p>It is not unusual that the mean values from the PSA do not exactly correlated with the base-case results, since the outputs of the model are non-linear in their parameters.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Expected_value_of_perfect_information">estimated value of perfect information (EVPI)</a> estimates the additional financial gain per donor if all uncertainty in the parameters within the defined confidence intervals were eliminated. In this case, its low value suggests that further information would not meaningfully change the estimated NMB from screening.</p>
 
 
 <!-- -->
@@ -1256,11 +1271,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cost effectiveness plane</span></span>
-<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>We create a cost effectiveness plane with 95% confidence ellipse marked in red below by plotting the costs from each of the simulations on the y axis and the QALYs on the x axis:</span>
-<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a><span class="al">![Cost-effectiveness plane showing results of the probabilistic sensitivity analysis. Each point represents one simulation; the red ellipse indicates the 95% confidence region.](../figures/PSA_plot.svg)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cost effectiveness plane</span></span>
+<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>We create a cost effectiveness plane with 95% confidence ellipse marked in red below by plotting the costs from each of the simulations on the y axis and the QALYs on the x axis:</span>
+<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a><span class="al">![Cost-effectiveness plane showing results of the probabilistic sensitivity analysis. Each point represents one simulation; the red ellipse indicates the 95% confidence region.](../figures/PSA_plot.svg)</span></span>
+<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cost effectiveness acceptability curve</span></span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>A cost effectiveness acceptability curve estimates the probability of screening being cost-effective as a function of the willingness-to-pay per QALY:</span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a><span class="al">![](../figures/PSA_CEAC_plot.svg)</span></span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a>In this case, we see that the probability that screening is cost effective is under 10% at most reasonable thresholds of willingness-to-pay.</span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary table</span></span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>We summarize our findings with the following summary table:</span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a><span class="al">![](../figures/PSA_summary_table.png)</span></span>
+<span id="cb2-288"><a href="#cb2-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-289"><a href="#cb2-289" aria-hidden="true" tabindex="-1"></a>It is not unusual that the mean values from the PSA do not exactly correlated with the base-case results, since the outputs of the model are non-linear in their parameters.  </span>
+<span id="cb2-290"><a href="#cb2-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-291"><a href="#cb2-291" aria-hidden="true" tabindex="-1"></a>The <span class="co">[</span><span class="ot">estimated value of perfect information (EVPI)</span><span class="co">](https://en.wikipedia.org/wiki/Expected_value_of_perfect_information)</span> estimates the additional financial gain per donor if all uncertainty in the parameters within the defined confidence intervals were eliminated.  In this case, its low value suggests that further information would not meaningfully change the estimated NMB from screening.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

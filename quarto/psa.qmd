@@ -264,8 +264,28 @@ PSA_plot
 
 ```
 
+
 ## Cost effectiveness plane
 
 We create a cost effectiveness plane with 95% confidence ellipse marked in red below by plotting the costs from each of the simulations on the y axis and the QALYs on the x axis:
 
 ![Cost-effectiveness plane showing results of the probabilistic sensitivity analysis. Each point represents one simulation; the red ellipse indicates the 95% confidence region.](../figures/PSA_plot.svg)
+
+## Cost effectiveness acceptability curve
+
+A cost effectiveness acceptability curve estimates the probability of screening being cost-effective as a function of the willingness-to-pay per QALY:
+
+![](../figures/PSA_CEAC_plot.svg)
+
+In this case, we see that the probability that screening is cost effective is under 10% at most reasonable thresholds of willingness-to-pay.
+
+
+## Summary table
+
+We summarize our findings with the following summary table:
+
+![](../figures/PSA_summary_table.png)
+
+It is not unusual that the mean values from the PSA do not exactly correlated with the base-case results, since the outputs of the model are non-linear in their parameters.  
+
+The [estimated value of perfect information (EVPI)](https://en.wikipedia.org/wiki/Expected_value_of_perfect_information) estimates the additional financial gain per donor if all uncertainty in the parameters within the defined confidence intervals were eliminated.  In this case, its low value suggests that further information would not meaningfully change the estimated NMB from screening.
