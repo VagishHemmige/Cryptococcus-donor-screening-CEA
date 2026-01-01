@@ -41,7 +41,7 @@ and computes expected costs and QALYs.
 
 ## Parameters of the model
 
-###Probabilities
+### Probabilities
 
 ![](../figures/PSA_tables_probabilities.png)
 
