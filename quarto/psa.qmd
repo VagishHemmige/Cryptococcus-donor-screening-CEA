@@ -1,7 +1,6 @@
 ---
 title: "Probabilistic sensitivity analyses"
 format: html
-editor: visual
 ---
 
 ```{r setup, include=FALSE}
@@ -10,12 +9,11 @@ source(here::here("R", "setup.R"))
 
 ```
 
-
 ## What is a probabilistic sensitivity analysis?
 
 The decision tree analysis in the [base case analysis](/quarto/base_case.qmd) assumes that the parameters of the model are known with certainty.
 
-In reality, the true values of these parameters are unknown.  We are either estimating them from prior literature or assuming values based on expert opinion.
+In reality, the true values of these parameters are unknown. We are either estimating them from prior literature or assuming values based on expert opinion.
 
 A [**probabilistic sensitivity analysis (PSA)**](https://journals.sagepub.com/doi/10.1177/0962280211419832) is a way of explicitly ascertaining the effects of that uncertainty on a cost-effectiveness model.
 
@@ -25,18 +23,18 @@ The cost effectiveness model is then run many times. In each run, the model rand
 
 For the purposes of this analysis, we have run the analysis `r scales::comma(nsim)` times.
 
-We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**.  From this, we derive a **95% confidence ellipse**^[This is technically a credible ellipse, since the analysis is Bayesian.] representing the joint uncertainty of the true cost and QALY change from screening.
+We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**. From this, we derive a **95% confidence ellipse**[^1] representing the joint uncertainty of the true cost and QALY change from screening.
+
+[^1]: This is technically a credible ellipse, since the analysis is Bayesian.
 
 ::: callout-note
 ### Source code
 
-
 The probabilistic sensitivity analysis shown on this page is implemented in:
 
-- [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R)
+-   [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R)
 
-This script defines parameter distributions, runs Monte Carlo simulations,
-and computes expected costs and QALYs.
+This script defines parameter distributions, runs Monte Carlo simulations, and computes expected costs and QALYs.
 :::
 
 ## Parameters of the model
@@ -47,7 +45,7 @@ We parameterize the probability portion of the model based on the [**beta distri
 
 The beta distribution is a way of representing **uncertainty around a probability**—that is, a number that must fall between **0 and 1**, such as a risk, sensitivity, specificity, or event rate.
 
-For a beta distribution with parameters $\alpha$ and $\beta$, the mean is given by $\alpha / (\alpha + \beta)$.  The confidence interval associated with these parameters can also be derived from these parameters.
+For a beta distribution with parameters $\alpha$ and $\beta$, the mean is given by $\alpha / (\alpha + \beta)$. The confidence interval associated with these parameters can also be derived from these parameters.
 
 We chose values of $\alpha$ and $\beta$ which yield the mean from the base case analysis and confidence intervals consistent with prior literature.
 
@@ -57,7 +55,7 @@ The final table is below
 
 This yields the following parameter distributions:
 
-::: {layout-ncol=3}
+::: {layout-ncol="3"}
 ![](../figures/PSA_prior_p_usage.png)
 
 ![](../figures/PSA_prior_p_donor_cryptococcus.png)
@@ -75,10 +73,7 @@ This yields the following parameter distributions:
 ![](../figures/PSA_prior_p_prophrate.png)
 
 ![](../figures/PSA_prior_p_prophefficacy.png)
-
-
 :::
-
 
 ### Costs
 
@@ -86,12 +81,11 @@ We parameterize the costs portion of the model based on the [**gamma distributio
 
 The gamma distribution has a long right tail, and is therefore particularly suited for cost data, which are skewed.
 
-For a gamma distribution with parameters $k$ and $\theta$, the mean is given by $k\theta$.  The confidence interval associated with these parameters can also be derived from these parameters.
+For a gamma distribution with parameters $k$ and $\theta$, the mean is given by $k\theta$. The confidence interval associated with these parameters can also be derived from these parameters.
 
 We chose values of $k$ and $\theta$ which yield the mean from the base case analysis and confidence intervals consistent with prior literature.
 
 Of note, since all cost data are relative to a baseline where there is no transplant performed, `cost_cancellation` and `cost_nonacceptance` are parameterized, not as functions of the gamma distribution, but as fixed constants set at 0.
-
 
 The final table is below:
 
@@ -99,7 +93,7 @@ The final table is below:
 
 This yields the following parameter distributions:
 
-::: {layout-ncol=3}
+::: {layout-ncol="3"}
 ![](../figures/PSA_prior_cost_test.png)
 
 ![](../figures/PSA_prior_cost_disease.png)
@@ -111,7 +105,6 @@ This yields the following parameter distributions:
 ![](../figures/PSA_prior_cost_nocryptococcus.png)
 
 ![](../figures/PSA_prior_cost_nonacceptance.png)
-
 :::
 
 ### QALYs
@@ -128,19 +121,17 @@ The final table is below:
 
 This yields the following parameter distributions:
 
-::: {layout-ncol=3}
-
+::: {layout-ncol="3"}
 ![](../figures/PSA_prior_q_nocryptococcus.png)
 
 ![](../figures/PSA_prior_q_noacceptance.png)
 
 ![](../figures/PSA_prior_q_loss_cryptococcus.png)
-
 :::
 
 ## Source code
 
-Click below to open up the source code from [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R) that is used to perform this analysis.  Of note, the analysis assumes the existence of objects created in the [**One-way sensitivity analysis**](tornado.qmd) file.
+Click below to open up the source code from [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R) that is used to perform this analysis. Of note, the analysis assumes the existence of objects created in the [**One-way sensitivity analysis**](tornado.qmd) file.
 
 ```{r psa_code, eval=FALSE}
 
