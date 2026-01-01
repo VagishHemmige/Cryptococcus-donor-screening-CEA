@@ -1,42 +1,40 @@
 ---
 title: "One-way sensitivity analyses (tornado diagrams)"
 format: html
-editor: visual
 ---
 
 ## What is a tornado diagram?
 
-A **tornado diagram** is a graphical summary of a **one-way sensitivity analysis**, which examines how sensitive the results of a cost-effectiveness model are to changes in individual input parameters.
+A **tornado diagram** is a graphical summary of a [**one-way sensitivity analysis**](https://clas.ucdenver.edu/marcelo-perraillon/sites/default/files/attached-files/lecture_13_uncertainty.pdf), which examines how sensitive the results of a cost-effectiveness model are to changes in individual input parameters.
 
 In a one-way sensitivity analysis, **one parameter is varied at a time** across a plausible range (for example, its 95% confidence interval), while **all other parameters are held constant at their base-case values**. The effect of this variation on the outcome of interest—such as costs or QALYs, is then calculated.
 
 Each horizontal bar in a tornado diagram represents a **single model parameter**. The length of the bar shows how much the outcome changes when that parameter is varied across its specified range.
 
-- **Longer bars** indicate parameters that have a **greater influence** on the model results  
-- **Shorter bars** indicate parameters with relatively little impact  
-- Parameters are ordered from top to bottom by their impact, creating the characteristic “tornado” shape  
+-   **Longer bars** indicate parameters that have a **greater influence** on the model results\
+-   **Shorter bars** indicate parameters with relatively little impact\
+-   Parameters are ordered from top to bottom by their impact, creating the characteristic “tornado” shape
 
 The center line represents the **base-case estimate**. The left and right ends of each bar correspond to the **low** and **high** values of the parameter, respectively.
 
 ::: callout-note
 ### Source code
 
-
 The one-way sensitivity analysis shown on this page is implemented in:
 
-- [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R)
+-   [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R)
 
 This script defines parameter distributions and computes expected costs and QALYs while varying one parameter at a time.
 :::
 
-
 ## Parameters of the model
 
-The parameters are the same as for the [probabilistic sensitivity analysis](PSA.html#parameters-of-the-model).  We utilize the means, and vary the parameters according to the 95% intervals in the appropriate tables.
+The parameters are the same as for the [probabilistic sensitivity analysis](PSA.html#parameters-of-the-model). We utilize the means, and vary the parameters according to the 95% intervals in the appropriate tables.
 
 ## Tornado diagrams
 
 ### Tornado diagram for costs
+
 ![](../figures/tornado_cost.svg)
 
 We see that costs are most sensitive to assumptions regarding the cost of an episode of cryptococcal disease post-transplant, `cost_disease`, and the probability that a donor has cryptococcus, `p_donor_cryptococcus`.
@@ -44,11 +42,12 @@ We see that costs are most sensitive to assumptions regarding the cost of an epi
 The expected cost savings from screening, as predicted, increase (become more negative) if those parameters lie at the higher end of the 95% interval.
 
 ### Tornado diagram for QALYs
+
 ![](../figures/tornado_qaly.svg)
 
-We see that QALYs are most sensitive to assumptions regarding the specificity of cryptococcal screening, `p_specificity`, due to the base case assuming that most donors with cryptococcus will lead to transplant cancellation.  
+We see that QALYs are most sensitive to assumptions regarding the specificity of cryptococcal screening, `p_specificity`, due to the base case assuming that most donors with cryptococcus will lead to transplant cancellation.
 
-As predicted, higher values of specificity will lead to less QALY loss from screening.  Probability of donor cryptococcus, `p_donor_cryptococcus` has surprisingly little effect on QALYs.
+As predicted, higher values of specificity will lead to less QALY loss from screening. Probability of donor cryptococcus, `p_donor_cryptococcus` has surprisingly little effect on QALYs.
 
 ## Source code
 
@@ -438,4 +437,3 @@ tornado_qaly_df%>%
 ggsave("figures/tornado_qaly.svg")
 
 ```
-
