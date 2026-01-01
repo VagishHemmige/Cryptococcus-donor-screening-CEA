@@ -33,13 +33,15 @@ We can plot the costs and QALYs from each simulation on a two-dimensional plot, 
 
 The probabilistic sensitivity analysis shown on this page is implemented in:
 
-- [`R/create_sensitivity_analysis_QC.R.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R)
+- [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R)
 
 This script defines parameter distributions, runs Monte Carlo simulations,
 and computes expected costs and QALYs.
 :::
 
 ## Parameters of the model
+
+###Probabilities
 
 ![](../figures/PSA_tables_probabilities.png)
 
