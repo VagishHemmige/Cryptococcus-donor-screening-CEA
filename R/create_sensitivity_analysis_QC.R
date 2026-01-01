@@ -76,7 +76,9 @@ for (i in 1:nrow(PSA_parameters$probabilities))
 #Loop to save parameter distributions for costs
 for (i in 1:nrow(PSA_parameters$costs))
 {
-  temp_plot<-ggplot(data.frame(x = c(PSA_parameters$costs[[i,6]]-1, 1+PSA_parameters$costs[[i,7]])), aes(x)) +
+  #Plot is gamma distribution if shape parameter is defined, a vertical line otherwise
+  if (!is.na(PSA_parameters$costs[[i,3]])){
+    temp_plot<-ggplot(data.frame(x = c(PSA_parameters$costs[[i,6]]-1, 1+PSA_parameters$costs[[i,7]])), aes(x)) +
     stat_function(fun = dgamma, args = list(shape = PSA_parameters$costs[[i,3]], scale = PSA_parameters$costs[[i,4]]))+
     labs(
       title = glue("Prior distribution for **{PSA_parameters$costs[[i,1]]}**"),
@@ -84,7 +86,21 @@ for (i in 1:nrow(PSA_parameters$costs))
       y = "Probability density",
     )+
     theme_classic()+
-    theme(plot.title = element_markdown())
+    theme(plot.title = element_markdown())}
+  if (is.na(PSA_parameters$costs[[i,3]])) {
+    temp_plot<-ggplot()+
+      geom_vline(xintercept = PSA_parameters$costs[[i,2]] )+
+      scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
+      labs(
+        title = glue("Prior distribution for **{PSA_parameters$costs[[i,1]]}**"),
+        x = "Cost",
+        y = "Probability density",
+      )+
+      theme_classic()+
+      theme(plot.title = element_markdown())  
+    
+  }
+  
   ggsave(
     glue("figures/PSA_prior_{PSA_parameters$costs[[i,1]]}.png"),
     plot = temp_plot,
@@ -94,6 +110,7 @@ for (i in 1:nrow(PSA_parameters$costs))
 #Loop to save parameter distributions for QALYs
 for (i in 1:nrow(PSA_parameters$qalys))
 {
+  if (!is.na(PSA_parameters$qalys[[i,3]])){
   temp_plot<-ggplot(data.frame(x = c(PSA_parameters$qalys[[i,6]]-1, 1+PSA_parameters$qalys[[i,7]])), aes(x)) +
     stat_function(fun = dgamma, args = list(shape = PSA_parameters$qalys[[i,3]], scale = PSA_parameters$qalys[[i,4]]))+
     labs(
@@ -103,6 +120,19 @@ for (i in 1:nrow(PSA_parameters$qalys))
     )+
     theme_classic()+
     theme(plot.title = element_markdown())
+  }
+  if (!is.na(PSA_parameters$qalys[[i,3]])){
+    temp_plot<-ggplot()+
+      geom_vline(xintercept = PSA_parameters$qalys[[i,2]] )+
+      scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
+      labs(
+        title = glue("Prior distribution for **{PSA_parameters$qalys[[i,1]]}**"),
+        x = "Cost",
+        y = "Probability density",
+      )+
+      theme_classic()+
+      theme(plot.title = element_markdown())  
+  }
   ggsave(
     glue("figures/PSA_prior_{PSA_parameters$qalys[[i,1]]}.png"),
     plot = temp_plot,
