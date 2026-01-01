@@ -3,6 +3,49 @@
 #First, we source the helper functions for the analysis
 source("R/functions.R")
 
+#Create the plot that shows how the parameters appear in the diagram:
+plot_parameters_in_tree<-plot_tree_diagram_QC(p_usage="p_usage", 
+                     p_donor_cryptococcus="p_donor_cryptococcus", 
+                     p_transmission="p_transmission", 
+                     p_spont_cryptococcus="p_spont_cryptococcus", 
+                     p_sensitivity="p_sensitivity",
+                     p_specificity="p_specificity", 
+                     p_cancelled="p_cancelled", 
+                     p_prophrate="p_prophrate", 
+                     p_prophefficacy="p_prophefficacy",
+                     number_donors="number_donors",
+                     cost_test="cost_test",
+                     cost_disease="cost_disease",
+                     cost_fluconazole="cost_fluconazole",
+                     cost_cancellation="cost_cancellation",
+                     cost_nocryptococcus="cost_nocryptococcus",
+                     cost_nonacceptance="cost_nonacceptance",
+                     q_nocryptococcus='q_nocryptococcus',
+                     q_noacceptance="q_noacceptance",
+                     q_loss_cryptococcus="q_loss_cryptococcus",
+                     circle_diameter=1.4,
+                     box_width=1.9,
+                     box_height=1,
+                     diamond_width=7,
+                     diamond_height=2.5,
+                     p_nonusage="1-p_usage",
+                     p_donor_nocryptococcus="1-p_donor_cryptococcus",
+                     p_nontransmission="1-p_transmission",
+                     p_nospont_cryptococcus="1-p_spont_cryptococcus",
+                     p_falsenegative="1-p_sensitivity",
+                     p_falsepositive="1-p_specificity",
+                     p_nocancelled="1-p_cancelled",
+                     p_noprophrate="1-p_prophrate",
+                     p_noprophefficacy="1-p_prophefficacy",
+                     p_breakthrough_donorpos="(1-p_prophefficacy)*p_transmission",
+                     p_nobreakthrough_donorpos="1-(1-p_prophefficacy)*p_transmission",
+                     p_breakthrough_donorneg="(1-p_prophefficacy)*p_spont_cryptococcus",
+                     p_nobreakthrough_donorneg="1-(1-p_prophefficacy)*p_spont_cryptococcus",
+                     q_cryptococcus="q_nocryptococcus-q_loss_cryptococcus")
+
+export_svg(plot_parameters_in_tree)%>%
+  writeLines(., "figures/crag_tree_parameters.svg")
+
 #Run the tree diagram
 g_QC<-create_tree_diagram_QC()
 
