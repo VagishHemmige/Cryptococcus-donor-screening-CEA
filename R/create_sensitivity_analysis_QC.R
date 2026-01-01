@@ -121,7 +121,7 @@ for (i in 1:nrow(PSA_parameters$qalys))
     theme_classic()+
     theme(plot.title = element_markdown())
   }
-  if (!is.na(PSA_parameters$qalys[[i,3]])){
+  if (is.na(PSA_parameters$qalys[[i,3]])){
     temp_plot<-ggplot()+
       geom_vline(xintercept = PSA_parameters$qalys[[i,2]] )+
       scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
