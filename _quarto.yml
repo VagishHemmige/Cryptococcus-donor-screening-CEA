@@ -6,6 +6,8 @@ project:
 
 website:
   site-url: https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/
+  repo-url: https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA
+  repo-actions: [edit, issue]
   title: "Cryptococcus donor screening cost effectiveness analysis"
   navbar:
     left:
@@ -21,6 +23,10 @@ website:
         text: Probabilistic sensitivity analyses
       - href: quarto/about.html
         text: About
+    right:
+      - icon: github
+        href: https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA
+        aria-label: GitHub repository
 
 format:
   html:
