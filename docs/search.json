@@ -137,7 +137,7 @@
     "href": "quarto/additional_trees.html",
     "title": "Additional analyses",
     "section": "",
-    "text": "Pending"
+    "text": "Does eliminating organ wastage affect the\n\n\nCode\ncreate_tree_diagram_QC()$plot"
   },
   {
     "objectID": "quarto/additional_trees.html#quarto",
@@ -362,5 +362,12 @@
     "title": "Probabilistic sensitivity analyses",
     "section": "Summary table",
     "text": "Summary table\nWe summarize our findings with the following summary table:\n\nIt is not unusual that the mean values from the PSA do not exactly correlated with the base-case results, since the outputs of the model are non-linear in their parameters.\nThe estimated value of perfect information (EVPI) estimates the additional financial gain per donor if all uncertainty in the parameters within the defined confidence intervals were eliminated. In this case, its low value suggests that further information would not meaningfully change the estimated NMB from screening."
+  },
+  {
+    "objectID": "quarto/additional_trees.html#alternative-case-1",
+    "href": "quarto/additional_trees.html#alternative-case-1",
+    "title": "Additional analyses",
+    "section": "",
+    "text": "Does eliminating organ wastage affect the\n\n\nCode\ncreate_tree_diagram_QC()$plot"
   }
 ]

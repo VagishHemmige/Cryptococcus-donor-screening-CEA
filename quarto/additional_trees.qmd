@@ -1,9 +1,23 @@
 ---
 title: "Additional analyses"
 format: html
-editor: visual
 ---
 
-## Sensitivity analysis #1
+```{r setup, include=FALSE, eval=TRUE}
 
-Pending
+source("../R/setup.R")
+source("../R/functions.R")
+
+```
+
+
+## Alternative case #1
+
+Does eliminating organ wastage affect the 
+
+```{r sens 1}
+
+create_tree_diagram_QC()$plot
+
+```
+
