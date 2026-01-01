@@ -1,4 +1,4 @@
-#Creates the tree diagram manually in R using grviz language
+#Creates the tree diagrams and summary tables for the base case analysis
 
 #First, we source the helper functions for the analysis
 source("R/functions.R")
@@ -46,7 +46,7 @@ plot_parameters_in_tree<-plot_tree_diagram_QC(p_usage="p_usage",
 export_svg(plot_parameters_in_tree)%>%
   writeLines(., "figures/crag_tree_parameters.svg")
 
-#Run the tree diagram
+#Run the base case tree diagram
 g_QC<-create_tree_diagram_QC()
 
 #Print plot
