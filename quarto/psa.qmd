@@ -23,7 +23,7 @@ The cost effectiveness model is then run many times. In each run, the model rand
 
 For the purposes of this analysis, we have run the analysis `r scales::comma(nsim)` times.
 
-We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**. From this, we derive a **95% confidence ellipse**[^1] representing the joint uncertainty of the true cost and QALY change from screening.
+We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**. From this, we derive a **95% uncertainty ellipse**[^1] representing the joint uncertainty of the true cost and QALY change from screening.
 
 [^1]: This is technically a credible ellipse, since the analysis is Bayesian.
 
