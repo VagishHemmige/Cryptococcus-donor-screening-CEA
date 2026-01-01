@@ -56,15 +56,15 @@ Cost-effectiveness analysis estimates:
 -   how much additional health benefit it produces in [**quality-adjusted life years**](https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219).
 
 
-## Abstracts/manuscripts
-
-This analysis is based on a prior abstract ![presented at American Transplant Congress](https://atcmeetingabstracts.com/abstract/preventing-donor-derived-cryptococcal-infections-should-we-screen-potential-organ-donors-with-a-serum-cryptococcal-antigen-a-cost-analysis/?utm_) in 2019.  It has yet to be published to date.
-
-
-## How to navigate the site
+## Results
 
 -   [**Base case analysis**](quarto/base_case.qmd): primary results and interpretation\
 -   [**Additional tree analyses**](quarto/additional_trees.qmd): alternative clinical assumptions\
 -   [**One-way sensitivity analysis**](quarto/tornado.qmd): key drivers of results\
 -   [**Probabilistic sensitivity analyses**](quarto/psa.qmd): uncertainty and robustness\
 -   [**About**](quarto/about.qmd): methods, assumptions, and disclosures
+
+
+## Abstracts/manuscripts
+
+This analysis is based on a prior abstract [presented at American Transplant Congress](https://atcmeetingabstracts.com/abstract/preventing-donor-derived-cryptococcal-infections-should-we-screen-potential-organ-donors-with-a-serum-cryptococcal-antigen-a-cost-analysis/) in 2019.  It has yet to be published to date.

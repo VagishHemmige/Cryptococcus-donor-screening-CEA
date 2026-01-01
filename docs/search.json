@@ -319,7 +319,7 @@
     "href": "index.html#abstractsmanuscripts",
     "title": "Overview",
     "section": "Abstracts/manuscripts",
-    "text": "Abstracts/manuscripts\nThis analysis is based on a prior abstract  in 2019. It has yet to be published to date."
+    "text": "Abstracts/manuscripts\nThis analysis is based on a prior abstract presented at American Transplant Congress in 2019. It has yet to be published to date."
   },
   {
     "objectID": "quarto/base_case.html#initial-decision-tree",
@@ -334,5 +334,12 @@
     "title": "Base case analysis",
     "section": "Decision tree with parameters",
     "text": "Decision tree with parameters\nThe decision tree model, populated with the parameters above, leads to the following base case decision tree:"
+  },
+  {
+    "objectID": "index.html#results",
+    "href": "index.html#results",
+    "title": "Overview",
+    "section": "Results",
+    "text": "Results\n\nBase case analysis: primary results and interpretation\n\nAdditional tree analyses: alternative clinical assumptions\n\nOne-way sensitivity analysis: key drivers of results\n\nProbabilistic sensitivity analyses: uncertainty and robustness\n\nAbout: methods, assumptions, and disclosures"
   }
 ]
