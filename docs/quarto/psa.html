@@ -229,10 +229,10 @@ window.Quarto = {
 <p>The decision tree analysis in the <a href="../quarto/base_case.html">base case analysis</a> assumes that the parameters of the model are known with certainty.</p>
 <p>In reality, the true values of these parameters are unknown. We are either estimating them from prior literature or assuming values based on expert opinion.</p>
 <p>A <a href="https://journals.sagepub.com/doi/10.1177/0962280211419832"><strong>probabilistic sensitivity analysis (PSA)</strong></a> is a way of explicitly ascertaining the effects of that uncertainty on a cost-effectiveness model.</p>
-<p>Instead of assigning a single fixed value to each model input (for example, “the probability of cryptococcal transmission is X%”), PSA allows each uncertain parameter to vary across a plausible range based on the available evidence. For each parameter, we specify a probability distribution that reflects how uncertain we are about its true value.</p>
-<p>The model is then run many times. In each run, the model randomly draws one value for each parameter from its corresponding distribution and calculates the resulting costs and health outcomes. This produces a distribution of possible results rather than a single point estimate.</p>
-<p>For the purposes of this analysis, we have run the analysis 10,000 times</p>
-<p>We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a <strong>cost-effectiveness plane</strong>. From this, we derive a <strong>95% confidence ellipse</strong> representing the joint uncertainty of the true cost and QALY change from screening.</p>
+<p>Instead of assigning a single fixed value to each model input (for example, “the probability of cryptococcal transmission is X%”), PSA allows each uncertain parameter to vary across a plausible range based on the available evidence. For each parameter, we specify a prior probability distribution that reflects how uncertain we are about its true value.</p>
+<p>The cost effectiveness model is then run many times. In each run, the model randomly draws one value for each parameter from its corresponding distribution and calculates the resulting costs and health outcomes. This produces a distribution of possible results rather than a single point estimate.</p>
+<p>For the purposes of this analysis, we have run the analysis 10,000 times.</p>
+<p>We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a <strong>cost-effectiveness plane</strong>. From this, we derive a <strong>95% confidence ellipse</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> representing the joint uncertainty of the true cost and QALY change from screening.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -515,7 +515,13 @@ Source code
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is technically a credible ellipse, since the analysis is Bayesian.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1005,13 +1011,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>A <span class="co">[</span><span class="ot">**probabilistic sensitivity analysis (PSA)**</span><span class="co">](https://journals.sagepub.com/doi/10.1177/0962280211419832)</span> is a way of explicitly ascertaining the effects of that uncertainty on a cost-effectiveness model.</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>Instead of assigning a single fixed value to each model input (for example, “the probability of cryptococcal transmission is X%”), PSA allows each uncertain parameter to vary across a plausible range based on the available evidence. For each parameter, we specify a probability distribution that reflects how uncertain we are about its true value.</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>Instead of assigning a single fixed value to each model input (for example, “the probability of cryptococcal transmission is X%”), PSA allows each uncertain parameter to vary across a plausible range based on the available evidence. For each parameter, we specify a prior probability distribution that reflects how uncertain we are about its true value.</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>The model is then run many times. In each run, the model randomly draws one value for each parameter from its corresponding distribution and calculates the resulting costs and health outcomes. This produces a distribution of possible results rather than a single point estimate.</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>The cost effectiveness model is then run many times. In each run, the model randomly draws one value for each parameter from its corresponding distribution and calculates the resulting costs and health outcomes. This produces a distribution of possible results rather than a single point estimate.</span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>For the purposes of this analysis, we have run the analysis <span class="in">`r scales::comma(nsim)`</span> times</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>For the purposes of this analysis, we have run the analysis <span class="in">`r scales::comma(nsim)`</span> times.</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**.  From this, we derive a **95% confidence ellipse** representing the joint uncertainty of the true cost and QALY change from screening.</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**.  From this, we derive a **95% confidence ellipse**^<span class="co">[</span><span class="ot">This is technically a credible ellipse, since the analysis is Bayesian.</span><span class="co">]</span> representing the joint uncertainty of the true cost and QALY change from screening.</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Source code</span></span>

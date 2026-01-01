@@ -19,13 +19,13 @@ In reality, the true values of these parameters are unknown.  We are either esti
 
 A [**probabilistic sensitivity analysis (PSA)**](https://journals.sagepub.com/doi/10.1177/0962280211419832) is a way of explicitly ascertaining the effects of that uncertainty on a cost-effectiveness model.
 
-Instead of assigning a single fixed value to each model input (for example, “the probability of cryptococcal transmission is X%”), PSA allows each uncertain parameter to vary across a plausible range based on the available evidence. For each parameter, we specify a probability distribution that reflects how uncertain we are about its true value.
+Instead of assigning a single fixed value to each model input (for example, “the probability of cryptococcal transmission is X%”), PSA allows each uncertain parameter to vary across a plausible range based on the available evidence. For each parameter, we specify a prior probability distribution that reflects how uncertain we are about its true value.
 
-The model is then run many times. In each run, the model randomly draws one value for each parameter from its corresponding distribution and calculates the resulting costs and health outcomes. This produces a distribution of possible results rather than a single point estimate.
+The cost effectiveness model is then run many times. In each run, the model randomly draws one value for each parameter from its corresponding distribution and calculates the resulting costs and health outcomes. This produces a distribution of possible results rather than a single point estimate.
 
-For the purposes of this analysis, we have run the analysis `r scales::comma(nsim)` times
+For the purposes of this analysis, we have run the analysis `r scales::comma(nsim)` times.
 
-We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**.  From this, we derive a **95% confidence ellipse** representing the joint uncertainty of the true cost and QALY change from screening.
+We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**.  From this, we derive a **95% confidence ellipse**^[This is technically a credible ellipse, since the analysis is Bayesian.] representing the joint uncertainty of the true cost and QALY change from screening.
 
 ::: callout-note
 ### Source code
