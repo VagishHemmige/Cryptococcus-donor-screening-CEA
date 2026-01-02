@@ -81,7 +81,7 @@
     "href": "index.html#what-cost-effectiveness-means-here",
     "title": "Overview",
     "section": "What “cost-effectiveness” means here",
-    "text": "What “cost-effectiveness” means here\nCost-effectiveness analysis estimates:\n\nhow much additional cost is associated with a strategy, and\nhow much additional health benefit it produces in quality-adjusted life years."
+    "text": "What “cost-effectiveness” means here\nCost-effectiveness analysis estimates:\n\nhow much additional cost is associated with a strategy, and\nhow much additional health benefit that strategy produces measured in quality-adjusted life years.\nhow much additional health benefit it produces, compared to the baseline strategy, in Net Monetary Benefit. This parameter, in turn, depends on the willingness-to-pay, the amount of money a health system is willing to spend for a single QALY. Our analysis, like many, assumes a willingness to pay of $100,000 per QALY, yielding an equation for NMB:\n\n\\[\n\\text{NMB} = WTP \\times \\Delta Q - \\Delta C\n\\]"
   },
   {
     "objectID": "index.html#how-to-read-the-results",
