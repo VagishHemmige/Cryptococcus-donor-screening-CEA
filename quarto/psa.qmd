@@ -289,3 +289,10 @@ We summarize our findings with the following summary table:
 It is not unusual that the mean values from the PSA do not exactly correlated with the base-case results, since the outputs of the model are non-linear in their parameters.  
 
 The [estimated value of perfect information (EVPI)](https://en.wikipedia.org/wiki/Expected_value_of_perfect_information) estimates the additional financial gain per donor if all uncertainty in the parameters within the defined confidence intervals were eliminated.  In this case, its low value suggests that further information would not meaningfully change the estimated NMB from screening.
+
+## Other results
+
+-   [**Base case analysis**](base_case.qmd): primary results and interpretation\
+-   [**Additional tree analyses**](additional_trees.qmd): alternative clinical assumptions\
+-   [**One-way sensitivity analysis**](tornado.qmd): key drivers of results\
+-   [**About**](about.qmd): methods, assumptions, and disclosures

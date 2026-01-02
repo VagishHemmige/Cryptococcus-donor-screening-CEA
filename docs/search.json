@@ -389,7 +389,7 @@
     "href": "quarto/additional_trees.html#alternative-case-4",
     "title": "Additional analyses",
     "section": "Alternative case #4",
-    "text": "Alternative case #4\nIF we set the cost of cryptococcal disease markedly higher (cost_disease=3000000) while also assuming the near-elimination of organ wastage (p_cancelled=0.01) and near-universal prophylaxis (p_prophrate=0.99), what do we conclude?\n\nScreening is clearly the preferred strategy under these circumstances"
+    "text": "Alternative case #4\nIF we set the cost of cryptococcal disease markedly higher (cost_disease=3000000) while also assuming the near-elimination of organ wastage (p_cancelled=0.01) and near-universal prophylaxis (p_prophrate=0.99), what do we conclude?\n\nScreening is clearly the preferred strategy under these circumstances."
   },
   {
     "objectID": "quarto/base_case.html#other-results",
@@ -397,5 +397,26 @@
     "title": "Base case analysis",
     "section": "Other results",
     "text": "Other results\n\nAdditional tree analyses: alternative clinical assumptions\n\nOne-way sensitivity analysis: key drivers of results\n\nProbabilistic sensitivity analyses: uncertainty and robustness\n\nAbout: methods, assumptions, and disclosures"
+  },
+  {
+    "objectID": "quarto/additional_trees.html#other-results",
+    "href": "quarto/additional_trees.html#other-results",
+    "title": "Additional analyses",
+    "section": "Other results",
+    "text": "Other results\n\nBase case analysis: primary results and interpretation\n\nOne-way sensitivity analysis: key drivers of results\n\nProbabilistic sensitivity analyses: uncertainty and robustness\n\nAbout: methods, assumptions, and disclosures"
+  },
+  {
+    "objectID": "quarto/tornado.html#other-results",
+    "href": "quarto/tornado.html#other-results",
+    "title": "One-way sensitivity analyses (tornado diagrams)",
+    "section": "Other results",
+    "text": "Other results\n\nBase case analysis: primary results and interpretation\n\nAdditional tree analyses: alternative clinical assumptions\n\nProbabilistic sensitivity analyses: uncertainty and robustness\n\nAbout: methods, assumptions, and disclosures"
+  },
+  {
+    "objectID": "quarto/psa.html#other-results",
+    "href": "quarto/psa.html#other-results",
+    "title": "Probabilistic sensitivity analyses",
+    "section": "Other results",
+    "text": "Other results\n\nBase case analysis: primary results and interpretation\n\nAdditional tree analyses: alternative clinical assumptions\n\nOne-way sensitivity analysis: key drivers of results\n\nAbout: methods, assumptions, and disclosures"
   }
 ]

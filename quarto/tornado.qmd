@@ -437,3 +437,10 @@ tornado_qaly_df%>%
 ggsave("figures/tornado_qaly.svg")
 
 ```
+
+## Other results
+
+-   [**Base case analysis**](base_case.qmd): primary results and interpretation\
+-   [**Additional tree analyses**](additional_trees.qmd): alternative clinical assumptions\
+-   [**Probabilistic sensitivity analyses**](psa.qmd): uncertainty and robustness\
+-   [**About**](about.qmd): methods, assumptions, and disclosures

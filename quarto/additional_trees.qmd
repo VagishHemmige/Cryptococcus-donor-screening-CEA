@@ -35,4 +35,13 @@ IF we set the cost of cryptococcal disease markedly higher (`cost_disease`=30000
 
 ![](../figures/alternative_tree_4_annotated.svg)
 
-Screening is clearly the preferred strategy under these circumstances
+Screening is clearly the preferred strategy under these circumstances.
+
+
+## Other results
+
+-   [**Base case analysis**](base_case.qmd): primary results and interpretation\
+-   [**One-way sensitivity analysis**](tornado.qmd): key drivers of results\
+-   [**Probabilistic sensitivity analyses**](psa.qmd): uncertainty and robustness\
+-   [**About**](about.qmd): methods, assumptions, and disclosures
+
