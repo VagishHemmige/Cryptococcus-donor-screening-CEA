@@ -65,6 +65,14 @@ Cost-effectiveness analysis estimates:
 -   [**About**](quarto/about.qmd): methods, assumptions, and disclosures
 
 
+### Reproducibility
+
+All analyses presented on this website are fully reproducible.  
+
+The complete source code used to generate the decision trees, sensitivity analyses, and figures is publicly available at this [GitHub repo](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/tree/master).  The R script `R/main.R` will run the R subscripts needed for this analysis in the order they are to be run.  Model assumptions, parameter values, and analytic workflows are documented in the repository to facilitate transparency and reuse.
+
+
 ## Abstracts/manuscripts
 
 This analysis is based on a prior abstract [presented at American Transplant Congress](https://atcmeetingabstracts.com/abstract/preventing-donor-derived-cryptococcal-infections-should-we-screen-potential-organ-donors-with-a-serum-cryptococcal-antigen-a-cost-analysis/) in 2019.  It has yet to be published to date.
+
