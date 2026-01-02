@@ -115,7 +115,7 @@ for (i in 1:nrow(PSA_parameters$qalys))
     stat_function(fun = dgamma, args = list(shape = PSA_parameters$qalys[[i,3]], scale = PSA_parameters$qalys[[i,4]]))+
     labs(
       title = glue("Prior distribution for **{PSA_parameters$qalys[[i,1]]}**"),
-      x = "Cost",
+      x = "QALYs",
       y = "Probability density",
     )+
     theme_classic()+
@@ -127,7 +127,7 @@ for (i in 1:nrow(PSA_parameters$qalys))
       scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
       labs(
         title = glue("Prior distribution for **{PSA_parameters$qalys[[i,1]]}**"),
-        x = "Cost",
+        x = "QALYs",
         y = "Probability density",
       )+
       theme_classic()+
