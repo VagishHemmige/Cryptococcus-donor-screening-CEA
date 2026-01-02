@@ -390,5 +390,12 @@
     "title": "Additional analyses",
     "section": "Alternative case #4",
     "text": "Alternative case #4\nIF we set the cost of cryptococcal disease markedly higher (cost_disease=3000000) while also assuming the near-elimination of organ wastage (p_cancelled=0.01) and near-universal prophylaxis (p_prophrate=0.99), what do we conclude?\n\nScreening is clearly the preferred strategy under these circumstances"
+  },
+  {
+    "objectID": "quarto/base_case.html#other-results",
+    "href": "quarto/base_case.html#other-results",
+    "title": "Base case analysis",
+    "section": "Other results",
+    "text": "Other results\n\nAdditional tree analyses: alternative clinical assumptions\n\nOne-way sensitivity analysis: key drivers of results\n\nProbabilistic sensitivity analyses: uncertainty and robustness\n\nAbout: methods, assumptions, and disclosures"
   }
 ]
