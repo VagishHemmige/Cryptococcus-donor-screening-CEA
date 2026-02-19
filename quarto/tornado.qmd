@@ -17,7 +17,7 @@ Each horizontal bar in a tornado diagram represents a **single model parameter**
 
 The center line represents the **base-case estimate**. The left and right ends of each bar correspond to the **low** and **high** values of the parameter, respectively.
 
-::: callout-note
+::: Rcode
 ### Source code
 
 The one-way sensitivity analysis shown on this page is implemented in:

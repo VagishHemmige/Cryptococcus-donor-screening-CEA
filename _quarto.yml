@@ -2,16 +2,25 @@ project:
   type: website
   output-dir: docs
 
-
+author:
+  - name: Vagish Hemmige
+    affiliations:
+      - Montefiore Medical Center/ Albert Einstein College of Medicine
+    email: vahemmig@montefiore.org
 
 website:
   site-url: https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/
   repo-url: https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA
   repo-actions: [edit, issue]
   title: "Cryptococcus donor screening cost effectiveness analysis"
-  navbar:
-    left:
-      - href: index.html
+  
+  
+
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - href: index.qmd
         text: Home
       - href: quarto/base_case.html
         text: Base case analysis
@@ -23,10 +32,18 @@ website:
         text: Probabilistic sensitivity analyses
       - href: quarto/about.html
         text: About
-    right:
-      - icon: github
-        href: https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA
-        aria-label: GitHub repository
+
+  page-navigation: true
+
+
+custom-callout:
+  Rcode:
+    icon: true
+    icon-symbol: "💻 "
+    color: "pink"
+
+filters:
+- custom-callout
 
 format:
   html:
@@ -35,3 +52,5 @@ format:
     code-fold: true
     code-tools: true
     page-layout: full
+    code-summary: "Click to show/hide R Code"
+

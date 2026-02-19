@@ -27,7 +27,7 @@ We can plot the costs and QALYs from each simulation on a two-dimensional plot, 
 
 [^1]: This is technically a credible ellipse, since the analysis is Bayesian.
 
-::: callout-note
+::: Rcode
 ### Source code
 
 The probabilistic sensitivity analysis shown on this page is implemented in:

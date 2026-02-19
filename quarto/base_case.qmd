@@ -7,7 +7,7 @@ format: html
 
 A decision tree is a structured “if-this-then-that” map that compares two strategies (in this case, screen donors vs don’t screen) by averaging what would happen across many similar donors/recipients, weighting each possible outcome by its probability, and then adding up the costs and QALYs along the way.
 
-::: callout-note
+::: Rcode
 ### Source code
 
 The base case analysis shown on this page is implemented in:
