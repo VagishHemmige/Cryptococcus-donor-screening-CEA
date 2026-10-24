@@ -1,6 +1,6 @@
 # TODO
 
-Open work for the cryptococcus donor screening CEA, from the parameter literature review (evidence cutoff 19 Oct 2026). The evidence itself is in `evidence/evidence.md`. When an item is done, delete it here and record the outcome there or in the code.
+Open work for the cryptococcus donor screening CEA, from the parameter literature review (evidence cutoff 19 Oct 2026). The evidence itself is in `references/literature-review.md`. When an item is done, delete it here and record the outcome there or in the code.
 
 ## 1. Decisions to make (these belong in the analysis plan)
 

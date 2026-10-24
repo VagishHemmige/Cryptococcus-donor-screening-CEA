@@ -1,6 +1,12 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - quarto/*.qmd
+    - references/literature-review.md
+    - LICENSE.md
+
 
 author:
   - name: Vagish Hemmige
@@ -11,9 +17,9 @@ author:
 website:
   site-url: https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/
   repo-url: https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA
+  repo-branch: master
   repo-actions: [edit, issue]
   title: "Cryptococcus donor screening cost effectiveness analysis"
-  
   
 
   sidebar:
@@ -35,6 +41,7 @@ website:
 
   page-navigation: true
 
+bibliography: references.bib
 
 custom-callout:
   Rcode:
