@@ -2,6 +2,6 @@
 
 source("R/setup.R")
 source("R/functions.R")
-source("R/create_diagram_QC.R")
-source("R/create_alternative_trees.R")
-source("R/create_sensitivity_analysis_QC.R")
+source("R/base_case_tree.R")
+source("R/scenario_trees.R")
+source("R/sensitivity_analyses.R")

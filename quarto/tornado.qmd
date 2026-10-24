@@ -7,7 +7,7 @@ format: html
 #| label: read-scripts
 #| include: false
 #| cache: false
-knitr::read_chunk("../R/create_sensitivity_analysis_QC.R")
+knitr::read_chunk("../R/sensitivity_analyses.R")
 ```
 
 ## What is a tornado diagram?
@@ -29,7 +29,7 @@ The center line represents the **base-case estimate**. The left and right ends o
 
 The one-way sensitivity analysis shown on this page is implemented in:
 
--   [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R)
+-   [`R/sensitivity_analyses.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/sensitivity_analyses.R)
 
 This script defines parameter distributions and computes expected costs and QALYs while varying one parameter at a time.
 
@@ -60,7 +60,7 @@ As predicted, higher values of specificity will lead to less QALY loss from scre
 
 ## Source code
 
-Click below to open up the source code from [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R) that is used to perform this analysis.
+Click below to open up the source code from [`R/sensitivity_analyses.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/sensitivity_analyses.R) that is used to perform this analysis.
 
 ```{r}
 #| label: tornado-analysis

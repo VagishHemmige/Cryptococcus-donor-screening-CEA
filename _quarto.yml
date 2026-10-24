@@ -5,14 +5,12 @@ project:
     - index.qmd
     - quarto/*.qmd
     - references/literature-review.md
-    - LICENSE.md
-
 
 author:
   - name: Vagish Hemmige
     affiliations:
-      - Montefiore Medical Center/ Albert Einstein College of Medicine
-    email: vahemmig@montefiore.org
+      - Albert Einstein College of Medicine
+    email: vagish.hemmige@gmail.com
 
 website:
   site-url: https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/
@@ -59,5 +57,5 @@ format:
     code-fold: true
     code-tools: true
     page-layout: full
-    code-summary: "Click to show/hide R Code"
-
+    code-summary: "Click to show/hide R Code"    
+    lightbox: true

@@ -13,7 +13,7 @@ source(here::here("R", "setup.R"))
 #| label: read-scripts
 #| include: false
 #| cache: false
-knitr::read_chunk("../R/create_sensitivity_analysis_QC.R")
+knitr::read_chunk("../R/sensitivity_analyses.R")
 ```
 
 ## What is a probabilistic sensitivity analysis?
@@ -39,7 +39,7 @@ We can plot the costs and QALYs from each simulation on a two-dimensional plot, 
 
 The probabilistic sensitivity analysis shown on this page is implemented in:
 
--   [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R)
+-   [`R/sensitivity_analyses.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/sensitivity_analyses.R)
 
 This script defines parameter distributions, runs Monte Carlo simulations, and computes expected costs and QALYs.
 
@@ -140,7 +140,7 @@ This yields the following parameter distributions:
 
 ## Source code
 
-Click below to open up the source code from [`R/create_sensitivity_analysis_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_sensitivity_analysis_QC.R) that is used to perform this analysis. Of note, the analysis assumes the existence of objects created in the [**One-way sensitivity analysis**](tornado.qmd) file.
+Click below to open up the source code from [`R/sensitivity_analyses.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/sensitivity_analyses.R) that is used to perform this analysis. Of note, the analysis assumes the existence of objects created in the [**One-way sensitivity analysis**](tornado.qmd) file.
 
 ```{r}
 #| label: psa-simulation

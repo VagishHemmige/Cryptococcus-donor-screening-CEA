@@ -12,7 +12,7 @@ A decision tree is a structured “if-this-then-that” map that compares two st
 
 The base case analysis shown on this page is implemented in:
 
--   [`R/create_diagram_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_diagram_QC.R)
+-   [`R/base_case_tree.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/base_case_tree.R)
 
 This R script file is itself reliant on the following helper files:
 
@@ -82,11 +82,11 @@ The analysis above yields the following final summary table:
 
 ## Source code
 
-Click below to open up the source code from [`R/create_diagram_QC.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/create_diagram_QC.R) that is used to perform this analysis. 
+Click below to open up the source code from [`R/base_case_tree.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/base_case_tree.R) that is used to perform this analysis. 
 
 ```{r}
 #| label: diagram
-#| file: "../R/create_diagram_QC.R"
+#| file: "../R/base_case_tree.R"
 #| eval: false
 ```
 

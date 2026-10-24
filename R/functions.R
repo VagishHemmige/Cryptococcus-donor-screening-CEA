@@ -95,7 +95,7 @@ calculate_cost_QALY_QC<-function(p_usage=expected_value$p_usage,
   return(summary_tibble)
 }
 
-#Creates the GrViz object from the parameters.  Used both directly in the create_diagram_QC.R script as well as by the decision tree function below.
+#Creates the GrViz object from the parameters.  Used both directly in the base_case_tree.R script as well as by the decision tree function below.
 plot_tree_diagram_QC<-function(p_usage, 
                                  p_donor_cryptococcus, 
                                  p_transmission, 
