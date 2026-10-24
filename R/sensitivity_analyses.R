@@ -3,7 +3,6 @@
 #First, we source the helper functions for the analysis
 source("R/functions.R")
 
-## ---- tornado-analysis
 #Next, we parameterize the sensitivity analyses.  
 
 #We start with probabilities.  we derive the mean and a shape parameter from the setup file 
@@ -426,7 +425,6 @@ tornado_qaly_df%>%
   theme(legend.position = "bottom")
 ggsave("figures/tornado_qaly.svg")
 
-## ---- psa-simulation
 #Probabilistic sensitivity analysis
 #Now, we simulate 10,000 draws from the above.  First, we create the dataset with the simulated values
 
@@ -558,7 +556,6 @@ PSA_plot
 
 
 
-## ---- ceac-bcea
 #Create a cost-effectiveness acceptability curve
 #Create a data set that depicts the fraction of simulations that are cost-effective
 lambda_grid <- seq(0, 200000, by = 1000)
@@ -615,7 +612,7 @@ PSA_summary_gt<-PSA_summary_df%>%
     mean_delta_qaly = "Mean QALY change",
     mean_nmb = "Mean NMB",
     p_ce = "Probability of cost effectiveness",
-    evpi = "Estimated value of perfect information"
+    evpi = "Estimated value of partial information"
   )%>%
   tab_style(
     style = cell_text(align = "center"),
@@ -627,10 +624,10 @@ PSA_summary_gt%>%
 if (file.exists("tables/PSA_summary_table.docx")) {
   unlink("tables/PSA_summary_table.docx")
 }
-PSA_summary_gt%>%
+summary_gt_QC%>%
   gtsave("tables/PSA_summary_table.docx")
 
-#Now we use the BCEA package in R for further analysis of the PSA data.  We start by creating the matrices needed for the analysis and then creating the BCEA object
+#Now we use the BCEA package in R for further analysis of the PCA data.  We start by creating the matrices needed for the analysis and then creating the BCEA object
 PSA_cost_matrix<-PSA_simulation_unnested%>%
   select(starts_with("total_expected_cost"))%>%
   rename(ns=total_expected_cost_ns, s=total_expected_cost_s)%>%
