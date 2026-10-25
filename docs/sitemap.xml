@@ -1,31 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/tornado.html</loc>
-    <lastmod>2026-02-19T18:04:13.543Z</lastmod>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/references/literature-review.html</loc>
+    <lastmod>2026-10-24T18:12:13.777Z</lastmod>
   </url>
   <url>
-    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/base_case.html</loc>
-    <lastmod>2026-02-19T18:03:01.564Z</lastmod>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/setup.html</loc>
+    <lastmod>2026-10-25T17:35:08.200Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/scenario_trees.html</loc>
+    <lastmod>2026-10-25T14:15:26.806Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/results_scenarios.html</loc>
+    <lastmod>2026-10-25T17:57:06.142Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/results_base_case.html</loc>
+    <lastmod>2026-10-25T17:57:05.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/model_inputs.html</loc>
+    <lastmod>2026-10-25T17:12:21.206Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/cea_primer.html</loc>
+    <lastmod>2026-10-25T17:12:20.710Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/background.html</loc>
+    <lastmod>2026-10-25T17:12:20.447Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/index.html</loc>
+    <lastmod>2026-10-25T17:07:09.249Z</lastmod>
   </url>
   <url>
     <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/about.html</loc>
     <lastmod>2026-01-02T00:01:11.138Z</lastmod>
   </url>
   <url>
-    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/index.html</loc>
-    <lastmod>2026-01-02T00:35:10.264Z</lastmod>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/base_case_tree.html</loc>
+    <lastmod>2026-10-25T14:15:26.582Z</lastmod>
   </url>
   <url>
-    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/LICENSE.html</loc>
-    <lastmod>2025-12-14T00:17:48.126Z</lastmod>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/functions.html</loc>
+    <lastmod>2026-10-25T14:15:26.323Z</lastmod>
   </url>
   <url>
-    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/additional_trees.html</loc>
-    <lastmod>2026-01-02T00:12:05.037Z</lastmod>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/model_structure.html</loc>
+    <lastmod>2026-10-25T17:12:20.940Z</lastmod>
   </url>
   <url>
-    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/psa.html</loc>
-    <lastmod>2026-02-19T18:03:30.333Z</lastmod>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/results_psa.html</loc>
+    <lastmod>2026-10-25T17:57:06.593Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/results_tornado.html</loc>
+    <lastmod>2026-10-25T17:57:06.371Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/sensitivity_analyses.html</loc>
+    <lastmod>2026-10-25T14:15:27.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/quarto/uncertainty_methods.html</loc>
+    <lastmod>2026-10-25T17:12:21.425Z</lastmod>
   </url>
 </urlset>

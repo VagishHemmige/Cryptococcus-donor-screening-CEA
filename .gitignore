@@ -6,3 +6,5 @@
 .quarto
 data-raw/
 /.quarto/
+
+**/*.quarto_ipynb
