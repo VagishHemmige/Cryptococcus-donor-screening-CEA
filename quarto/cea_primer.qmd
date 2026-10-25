@@ -1,0 +1,139 @@
+---
+title: "Cost-effectiveness analysis for clinicians"
+format: html
+---
+
+This page explains the ideas behind a cost-effectiveness analysis for readers who have not worked with one before. It is written for transplant and infectious diseases clinicians. Nothing here is specific to cryptococcus: the next pages describe [the decision model](model_structure.qmd), [how its inputs are chosen](model_inputs.qmd) and [how uncertainty is analyzed](uncertainty_methods.qmd).
+
+## The question a cost-effectiveness analysis asks
+
+Clinical studies usually ask whether one strategy produces better health than another. A cost-effectiveness analysis asks a second question: **is the extra health worth what it costs?** It does not ask which strategy is cheapest. A strategy that costs more can be the better use of resources if the health it buys is large enough, and a strategy that saves money can be a poor choice if the health it gives up is too valuable.
+
+The analysis on this site compares two strategies for deceased kidney donors:
+
+-   **No screening**, the current standard approach (see [Clinical background](background.qmd)), and
+-   **Screening** every donor with a serum cryptococcal antigen (CrAg) test, with the downstream decisions a positive result triggers.
+
+## Thinking incrementally
+
+Every result on this site is **incremental**: it is the difference between screening and no screening, not the total for either strategy alone. Two numbers summarize that difference:
+
+-   **ΔC, the incremental cost:** the expected cost with screening minus the expected cost without it. A negative ΔC means screening saves money.
+-   **ΔQ, the incremental health effect:** the expected quality-adjusted life years (QALYs, explained below) with screening minus those without it. A negative ΔQ means screening, on average, costs health.
+
+Both numbers are **expected values**: averages over everything that could happen to a donor and the recipient, each outcome weighted by how likely it is. A screening program that occasionally prevents a devastating infection, but more often leads to a usable kidney being declined after a false-positive result, can come out ahead or behind on average. The expected value is how a decision model weighs the rare catastrophe against the common, smaller harm.
+
+## Measuring health: the quality-adjusted life year
+
+Transplant outcomes are not only about survival. A year with a functioning graft and a year on dialysis are both a year alive, but they are not equivalent to patients. The **quality-adjusted life year (QALY)** captures both length and quality of life in one number [@whitehead2010]:
+
+$$
+\text{QALYs} = \text{years lived} \times \text{utility}
+$$
+
+A **utility** is a weight, usually between 0 (a state as bad as death) and 1 (full health); states judged worse than death can score below 0. Utilities come from patients or members of the public valuing health states with standardized methods. In a meta-analysis of kidney disease treatments, the pooled utility was about 0.82 for a functioning kidney transplant and about 0.70 for dialysis [@wyld2012]. Ignoring discounting (described below), ten years with a functioning graft is therefore worth about 8.2 QALYs, and ten years on dialysis about 7.0 QALYs. That difference of about 1.2 QALYs holds survival equal and reflects quality of life alone. In practice a transplant also lengthens survival compared with dialysis, so the real difference is larger.
+
+For a donor-screening question this matters in two directions. Preventing a case of donor-derived cryptococcosis protects QALYs, because the disease causes deaths, graft losses and long hospitalizations. Declining a kidney that would have functioned well loses QALYs, because the intended recipient stays on dialysis longer. The QALY lets the model put both on the same scale.
+
+## Putting cost and health together
+
+### The incremental cost-effectiveness ratio
+
+The traditional summary is the **incremental cost-effectiveness ratio (ICER)**:
+
+$$
+\text{ICER} = \frac{\Delta C}{\Delta Q}
+$$
+
+the extra cost per extra QALY gained. An ICER of \$40,000 per QALY means screening buys each additional QALY for \$40,000.
+
+The ratio is easy to misread when ΔQ is close to zero or negative. An ICER of −\$40,000 per QALY could mean screening saves money and improves health, or that it costs money and harms health: the sign alone does not say which. A ratio also becomes unstable as its denominator approaches zero, which is common when the health difference between strategies is small, as it is when both cryptococcosis and false-positive screens are rare.
+
+### Net monetary benefit
+
+For these reasons this site reports **net monetary benefit (NMB)** instead, the dollar form of the net benefit framework [@stinnett1998]:
+
+$$
+\text{NMB} = \text{WTP} \times \Delta Q - \Delta C
+$$
+
+**WTP** is the **willingness-to-pay threshold**: the most a health system is prepared to spend to gain one QALY. NMB converts the health difference into dollars at that rate and subtracts the extra cost. The rule is simple:
+
+-   **NMB greater than zero:** screening is cost-effective at that threshold.
+-   **NMB less than zero:** it is not.
+
+A worked example: suppose screening gains 0.01 QALYs per donor (ΔQ = +0.01) and adds \$500 per donor (ΔC = +\$500). At \$100,000 per QALY, NMB = \$100,000 × 0.01 − \$500 = **+\$500**, so screening would be cost-effective. If instead it lost 0.01 QALYs and saved \$500, NMB = −\$1,000 + \$500 = **−\$500**: the money saved would not make up for the health given up.
+
+NMB and the ICER always agree about the decision when ΔQ is positive: screening is cost-effective when the ICER is below the threshold. When ΔQ is negative the rule reverses, and screening is cost-effective only when the ICER is *above* the threshold, meaning each QALY given up saves more than the threshold. NMB needs no such reversal. It also averages cleanly: the mean NMB across many simulations equals the NMB of the mean costs and QALYs, which is not true of a mean of ratios. This matters for the [probabilistic sensitivity analysis](uncertainty_methods.qmd).
+
+### Choosing a willingness-to-pay threshold
+
+There is no official or consensus US threshold [@vanness2021]. A figure of \$50,000 per QALY was long quoted, but its origins are obscure and it has not kept pace with inflation; Neumann and colleagues argued that \$100,000 to \$150,000 per QALY is more defensible [@neumann2014]. One estimate, based on the health lost when higher spending raises insurance premiums and people drop coverage, put the threshold at about \$104,000 per QALY in 2019 dollars (95% uncertainty interval \$51,000 to \$209,000) [@vanness2021]. This analysis uses **\$100,000 per QALY**, and the [acceptability curve](uncertainty_methods.qmd) shows how the conclusion changes across thresholds from \$0 to \$200,000.
+
+## The cost-effectiveness plane
+
+The **cost-effectiveness plane** plots ΔQ on the horizontal axis and ΔC on the vertical axis, so each strategy compared with its alternative is a point [@black1990]. The four quadrants have different meanings:
+
+```{r}
+#| label: fig-ce-plane-quadrants
+#| echo: false
+#| fig-cap: "The four quadrants of the cost-effectiveness plane. The dashed line is the willingness-to-pay threshold of $100,000 per QALY. Points in the shaded region, below and to the right of the line, are cost-effective."
+#| fig-alt: "Diagram of the cost-effectiveness plane, with incremental QALYs on the horizontal axis and incremental cost on the vertical axis, crossing at zero. The upper right quadrant is labelled more costly and more effective, a trade-off; the lower right is labelled cheaper and more effective, the strategy dominates; the upper left is labelled more costly and less effective, the strategy is dominated; the lower left is labelled cheaper and less effective, a trade-off. A dashed line through the origin with a slope of $100,000 per QALY runs from the lower left to the upper right; the shaded region below and to the right of it, which covers parts of both trade-off quadrants and all of the dominating quadrant, is cost-effective."
+#| fig-width: 7
+#| fig-height: 5.5
+library(ggplot2)
+
+wtp_example <- 100000
+quadrants <- data.frame(
+  x = c(0.4, 0.5, -0.5, -0.3),
+  y = c(85000, -75000, 75000, -85000),
+  label = c(
+    "More costly, more effective\nTrade-off: cost-effective\nonly if below the line",
+    "Cheaper, more effective\nScreening dominates",
+    "More costly, less effective\nScreening is dominated",
+    "Cheaper, less effective\nTrade-off: cost-effective\nonly if below the line"
+  )
+)
+
+ggplot() +
+  annotate("polygon", x = c(-1, 1, 1), y = c(-100000, -100000, 100000), fill = "grey90") +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0) +
+  geom_abline(slope = wtp_example, intercept = 0, linetype = "dashed") +
+  geom_text(data = quadrants, aes(x, y, label = label), size = 3.6, lineheight = 0.95) +
+  scale_x_continuous(limits = c(-1, 1), name = "Incremental QALYs (\u0394Q)") +
+  scale_y_continuous(
+    limits = c(-100000, 100000),
+    labels = scales::label_dollar(),
+    name = "Incremental cost (\u0394C)"
+  ) +
+  coord_cartesian(expand = FALSE) +
+  theme_classic()
+```
+
+-   **Lower right, cheaper and more effective:** screening **dominates**. It should be adopted whatever the threshold.
+-   **Upper left, more costly and less effective:** screening is **dominated**. It should not be adopted.
+-   **Upper right, more costly and more effective:** a trade-off. Screening is cost-effective if each QALY gained costs less than the threshold, which is the region below the dashed line.
+-   **Lower left, cheaper and less effective:** also a trade-off, and the one clinicians find least intuitive. Screening saves money but costs health. It is cost-effective only if the savings are large enough: more than the threshold for every QALY lost, which again is the region below the dashed line.
+
+The dashed line marks NMB = 0. Points below and to the right of it have positive NMB; points above and to the left have negative NMB. A strategy that saves money but loses health falls in the lower-left quadrant, and whether it is acceptable depends entirely on how much money is saved per QALY lost.
+
+## Perspective, time horizon and discounting
+
+Three choices shape any cost-effectiveness analysis. The US Second Panel on Cost-Effectiveness in Health and Medicine set out recommended practice for each [@sanders2016], and the CHEERS 2022 statement lists what a report should state about them [@husereau2022].
+
+-   **Perspective: whose costs count.** A health care sector perspective counts medical costs, whoever pays them. A societal perspective adds costs outside health care, such as time away from work and caregiving. The Second Panel recommends reporting both.
+-   **Time horizon: how long the consequences are followed.** The horizon should be long enough to capture every important difference between the strategies [@sanders2016]. For a kidney transplant decision that can mean the life of the graft or the recipient.
+-   **Discounting: how future costs and QALYs are weighted.** Costs and health that arrive in the future are given less weight than those that arrive now. The Second Panel recommends discounting both costs and QALYs at 3% a year.
+
+The [decision model](model_structure.qmd) page states how the current version of this model handles each of these.
+
+## What a cost-effectiveness analysis does not tell you
+
+-   **It is about averages.** The results describe the expected outcome across many donors and recipients. They do not predict what will happen with a particular donor, and they do not replace clinical judgment about a specific organ offer.
+-   **It depends on its inputs.** Many of the inputs for donor cryptococcal screening are uncertain, and some have no direct evidence at all. The [evidence review](../references/literature-review.md) grades the support for each input, and the [sensitivity analyses](uncertainty_methods.qmd) show which uncertainties change the conclusion.
+-   **It values all QALYs equally.** A QALY gained by a recipient who would otherwise wait years on dialysis counts the same as one gained by a recipient with many other options; the QALY approach does not weigh fairness or priority [@whitehead2010]. Other consequences of a donor-derived infection, such as its effect on trust in the transplant system, also sit outside the calculation.
+
+## Further reading
+
+The Second Panel's recommendations [@sanders2016] and the CHEERS 2022 reporting checklist [@husereau2022] are the standard references for US cost-effectiveness analysis. Briggs and colleagues describe how uncertainty in model inputs should be analyzed and reported [@briggs2012].

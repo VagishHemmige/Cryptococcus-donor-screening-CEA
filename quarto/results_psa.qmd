@@ -1,0 +1,89 @@
+---
+title: "Probabilistic sensitivity analyses"
+format: html
+aliases:
+  - psa.html
+---
+
+```{r}
+#| label: read-setup
+#| include: false
+#| cache: false
+knitr::read_chunk("../R/setup.R")
+```
+
+```{r}
+#| label: simulation-settings
+#| include: false
+```
+
+```{r}
+#| label: read-psa
+#| include: false
+summary_psa <- read.csv("../output/psa_summary.csv")
+draws <- read.csv("../output/psa_draws.csv")
+ceac <- read.csv("../output/psa_ceac.csv")
+money <- function(x, accuracy = 0.01) {
+  paste0(if (x < 0) "\u2212" else "", "$", formatC(abs(x), format = "f", digits = max(0, -log10(accuracy)), big.mark = ","))
+}
+qaly <- function(x, digits = 4) paste0(if (x < 0) "\u2212" else "", formatC(abs(x), format = "f", digits = digits))
+interval <- function(x, f) paste0(f(quantile(x, 0.025)), " to ", f(quantile(x, 0.975)))
+pct <- function(x) paste0(round(100 * x, 1), "%")
+p_ce_at <- function(lambda) ceac$p_ce[which.min(abs(ceac$lambda - lambda))]
+below_10_from <- {
+  above <- ceac$lambda[ceac$p_ce >= 0.10]
+  if (length(above) == 0) 0 else max(above) + diff(ceac$lambda[1:2])
+}
+below_10_text <- if (below_10_from > max(ceac$lambda)) "" else paste0("It is below 10% for every threshold above about \\$", format(below_10_from, big.mark = ",", scientific = FALSE), " per QALY.")
+quadrant <- function(dc_sign, dq_sign) mean(sign(draws$cost_change) == dc_sign & sign(draws$qaly_change) == dq_sign)
+```
+
+The code behind these results is on the [Sensitivity analyses](sensitivity_analyses.qmd) page. [Sensitivity analyses explained](uncertainty_methods.qmd#probabilistic-sensitivity-analysis) describes the method and how to read each figure, and the prior distributions are on [How the inputs are chosen](model_inputs.qmd#parameters-of-the-model). All numbers are per potential donor and are read from the output of the most recent model run.
+
+## Summary of the simulations
+
+Across `r format(nrow(draws), big.mark = ",")` simulations, with every uncertain input drawn from its prior distribution:
+
+| | Mean | 95% interval |
+|---|---|---|
+| ΔC (incremental cost) | `r money(summary_psa$mean_delta_cost)` | `r interval(draws$cost_change, money)` |
+| ΔQ (incremental QALYs) | `r qaly(summary_psa$mean_delta_qaly)` | `r interval(draws$qaly_change, qaly)` |
+| Net monetary benefit at \$`r format(wtp, big.mark = ",", scientific = FALSE)`/QALY | `r money(summary_psa$mean_nmb)` | `r interval(draws$nmb, money)` |
+
+-   **Where the simulations fall on the cost-effectiveness plane:** `r pct(quadrant(-1, -1))` cheaper and less effective, `r pct(quadrant(-1, 1))` cheaper and more effective, `r pct(quadrant(1, -1))` more costly and less effective, and `r pct(quadrant(1, 1))` more costly and more effective.
+-   **Probability that screening is cost-effective:** `r pct(p_ce_at(50000))` at \$50,000 per QALY, `r pct(p_ce_at(wtp))` at \$`r format(wtp, big.mark = ",", scientific = FALSE)` and `r pct(p_ce_at(150000))` at \$150,000.
+-   **Expected value of perfect information:** `r money(summary_psa$evpi)` per potential donor, or about `r money(1000 * summary_psa$evpi, 1)` per 1,000 potential donors, at \$`r format(wtp, big.mark = ",", scientific = FALSE)` per QALY.
+
+These results reflect only the uncertainty built into the prior distributions. They do not include the structural uncertainty described in the [known limitations](model_structure.qmd#known-limitations), such as how a cancelled transplant is valued.
+
+## Cost effectiveness plane
+
+We create a cost effectiveness plane, with a red ellipse expected to contain 95% of the simulations, by plotting the costs from each of the simulations on the y axis and the QALYs on the x axis:
+
+![Cost-effectiveness plane showing results of the probabilistic sensitivity analysis. Each point represents one simulation; the red ellipse marks the region expected to contain 95% of the simulations.](../figures/PSA_plot.svg)
+
+## Cost effectiveness acceptability curve
+
+A cost effectiveness acceptability curve estimates the probability of screening being cost-effective as a function of the willingness-to-pay per QALY:
+
+![](../figures/PSA_CEAC_plot.svg)
+
+In this case, the probability that screening is cost-effective is `r pct(p_ce_at(50000))` at \$50,000 per QALY and `r pct(p_ce_at(wtp))` at \$`r format(wtp, big.mark = ",", scientific = FALSE)`. `r below_10_text`
+
+
+## Summary table
+
+We summarize our findings with the following summary table:
+
+![](../figures/PSA_summary_table.png)
+
+It is not unusual that the mean values from the PSA do not exactly correspond to the base-case results, since the outputs of the model are non-linear in their parameters.  
+
+The [expected value of perfect information (EVPI)](https://en.wikipedia.org/wiki/Expected_value_of_perfect_information) is the expected loss, in net monetary benefit, from choosing the wrong strategy given the current uncertainty in the inputs: `r money(summary_psa$evpi)` per potential donor, or about `r money(1000 * summary_psa$evpi, 1)` per 1,000 potential donors. It is an upper limit on what research to remove that uncertainty could be worth for this decision. Whether that is large or small depends on how many donors the decision affects over the years it applies, which the model does not estimate. EVPI reflects only the uncertainty in the inputs, not the structural uncertainty in the model.
+
+## Other results
+
+-   [**Base case analysis**](results_base_case.qmd): primary results and interpretation\
+-   [**Additional tree analyses**](results_scenarios.qmd): alternative clinical assumptions\
+-   [**One-way sensitivity analysis**](results_tornado.qmd): key drivers of results\
+-   [**About**](about.qmd): methods, assumptions, and disclosures

@@ -1,0 +1,81 @@
+---
+title: "Base-case tree"
+format: html
+---
+
+The code in this script runs the decision tree at the base-case parameter values, draws the tree, and saves the tables and figures shown on the [base case](results_base_case.qmd) results page.
+
+::: {.Rcode title="Source code"}
+
+The full R script is available at:
+
+-   [`R/base_case_tree.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/base_case_tree.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/setup.R)
+-   [`R/functions.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/functions.R)
+:::
+
+```{r}
+#| label: read-scripts
+#| include: false
+#| cache: false
+knitr::read_chunk("../R/base_case_tree.R")
+```
+
+## Load the helper functions
+
+The script first sources the [functions](functions.qmd) used to evaluate and draw the tree.
+
+```{r}
+#| label: source-helpers
+#| eval: false
+```
+
+## Tree labelled with parameter names
+
+`plot_tree_diagram_QC()` is called with the name of each parameter in place of its value, and complementary branches are labelled with their formulas. The result is saved as `figures/crag_tree_parameters.svg`, the conceptual tree on the base case page.
+
+```{r}
+#| label: parameter-labelled-tree
+#| eval: false
+```
+
+## Base-case tree
+
+`create_tree_diagram_QC()` runs the tree at the base-case values in `expected_value`. The tree is saved as `figures/crag_tree_QC.svg`, and a copy annotated with the incremental cost, QALYs and net monetary benefit of screening is saved as `figures/crag_tree_QC_annotated.svg`.
+
+```{r}
+#| label: base-case-tree
+#| eval: false
+```
+
+## Path table
+
+The pathway table lists every path through the tree with its probability, cost and QALYs. It is saved as `figures/output_table_QC.png` and `tables/output_table_QC.docx`.
+
+```{r}
+#| label: path-table
+#| eval: false
+```
+
+## Parameter table
+
+The parameter values used in the run are formatted as a table and saved as `figures/parameter_table_QC.png` and `tables/parameter_table_QC.docx`.
+
+```{r}
+#| label: parameter-table
+#| eval: false
+```
+
+## Summary table
+
+The pathway table is summed by strategy to give each strategy's total probability, expected cost, expected QALYs and net monetary value at the willingness-to-pay threshold. It is saved as `figures/summary_table_QC.png` and `tables/summary_table_QC.docx`.
+
+```{r}
+#| label: summary-table
+#| eval: false
+```

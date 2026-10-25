@@ -1,0 +1,65 @@
+---
+title: "Scenario trees"
+format: html
+---
+
+The code in this script reruns the decision tree under four alternative sets of assumptions and saves the annotated trees shown on the [scenario analyses](results_scenarios.qmd) results page. Each scenario changes one or more parameters and leaves every other parameter at its base-case value.
+
+::: {.Rcode title="Source code"}
+
+The full R script is available at:
+
+-   [`R/scenario_trees.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/scenario_trees.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/setup.R)
+-   [`R/functions.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/functions.R)
+:::
+
+```{r}
+#| label: read-scripts
+#| include: false
+#| cache: false
+knitr::read_chunk("../R/scenario_trees.R")
+```
+
+Each section calls `create_tree_diagram_QC()` with the changed parameters, then exports the tree to SVG, adds the incremental cost, QALYs and net monetary benefit with `add_svg_annotation()`, and saves the result to `figures/`.
+
+## Scenario 1: transplants almost never cancelled after a positive screen
+
+`p_cancelled` = 0.01. Saved as `figures/alternative_tree_1_annotated.svg`.
+
+```{r}
+#| label: scenario-1-low-cancellation
+#| eval: false
+```
+
+## Scenario 2: almost no cancellations and near-universal prophylaxis
+
+`p_cancelled` = 0.01 and `p_prophrate` = 0.99. Saved as `figures/alternative_tree_2_annotated.svg`.
+
+```{r}
+#| label: scenario-2-low-cancellation-high-prophylaxis
+#| eval: false
+```
+
+## Scenario 3: much higher cost of cryptococcal disease
+
+`cost_disease` = 3,000,000. Saved as `figures/alternative_tree_3_annotated.svg`.
+
+```{r}
+#| label: scenario-3-high-disease-cost
+#| eval: false
+```
+
+## Scenario 4: all three changes combined
+
+`p_cancelled` = 0.01, `p_prophrate` = 0.99 and `cost_disease` = 3,000,000. Saved as `figures/alternative_tree_4_annotated.svg`.
+
+```{r}
+#| label: scenario-4-combined
+#| eval: false
+```

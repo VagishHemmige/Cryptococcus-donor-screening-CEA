@@ -1,0 +1,62 @@
+---
+title: "Functions"
+format: html
+---
+
+The code in this script defines the functions that compute and draw the decision tree. The [base-case](results_base_case.qmd), [scenario](results_scenarios.qmd), [one-way sensitivity](results_tornado.qmd) and [probabilistic sensitivity](results_psa.qmd) analyses all call these functions.
+
+::: {.Rcode title="Source code"}
+
+The full R script is available at:
+
+-   [`R/functions.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/functions.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+
+This R script file is itself reliant on the following helper file:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/setup.R)
+:::
+
+```{r}
+#| label: read-scripts
+#| include: false
+#| cache: false
+knitr::read_chunk("../R/functions.R")
+```
+
+## Expected costs and QALYs for each strategy
+
+`calculate_cost_QALY_QC()` evaluates the decision tree for one set of parameter values. It computes the complementary branch probabilities, builds a table with one row per pathway (its probability, cost and QALYs), and returns the expected cost and expected QALYs of the no-screening (`_ns`) and screening (`_s`) strategies. Every argument defaults to its base-case value in `expected_value`. The one-way and probabilistic sensitivity analyses call this function once per parameter value or simulation draw.
+
+```{r}
+#| label: calculate-cost-qaly
+#| eval: false
+```
+
+## Drawing the decision tree
+
+`plot_tree_diagram_QC()` writes the decision tree in the Graphviz DOT language and returns it as a `grViz` diagram. Each argument is printed as a label on the tree, so the same function draws both the tree labelled with parameter names (as in `base_case_tree.R`) and the tree labelled with numeric values.
+
+```{r}
+#| label: plot-tree-diagram
+#| eval: false
+```
+
+## Running and drawing the tree for one set of parameters
+
+`create_tree_diagram_QC()` takes the same parameters as `calculate_cost_QALY_QC()`, with base-case defaults. It returns a list containing the pathway table, a summary by strategy, a table of the input parameters, the incremental cost, QALYs and net monetary benefit of screening, and the tree drawn by `plot_tree_diagram_QC()`. The base-case and scenario analyses use this function.
+
+```{r}
+#| label: create-tree-diagram
+#| eval: false
+```
+
+## Annotating the tree figure
+
+`add_svg_annotation()` adds lines of text, such as the incremental cost, QALYs and net monetary benefit, to an exported SVG of the tree.
+
+```{r}
+#| label: add-svg-annotation
+#| eval: false
+```

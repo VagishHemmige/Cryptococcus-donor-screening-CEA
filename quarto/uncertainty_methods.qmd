@@ -1,0 +1,97 @@
+---
+title: "Sensitivity analyses explained"
+format: html
+---
+
+```{r}
+#| label: read-setup
+#| include: false
+#| cache: false
+knitr::read_chunk("../R/setup.R")
+```
+
+```{r}
+#| label: simulation-settings
+#| include: false
+```
+
+A model's base case uses one best estimate for every input. Sensitivity analyses ask how much the answer would change if those estimates are wrong. This page explains the four kinds used on this site and how to read their figures. The inputs and their ranges are described on [How the inputs are chosen](model_inputs.qmd).
+
+## Kinds of uncertainty
+
+Guidance on modeling practice distinguishes several sources of uncertainty [@briggs2012]:
+
+-   **Parameter uncertainty:** the true value of an input, such as the specificity of the CrAg test, is not known exactly. The one-way and probabilistic analyses below address this.
+-   **Structural uncertainty:** the model itself may be built the wrong way, for example by treating a declined kidney as no transplant at all. Changing input values cannot fix this; it needs a different model, or scenarios that approximate one. The [decision model](model_structure.qmd#known-limitations) page lists the main structural assumptions.
+-   **Heterogeneity:** real donors and recipients differ. The model describes an average donor, so its results do not apply equally to, say, a donor with suspected central nervous system infection.
+
+## Scenario analyses
+
+A **scenario analysis** changes one or more inputs to values chosen to answer a specific question, such as "what if a positive screen almost never led to cancellation?", and reruns the model. Scenarios are useful for inputs that are policy choices rather than uncertain facts, and for exploring combinations of changes. The [scenario results](results_scenarios.qmd) show four.
+
+## One-way sensitivity analysis and tornado diagrams
+
+A **tornado diagram** is a graphical summary of a [**one-way sensitivity analysis**](https://clas.ucdenver.edu/marcelo-perraillon/sites/default/files/attached-files/lecture_13_uncertainty.pdf), which examines how sensitive the results of a cost-effectiveness model are to changes in individual input parameters.
+
+In a one-way sensitivity analysis, **one parameter is varied at a time** across a plausible range (for example, its 95% confidence interval), while **all other parameters are held constant at their base-case values**. The effect of this variation on the outcome of interest—such as costs or QALYs, is then calculated.
+
+Each horizontal bar in a tornado diagram represents a **single model parameter**. The length of the bar shows how much the outcome changes when that parameter is varied across its specified range.
+
+-   **Longer bars** indicate parameters that have a **greater influence** on the model results\
+-   **Shorter bars** indicate parameters with relatively little impact\
+-   Parameters are ordered from top to bottom by their impact, creating the characteristic “tornado” shape
+
+The center line represents the **base-case estimate**. Each bar runs from the result at the parameter's **low** value to the result at its **high** value, and colour shows which end is which. For some parameters a higher value lowers the result, so the low end of the bar can sit on the right.
+
+In this model the range for each input is the 2.5th to 97.5th percentile of its prior distribution, and the model is run three times per input: at the low value, the base-case value and the high value. The figure legend calls these the lower and upper bounds of the "CI"; they are this percentile range, not a confidence interval from data. Inputs that are fixed in the model appear with a bar of zero length.
+
+Two cautions when reading a tornado diagram:
+
+-   **Each bar varies one input alone.** If two inputs are uncertain together, their combined effect can be larger than either bar suggests. The probabilistic analysis below varies everything at once.
+-   **Bar length reflects the range chosen, not only the input's importance.** An input given a wide range can look influential partly because its range is wide. Here every probability uses the same Beta shape parameter and every cost and QALY the same gamma shape, so the ranges are not tailored to the evidence for each input, as explained on [How the inputs are chosen](model_inputs.qmd).
+
+The tornado diagrams for this model are on the [one-way sensitivity results](results_tornado.qmd) page.
+
+## Probabilistic sensitivity analysis
+
+The decision tree analysis in the [base case analysis](results_base_case.qmd) assumes that the parameters of the model are known with certainty.
+
+In reality, the true values of these parameters are unknown. We are either estimating them from prior literature or assuming values based on expert opinion.
+
+A [**probabilistic sensitivity analysis (PSA)**](https://journals.sagepub.com/doi/10.1177/0962280211419832) is a way of explicitly ascertaining the effects of that uncertainty on a cost-effectiveness model.
+
+Instead of assigning a single fixed value to each model input (for example, “the probability of cryptococcal transmission is X%”), PSA allows each uncertain parameter to vary across a plausible range based on the available evidence. For each parameter, we specify a prior probability distribution that reflects how uncertain we are about its true value.
+
+The cost effectiveness model is then run many times. In each run, the model randomly draws one value for each parameter from its corresponding distribution and calculates the resulting costs and health outcomes. This produces a distribution of possible results rather than a single point estimate.
+
+For the purposes of this analysis, we have run the analysis `r scales::comma(nsim)` times.
+
+We can plot the costs and QALYs from each simulation on a two-dimensional plot, yielding a **cost-effectiveness plane**. From this, we derive a **95% uncertainty ellipse**[^1] representing the joint uncertainty of the true cost and QALY change from screening.
+
+[^1]: This is technically a credible ellipse, since the analysis is Bayesian.
+
+### Reading the cost-effectiveness plane
+
+Each point on the [cost-effectiveness plane](cea_primer.qmd#the-cost-effectiveness-plane) is one simulation: the ΔQ and ΔC of screening for one set of drawn inputs. The cloud of `r format(nsim, big.mark = ",", scientific = FALSE)` points shows the joint uncertainty in cost and health. The site draws an ellipse expected to contain 95% of the points, fitted from the means, spreads and correlation of ΔQ and ΔC [@vanhout1994]. The ellipse assumes the cloud is roughly oval. If the cloud is skewed or has a long tail, as cost results often do, the ellipse can describe it poorly, and the cloud itself is the better guide.
+
+What matters for the decision is not where the ellipse sits relative to the axes, but how much of the cloud lies below a line through the origin whose slope is the willingness-to-pay threshold, where net monetary benefit is positive. The plane on the results page does not draw that line, so the acceptability curve below is the easier way to read this.
+
+### The cost-effectiveness acceptability curve
+
+The **cost-effectiveness acceptability curve** answers that question for every threshold at once [@vanhout1994; @fenwick2001]. For each willingness-to-pay value from \$0 to \$200,000 per QALY, it plots the proportion of simulations in which screening has positive net monetary benefit. That proportion is read as the probability that screening is cost-effective at that threshold, given the uncertainty described by the prior distributions.
+
+-   A curve near **1** means screening is cost-effective in almost every simulation at that threshold.
+-   A curve near **0** means it almost never is.
+-   A curve near **0.5** means the evidence is finely balanced, and the decision is uncertain.
+
+The curve says how confident one can be in the decision. It does not say how much is at stake if the decision is wrong. That is what the next measure adds.
+
+### The expected value of perfect information
+
+If all uncertainty about the inputs could be removed, decision-makers would always pick the better strategy for the true input values. The **expected value of perfect information (EVPI)** is the average gain in net monetary benefit from being able to do so [@wilson2015; @briggs2012]. In this model it is calculated per donor at the willingness-to-pay threshold of \$`r format(wtp, big.mark = ",", scientific = FALSE)` per QALY: the average, across simulations, of the net monetary benefit of the better strategy in each simulation, minus the net monetary benefit of the strategy that is better on average.
+
+EVPI is an upper limit on what further research could be worth for this decision. It is near zero when the same strategy wins in almost every simulation, however wide the uncertainty, and largest when the decision is finely balanced and a wrong choice is costly. The figure on this site is per donor. The value of research to a health system would be that figure multiplied by the number of donors affected over the period in which the decision applies, which the model does not calculate.
+
+### Limits of the probabilistic analysis
+
+The probabilistic analysis only reflects the uncertainty that is put into it. It does not capture structural uncertainty, its ranges are set by shared shape parameters rather than by the evidence for each input, and it draws related inputs independently. Its results are best read alongside the [known limitations](model_structure.qmd#known-limitations) of the model.

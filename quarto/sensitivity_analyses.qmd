@@ -1,0 +1,88 @@
+---
+title: "Sensitivity analyses"
+format: html
+---
+
+The code in this script sets the prior distribution of each parameter, runs the one-way sensitivity analysis behind the [tornado diagrams](results_tornado.qmd), and runs the [probabilistic sensitivity analysis](results_psa.qmd), including the cost-effectiveness plane, the acceptability curve and the expected value of perfect information.
+
+::: {.Rcode title="Source code"}
+
+The full R script is available at:
+
+-   [`R/sensitivity_analyses.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/sensitivity_analyses.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/setup.R)
+-   [`R/functions.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/functions.R)
+:::
+
+```{r}
+#| label: read-scripts
+#| include: false
+#| cache: false
+knitr::read_chunk("../R/sensitivity_analyses.R")
+```
+
+## Load the helper functions
+
+```{r}
+#| label: source-helpers
+#| eval: false
+```
+
+## Prior distributions
+
+The list `PSA_parameters` holds one table each for probabilities, costs and QALYs. Probabilities have Beta priors with $\alpha$ from `shape_parameter` and $\beta = \alpha(1 - \mu)/\mu$. Costs and QALYs have gamma priors with shape $k$ from `shape_parameter` and scale $\theta = \mu/k$. Each table also holds the 2.5th and 97.5th percentiles, which set the range of the one-way sensitivity analysis. Parameters whose shape is `NA` are fixed at their base-case value. The base-case values and shape parameters are set on the [setup](setup.qmd) page.
+
+```{r}
+#| label: parameter-distributions
+#| eval: false
+```
+
+## Prior distribution plots
+
+One density plot is saved per parameter, as `figures/PSA_prior_<parameter>.png`. Fixed parameters are drawn as a vertical line at their value.
+
+```{r}
+#| label: prior-plots
+#| eval: false
+```
+
+## Parameter tables
+
+The three tables of prior parameters are saved as `figures/PSA_tables_probabilities.png`, `figures/PSA_tables_costs.png` and `figures/PSA_tables_qalys.png`, with matching `.docx` files in `tables/`.
+
+```{r}
+#| label: parameter-tables
+#| eval: false
+```
+
+## One-way sensitivity analysis
+
+`calculate_cost_QALY_QC()` is run three times for each parameter: at its lower 95% bound, its base-case value and its upper 95% bound, with every other parameter at its base-case value. The incremental cost and QALYs of screening at each setting give the bars of the tornado diagrams, sorted by their width. The diagrams are saved as `figures/tornado_cost.svg` and `figures/tornado_qaly.svg`.
+
+```{r}
+#| label: tornado-analysis
+#| eval: false
+```
+
+## Probabilistic sensitivity analysis
+
+Each parameter is drawn `nsim` times from its prior. The derived probabilities are computed for each draw, and `calculate_cost_QALY_QC()` gives the expected cost and QALYs of each strategy. The incremental cost, QALYs and net monetary benefit of screening are computed for every draw, and a 95% ellipse is fitted to the incremental costs and QALYs. The cost-effectiveness plane is saved as `figures/PSA_plot.svg`.
+
+```{r}
+#| label: psa-simulation
+#| eval: false
+```
+
+## Acceptability curve, EVPI and BCEA
+
+The acceptability curve gives the share of draws in which screening has positive net monetary benefit at each willingness-to-pay value from \$0 to \$200,000 per QALY, and is saved as `figures/PSA_CEAC_plot.svg`. The expected value of perfect information is computed at the willingness-to-pay threshold. A summary table is saved as `figures/PSA_summary_table.png` and `tables/PSA_summary_table.docx`. The same draws are then passed to the BCEA package.
+
+```{r}
+#| label: ceac-bcea
+#| eval: false
+```

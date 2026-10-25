@@ -1,0 +1,163 @@
+---
+title: "How the inputs are chosen"
+format: html
+---
+
+```{r}
+#| label: read-setup
+#| include: false
+#| cache: false
+knitr::read_chunk("../R/setup.R")
+```
+
+```{r}
+#| label: expected-values
+#| include: false
+```
+
+```{r}
+#| label: shape-parameters
+#| include: false
+```
+
+```{r}
+#| label: input-helpers
+#| include: false
+num <- function(x, digits = 2) format(signif(x, digits), big.mark = ",", scientific = FALSE)
+beta_ci <- function(name) {
+  a <- shape_parameter[[name]]
+  m <- expected_value[[name]]
+  b <- a * (1 - m) / m
+  c(qbeta(0.025, a, b), qbeta(0.975, a, b))
+}
+gamma_ci <- function(name) {
+  k <- shape_parameter[[name]]
+  m <- expected_value[[name]]
+  c(qgamma(0.025, shape = k, scale = m / k), qgamma(0.975, shape = k, scale = m / k))
+}
+alpha_p <- unique(unlist(shape_parameter[grep("^p_", names(shape_parameter))]))
+k_cq <- unique(na.omit(unlist(shape_parameter[grep("^(cost|q)_", names(shape_parameter))])))
+fixed_inputs <- names(shape_parameter)[vapply(shape_parameter, is.na, logical(1))]
+code_list <- function(x) paste0("`", x, "`", collapse = ", ")
+```
+
+The [decision model](model_structure.qmd) needs a value for every probability, cost and QALY on the tree. This page explains, in plain terms, how each input is given two things: a **best estimate**, used for the base case, and a **range of plausible values**, used in the sensitivity analyses. The full list of inputs, with their values and ranges, is on the [Setup and parameters](setup.qmd#parameter-summary) page.
+
+## Best estimates and where they come from
+
+Each input's best estimate is its **base-case value**, stored in `R/setup.R`. The [evidence review](../references/literature-review.md) sets out the published evidence for every input, grades how strong that evidence is, and labels each input by its basis: derived from evidence, evidence combined with judgment, needing expert elicitation because no usable evidence exists, or a policy choice best analyzed as a scenario. The review does not change the model. The values used throughout this site are still those in `R/setup.R`, and the review notes where the evidence points to different values.
+
+## Describing uncertainty with probability distributions
+
+A single best estimate hides how uncertain it is. A donor CrAg positivity of 1 in 1,000 might be known to within a few percent, or might be off by a factor of three. To capture this, each uncertain input is given a **prior distribution**: a curve that says which values are plausible and how plausible each is. The [probabilistic sensitivity analysis](uncertainty_methods.qmd) draws values from these curves, and the [one-way sensitivity analysis](uncertainty_methods.qmd) uses their 2.5th and 97.5th percentiles as the low and high values.
+
+Two families of curves are used, chosen to respect what each kind of input can be.
+
+**Probabilities use Beta distributions,** which can only take values between 0 and 1. A useful way to read a Beta distribution with parameters $\alpha$ and $\beta$ is as the result of an imaginary study with about $\alpha$ events among $\alpha + \beta$ patients. In this model every probability has $\alpha$ = `r paste(alpha_p, collapse = ", ")`, and $\beta$ is then set so that the mean equals the base-case value. Every probability is therefore described as roughly as certain as a study that observed `r paste(alpha_p, collapse = ", ")` events. For example:
+
+-   **Transmission from an infected donor** (`p_transmission`, base case `r expected_value$p_transmission`) has a 95% range of `r num(beta_ci("p_transmission")[1])` to `r num(beta_ci("p_transmission")[2])`.
+-   **Donor CrAg positivity** (`p_donor_cryptococcus`, base case `r expected_value$p_donor_cryptococcus`) is described as roughly as certain as finding `r paste(alpha_p, collapse = ", ")` infected donors among `r num(alpha_p / expected_value$p_donor_cryptococcus, 3)` screened, and has a 95% range of `r num(beta_ci("p_donor_cryptococcus")[1])` to `r num(beta_ci("p_donor_cryptococcus")[2])`.
+
+**Costs and QALYs use gamma distributions,** which cannot be negative and have a long right tail: most values sit near the mean, but occasional values are much larger. This suits costs in particular, where a few complicated hospital stays cost far more than a typical one. In this model every gamma distribution has shape $k$ = `r paste(k_cq, collapse = ", ")`, so its standard deviation is `r num(100 / sqrt(k_cq), 2)`% of its mean and its 95% range runs from about `r num(qgamma(0.025, k_cq) / k_cq)` to `r num(qgamma(0.975, k_cq) / k_cq)` times the base-case value. For example, **the cost of an episode of cryptococcosis** (`cost_disease`, base case \$`r num(expected_value$cost_disease, 6)`) ranges from about \$`r num(gamma_ci("cost_disease")[1], 3)` to \$`r num(gamma_ci("cost_disease")[2], 3)`.
+
+Using the same $\alpha$ for every probability and the same $k$ for every cost and QALY is a simplification: the width of each range follows from these shared settings, not from the strength of the evidence behind each input. For costs and QALYs it gives every input the same relative spread. For probabilities it treats each as if about `r paste(alpha_p, collapse = ", ")` events had been observed, which gives rare probabilities, such as donor CrAg positivity, a much wider range relative to their value than common ones, such as test specificity. The evidence review compares these ranges with what the literature supports for each input.
+
+### Inputs that are not varied
+
+Some inputs are fixed at their base-case value in every analysis: `r code_list(fixed_inputs)`. These are the costs and QALYs of outcomes measured against the reference point of no transplant with continued dialysis. `number_donors` is also not varied; it is a label and does not enter the calculation.
+
+### Inputs are varied independently
+
+In the probabilistic sensitivity analysis each input is drawn separately, as if the inputs were unrelated. Some are probably related in reality. A more severe episode of cryptococcosis, for example, is likely both to cost more and to cause a larger QALY loss. Drawing related inputs independently can make the spread of results narrower or wider than it should be. Independent draws can also produce combinations that are clinically implausible: because `q_nocryptococcus` and `q_loss_cryptococcus` are drawn separately, about one draw in seven gives a QALY loss from cryptococcosis larger than the QALY gain from the transplant itself.
+
+## Parameters of the model
+
+### Probabilities
+
+We parameterize the probability portion of the model based on the [**beta distribution**](https://en.wikipedia.org/wiki/Beta_distribution).
+
+The beta distribution is a way of representing **uncertainty around a probability**—that is, a number that must fall between **0 and 1**, such as a risk, sensitivity, specificity, or event rate.
+
+For a beta distribution with parameters $\alpha$ and $\beta$, the mean is given by $\alpha / (\alpha + \beta)$. The confidence interval associated with these parameters can also be derived from these parameters.
+
+We chose values of $\alpha$ and $\beta$ which yield the mean from the base case analysis and confidence intervals consistent with prior literature.
+
+The final table is below
+
+![](../figures/PSA_tables_probabilities.png)
+
+This yields the following parameter distributions:
+
+::: {layout-ncol="3"}
+![](../figures/PSA_prior_p_usage.png)
+
+![](../figures/PSA_prior_p_donor_cryptococcus.png)
+
+![](../figures/PSA_prior_p_transmission.png)
+
+![](../figures/PSA_prior_p_spont_cryptococcus.png)
+
+![](../figures/PSA_prior_p_sensitivity.png)
+
+![](../figures/PSA_prior_p_specificity.png)
+
+![](../figures/PSA_prior_p_cancelled.png)
+
+![](../figures/PSA_prior_p_prophrate.png)
+
+![](../figures/PSA_prior_p_prophefficacy.png)
+:::
+
+### Costs
+
+We parameterize the costs portion of the model based on the [**gamma distribution**](https://en.wikipedia.org/wiki/Gamma_distribution).
+
+The gamma distribution has a long right tail, and is therefore particularly suited for cost data, which are skewed.
+
+For a gamma distribution with parameters $k$ and $\theta$, the mean is given by $k\theta$. The confidence interval associated with these parameters can also be derived from these parameters.
+
+We chose values of $k$ and $\theta$ which yield the mean from the base case analysis and confidence intervals consistent with prior literature.
+
+Of note, since all cost data are relative to a baseline where there is no transplant performed, `cost_cancellation` and `cost_nonacceptance` are parameterized, not as functions of the gamma distribution, but as fixed constants set at 0.
+
+The final table is below:
+
+![](../figures/PSA_tables_costs.png)
+
+This yields the following parameter distributions:
+
+::: {layout-ncol="3"}
+![](../figures/PSA_prior_cost_test.png)
+
+![](../figures/PSA_prior_cost_disease.png)
+
+![](../figures/PSA_prior_cost_fluconazole.png)
+
+![](../figures/PSA_prior_cost_cancellation.png)
+
+![](../figures/PSA_prior_cost_nocryptococcus.png)
+
+![](../figures/PSA_prior_cost_nonacceptance.png)
+:::
+
+### QALYs
+
+We parameterize the QALY portion of the model also based on the [**gamma distribution**](https://en.wikipedia.org/wiki/Gamma_distribution).
+
+Again, we chose values of $k$ and $\theta$ which yield the mean from the base case analysis and confidence intervals consistent with prior literature.
+
+Of note, since all QALY data are relative to a baseline where there is no transplant performed, `q_noacceptance` is parameterized, not as functions of the gamma distribution, but as a fixed constant set at 0.
+
+The final table is below:
+
+![](../figures/PSA_tables_qalys.png)
+
+This yields the following parameter distributions:
+
+::: {layout-ncol="3"}
+![](../figures/PSA_prior_q_nocryptococcus.png)
+
+![](../figures/PSA_prior_q_noacceptance.png)
+
+![](../figures/PSA_prior_q_loss_cryptococcus.png)
+:::

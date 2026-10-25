@@ -1,0 +1,147 @@
+---
+title: "Setup and parameters"
+format: html
+---
+
+The code in this script loads the R packages used throughout the analysis and defines every model parameter: its base-case value, the shape parameter used for its prior distribution in the probabilistic sensitivity analysis, the willingness-to-pay threshold, the random seed, and the number of simulations.
+
+::: {.Rcode title="Source code"}
+
+The full R script is available at:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/blob/master/R/setup.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+
+:::
+
+```{r}
+#| label: read-scripts
+#| include: false
+#| cache: false
+knitr::read_chunk("../R/setup.R")
+```
+
+## Libraries
+
+The analysis uses the following R packages for building and drawing the decision trees, tables and figures, and for the probabilistic sensitivity analysis.
+
+```{r}
+#| label: libraries
+#| eval: false
+```
+
+The table below is generated from the `library()` calls above when the page is rendered.
+
+```{r}
+#| label: libraries-table
+#| echo: false
+package_info <- tibble::tribble(
+  ~Package,        ~Purpose,                                        ~Documentation,
+  "DiagrammeR",    "Decision tree diagrams (Graphviz)",             "[DiagrammeR](https://rich-iannone.github.io/DiagrammeR/)",
+  "DiagrammeRsvg", "Export tree diagrams to SVG",                   "[DiagrammeRsvg](https://github.com/rich-iannone/DiagrammeRsvg)",
+  "glue",          "String interpolation",                          "[glue](https://glue.tidyverse.org/)",
+  "tibble",        "Data frames",                                   "[tibble](https://tibble.tidyverse.org/)",
+  "gt",            "Tables",                                        "[gt](https://gt.rstudio.com/)",
+  "tidyverse",     "Data management and plotting",                  "[tidyverse](https://www.tidyverse.org/)",
+  "ggtext",        "Formatted plot titles",                         "[ggtext](https://wilkelab.org/ggtext/)",
+  "xml2",          "Annotate SVG figures",                          "[xml2](https://xml2.r-lib.org/)",
+  "BCEA",          "Bayesian cost-effectiveness analysis of the PSA", "[BCEA](https://cran.r-project.org/package=BCEA)",
+  "ellipse",       "95% ellipse on the cost-effectiveness plane",   "[ellipse](https://cran.r-project.org/package=ellipse)",
+  "svglite",       "Save figures as SVG",                           "[svglite](https://svglite.r-lib.org/)",
+  "webshot2",      "Save tables as PNG (needs Chrome or Chromium)", "[webshot2](https://rstudio.github.io/webshot2/)"
+)
+
+setup_lines <- readLines("../R/setup.R", warn = FALSE)
+loaded <- sub("^library\\(([^)]+)\\).*$", "\\1",
+              grep("^library\\(", setup_lines, value = TRUE))
+
+tibble::tibble(Package = loaded) |>
+  dplyr::left_join(package_info, by = "Package") |>
+  gt::gt() |>
+  gt::fmt_markdown(columns = "Documentation") |>
+  gt::sub_missing(missing_text = "\u2014") |>
+  gt::cols_label(Package = "R package") |>
+  gt::tab_style(
+    style = gt::cell_text(font = "monospace"),
+    locations = gt::cells_body(columns = Package)
+  )
+```
+
+## Base-case parameter values
+
+Each parameter's base-case value is stored in the list `expected_value`. These values produce the [base case](results_base_case.qmd) results and are the centre of each prior distribution in the [probabilistic sensitivity analysis](results_psa.qmd).
+
+```{r}
+#| label: expected-values
+```
+
+## Shape parameters
+
+The list `shape_parameter` sets how widely each parameter varies in the sensitivity analyses. Probabilities have Beta priors: the shape parameter is $\alpha$, and $\beta = \alpha(1 - \mu)/\mu$, so the prior mean equals the base-case value $\mu$. Costs and QALYs have gamma priors: the shape parameter is $k$, and the scale is $\theta = \mu/k$. A shape of `NA` fixes the parameter at its base-case value.
+
+```{r}
+#| label: shape-parameters
+```
+
+## Willingness to pay, seed and number of simulations
+
+```{r}
+#| label: simulation-settings
+```
+
+## Parameter summary
+
+The table below is computed from the code above when the page is rendered. The 95% interval is the 2.5th to 97.5th percentile of each prior distribution. The evidence for each value is reviewed on the [evidence base](../references/literature-review.md) page.
+
+```{r}
+#| label: parameter-table
+#| echo: false
+parameter_summary <- tibble::tibble(
+  parameter = names(expected_value),
+  value = unlist(expected_value),
+  shape = vapply(
+    names(expected_value),
+    function(p) if (is.null(shape_parameter[[p]])) NA_real_ else shape_parameter[[p]],
+    numeric(1)
+  )
+) |>
+  dplyr::mutate(
+    family = dplyr::case_when(
+      parameter == "number_donors" ~ "Label",
+      is.na(shape) ~ "Fixed",
+      startsWith(parameter, "p_") ~ "Beta",
+      TRUE ~ "Gamma"
+    ),
+    lb_95 = dplyr::case_when(
+      family == "Beta" ~ qbeta(0.025, shape, shape * (1 - value) / value),
+      family == "Gamma" ~ qgamma(0.025, shape = shape, scale = value / shape),
+      TRUE ~ NA_real_
+    ),
+    ub_95 = dplyr::case_when(
+      family == "Beta" ~ qbeta(0.975, shape, shape * (1 - value) / value),
+      family == "Gamma" ~ qgamma(0.975, shape = shape, scale = value / shape),
+      TRUE ~ NA_real_
+    )
+  )
+
+parameter_summary |>
+  gt::gt() |>
+  gt::fmt_number(columns = value, decimals = 4, drop_trailing_zeros = TRUE) |>
+  gt::fmt_number(columns = c(lb_95, ub_95), n_sigfig = 3, drop_trailing_zeros = TRUE) |>
+  gt::sub_missing(missing_text = "\u2014") |>
+  gt::cols_label(
+    parameter = "Parameter",
+    value = "Base-case value",
+    shape = "Shape",
+    family = "Distribution",
+    lb_95 = "Lower 95%",
+    ub_95 = "Upper 95%"
+  ) |>
+  gt::tab_style(
+    style = gt::cell_text(font = "monospace"),
+    locations = gt::cells_body(columns = parameter)
+  )
+```
+
+`number_donors` labels the tree diagram's starting cohort and is not varied in the sensitivity analyses. The willingness-to-pay threshold used for net monetary benefit is \$`r format(wtp, big.mark = ",", scientific = FALSE)` per QALY, and the probabilistic sensitivity analysis uses `r format(nsim, big.mark = ",", scientific = FALSE)` draws.
