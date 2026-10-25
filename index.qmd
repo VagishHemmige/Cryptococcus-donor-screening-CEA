@@ -61,15 +61,6 @@ $$
 $$
 
 
-## Results
-
--   [**Base case analysis**](quarto/base_case.qmd): primary results and interpretation\
--   [**Additional tree analyses**](quarto/additional_trees.qmd): alternative clinical assumptions\
--   [**One-way sensitivity analysis**](quarto/tornado.qmd): key drivers of results\
--   [**Probabilistic sensitivity analyses**](quarto/psa.qmd): uncertainty and robustness\
--   [**About**](quarto/about.qmd): methods, assumptions, and disclosures
-
-
 ### Reproducibility
 
 All analyses presented on this website are fully reproducible.  

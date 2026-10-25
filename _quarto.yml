@@ -26,15 +26,33 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - href: quarto/base_case.html
-        text: Base case analysis
-      - href: quarto/additional_trees.html
-        text: Additional tree analyses
-      - href: quarto/tornado.html
-        text: One-way sensitivity analysis (tornado plot)
-      - href: quarto/psa.html
-        text: Probabilistic sensitivity analyses
-      - href: quarto/about.html
+      - section: Setup and helper functions
+        contents:
+          - href: quarto/setup.qmd
+            text: Setup and parameters
+          - href: quarto/functions.qmd
+            text: Functions
+      - section: Model code
+        contents:
+          - href: quarto/base_case_tree.qmd
+            text: Base-case tree
+          - href: quarto/scenario_trees.qmd
+            text: Scenario trees
+          - href: quarto/sensitivity_analyses.qmd
+            text: Sensitivity analyses
+      - section: Results
+        contents:
+          - href: quarto/results_base_case.qmd
+            text: Base case
+          - href: quarto/results_scenarios.qmd
+            text: Scenario analyses
+          - href: quarto/results_tornado.qmd
+            text: One-way sensitivity (tornado)
+          - href: quarto/results_psa.qmd
+            text: Probabilistic sensitivity
+      - href: references/literature-review.md
+        text: Evidence base for parameters
+      - href: quarto/about.qmd
         text: About
 
   page-navigation: true
