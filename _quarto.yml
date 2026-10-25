@@ -26,6 +26,22 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - section: Background
+        contents:
+          - href: quarto/background.qmd
+            text: Clinical background
+      - section: Methods
+        contents:
+          - href: quarto/cea_primer.qmd
+            text: Cost-effectiveness analysis for clinicians
+          - href: quarto/model_structure.qmd
+            text: The decision model
+          - href: quarto/model_inputs.qmd
+            text: How the inputs are chosen
+          - href: quarto/uncertainty_methods.qmd
+            text: Sensitivity analyses explained
+          - href: references/literature-review.md
+            text: Evidence base for parameters
       - section: Setup and helper functions
         contents:
           - href: quarto/setup.qmd
@@ -50,11 +66,8 @@ website:
             text: One-way sensitivity (tornado)
           - href: quarto/results_psa.qmd
             text: Probabilistic sensitivity
-      - href: references/literature-review.md
-        text: Evidence base for parameters
       - href: quarto/about.qmd
         text: About
-
   page-navigation: true
 
 bibliography: references.bib
