@@ -11,6 +11,8 @@ library(ggtext)
 library(xml2)
 library(BCEA)
 library(ellipse)
+library(svglite) #ggsave() needs svglite to save .svg figures
+library(webshot2) #gtsave() needs webshot2 and a Chrome or Chromium installation to save .png tables
 
 ## ---- expected-values
 #Save simulation parameters

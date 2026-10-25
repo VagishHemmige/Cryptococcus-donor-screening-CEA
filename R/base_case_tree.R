@@ -175,3 +175,12 @@ if (file.exists("tables/summary_table_QC.docx")) {
 }
 summary_gt_QC%>%
   gtsave("tables/summary_table_QC.docx")
+
+#Save the base-case results for the website
+write_csv(result_tibble_QC, "output/base_case_path_table.csv")
+tibble(
+  cost_difference = g_QC$cost_difference,
+  qaly_difference = g_QC$qaly_difference,
+  nmb = g_QC$nmb
+)%>%
+  write_csv("output/base_case_results.csv")

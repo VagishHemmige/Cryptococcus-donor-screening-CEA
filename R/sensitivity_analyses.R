@@ -254,7 +254,8 @@ tornado_parameters$probabilities<-PSA_parameters$probabilities%>%
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   mutate(range_cost=abs(cost_difference_high-cost_difference_low),
-         range_qaly=abs(qaly_difference_high-qaly_difference_low))
+         range_qaly=abs(qaly_difference_high-qaly_difference_low),
+         range_nmb=abs(nmb_difference_high-nmb_difference_low))
 
 #Add the results of low, mean, and high values of the CI to the dataframes for cost
 tornado_parameters$costs<-PSA_parameters$costs%>%
@@ -285,7 +286,7 @@ tornado_parameters$costs<-PSA_parameters$costs%>%
   mutate(
     cost_difference_mean=total_expected_cost_s-total_expected_cost_ns,
     qaly_difference_mean=total_expected_qaly_s-total_expected_qaly_ns,
-    nmb_difference_low=wtp*(qaly_difference_low)-cost_difference_low
+    nmb_difference_mean=wtp*(qaly_difference_mean)-cost_difference_mean
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   rowwise() %>%
@@ -304,7 +305,8 @@ tornado_parameters$costs<-PSA_parameters$costs%>%
   )%>%
   select(-total_expected_cost_ns, -total_expected_cost_s, -total_expected_qaly_ns,-total_expected_qaly_s)%>%
   mutate(range_cost=abs(cost_difference_high-cost_difference_low),
-         range_qaly=abs(qaly_difference_high-qaly_difference_low))
+         range_qaly=abs(qaly_difference_high-qaly_difference_low),
+         range_nmb=abs(nmb_difference_high-nmb_difference_low))
 
 #Add the results of low, mean, and high values of the CI to the dataframes for qaly
 tornado_parameters$qalys<-PSA_parameters$qalys%>%
@@ -430,6 +432,11 @@ tornado_qaly_df%>%
   theme(legend.position = "bottom")
 ggsave("figures/tornado_qaly.svg")
 
+#Save the one-way sensitivity results for the website
+bind_rows(tornado_parameters)%>%
+  select(parameter, mean, lb_95, ub_95, contains("difference"), contains("range"))%>%
+  write_csv("output/tornado_results.csv")
+
 ## ---- psa-simulation
 #Probabilistic sensitivity analysis
 #Now, we simulate 10,000 draws from the above.  First, we create the dataset with the simulated values
@@ -450,9 +457,9 @@ PSA_simulation$costs<-PSA_parameters$costs %>%
   pull(draws) %>%
   rlang::set_names(PSA_parameters$costs$parameter) %>%
   as_tibble()%>%
-  mutate(cost_cancellation=0,
-         cost_nocryptococcus=-10,
-         cost_nonacceptance=0)
+  mutate(cost_cancellation=expected_value$cost_cancellation,
+         cost_nocryptococcus=expected_value$cost_nocryptococcus,
+         cost_nonacceptance=expected_value$cost_nonacceptance)
 PSA_simulation$qalys<-PSA_parameters$qalys %>%
   transmute(
     draws = purrr::map2(shape, scale, ~ rgamma(nsim, shape=.x, scale=.y))
@@ -460,7 +467,7 @@ PSA_simulation$qalys<-PSA_parameters$qalys %>%
   pull(draws) %>%
   rlang::set_names(PSA_parameters$qalys$parameter) %>%
   as_tibble()%>%
-  mutate(q_noacceptance=0)
+  mutate(q_noacceptance=expected_value$q_noacceptance)
 
 #Combine into a single tibble
 PSA_simulation<-bind_cols(PSA_simulation)%>%
@@ -633,6 +640,13 @@ if (file.exists("tables/PSA_summary_table.docx")) {
 }
 PSA_summary_gt%>%
   gtsave("tables/PSA_summary_table.docx")
+
+#Save the PSA results for the website
+write_csv(PSA_summary_df, "output/psa_summary.csv")
+write_csv(ceac_df, "output/psa_ceac.csv")
+PSA_simulation_unnested%>%
+  select(sim_number, cost_change, qaly_change, nmb)%>%
+  write_csv("output/psa_draws.csv")
 
 #Now we use the BCEA package in R for further analysis of the PSA data.  We start by creating the matrices needed for the analysis and then creating the BCEA object
 PSA_cost_matrix<-PSA_simulation_unnested%>%

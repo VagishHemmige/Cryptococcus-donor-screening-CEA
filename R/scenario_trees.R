@@ -68,3 +68,22 @@ export_svg(alternative_tree_4$plot)%>%
     )
   )%>%
   write_xml("figures/alternative_tree_4_annotated.svg")
+
+#Save the scenario results for the website
+scenario_results<-tibble(
+  scenario = 1:4,
+  description = c(
+    "p_cancelled = 0.01",
+    "p_cancelled = 0.01, p_prophrate = 0.99",
+    "cost_disease = 3000000",
+    "p_cancelled = 0.01, p_prophrate = 0.99, cost_disease = 3000000"
+  ),
+  tree = list(alternative_tree_1, alternative_tree_2, alternative_tree_3, alternative_tree_4)
+)%>%
+  mutate(
+    cost_difference = map_dbl(tree, "cost_difference"),
+    qaly_difference = map_dbl(tree, "qaly_difference"),
+    nmb = map_dbl(tree, "nmb")
+  )%>%
+  select(-tree)
+write_csv(scenario_results, "output/scenario_results.csv")
