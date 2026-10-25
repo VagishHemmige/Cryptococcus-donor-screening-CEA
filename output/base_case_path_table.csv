@@ -1,0 +1,21 @@
+strategy,acceptance,donor_dz_status,donor_test_result,cancellation,proph,outcome,probability,cost_total,qaly_total,cost_expected,qaly_expected,nmv
+No Screening,Accept,Positive,NA,NA,NA,Recipient cryptococcus,3.7281e-4,110945,3,41.36140545,0.0011184300000000001,70.48159455000001
+No Screening,Accept,Positive,NA,NA,NA,No cryptococcus,5.719e-5,-10,5.5,-5.719e-4,3.14545e-4,31.4550719
+No Screening,Accept,Negative,NA,NA,NA,Recipient cryptococcus,0.00214785,110945,3,238.29321825000002,0.006443550000000001,406.06178175000014
+No Screening,Accept,Negative,NA,NA,NA,No cryptococcus,0.42742215,-10,5.5,-4.2742215,2.350821825,235086.45672150003
+No Screening,Non-accept,NA,NA,NA,NA,Non-accept,0.5700000000000001,0,0,0,0,0
+Screening,Accept,Positive,CrAg+,Cancelled,NA,Cancelled,3.0994400000000004e-4,2,0,6.198880000000001e-4,0,-6.198880000000001e-4
+Screening,Accept,Positive,CrAg+,Not Cancelled,Fluconazole,Recipient cryptococcus,4.111438154399999e-6,117607,3,0.48353390702452065,1.2334314463199997e-5,0.7498975392954792
+Screening,Accept,Positive,CrAg+,Not Cancelled,Fluconazole,No cryptococcus,3.5406421845599996e-5,6652,5.5,0.23552351811693117,1.9473532015079997e-4,19.238008496963065
+Screening,Accept,Positive,CrAg+,Not Cancelled,None,Recipient cryptococcus,3.291837737999999e-5,110947,3,3.652195215178859,9.875513213999996e-5,6.223317998821138
+Screening,Accept,Positive,CrAg+,Not Cancelled,None,No cryptococcus,5.049762619999999e-6,-8,5.5,-4.039810095999999e-5,2.7773694409999994e-5,2.7774098391009594
+Screening,Accept,Positive,CrAg-,NA,NA,Recipient cryptococcus,3.6908189999999986e-5,110947,3,4.094852955929999,1.1072456999999995e-4,6.977604044069996
+Screening,Accept,Positive,CrAg-,NA,NA,No cryptococcus,5.661809999999999e-6,-8,5.5,-4.529447999999999e-5,3.1139954999999993e-5,3.1140407944799993
+Screening,Accept,Negative,CrAg+,Cancelled,NA,Cancelled,0.006873120000000007,2,0,0.013746240000000014,0,-0.013746240000000014
+Screening,Accept,Negative,CrAg+,Not Cancelled,Fluconazole,Recipient cryptococcus,5.257936800000003e-7,117607,3,0.061837017323760034,1.5773810400000008e-6,0.09590108667624003
+Screening,Accept,Negative,CrAg+,Not Cancelled,Fluconazole,No cryptococcus,8.757970063200005e-4,6652,5.5,5.825801686040643,0.004816883534760003,475.8625517899597
+Screening,Accept,Negative,CrAg+,Not Cancelled,None,Recipient cryptococcus,4.2097860000000025e-6,110947,3,0.4670631273420003,1.2629358000000007e-5,0.7958726726580003
+Screening,Accept,Negative,CrAg+,Not Cancelled,None,No cryptococcus,8.377474140000005e-4,-8,5.5,-0.006701979312000004,0.004607610777000003,460.76777967931235
+Screening,Accept,Negative,CrAg-,NA,NA,Recipient cryptococcus,0.002104893,110947,3,233.53156367100001,0.006314679,397.93633632899997
+Screening,Accept,Negative,CrAg-,NA,NA,No cryptococcus,0.418873707,-8,5.5,-3.350989656,2.3038053885,230383.88983965598
+Screening,Non-accept,NA,NA,NA,NA,Non-accept,0.5700000000000001,2,0,1.1400000000000001,0,-1.1400000000000001
