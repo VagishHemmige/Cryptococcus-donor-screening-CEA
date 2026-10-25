@@ -1,5 +1,6 @@
 #This file performs setup and other tasks for the CEA analysis
 
+## ---- libraries
 library(DiagrammeR)
 library(DiagrammeRsvg)
 library(glue)
@@ -11,6 +12,7 @@ library(xml2)
 library(BCEA)
 library(ellipse)
 
+## ---- expected-values
 #Save simulation parameters
 
 #Expected values
@@ -35,6 +37,7 @@ expected_value$q_nocryptococcus<-5.5
 expected_value$q_noacceptance<-0
 expected_value$q_loss_cryptococcus<-2.5
 
+## ---- shape-parameters
 #Shape parameters
 shape_parameter<-list()
 shape_parameter$p_usage<-10
@@ -57,6 +60,7 @@ shape_parameter$q_noacceptance<-NA
 shape_parameter$q_loss_cryptococcus<-4
 
 
+## ---- simulation-settings
 # willingness-to-pay threshold
 wtp <- 100000  
 

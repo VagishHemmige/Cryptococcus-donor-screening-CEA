@@ -1,8 +1,10 @@
 #Creates the tree diagrams and summary tables for the base case analysis
 
+## ---- source-helpers
 #First, we source the helper functions for the analysis
 source("R/functions.R")
 
+## ---- parameter-labelled-tree
 #Create the plot that shows how the parameters appear in the diagram:
 plot_parameters_in_tree<-plot_tree_diagram_QC(p_usage="p_usage", 
                      p_donor_cryptococcus="p_donor_cryptococcus", 
@@ -46,6 +48,7 @@ plot_parameters_in_tree<-plot_tree_diagram_QC(p_usage="p_usage",
 export_svg(plot_parameters_in_tree)%>%
   writeLines(., "figures/crag_tree_parameters.svg")
 
+## ---- base-case-tree
 #Run the base case tree diagram
 g_QC<-create_tree_diagram_QC()
 
@@ -68,6 +71,7 @@ add_svg_annotation(
 )
 write_xml(svg_doc, "figures/crag_tree_QC_annotated.svg")
 
+## ---- path-table
 #Now, we look at the path table
 result_tibble_QC<-g_QC$path_table
 
@@ -108,6 +112,7 @@ if (file.exists("tables/output_table_QC.docx")) {
 crag_table_QC%>%
   gtsave("tables/output_table_QC.docx")
 
+## ---- parameter-table
 #Let's create a table from the parameters
 parameter_table_QC<-g_QC$parameter_tibble%>%
   gt()%>%
@@ -141,6 +146,7 @@ if (file.exists("tables/parameter_table_QC.docx")) {
 parameter_table_QC%>%
   gtsave("tables/parameter_table_QC.docx")
 
+## ---- summary-table
 #Let's also look at the summary statistics for this table
 summary_tibble_QC<-result_tibble_QC%>%
   group_by(strategy)%>%

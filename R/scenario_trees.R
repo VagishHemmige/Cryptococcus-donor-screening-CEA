@@ -1,6 +1,7 @@
 #Creates the tree diagrams for alternative case analyses
 
 
+## ---- scenario-1-low-cancellation
 #Run the base case tree diagram, where organ wastage is nearly eliminated
 alternative_tree_1<-create_tree_diagram_QC(p_cancelled = 0.01)
 
@@ -17,6 +18,7 @@ export_svg(alternative_tree_1$plot)%>%
   write_xml("figures/alternative_tree_1_annotated.svg")
 
 
+## ---- scenario-2-low-cancellation-high-prophylaxis
 #Run the base case tree diagram, where organ wastage is nearly eliminated and near-universal prophylaxis is achieved
 alternative_tree_2<-create_tree_diagram_QC(p_cancelled = 0.01,
                                            p_prophrate = 0.99)
@@ -33,6 +35,7 @@ export_svg(alternative_tree_2$plot)%>%
   )%>%
   write_xml("figures/alternative_tree_2_annotated.svg")
 
+## ---- scenario-3-high-disease-cost
 #Run the base case tree diagram, where cost of cryptococcus is $3 million
 alternative_tree_3<-create_tree_diagram_QC(cost_disease = 3000000)
 
@@ -48,6 +51,7 @@ export_svg(alternative_tree_3$plot)%>%
   )%>%
   write_xml("figures/alternative_tree_3_annotated.svg")
 
+## ---- scenario-4-combined
 #Assume both very high costs of disease as well as near-perfect implementation
 alternative_tree_4<-create_tree_diagram_QC(p_cancelled = 0.01,
                                            p_prophrate = 0.99,

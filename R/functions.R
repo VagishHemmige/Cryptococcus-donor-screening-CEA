@@ -1,5 +1,6 @@
 #Functions for CEA
 
+## ---- calculate-cost-qaly
 #Function for the calculations needed for PSA. This function is used to calculate the cost and QALY
 #of each strategy for each simulation
 calculate_cost_QALY_QC<-function(p_usage=expected_value$p_usage, 
@@ -95,6 +96,7 @@ calculate_cost_QALY_QC<-function(p_usage=expected_value$p_usage,
   return(summary_tibble)
 }
 
+## ---- plot-tree-diagram
 #Creates the GrViz object from the parameters.  Used both directly in the base_case_tree.R script as well as by the decision tree function below.
 plot_tree_diagram_QC<-function(p_usage, 
                                  p_donor_cryptococcus, 
@@ -327,6 +329,7 @@ digraph crag {{
                                  
 
 
+## ---- create-tree-diagram
 #Function that creates tree diagram.  It returns the diagram created via the GraphViz language, a table of input parameters
 #and the output results from running the CEA on the parameterized decision tree.
 #Default parameters for the decision tree are those of the base case as determined by the values of the expected_value
@@ -490,6 +493,7 @@ create_tree_diagram_QC<-function(p_usage=expected_value$p_usage,
   return(return_list)
 }
 
+## ---- add-svg-annotation
 #This function adds annotations to SVGs and is used to add the results of the analysis to the SVG for the decision tree.
 add_svg_annotation <- function(svg, lines,
                                x = 40, y = 1100,

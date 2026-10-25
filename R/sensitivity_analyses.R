@@ -1,9 +1,10 @@
 #This code creates univariate sensitivity plots ("tornado plots") and performs probabilistic sensitivity analysis
 
+## ---- source-helpers
 #First, we source the helper functions for the analysis
 source("R/functions.R")
 
-## ---- tornado-analysis
+## ---- parameter-distributions
 #Next, we parameterize the sensitivity analyses.  
 
 #We start with probabilities.  we derive the mean and a shape parameter from the setup file 
@@ -56,6 +57,7 @@ PSA_parameters$qalys<-tribble(
          ub_95=ifelse(is.na(ub_95), mean, ub_95)
   )
 
+## ---- prior-plots
 #Loop to save plots parameter distributions for probabilities
 for (i in 1:nrow(PSA_parameters$probabilities))
 {
@@ -140,6 +142,7 @@ for (i in 1:nrow(PSA_parameters$qalys))
   )
 }
 
+## ---- parameter-tables
 #Create and save summary tables of the parameters
 PSA_tables<-list()
 PSA_tables$probabilities<-PSA_parameters$probabilities%>%
@@ -199,6 +202,7 @@ if (file.exists("tables/PSA_tables_qalys.docx")) {
 PSA_tables$qalys%>%
   gtsave("tables/PSA_tables_qalys.docx")
 
+## ---- tornado-analysis
 #One-way sensivity analysis (tornado diagrams)
 tornado_parameters<-list()
 
