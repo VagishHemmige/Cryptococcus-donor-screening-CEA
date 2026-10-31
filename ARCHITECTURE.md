@@ -11,7 +11,7 @@ The project is a two-strategy decision tree comparing donor serum cryptococcal a
 It has two layers:
 
 1. **An R script pipeline** (`R/`), run from `R/main.R`, which computes the base case, the scenario analyses, the one-way (tornado) sensitivity analysis and the probabilistic sensitivity analysis (PSA). It writes CSVs to `output/`, figures to `figures/` and Word tables to `tables/`.
-2. **A Quarto website** (`_quarto.yml`, `index.qmd`, `quarto/`), rendered to `docs/` and served by GitHub Pages. The site **does not run the model**. It displays code by reading labelled chunks from the R scripts, evaluates only the parameter chunks of `R/setup.R`, and reads results from the committed files in `output/` and `figures/`.
+2. **A Quarto website** (`_quarto.yml`, `index.qmd`, `quarto/`), rendered by `.github/workflows/publish.yml` and published to the `gh-pages` branch, which GitHub Pages serves; the local render in `docs/` is not committed. The site **does not run the model**. It displays code by reading labelled chunks from the R scripts, evaluates only the parameter chunks of `R/setup.R`, and reads results from the committed files in `output/` and `figures/`.
 
 This is an analysis project, not an R package.
 
@@ -169,11 +169,11 @@ flowchart LR
     fig --> res
     fig --> meth
     fig --> narr["Narrative pages"]
-    code --> docs["quarto render → docs/"]
+    code --> docs["GitHub Actions: quarto render"]
     meth --> docs
     res --> docs
     narr --> docs
-    docs --> gh["GitHub Pages"]
+    docs --> gh["gh-pages branch → GitHub Pages"]
 ```
 
 ### Page types
@@ -197,7 +197,7 @@ Rendering the site does not rerun the analysis. Values that come from `R/setup.R
 
 `_quarto.yml` sets:
 
-- the render list (`index.qmd`, `quarto/*.qmd`, `references/literature-review.md`) and `output-dir: docs`
+- the render list (`index.qmd`, `quarto/*.qmd`, `references/literature-review.md`) and `output-dir: docs` (the local render, not committed)
 - the docked sidebar, in the order Home, Background, Methods, Setup and helper functions, Model code, Results, About
 - the bibliography, `references.bib`
 - the `custom-callout` filter (`_extensions/coatless-quarto/custom-callout/`), which defines the `.Rcode` callout used on the code pages
@@ -214,9 +214,9 @@ The results pages carry `aliases`, so the earlier URLs (`base_case.html`, `addit
 ## Running and rendering
 
 1. From the project root, source `R/main.R`. This regenerates `output/`, `figures/` and `tables/`.
-2. Render the site with `quarto render`, which writes `docs/`.
+2. Preview the site with `quarto render`, which writes `docs/` locally.
 3. Render `README.Rmd` to update `README.md`.
-4. Commit `output/`, `figures/`, `tables/` and `docs/` together, so the published site matches the code.
+4. Commit `output/`, `figures/` and `tables/` together with the code, but not `docs/`. When the change reaches `master`, `.github/workflows/publish.yml` renders the site from them and publishes it to the `gh-pages` branch.
 
 The PSA is reproducible only when `R/main.R` runs in full. The seed is set once in `R/setup.R`, and `R/sensitivity_analyses.R` consumes random numbers to compute the distribution means before it draws the PSA samples. Sourcing `R/sensitivity_analyses.R` on its own produces a different set of draws.
 
