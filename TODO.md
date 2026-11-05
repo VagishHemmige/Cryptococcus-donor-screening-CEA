@@ -80,8 +80,3 @@ These figures were read from an abstract, a summary tool or automated table extr
 - [ ] The cost tornado reassigns `nmb_difference_low` at the mean-value step, so `nmb_difference_mean` is missing for cost parameters.
 - [ ] The PSA summary export saves `summary_gt_QC` instead of `PSA_summary_gt`.
 - [ ] EVPI is labeled "value of partial information" but computed as perfect information.
-
-## 9. Website
-
-- [ ] `index.qmd`: the link describing donor-derived transmission points to Penumarthi 2021, and the `ctr.13547` link is Wolfe and Ison 2019 (donor-derived infections), not a cryptococcosis guideline. Relabel both.
-- [ ] Fill in `quarto/about.qmd` (currently "Pending").
