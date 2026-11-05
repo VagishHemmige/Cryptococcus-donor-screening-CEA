@@ -62,7 +62,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -112,6 +131,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
+  background-image: none;
+}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -132,17 +162,6 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
-  background-image: none;
-}
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
   background-image: none;
 }
 </style>
@@ -461,7 +480,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 
 <section id="cryptococcosis-and-donor-derived-infection" class="level2">
 <h2 class="anchored" data-anchor-id="cryptococcosis-and-donor-derived-infection">Cryptococcosis and donor-derived infection</h2>
-<p><a href="https://academic.oup.com/ofid/article/12/5/ofaf263/8121609">Cryptococcosis in kidney transplant recipients</a> is uncommon but potentially catastrophic. When <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8096655/">transmission occurs through the donor</a>, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.</p>
+<p><a href="https://academic.oup.com/ofid/article/12/5/ofaf263/8121609">Cryptococcosis in kidney transplant recipients</a> is uncommon but potentially catastrophic. When transmission occurs through the donor <span class="citation" data-cites="penumarthi2021">(<a href="#ref-penumarthi2021" role="doc-biblioref">Penumarthi et al. 2021</a>)</span>, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.</p>
 <p>Because donor-derived cryptococcosis is rare, organ procurement organizations <strong>do not routinely screen donors for cryptococcus</strong>. Instead, current practice typically relies on:</p>
 <ul>
 <li>clinical donor history,</li>
@@ -469,7 +488,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 <li>gross or histopathologic findings, and</li>
 <li>post-transplant vigilance.</li>
 </ul>
-<p>However, <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011140">advances in antigen testing</a> and <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/ctr.13547">increasing attention to donor-derived infections</a> have renewed debate about whether <strong>systematic donor screening</strong> could prevent severe outcomes at an acceptable cost.</p>
+<p>However, <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011140">advances in antigen testing</a> and increasing attention to donor-derived infections <span class="citation" data-cites="wolfe2019">(<a href="#ref-wolfe2019" role="doc-biblioref">Wolfe and Ison 2019</a>)</span> have renewed debate about whether <strong>systematic donor screening</strong> could prevent severe outcomes at an acceptable cost.</p>
 </section>
 <section id="why-screening-is-controversial" class="level2">
 <h2 class="anchored" data-anchor-id="why-screening-is-controversial">Why screening is controversial</h2>
@@ -485,9 +504,17 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 
 <!-- -->
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-penumarthi2021" class="csl-entry" role="listitem">
+Penumarthi, Lasya R, Ricardo M La Hoz, Cameron R Wolfe, et al. 2021. <span>“<span class="nocase">Cryptococcus transmission through solid organ transplantation in the United States: A report from the Ad Hoc Disease Transmission Advisory Committee</span>.”</span> <em>Am J Transplant</em> 21 (5): 1911–23. <a href="https://doi.org/10.1111/ajt.16433">https://doi.org/10.1111/ajt.16433</a>.
+</div>
+<div id="ref-wolfe2019" class="csl-entry" role="listitem">
+Wolfe, Cameron R, and Michael G and Ison. 2019. <span>“<span class="nocase">Donor-derived infections: Guidelines from the American Society of Transplantation Infectious Diseases Community of Practice</span>.”</span> <em>Clin Transplant</em> 33 (9): e13547. <a href="https://doi.org/10.1111/ctr.13547">https://doi.org/10.1111/ctr.13547</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -958,7 +985,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cryptococcosis and donor-derived infection</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Cryptococcosis in kidney transplant recipients</span><span class="co">](https://academic.oup.com/ofid/article/12/5/ofaf263/8121609)</span> is uncommon but potentially catastrophic. When <span class="co">[</span><span class="ot">transmission occurs through the donor</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC8096655/)</span>, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Cryptococcosis in kidney transplant recipients</span><span class="co">](https://academic.oup.com/ofid/article/12/5/ofaf263/8121609)</span> is uncommon but potentially catastrophic. When transmission occurs through the donor <span class="co">[</span><span class="ot">@penumarthi2021</span><span class="co">]</span>, it often presents early after transplant, may involve the central nervous system, and is associated with substantial morbidity and mortality despite treatment.</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Because donor-derived cryptococcosis is rare, organ procurement organizations **do not routinely screen donors for cryptococcus**. Instead, current practice typically relies on:</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
@@ -967,7 +994,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>gross or histopathologic findings, and</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>post-transplant vigilance.</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>However, <span class="co">[</span><span class="ot">advances in antigen testing</span><span class="co">](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011140)</span> and <span class="co">[</span><span class="ot">increasing attention to donor-derived infections</span><span class="co">](https://onlinelibrary.wiley.com/doi/abs/10.1111/ctr.13547)</span> have renewed debate about whether **systematic donor screening** could prevent severe outcomes at an acceptable cost.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>However, <span class="co">[</span><span class="ot">advances in antigen testing</span><span class="co">](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0011140)</span> and increasing attention to donor-derived infections <span class="co">[</span><span class="ot">@wolfe2019</span><span class="co">]</span> have renewed debate about whether **systematic donor screening** could prevent severe outcomes at an acceptable cost.</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why screening is controversial</span></span>
