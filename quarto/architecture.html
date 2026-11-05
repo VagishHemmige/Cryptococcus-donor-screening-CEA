@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-aade7b2294effb6f0ad8f1cba2010aba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -211,17 +211,6 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
  <span class="menu-text">Clinical background</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../quarto/cea_primer.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
@@ -229,6 +218,24 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
  <span class="menu-text">Cost-effectiveness analysis for clinicians</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/uncertainty_methods.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Sensitivity analyses explained</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Study design and methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../quarto/model_structure.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
@@ -241,13 +248,6 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   <a href="../quarto/model_inputs.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
 </i> 
  <span class="menu-text">How the inputs are chosen</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../quarto/uncertainty_methods.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
-</i> 
- <span class="menu-text">Sensitivity analyses explained</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -498,7 +498,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <h1>Architecture</h1>
 <p>This document describes how the Cryptococcus donor screening cost-effectiveness analysis is organized: the R pipeline that builds the decision tree and runs the sensitivity analyses, and the Quarto website that presents the results. It is written for people reading or modifying the code and for AI agents working in the repository.</p>
 <blockquote class="blockquote">
-<p><strong>Code state.</strong> Written against commit <code>17a01ff</code> on <code>master</code> (25 October 2026). File paths and symbol names are stable references; check the source for current details.</p>
+<p><strong>Code state.</strong> Written against commit <code>17a01ff</code> on <code>master</code> (25 October 2026); the website sections updated for <code>842a10b</code> (4 November 2026). The R scripts are unchanged between the two. File paths and symbol names are stable references; check the source for current details.</p>
 </blockquote>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
@@ -713,10 +713,12 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
     fig --&gt; res
     fig --&gt; meth
     fig --&gt; narr["Narrative pages"]
+    rootdocs["analysis-plan.md, ARCHITECTURE.md&lt;br/&gt;AGENTS.md, REPOSITORY-BLUEPRINT.md"] -- "included at render" --&gt; pdocs["Project-document pages"]
     code --&gt; docs["GitHub Actions: quarto render"]
     meth --&gt; docs
     res --&gt; docs
     narr --&gt; docs
+    pdocs --&gt; docs
     docs --&gt; gh["gh-pages branch → GitHub Pages"]
 </pre>
 </div>
@@ -742,7 +744,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <tbody>
 <tr class="odd">
 <td>Narrative</td>
-<td><code>index.qmd</code>, <code>quarto/background.qmd</code>, <code>quarto/cea_primer.qmd</code>, <code>quarto/about.qmd</code>, <code>references/literature-review.md</code></td>
+<td><code>index.qmd</code>, <code>404.qmd</code>, <code>quarto/background.qmd</code>, <code>quarto/cea_primer.qmd</code>, <code>quarto/about.qmd</code>, <code>references/literature-review.md</code></td>
 <td>Written text and embedded figures. <code>cea_primer.qmd</code> draws one explanatory figure when rendered</td>
 </tr>
 <tr class="even">
@@ -760,6 +762,11 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <td><code>quarto/results_base_case.qmd</code>, <code>quarto/results_scenarios.qmd</code>, <code>quarto/results_tornado.qmd</code>, <code>quarto/results_psa.qmd</code></td>
 <td>Read <code>output/*.csv</code> for inline numbers, embed <code>figures/</code>, and run the <code>R/setup.R</code> chunks for <code>expected_value</code>, <code>wtp</code> and <code>nsim</code></td>
 </tr>
+<tr class="odd">
+<td>Project documents</td>
+<td><code>quarto/analysis-plan.qmd</code>, <code>quarto/architecture.qmd</code>, <code>quarto/agents.qmd</code>, <code>quarto/repository-blueprint.qmd</code></td>
+<td>Include the root file of the same name, which stays the only copy. <code>architecture.qmd</code> instead reads <code>ARCHITECTURE.md</code> as text in one chunk so that its mermaid diagrams are drawn; <code>analysis-plan.qmd</code> uses GitHub-style heading IDs so the plan’s section links work</td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -775,11 +782,11 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <h3 class="anchored" data-anchor-id="configuration">Configuration</h3>
 <p><code>_quarto.yml</code> sets:</p>
 <ul>
-<li>the render list (<code>index.qmd</code>, <code>quarto/*.qmd</code>, <code>references/literature-review.md</code>) and <code>output-dir: docs</code> (the local render, not committed)</li>
-<li>the docked sidebar, in the order Home, Background, Methods, Setup and helper functions, Model code, Results, About</li>
+<li>the render list (<code>index.qmd</code>, <code>404.qmd</code>, <code>quarto/*.qmd</code>, <code>references/literature-review.md</code>) and <code>output-dir: docs</code> (the local render, not committed)</li>
+<li>the docked sidebar, in the order Home, Background, Study design and methods, Code (Setup and helper functions, Model code), Results, Project documents, About, with every section open (<code>collapse-level: 3</code>) and one icon per kind of page</li>
 <li>the bibliography, <code>references.bib</code></li>
-<li>the <code>custom-callout</code> filter (<code>_extensions/coatless-quarto/custom-callout/</code>), which defines the <code>.Rcode</code> callout used on the code pages</li>
-<li>HTML options: cosmo theme, table of contents, folded code, lightbox</li>
+<li>two filters, in order: <code>quarto/_pending.lua</code>, which highlights provisional text and adds a Pending callout to pages that have any, then <code>custom-callout</code> (<code>_extensions/coatless-quarto/custom-callout/</code>), which defines the <code>Rcode</code>, <code>Results</code> and <code>Pending</code> callouts</li>
+<li>HTML options: cosmo theme, <code>styles.css</code> (sidebar icon colours, section rules and the provisional-text highlight), table of contents, folded code, lightbox</li>
 </ul>
 <p>There is no <code>freeze</code> setting.</p>
 <p>The results pages carry <code>aliases</code>, so the earlier URLs (<code>base_case.html</code>, <code>additional_trees.html</code>, <code>tornado.html</code>, <code>psa.html</code>) redirect to <code>results_base_case.html</code>, <code>results_scenarios.html</code>, <code>results_tornado.html</code> and <code>results_psa.html</code>.</p>
@@ -857,8 +864,8 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 </tr>
 <tr class="odd">
 <td>Site configuration</td>
-<td><code>_quarto.yml</code></td>
-<td><code>project.render</code>, <code>website.sidebar</code>, <code>custom-callout</code></td>
+<td><code>_quarto.yml</code>, <code>styles.css</code>, <code>quarto/_pending.lua</code></td>
+<td><code>project.render</code>, <code>website.sidebar</code>, <code>custom-callout</code>, <code>filters</code></td>
 </tr>
 <tr class="even">
 <td>Open work</td>

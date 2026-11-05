@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-aade7b2294effb6f0ad8f1cba2010aba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,6 +112,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
+  background-image: none;
+}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -132,17 +143,6 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
-  background-image: none;
-}
-div.callout-Results.callout {
-  border-left-color: #198754;
-}
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
-}
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
   background-image: none;
 }
 </style>
@@ -237,17 +237,6 @@ window.Quarto = {
  <span class="menu-text">Clinical background</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../quarto/cea_primer.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
@@ -255,6 +244,24 @@ window.Quarto = {
  <span class="menu-text">Cost-effectiveness analysis for clinicians</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/uncertainty_methods.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Sensitivity analyses explained</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Study design and methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../quarto/model_structure.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
@@ -267,13 +274,6 @@ window.Quarto = {
   <a href="../quarto/model_inputs.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
 </i> 
  <span class="menu-text">How the inputs are chosen</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../quarto/uncertainty_methods.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
-</i> 
- <span class="menu-text">Sensitivity analyses explained</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -532,23 +532,23 @@ window.Quarto = {
 <p>The table below is generated from the <code>library()</code> calls above when the page is rendered.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="bdxxiugkxm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bdxxiugkxm table {
+<div id="hdohjrnwhi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hdohjrnwhi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bdxxiugkxm thead, #bdxxiugkxm tbody, #bdxxiugkxm tfoot, #bdxxiugkxm tr, #bdxxiugkxm td, #bdxxiugkxm th {
+#hdohjrnwhi thead, #hdohjrnwhi tbody, #hdohjrnwhi tfoot, #hdohjrnwhi tr, #hdohjrnwhi td, #hdohjrnwhi th {
   border-style: none;
 }
 
-#bdxxiugkxm p {
+#hdohjrnwhi p {
   margin: 0;
   padding: 0;
 }
 
-#bdxxiugkxm .gt_table {
+#hdohjrnwhi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -574,12 +574,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_caption {
+#hdohjrnwhi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bdxxiugkxm .gt_title {
+#hdohjrnwhi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -591,7 +591,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#bdxxiugkxm .gt_subtitle {
+#hdohjrnwhi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -603,7 +603,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#bdxxiugkxm .gt_heading {
+#hdohjrnwhi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -615,13 +615,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_bottom_border {
+#hdohjrnwhi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_col_headings {
+#hdohjrnwhi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -636,7 +636,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_col_heading {
+#hdohjrnwhi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -656,7 +656,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#bdxxiugkxm .gt_column_spanner_outer {
+#hdohjrnwhi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -668,15 +668,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#bdxxiugkxm .gt_column_spanner_outer:first-child {
+#hdohjrnwhi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bdxxiugkxm .gt_column_spanner_outer:last-child {
+#hdohjrnwhi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bdxxiugkxm .gt_column_spanner {
+#hdohjrnwhi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -688,11 +688,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#bdxxiugkxm .gt_spanner_row {
+#hdohjrnwhi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bdxxiugkxm .gt_group_heading {
+#hdohjrnwhi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -718,7 +718,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#bdxxiugkxm .gt_empty_group_heading {
+#hdohjrnwhi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -733,15 +733,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#bdxxiugkxm .gt_from_md > :first-child {
+#hdohjrnwhi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bdxxiugkxm .gt_from_md > :last-child {
+#hdohjrnwhi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bdxxiugkxm .gt_row {
+#hdohjrnwhi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -760,7 +760,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#bdxxiugkxm .gt_stub {
+#hdohjrnwhi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -773,7 +773,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bdxxiugkxm .gt_stub_row_group {
+#hdohjrnwhi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -787,15 +787,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#bdxxiugkxm .gt_row_group_first td {
+#hdohjrnwhi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bdxxiugkxm .gt_row_group_first th {
+#hdohjrnwhi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bdxxiugkxm .gt_summary_row {
+#hdohjrnwhi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -805,16 +805,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bdxxiugkxm .gt_first_summary_row {
+#hdohjrnwhi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_first_summary_row.thick {
+#hdohjrnwhi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bdxxiugkxm .gt_last_summary_row {
+#hdohjrnwhi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -824,7 +824,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_grand_summary_row {
+#hdohjrnwhi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -834,7 +834,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bdxxiugkxm .gt_first_grand_summary_row {
+#hdohjrnwhi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -844,7 +844,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_last_grand_summary_row_top {
+#hdohjrnwhi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -854,11 +854,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_striped {
+#hdohjrnwhi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bdxxiugkxm .gt_table_body {
+#hdohjrnwhi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -867,7 +867,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_footnotes {
+#hdohjrnwhi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -881,7 +881,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_footnote {
+#hdohjrnwhi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -890,7 +890,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bdxxiugkxm .gt_sourcenotes {
+#hdohjrnwhi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -904,7 +904,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#bdxxiugkxm .gt_sourcenote {
+#hdohjrnwhi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -912,72 +912,72 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bdxxiugkxm .gt_left {
+#hdohjrnwhi .gt_left {
   text-align: left;
 }
 
-#bdxxiugkxm .gt_center {
+#hdohjrnwhi .gt_center {
   text-align: center;
 }
 
-#bdxxiugkxm .gt_right {
+#hdohjrnwhi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bdxxiugkxm .gt_font_normal {
+#hdohjrnwhi .gt_font_normal {
   font-weight: normal;
 }
 
-#bdxxiugkxm .gt_font_bold {
+#hdohjrnwhi .gt_font_bold {
   font-weight: bold;
 }
 
-#bdxxiugkxm .gt_font_italic {
+#hdohjrnwhi .gt_font_italic {
   font-style: italic;
 }
 
-#bdxxiugkxm .gt_super {
+#hdohjrnwhi .gt_super {
   font-size: 65%;
 }
 
-#bdxxiugkxm .gt_footnote_marks {
+#hdohjrnwhi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bdxxiugkxm .gt_asterisk {
+#hdohjrnwhi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bdxxiugkxm .gt_indent_1 {
+#hdohjrnwhi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bdxxiugkxm .gt_indent_2 {
+#hdohjrnwhi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bdxxiugkxm .gt_indent_3 {
+#hdohjrnwhi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bdxxiugkxm .gt_indent_4 {
+#hdohjrnwhi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bdxxiugkxm .gt_indent_5 {
+#hdohjrnwhi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bdxxiugkxm .katex-display {
+#hdohjrnwhi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bdxxiugkxm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hdohjrnwhi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
