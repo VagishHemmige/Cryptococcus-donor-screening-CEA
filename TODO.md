@@ -31,7 +31,7 @@ Each needs a decision before code changes.
 - [ ] Correlate disease cost with QALY loss, or flag them as independent draws.
 - [ ] Consider making transmission and prophylaxis efficacy depend on donor titer.
 - [ ] Add a program cost for donor testing (staff, 24/7 availability, confirmatory titer) and monitoring costs during fluconazole.
-- [ ] Reprice `cost_test`, `cost_fluconazole` and `cost_disease` from the sources in `evidence.md`.
+- [ ] Reprice `cost_test`, `cost_fluconazole` and `cost_disease` from the sources in `references/literature-review.md`.
 - [ ] Decide whether `number_donors` (702) stays as a label; it is not used as a multiplier.
 
 ## 4. Elicitation targets
@@ -72,11 +72,3 @@ These figures were read from an abstract, a summary tool or automated table extr
 
 - [ ] Complete the title and authors for `kaul2016atc`, `mehta2018` and `idweek2017crag` in `references.bib` (entered from abstract summaries).
 - [ ] Import `references.bib` into Zotero with Better BibTeX so the citation keys are kept, then let Zotero auto-export it.
-
-## 8. Code issues noted during the review (19 Oct 2026; not re-verified)
-
-- [ ] `create_sensitivity_analysis_QC.R` calls `ellipse()`, but no script loads the ellipse package.
-- [ ] `cost_nocryptococcus = -10` is hard-coded again in the PSA, so changing `setup.R` alone does not update it.
-- [ ] The cost tornado reassigns `nmb_difference_low` at the mean-value step, so `nmb_difference_mean` is missing for cost parameters.
-- [ ] The PSA summary export saves `summary_gt_QC` instead of `PSA_summary_gt`.
-- [ ] EVPI is labeled "value of partial information" but computed as perfect information.

@@ -20,8 +20,8 @@ knitr::opts_chunk$set(
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE.md)
 <!-- badges: end -->
 
-The goal of Cryptococcus donor screening CEA is to perform a CEA.
-The full analysis Github website is available at:
+This repository holds a decision-analytic cost-effectiveness model of donor serum cryptococcal antigen (CrAg) screening in US deceased-donor kidney transplantation, comparing universal donor screening with no routine screening.
+The code, methods and results are explained on the analysis website:
 https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/
 
 # Base case analysis
