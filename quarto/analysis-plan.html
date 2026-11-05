@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vagish Hemmige">
+
+<title>Analysis plan – Cryptococcus donor screening cost effectiveness analysis</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../quarto/architecture.html" rel="next">
+<link href="../quarto/results_psa.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
+  background-image: none;
+}
+</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../quarto/analysis-plan.html">Project documents</a></li><li class="breadcrumb-item"><a href="../quarto/analysis-plan.html">Analysis plan</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Cryptococcus donor screening cost effectiveness analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house" role="img">
+</i> 
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Background</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/background.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Clinical background</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/cea_primer.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Cost-effectiveness analysis for clinicians</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/model_structure.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="menu-text">The decision model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/model_inputs.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="menu-text">How the inputs are chosen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/uncertainty_methods.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Sensitivity analyses explained</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references/literature-review.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="menu-text">Evidence base for parameters</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Setup and helper functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/setup.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Setup and parameters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/functions.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Model code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/base_case_tree.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Base-case tree</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/scenario_trees.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Scenario trees</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/sensitivity_analyses.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Sensitivity analyses</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Results</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/results_base_case.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Base case</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/results_scenarios.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Scenario analyses</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/results_tornado.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">One-way sensitivity (tornado)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/results_psa.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Probabilistic sensitivity</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Project documents</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/analysis-plan.html" class="sidebar-item-text sidebar-link active"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Analysis plan</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/architecture.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Architecture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/agents.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">AGENTS.md</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/repository-blueprint.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Repository blueprint</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/about.html" class="sidebar-item-text sidebar-link"><i class="bi bi-info-circle" role="img">
+</i> 
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#health-economic-analysis-plan-donor-serum-cryptococcal-antigen-screening-in-us-deceased-donor-kidney-transplantation" id="toc-health-economic-analysis-plan-donor-serum-cryptococcal-antigen-screening-in-us-deceased-donor-kidney-transplantation" class="nav-link active" data-scroll-target="#health-economic-analysis-plan-donor-serum-cryptococcal-antigen-screening-in-us-deceased-donor-kidney-transplantation">Health Economic Analysis Plan: Donor Serum Cryptococcal Antigen Screening in US Deceased-Donor Kidney Transplantation</a>
+  <ul class="collapse">
+  <li><a href="#1-decision-problem-and-objective" id="toc-1-decision-problem-and-objective" class="nav-link" data-scroll-target="#1-decision-problem-and-objective">1. Decision problem and objective</a></li>
+  <li><a href="#2-comparators" id="toc-2-comparators" class="nav-link" data-scroll-target="#2-comparators">2. Comparators</a></li>
+  <li><a href="#3-population-and-setting" id="toc-3-population-and-setting" class="nav-link" data-scroll-target="#3-population-and-setting">3. Population and setting</a></li>
+  <li><a href="#4-perspective-time-horizon-discounting-and-currency" id="toc-4-perspective-time-horizon-discounting-and-currency" class="nav-link" data-scroll-target="#4-perspective-time-horizon-discounting-and-currency">4. Perspective, time horizon, discounting and currency</a></li>
+  <li><a href="#5-model" id="toc-5-model" class="nav-link" data-scroll-target="#5-model">5. Model</a>
+  <ul class="collapse">
+  <li><a href="#51-model-type" id="toc-51-model-type" class="nav-link" data-scroll-target="#51-model-type">5.1 Model type</a></li>
+  <li><a href="#52-required-structural-features" id="toc-52-required-structural-features" class="nav-link" data-scroll-target="#52-required-structural-features">5.2 Required structural features</a></li>
+  <li><a href="#53-target-condition" id="toc-53-target-condition" class="nav-link" data-scroll-target="#53-target-condition">5.3 Target condition</a></li>
+  </ul></li>
+  <li><a href="#6-inputs" id="toc-6-inputs" class="nav-link" data-scroll-target="#6-inputs">6. Inputs</a>
+  <ul class="collapse">
+  <li><a href="#61-definitions" id="toc-61-definitions" class="nav-link" data-scroll-target="#61-definitions">6.1 Definitions</a></li>
+  <li><a href="#62-distributions" id="toc-62-distributions" class="nav-link" data-scroll-target="#62-distributions">6.2 Distributions</a></li>
+  <li><a href="#63-correlated-inputs" id="toc-63-correlated-inputs" class="nav-link" data-scroll-target="#63-correlated-inputs">6.3 Correlated inputs</a></li>
+  </ul></li>
+  <li><a href="#7-health-outcomes" id="toc-7-health-outcomes" class="nav-link" data-scroll-target="#7-health-outcomes">7. Health outcomes</a>
+  <ul class="collapse">
+  <li><a href="#71-reference-endpoint" id="toc-71-reference-endpoint" class="nav-link" data-scroll-target="#71-reference-endpoint">7.1 Reference endpoint</a></li>
+  <li><a href="#72-loss-from-cryptococcosis" id="toc-72-loss-from-cryptococcosis" class="nav-link" data-scroll-target="#72-loss-from-cryptococcosis">7.2 Loss from cryptococcosis</a></li>
+  <li><a href="#73-utilities" id="toc-73-utilities" class="nav-link" data-scroll-target="#73-utilities">7.3 Utilities</a></li>
+  </ul></li>
+  <li><a href="#8-costs" id="toc-8-costs" class="nav-link" data-scroll-target="#8-costs">8. Costs</a></li>
+  <li><a href="#9-analysis" id="toc-9-analysis" class="nav-link" data-scroll-target="#9-analysis">9. Analysis</a>
+  <ul class="collapse">
+  <li><a href="#91-reference-case-and-decision-rule" id="toc-91-reference-case-and-decision-rule" class="nav-link" data-scroll-target="#91-reference-case-and-decision-rule">9.1 Reference case and decision rule</a></li>
+  <li><a href="#92-scenario-analyses" id="toc-92-scenario-analyses" class="nav-link" data-scroll-target="#92-scenario-analyses">9.2 Scenario analyses</a></li>
+  <li><a href="#93-one-way-sensitivity-analysis" id="toc-93-one-way-sensitivity-analysis" class="nav-link" data-scroll-target="#93-one-way-sensitivity-analysis">9.3 One-way sensitivity analysis</a></li>
+  <li><a href="#94-threshold-analyses" id="toc-94-threshold-analyses" class="nav-link" data-scroll-target="#94-threshold-analyses">9.4 Threshold analyses</a></li>
+  <li><a href="#95-probabilistic-sensitivity-analysis" id="toc-95-probabilistic-sensitivity-analysis" class="nav-link" data-scroll-target="#95-probabilistic-sensitivity-analysis">9.5 Probabilistic sensitivity analysis</a></li>
+  <li><a href="#96-value-of-information" id="toc-96-value-of-information" class="nav-link" data-scroll-target="#96-value-of-information">9.6 Value of information</a></li>
+  <li><a href="#97-heterogeneity" id="toc-97-heterogeneity" class="nav-link" data-scroll-target="#97-heterogeneity">9.7 Heterogeneity</a></li>
+  <li><a href="#98-software" id="toc-98-software" class="nav-link" data-scroll-target="#98-software">9.8 Software</a></li>
+  </ul></li>
+  <li><a href="#10-validation" id="toc-10-validation" class="nav-link" data-scroll-target="#10-validation">10. Validation</a></li>
+  <li><a href="#11-engagement-and-distributional-effects" id="toc-11-engagement-and-distributional-effects" class="nav-link" data-scroll-target="#11-engagement-and-distributional-effects">11. Engagement and distributional effects</a></li>
+  <li><a href="#12-limitations-to-address-in-reporting" id="toc-12-limitations-to-address-in-reporting" class="nav-link" data-scroll-target="#12-limitations-to-address-in-reporting">12. Limitations to address in reporting</a></li>
+  <li><a href="#13-reporting-map" id="toc-13-reporting-map" class="nav-link" data-scroll-target="#13-reporting-map">13. Reporting map</a></li>
+  <li><a href="#14-open-decisions" id="toc-14-open-decisions" class="nav-link" data-scroll-target="#14-open-decisions">14. Open decisions</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/edit/master/quarto/analysis-plan.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../quarto/analysis-plan.html">Project documents</a></li><li class="breadcrumb-item"><a href="../quarto/analysis-plan.html">Analysis plan</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+<div class="quarto-title-meta-author column-body">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Vagish Hemmige <a href="mailto:vagish.hemmige@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Albert Einstein College of Medicine
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta column-body">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+This page only shows analysis-plan.md from the repository root, which is the one source:
+edit that file, not this page. Its first heading is the page title.
+
+The plan links its own sections GitHub's way (for example #3-design). Quarto's
+default heading IDs drop leading numbers (#design), so `from:` above
+gives this page GitHub-style IDs and those links work on both.
+-->
+<section id="health-economic-analysis-plan-donor-serum-cryptococcal-antigen-screening-in-us-deceased-donor-kidney-transplantation" class="level1">
+<h1>Health Economic Analysis Plan: Donor Serum Cryptococcal Antigen Screening in US Deceased-Donor Kidney Transplantation</h1>
+<p><strong>Version:</strong> 0.1 (draft) · <strong>Date:</strong> 2026-10-25 · <strong>Author:</strong> Vagish Hemmige</p>
+<p>This plan states the intended design of the cost-effectiveness analysis. It does not describe the current code: <code>ARCHITECTURE.md</code> describes what is implemented, and <code>TODO.md</code> lists where the code does not yet match this plan. Items marked <strong>Decision D<em>n</em></strong> are intended choices not yet made; they are collected in <a href="#14-open-decisions">Open decisions</a>.</p>
+<p>Reporting will follow the Consolidated Health Economic Evaluation Reporting Standards 2022 (CHEERS 2022) <span class="citation" data-cites="husereau2022">(<a href="#ref-husereau2022" role="doc-biblioref">Husereau et al. 2022</a>)</span>, and methods will follow the recommendations of the Second Panel on Cost-Effectiveness in Health and Medicine <span class="citation" data-cites="sanders2016">(<a href="#ref-sanders2016" role="doc-biblioref">Sanders et al. 2016</a>)</span> and the ISPOR-SMDM Modeling Good Research Practices Task Force. This document is the health economic analysis plan referred to in CHEERS 2022 item 4. The <a href="#13-reporting-map">reporting map</a> links each CHEERS item to a section of this plan.</p>
+<p>The evidence for each input is summarized in <code>references/literature-review.md</code>. This plan defines what each input means and how its uncertainty is represented; the numbers themselves live in <code>R/setup.R</code> and are justified on that page.</p>
+<hr>
+<section id="1-decision-problem-and-objective" class="level2">
+<h2 class="anchored" data-anchor-id="1-decision-problem-and-objective">1. Decision problem and objective</h2>
+<p><strong>Decision.</strong> Should US organ procurement organizations (OPOs) test deceased donors for serum cryptococcal antigen (CrAg) before kidney allocation, and act on a positive result?</p>
+<p><strong>Primary objective.</strong> To estimate the incremental cost, incremental quality-adjusted life years (QALYs) and net monetary benefit (NMB) of donor serum CrAg screening, compared with no routine screening, from the perspective in <a href="#4-perspective-time-horizon-discounting-and-currency">Section 4</a>.</p>
+<p><strong>Secondary objectives</strong></p>
+<ul>
+<li>Identify the inputs that drive the decision, and the threshold values at which the preferred strategy changes, for the inputs without direct evidence: donor CrAg prevalence, transmission from a screen-detected donor, and what happens to a kidney from a CrAg-positive donor.</li>
+<li>Estimate the expected value of further research on those inputs (<a href="#96-value-of-information">Section 9.6</a>).</li>
+<li>Compare universal screening with screening restricted to donors at higher risk (Decision D2).</li>
+</ul>
+</section>
+<section id="2-comparators" class="level2">
+<h2 class="anchored" data-anchor-id="2-comparators">2. Comparators</h2>
+<ol type="1">
+<li><strong>No routine screening (current practice).</strong> Donors are not tested for serum CrAg unless clinically indicated. Donor-derived cryptococcosis is recognized, if at all, after transplantation, usually from illness in a recipient or a post-mortem finding. Recipients of other organs from that donor may then receive antifungal prophylaxis. Whether this recognition-driven prophylaxis is represented in the no-screening arm is part of Decision D10.</li>
+<li><strong>Universal donor serum CrAg screening.</strong> Every donor in the screened population (<a href="#3-population-and-setting">Section 3</a>) has a serum CrAg lateral flow assay before allocation, and a positive result is managed by the protocol in Decision D8.</li>
+<li><strong>Targeted screening (optional).</strong> Screening only donors with signs of central nervous system (CNS) disease or unexplained neurological illness, the group in which most recognized US transmissions occurred <span class="citation" data-cites="penumarthi2021">(<a href="#ref-penumarthi2021" role="doc-biblioref">Penumarthi et al. 2021</a>)</span>. <strong>Decision D2:</strong> whether to include this strategy.</li>
+</ol>
+<p>With more than two strategies, results are reported as a fully incremental analysis: strategies are ordered by cost, dominated and extendedly dominated strategies are removed, and ICERs are computed between adjacent non-dominated strategies.</p>
+</section>
+<section id="3-population-and-setting" class="level2">
+<h2 class="anchored" data-anchor-id="3-population-and-setting">3. Population and setting</h2>
+<ul>
+<li><strong>Setting:</strong> US deceased-donor kidney transplantation, current allocation era. Only kidneys are modeled; other organs from the same donor are outside the model, although they share the donor’s test result.</li>
+<li><strong>Screened population.</strong> <strong>Decision D2:</strong> all deceased donors, or only potential donors who die of non-traumatic illness (the population of the original 2019 analysis <span class="citation" data-cites="santos2019atc">(<a href="#ref-santos2019atc" role="doc-biblioref">Santos et al. 2019</a>)</span>), or only donors with CNS signs (the targeted strategy).</li>
+<li><strong>Unit of analysis.</strong> <strong>Decision D1:</strong> the unit to which results are expressed:
+<ul>
+<li><ol type="a">
+<li>a potential donor entering OPO evaluation, whose kidneys may never be recovered or used;</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>a deceased donor with at least one kidney recovered for transplant; or</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>a single kidney offer.</li>
+</ol></li>
+</ul>
+The unit fixes what the organ-use probability means, where the test cost is charged, and how the two recipients of one donor are counted (<a href="#52-required-structural-features">Section 5.2</a>). Whichever unit is chosen is stated in every table, figure and page, and any aggregate result (for example per 10,000 donors, or per US donors in a year) is computed by explicit multiplication from the per-unit result.</li>
+<li><strong>Recipients:</strong> adult deceased-donor kidney recipients. Pediatric recipients and multi-organ recipients are excluded.</li>
+</ul>
+</section>
+<section id="4-perspective-time-horizon-discounting-and-currency" class="level2">
+<h2 class="anchored" data-anchor-id="4-perspective-time-horizon-discounting-and-currency">4. Perspective, time horizon, discounting and currency</h2>
+<ul>
+<li><strong>Perspective.</strong> <strong>Decision D3.</strong> Proposed: US health care sector perspective for the reference case, with an impact inventory listing the societal-perspective items that are excluded or not quantified, as the Second Panel recommends <span class="citation" data-cites="sanders2016">(<a href="#ref-sanders2016" role="doc-biblioref">Sanders et al. 2016</a>)</span>.</li>
+<li><strong>Time horizon.</strong> <strong>Decision D4.</strong> The horizon must cover every important difference between strategies. For an accept-now-versus-decline decision this extends to the life of the graft or recipient. One horizon applies to every input: background cryptococcosis risk, the cost and QALY consequences of transplant or decline, and the consequences of cryptococcosis. An input that refers to a different period is converted to the model horizon before use, and the conversion is documented.</li>
+<li><strong>Discounting.</strong> Costs and QALYs are discounted at the same annual rate. Proposed: 3% in the reference case, with 0% and 5% in scenario analyses <span class="citation" data-cites="sanders2016">(<a href="#ref-sanders2016" role="doc-biblioref">Sanders et al. 2016</a>)</span>. Because the model is a decision tree without cycles, discounting is applied inside the inputs that summarize future streams (for example, the QALYs and costs of accepting now), and each such input records the rate used.</li>
+<li><strong>Currency and price year.</strong> <strong>Decision D5.</strong> Proposed: 2025 US dollars, with costs adjusted by the CPI-U Medical Care index (BLS series CUUR0000SAM), matching the method of <code>usRds::adjust_costs_for_inflation()</code>. The PCE Health price index is a sensitivity analysis. Each cost input records its original value, price year, index, and whether it is a cost, payment or charge. Charges are not used as costs without a cost-to-charge conversion.</li>
+</ul>
+</section>
+<section id="5-model" class="level2">
+<h2 class="anchored" data-anchor-id="5-model">5. Model</h2>
+<section id="51-model-type" class="level3">
+<h3 class="anchored" data-anchor-id="51-model-type">5.1 Model type</h3>
+<p>A decision tree, evaluated by expected values, for a decision whose consequences are summarized at the terminal nodes. A tree is suitable because the screening decision and its immediate consequences (test result, organ use, prophylaxis, recipient infection) occur once, around transplantation. Longer-term consequences (survival with a graft, return to dialysis, death after cryptococcosis) are summarized as terminal-node values derived from published models and cohorts (<a href="#7-health-outcomes">Section 7</a>). If the endpoint values cannot be built credibly from published sources under Decision D6, a state-transition submodel for the post-transplant period will be considered, and this plan will be amended first.</p>
+</section>
+<section id="52-required-structural-features" class="level3">
+<h3 class="anchored" data-anchor-id="52-required-structural-features">5.2 Required structural features</h3>
+<p>The model must have the features below, whatever the decisions in <a href="#14-open-decisions">Section 14</a>:</p>
+<ol type="1">
+<li><strong>Probabilities.</strong> At every chance node, branch probabilities sum to 1, and every complement is computed (1 − <em>p</em>), never entered separately. Every pathway ends in exactly one terminal node.</li>
+<li><strong>Shared baseline organ nonuse.</strong> Both strategies have the same probability that a kidney is not used for reasons unrelated to screening. Only the additional nonuse caused by a positive screen is attributed to screening.</li>
+<li><strong>Test cost.</strong> The test cost is charged once per screened donor, including donors whose kidneys are not used, according to the unit in Decision D1.</li>
+<li><strong>Two kidneys, one donor.</strong> Recipients of kidneys from the same donor share the donor’s infection status and test result. <strong>Decision D1</strong> fixes whether outcomes are summed over the expected number of kidneys transplanted per donor or expressed per kidney. Recipient outcomes are counted once each, never twice.</li>
+<li><strong>True and false positives are separate paths.</strong> The management of a positive result (decline, confirmatory testing, prophylaxis) may depend on information available at the time, so the model allows different probabilities on true-positive and false-positive paths when the protocol in Decision D8 includes confirmation. Without confirmation, the team cannot distinguish them and the probabilities are equal.</li>
+<li><strong>Decline is not discard.</strong> A declined kidney may be reallocated to another recipient or discarded. <strong>Decision D9:</strong> how reallocation is represented (for example, an offer that is declined for the intended recipient keeps its value for another recipient, so the net loss is the intended recipient’s decline-and-wait penalty only).</li>
+<li><strong>Timing.</strong> A positive result that is available only after implantation cannot lead to cancellation; only the prophylaxis branch applies. <strong>Decision D7:</strong> the share of results available before allocation, before implantation, and after implantation.</li>
+<li><strong>Prophylaxis against background infection.</strong> Prophylaxis given for a positive donor screen reduces background (not donor-derived) cryptococcosis only for the part of the background risk that falls inside the prophylaxis window. <strong>Decision D11:</strong> set this effect to 0 in the reference case, or use efficacy × the share of the background-risk window covered.</li>
+<li><strong>One reference endpoint.</strong> All terminal-node QALYs and costs are measured relative to the same reference (<a href="#71-reference-endpoint">Section 7.1</a>), and the cryptococcosis loss is defined against the endpoint it is subtracted from.</li>
+<li><strong>One implementation.</strong> The pathway table is defined once and used by the base case, scenarios, one-way analysis and PSA.</li>
+</ol>
+</section>
+<section id="53-target-condition" class="level3">
+<h3 class="anchored" data-anchor-id="53-target-condition">5.3 Target condition</h3>
+<p>The donor condition the test is meant to detect is <strong>infection that can be transmitted to a kidney recipient</strong>. <strong>Decision D12:</strong> whether the model’s donor prevalence means serum CrAg positivity detectable by the assay, or transmissible infection, and how sensitivity and transmission are defined to match. The three must refer to the same condition: for example, if prevalence is defined as antigenemia, transmission is the probability that a recipient of an antigenemic donor develops disease, and sensitivity is the probability that the assay detects antigenemia. Accuracy estimates measured against cryptococcal meningitis as the reference condition are not used for specificity, because they count antigenemia without meningitis as a false positive.</p>
+<p><strong>Decision D13:</strong> whether transmission and prophylaxis efficacy depend on donor antigen titer or disease stage (for example, CNS involvement), which would require a titer-stratified tree.</p>
+</section>
+</section>
+<section id="6-inputs" class="level2">
+<h2 class="anchored" data-anchor-id="6-inputs">6. Inputs</h2>
+<section id="61-definitions" class="level3">
+<h3 class="anchored" data-anchor-id="61-definitions">6.1 Definitions</h3>
+<p>Each input below has one definition, which <code>R/setup.R</code>, the tree and the website use consistently. <em>Basis</em> follows the labels on the evidence page: <strong>E</strong> evidence, <strong>E+J</strong> evidence with explicit judgment, <strong>Elicit</strong> needs elicitation or new data, <strong>Policy</strong> a practice choice analyzed by scenario.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Input</th>
+<th>Definition</th>
+<th>Distribution family</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>p_usage</code></td>
+<td>Probability that a kidney is used, for the unit in D1, in the absence of screening</td>
+<td>Beta</td>
+<td>E, once D1 is fixed</td>
+</tr>
+<tr class="even">
+<td><code>p_donor_cryptococcus</code></td>
+<td>Prevalence of the target condition (D12) in the screened population (D2)</td>
+<td>Beta, or scenario values</td>
+<td>Elicit</td>
+</tr>
+<tr class="odd">
+<td><code>p_transmission</code></td>
+<td>Probability of recipient cryptococcosis, given a donor with the target condition and no prophylaxis</td>
+<td>Beta</td>
+<td>E+J; Elicit for screen-detected donors</td>
+</tr>
+<tr class="even">
+<td><code>p_spont_cryptococcus</code></td>
+<td>Cumulative background (not donor-derived) cryptococcosis risk over the model horizon (D4)</td>
+<td>Beta</td>
+<td>E</td>
+</tr>
+<tr class="odd">
+<td><code>p_sensitivity</code>, <code>p_specificity</code></td>
+<td>Accuracy of the actionable result defined by D8, for the target condition in D12</td>
+<td>Joint (Section 6.3)</td>
+<td>E+J</td>
+</tr>
+<tr class="even">
+<td><code>p_cancelled</code></td>
+<td>Probability that a kidney is not transplanted into the intended recipient after an actionable positive result; split by true and false positive and by reallocate or discard (D9)</td>
+<td>Scenario values</td>
+<td>Policy</td>
+</tr>
+<tr class="odd">
+<td><code>p_prophrate</code></td>
+<td>Probability that a recipient of a kidney from a donor with an actionable positive result receives prophylaxis under the screening protocol; status-quo uptake separately (D10)</td>
+<td>Beta, or scenario values</td>
+<td>E+J; Policy</td>
+</tr>
+<tr class="even">
+<td><code>p_prophefficacy</code></td>
+<td>Relative risk reduction in donor-derived cryptococcosis from the prophylaxis regimen (D10)</td>
+<td>Beta, or log-normal on the relative risk</td>
+<td>E+J; Elicit</td>
+</tr>
+<tr class="odd">
+<td><code>cost_test</code></td>
+<td>Cost per screened donor of the test, plus the program cost if in scope (D16)</td>
+<td>Gamma</td>
+<td>E (price); gap (program)</td>
+</tr>
+<tr class="even">
+<td><code>cost_fluconazole</code></td>
+<td>Cost of the prophylaxis regimen (D10), including drug-level monitoring if in scope</td>
+<td>Gamma</td>
+<td>E, once the regimen is fixed</td>
+</tr>
+<tr class="odd">
+<td><code>cost_disease</code></td>
+<td>Incremental cost of one episode of cryptococcosis in a kidney recipient over the horizon, excluding costs counted elsewhere (for example graft loss)</td>
+<td>Gamma or log-normal</td>
+<td>E+J</td>
+</tr>
+<tr class="even">
+<td>Accept-now cost and QALYs</td>
+<td>Discounted cost and QALYs of transplanting the kidney now, relative to the reference endpoint (D6)</td>
+<td>Joint (Section 6.3); signed distribution for cost</td>
+<td>E+J</td>
+</tr>
+<tr class="odd">
+<td><code>q_loss_cryptococcus</code></td>
+<td>Discounted QALY loss from recipient cryptococcosis, against the same endpoint (Section 7.2)</td>
+<td>Derived from components</td>
+<td>E+J; Elicit (utility decrement)</td>
+</tr>
+<tr class="even">
+<td>Cancellation and nonacceptance values</td>
+<td>Cost and QALYs when a kidney is not used, relative to the reference endpoint</td>
+<td>Fixed at 0 if decline-and-wait is the reference</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="62-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="62-distributions">6.2 Distributions</h3>
+<ul>
+<li>Probabilities use Beta distributions. Where an input comes from counts, the Beta is fitted to the counts (with a stated prior, for example Jeffreys), and the effective sample size is reduced when recipients are clustered within donors. Where it comes from a reported mean and interval, the Beta is fitted to both by the method of moments or by matching quantiles, and the fit is checked.</li>
+<li>Nonnegative costs use gamma or log-normal distributions fitted to a mean and a measure of spread.</li>
+<li>Any quantity that can be negative, such as the cost of accepting now minus declining and waiting, uses a distribution that allows negative values, or is derived from components that do.</li>
+<li><strong>Policy</strong> inputs are not given distributions in the probabilistic analysis. They are held at their reference-case value, and their alternatives are analyzed as scenarios.</li>
+<li>Inputs without usable evidence (<strong>Elicit</strong>) are given a deliberately broad placeholder distribution, labelled as such on the website, until a structured elicitation (for example, the SHELF protocol) or new data replace it. <strong>Decision D14:</strong> which inputs are elicited.</li>
+<li>Every reported interval for an input says what it is: a confidence interval from data, a credible interval, a percentile range of a prior, or a judgment or scenario range.</li>
+</ul>
+</section>
+<section id="63-correlated-inputs" class="level3">
+<h3 class="anchored" data-anchor-id="63-correlated-inputs">6.3 Correlated inputs</h3>
+<p>Inputs that are linked are sampled jointly, or the plan records that they are sampled independently and why. <strong>Decision D15</strong> fixes the method for each pair:</p>
+<ul>
+<li><strong>Sensitivity and specificity</strong> of the actionable result: jointly, for example from a bivariate meta-analysis, or through a shared protocol or titer threshold.</li>
+<li><strong>Accept-now QALY gain and cost saving:</strong> both rise with the expected additional wait after a decline, so both are derived from one expected-wait input.</li>
+<li><strong>Cryptococcosis cost and QALY loss:</strong> both rise with disease severity (ICU admission, acute kidney injury, meningitis), so they share a severity input or are sampled with a positive correlation.</li>
+<li><strong>Accept-now QALYs and cryptococcosis QALY loss:</strong> loss from early death is proportional to the QALYs a recipient would otherwise have, so the loss is derived from the endpoint value rather than sampled separately.</li>
+<li><strong>Recipients of the same donor:</strong> share the donor’s infection status, test result and prophylaxis efficacy draw.</li>
+</ul>
+</section>
+</section>
+<section id="7-health-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="7-health-outcomes">7. Health outcomes</h2>
+<section id="71-reference-endpoint" class="level3">
+<h3 class="anchored" data-anchor-id="71-reference-endpoint">7.1 Reference endpoint</h3>
+<p><strong>Decision D6:</strong> the counterfactual against which accepting a kidney is valued:</p>
+<ul>
+<li><ol type="a">
+<li><strong>decline and wait</strong>, in which the candidate remains on the list and may receive a later deceased- or living-donor transplant, die, or be removed from the list; or</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li><strong>dialysis indefinitely</strong>.</li>
+</ol></li>
+</ul>
+<p>Proposed: (a), because declining an offer is the realistic alternative for the intended recipient, and (b) overstates the value of the offer. Option (b) may be reported as a scenario for comparison with earlier analyses. The decline-and-wait value is built from published post-decline outcomes (later transplant, death, removal from the list, time to a later transplant) and published accept-versus-decline models and cohorts <span class="citation" data-cites="bowring2018 cohen2019 husain2019 mohan2025 eckman2020 kadatz2018">(<a href="#ref-bowring2018" role="doc-biblioref">Bowring et al. 2018</a>; <a href="#ref-cohen2019" role="doc-biblioref">Cohen et al. 2019</a>; <a href="#ref-husain2019" role="doc-biblioref">Husain et al. 2019</a>; <a href="#ref-mohan2025" role="doc-biblioref">Mohan et al. 2025</a>; <a href="#ref-eckman2020" role="doc-biblioref">Eckman et al. 2020</a>; <a href="#ref-kadatz2018" role="doc-biblioref">Kadatz et al. 2018</a>)</span>.</p>
+<p>With (a), declining has value 0 by definition, and every other terminal value is relative to it. A cancelled transplant and an unused kidney then have cost 0 and QALYs 0 for the intended recipient.</p>
+</section>
+<section id="72-loss-from-cryptococcosis" class="level3">
+<h3 class="anchored" data-anchor-id="72-loss-from-cryptococcosis">7.2 Loss from cryptococcosis</h3>
+<p>The QALY loss from recipient cryptococcosis is built from components, against the accept-now endpoint:</p>
+<ul>
+<li>excess mortality after cryptococcosis, multiplied by the discounted QALYs the recipient would otherwise have had;</li>
+<li>graft loss, multiplied by the loss from returning to dialysis;</li>
+<li>an acute utility decrement during induction and consolidation treatment;</li>
+<li>any lasting neurological deficit, if evidence or elicitation supports one.</li>
+</ul>
+<p>Published mortality in kidney recipients with cryptococcosis has no uninfected comparison group, so it includes background mortality. The excess is estimated against a comparable reference and the method is documented. The loss is not truncated: if early death makes the QALYs of an infected recipient lower than those of a recipient whose transplant was declined, the model keeps that result.</p>
+</section>
+<section id="73-utilities" class="level3">
+<h3 class="anchored" data-anchor-id="73-utilities">7.3 Utilities</h3>
+<p>Utilities for a functioning graft and for dialysis come from a published meta-analysis <span class="citation" data-cites="wyld2012">(<a href="#ref-wyld2012" role="doc-biblioref">Wyld et al. 2012</a>)</span>. Where both are needed, their difference is sampled rather than each one independently.</p>
+</section>
+</section>
+<section id="8-costs" class="level2">
+<h2 class="anchored" data-anchor-id="8-costs">8. Costs</h2>
+<ul>
+<li><strong>Items.</strong> Donor test (reagent, and program cost if in scope, D16), prophylaxis drug and monitoring (D10), treatment of cryptococcosis, and the difference in cost between accepting now and the reference endpoint (D6).</li>
+<li><strong>Measurement.</strong> Each cost states its source, the quantity it measures (cost, payment or charge), its price year and its index, as in <a href="#4-perspective-time-horizon-discounting-and-currency">Section 4</a>.</li>
+<li><strong>No double counting.</strong> Graft-loss and dialysis costs after cryptococcosis are counted in one place only, either in the cryptococcosis cost or in the endpoint values.</li>
+<li>Litigation or settlement costs are outside the health care sector perspective. <strong>Decision D17:</strong> keep them only as an explicitly labelled scenario, or drop them.</li>
+</ul>
+</section>
+<section id="9-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="9-analysis">9. Analysis</h2>
+<section id="91-reference-case-and-decision-rule" class="level3">
+<h3 class="anchored" data-anchor-id="91-reference-case-and-decision-rule">9.1 Reference case and decision rule</h3>
+<ul>
+<li>Expected cost and QALYs per unit (D1) for each strategy, with incremental cost (ΔC), incremental QALYs (ΔQ), NMB = λ × ΔQ − ΔC, and, where ΔQ ≠ 0, the ICER with its quadrant on the cost-effectiveness plane <span class="citation" data-cites="stinnett1998 black1990">(<a href="#ref-stinnett1998" role="doc-biblioref">Stinnett and Mullahy 1998</a>; <a href="#ref-black1990" role="doc-biblioref">Black 1990</a>)</span>.</li>
+<li>The primary decision rule is NMB at λ = $100,000 per QALY. <strong>Decision D18:</strong> the range of λ reported alongside it, for example $50,000 to $150,000 <span class="citation" data-cites="neumann2014 vanness2021">(<a href="#ref-neumann2014" role="doc-biblioref">Neumann et al. 2014</a>; <a href="#ref-vanness2021" role="doc-biblioref">Vanness et al. 2021</a>)</span>.</li>
+<li>A strategy that saves money and gains QALYs dominates, and an ICER is not reported for it.</li>
+</ul>
+</section>
+<section id="92-scenario-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="92-scenario-analyses">9.2 Scenario analyses</h3>
+<p>Policy inputs and structural choices are analyzed as scenarios, each changing named inputs from the reference case:</p>
+<ol type="1">
+<li>Cancellation after a positive screen: 0, 0.1, 0.25, 0.5, 0.8 and 1.0, separately for true and false positives where D8 allows.</li>
+<li>Positive-screen protocol (D8): single unconfirmed positive; titer threshold; confirmatory test.</li>
+<li>Assay failure: specificity of about 0.90, representing a defective reagent lot or a non-IMMY assay, rather than folding it into the specificity distribution.</li>
+<li>Prophylaxis uptake under a screening protocol: 0.8, 0.9, 1.0; and status-quo uptake.</li>
+<li>Prophylaxis effect on background infection (D11): none; efficacy × window share.</li>
+<li>Reference endpoint (D6): the option not chosen as reference.</li>
+<li>Discount rate 0% and 5%; PCE Health index instead of CPI-U Medical Care.</li>
+<li>Targeted screening population (D2).</li>
+<li>Scenarios carried from the current model (low cancellation, high prophylaxis uptake, high disease cost) are kept only if they map to one of the above or are justified separately.</li>
+</ol>
+</section>
+<section id="93-one-way-sensitivity-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="93-one-way-sensitivity-analysis">9.3 One-way sensitivity analysis</h3>
+<p>Each probabilistic input is varied alone across its stated range (the 2.5th to 97.5th percentile of its distribution, or a stated judgment range), with all other inputs at reference-case values. Results are shown as tornado diagrams of NMB at the reference λ, ΔC and ΔQ. Policy inputs appear in the scenario analyses, not the tornado.</p>
+</section>
+<section id="94-threshold-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="94-threshold-analyses">9.4 Threshold analyses</h3>
+<p>For donor prevalence, transmission from a screen-detected donor, specificity, cancellation, and test cost, the value at which NMB at the reference λ equals 0 is reported, with two-way threshold plots for prevalence against transmission and prevalence against cancellation.</p>
+</section>
+<section id="95-probabilistic-sensitivity-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="95-probabilistic-sensitivity-analysis">9.5 Probabilistic sensitivity analysis</h3>
+<ul>
+<li>Monte Carlo simulation with a fixed seed and a fixed number of draws (<code>nsim</code>), chosen so that the Monte Carlo standard error of mean NMB is small relative to the mean; that error is reported.</li>
+<li>Draws follow <a href="#6-inputs">Section 6</a>, with joint sampling as in <a href="#63-correlated-inputs">Section 6.3</a>. Any probability that feeds a complement is drawn so that every branch stays in [0, 1].</li>
+<li>Reported from the same set of draws: mean and 95% percentile interval of ΔC, ΔQ and NMB; the cost-effectiveness plane; the cost-effectiveness acceptability curve and frontier <span class="citation" data-cites="fenwick2001 vanhout1994">(<a href="#ref-fenwick2001" role="doc-biblioref">Fenwick et al. 2001</a>; <a href="#ref-vanhout1994" role="doc-biblioref">Hout et al. 1994</a>)</span>; and the probability that screening is cost-effective at each λ.</li>
+<li>The PSA mean is compared with the deterministic reference case, and a material difference is explained.</li>
+</ul>
+</section>
+<section id="96-value-of-information" class="level3">
+<h3 class="anchored" data-anchor-id="96-value-of-information">9.6 Value of information</h3>
+<ul>
+<li>Expected value of perfect information per unit and, scaled by the number of donors screened per year in the US over a stated technology lifetime, at the population level <span class="citation" data-cites="wilson2015">(<a href="#ref-wilson2015" role="doc-biblioref">Wilson 2015</a>)</span>.</li>
+<li>Expected value of partial perfect information (EVPPI), estimated by a regression-based method, for these groups of inputs: donor prevalence; transmission from a screen-detected donor; test accuracy; cancellation and prophylaxis practice; the endpoint values. This identifies whether a donor screening pilot, a study of stored donor sera, or an elicitation would be worth most.</li>
+</ul>
+</section>
+<section id="97-heterogeneity" class="level3">
+<h3 class="anchored" data-anchor-id="97-heterogeneity">9.7 Heterogeneity</h3>
+<p>Results are reported for donor subgroups where inputs differ in the evidence: donors with versus without CNS signs, and kidneys with high versus low KDPI, where organ use and the value of accepting now differ markedly.</p>
+</section>
+<section id="98-software" class="level3">
+<h3 class="anchored" data-anchor-id="98-software">9.8 Software</h3>
+<p>Analyses are run in R (packages listed in <code>R/setup.R</code>). Code, inputs and results are public at https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA, and a website at https://vagishhemmige.github.io/Cryptococcus-donor-screening-CEA/ documents each step. No restricted or patient-level data are used.</p>
+</section>
+</section>
+<section id="10-validation" class="level2">
+<h2 class="anchored" data-anchor-id="10-validation">10. Validation</h2>
+<p>Validation follows the ISPOR-SMDM guidance on model transparency and validation, and is reported with a checklist such as AdViSHE:</p>
+<ul>
+<li><strong>Face validity:</strong> transplant infectious disease and OPO clinicians review the tree structure, the target condition and the positive-screen protocol.</li>
+<li><strong>Verification:</strong>
+<ul>
+<li>branch probabilities sum to 1 at every node in every PSA draw;</li>
+<li>limiting cases give the expected results: prevalence 0 (screening costs the test and harms through false positives only), sensitivity and specificity 1, test cost 0, cancellation 0 with prophylaxis efficacy 0 (screening has no health effect);</li>
+<li>a small version of the tree is reproduced by hand;</li>
+<li>tornado endpoints match direct reruns at the same values;</li>
+<li>the PSA mean is close to the deterministic result.</li>
+</ul></li>
+<li><strong>Cross-validation:</strong> the original 2019 analysis <span class="citation" data-cites="santos2019atc">(<a href="#ref-santos2019atc" role="doc-biblioref">Santos et al. 2019</a>)</span> is reproduced under its stated inputs (for example its break-even donor probability), so that differences in this model’s results can be attributed to specific changes.</li>
+<li><strong>External validity:</strong> predicted recognized donor-derived cryptococcosis under no screening is compared with US surveillance <span class="citation" data-cites="penumarthi2021">(<a href="#ref-penumarthi2021" role="doc-biblioref">Penumarthi et al. 2021</a>)</span>.</li>
+</ul>
+</section>
+<section id="11-engagement-and-distributional-effects" class="level2">
+<h2 class="anchored" data-anchor-id="11-engagement-and-distributional-effects">11. Engagement and distributional effects</h2>
+<ul>
+<li><strong>Engagement:</strong> clinicians in transplant infectious diseases and OPO practice inform the structure, the positive-screen protocol and the elicitation. Patient engagement is not planned; this is stated in reporting.</li>
+<li><strong>Distributional effects:</strong> not analyzed quantitatively. The report notes groups for whom a declined offer may cost more, such as highly sensitized candidates and candidates in regions with long waits.</li>
+</ul>
+</section>
+<section id="12-limitations-to-address-in-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="12-limitations-to-address-in-reporting">12. Limitations to address in reporting</h2>
+<ul>
+<li>No study has screened deceased donors with serum CrAg, so donor prevalence, accuracy in donors, and transmission from a screen-detected donor are transported from other populations or elicited.</li>
+<li>Surveillance of recognized donor-derived infection under-ascertains donor infection, and transmission estimates from recognized clusters are biased upward.</li>
+<li>Practice after a positive screen (decline, reallocation, prophylaxis) is not observed and is analyzed as policy scenarios.</li>
+<li>No comparative evidence exists for prophylaxis efficacy after donor-derived exposure in transplant recipients.</li>
+<li>No published utility decrement exists for cryptococcosis in transplant recipients.</li>
+<li>A decision tree summarizes long-term consequences in terminal values, which depend on the endpoint models they are taken from.</li>
+</ul>
+</section>
+<section id="13-reporting-map" class="level2">
+<h2 class="anchored" data-anchor-id="13-reporting-map">13. Reporting map</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>CHEERS 2022 item</th>
+<th>Topic</th>
+<th>Plan section</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Title</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Abstract</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Background and objectives</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Health economic analysis plan</td>
+<td>This document</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Study population</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Setting and location</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Comparators</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Perspective</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Time horizon</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Discount rate</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Selection of outcomes</td>
+<td>7, 9.1</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Measurement of outcomes</td>
+<td>6, 7</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Valuation of outcomes</td>
+<td>7.3</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Measurement and valuation of resources and costs</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Currency, price date and conversion</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Rationale and description of model</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Analytics and assumptions</td>
+<td>5.2, 6.2, 6.3</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>Characterizing heterogeneity</td>
+<td>9.7</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>Characterizing distributional effects</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>Characterizing uncertainty</td>
+<td>6.2, 9.2–9.6</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>Approach to engagement</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>Study parameters</td>
+<td>6; <code>references/literature-review.md</code></td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>Summary of main results</td>
+<td>9.1</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>Effect of uncertainty</td>
+<td>9.2–9.6</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>Effect of engagement</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>Findings, limitations, generalizability</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>27</td>
+<td>Source of funding</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>28</td>
+<td>Conflicts of interest</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="14-open-decisions" class="level2">
+<h2 class="anchored" data-anchor-id="14-open-decisions">14. Open decisions</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Decision</th>
+<th>Section</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>D1</td>
+<td>Unit of analysis (potential donor, donor with a kidney recovered, or kidney offer), and how two recipients of one donor are counted</td>
+<td>3, 5.2</td>
+</tr>
+<tr class="even">
+<td>D2</td>
+<td>Screened population (all donors, non-traumatic deaths, or donors with CNS signs), and whether targeted screening is a third strategy</td>
+<td>2, 3</td>
+</tr>
+<tr class="odd">
+<td>D3</td>
+<td>Perspective, and the impact inventory</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>D4</td>
+<td>Time horizon shared by every input</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>D5</td>
+<td>Price year and inflation index</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>D6</td>
+<td>Reference endpoint: decline and wait, or dialysis indefinitely</td>
+<td>7.1</td>
+</tr>
+<tr class="odd">
+<td>D7</td>
+<td>Timing of the result relative to allocation and implantation</td>
+<td>5.2</td>
+</tr>
+<tr class="even">
+<td>D8</td>
+<td>Positive-screen protocol: single positive, titer threshold, or confirmatory test</td>
+<td>5.2, 9.2</td>
+</tr>
+<tr class="odd">
+<td>D9</td>
+<td>Decline versus discard, and how reallocation is valued</td>
+<td>5.2</td>
+</tr>
+<tr class="even">
+<td>D10</td>
+<td>Prophylaxis regimen (drug, dose, duration, renal adjustment, monitoring); uptake under the protocol and under current practice</td>
+<td>2, 6.1, 8</td>
+</tr>
+<tr class="odd">
+<td>D11</td>
+<td>Effect of prophylaxis on background infection: none, or efficacy × window share</td>
+<td>5.2</td>
+</tr>
+<tr class="even">
+<td>D12</td>
+<td>Target condition for prevalence, sensitivity and transmission</td>
+<td>5.3</td>
+</tr>
+<tr class="odd">
+<td>D13</td>
+<td>Titer- or stage-dependent transmission and prophylaxis efficacy</td>
+<td>5.3</td>
+</tr>
+<tr class="even">
+<td>D14</td>
+<td>Inputs to be elicited, and the elicitation method</td>
+<td>6.2</td>
+</tr>
+<tr class="odd">
+<td>D15</td>
+<td>Joint sampling method for each correlated pair</td>
+<td>6.3</td>
+</tr>
+<tr class="even">
+<td>D16</td>
+<td>Whether the OPO program cost of testing is in scope</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>D17</td>
+<td>Litigation cost scenario: keep as labelled scenario, or drop</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>D18</td>
+<td>Range of willingness-to-pay thresholds reported</td>
+<td>9.1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>Keys refer to <code>references.bib</code>. Items without a key are to be added there.</p>
+<ul>
+<li>Husereau D, et al.&nbsp;Consolidated Health Economic Evaluation Reporting Standards 2022 (CHEERS 2022) statement <span class="citation" data-cites="husereau2022">(<a href="#ref-husereau2022" role="doc-biblioref">Husereau et al. 2022</a>)</span>.</li>
+<li>Sanders GD, et al.&nbsp;Recommendations for conduct, methodological practices, and reporting of cost-effectiveness analyses: Second Panel on Cost-Effectiveness in Health and Medicine <span class="citation" data-cites="sanders2016">(<a href="#ref-sanders2016" role="doc-biblioref">Sanders et al. 2016</a>)</span>.</li>
+<li>Briggs AH, et al.&nbsp;Model parameter estimation and uncertainty analysis: ISPOR-SMDM Modeling Good Research Practices Task Force-6 <span class="citation" data-cites="briggs2012">(<a href="#ref-briggs2012" role="doc-biblioref">Briggs et al. 2012</a>)</span>.</li>
+<li>Eddy DM, et al.&nbsp;Model transparency and validation: ISPOR-SMDM Modeling Good Research Practices Task Force-7. <em>Med Decis Making</em> 2012.</li>
+<li>Vemer P, et al.&nbsp;AdViSHE: a validation-assessment tool of health-economic models for decision makers and model users. <em>Pharmacoeconomics</em> 2016.</li>
+<li>Strong M, Oakley JE, Brennan A. Estimating multiparameter partial expected value of perfect information from a probabilistic sensitivity analysis sample: a nonparametric regression approach. <em>Med Decis Making</em> 2014.</li>
+<li>Wilson ECF. A practical guide to value of information analysis <span class="citation" data-cites="wilson2015">(<a href="#ref-wilson2015" role="doc-biblioref">Wilson 2015</a>)</span>.</li>
+<li>Fenwick E, et al.&nbsp;Representing uncertainty: the role of cost-effectiveness acceptability curves <span class="citation" data-cites="fenwick2001">(<a href="#ref-fenwick2001" role="doc-biblioref">Fenwick et al. 2001</a>)</span>.</li>
+<li>Stinnett AA, Mullahy J. Net health benefits <span class="citation" data-cites="stinnett1998">(<a href="#ref-stinnett1998" role="doc-biblioref">Stinnett and Mullahy 1998</a>)</span>.</li>
+<li>Neumann PJ, et al.&nbsp;Updating cost-effectiveness: the curious resilience of the $50,000-per-QALY threshold <span class="citation" data-cites="neumann2014">(<a href="#ref-neumann2014" role="doc-biblioref">Neumann et al. 2014</a>)</span>.</li>
+<li>Vanness DJ, et al.&nbsp;Health opportunity costs in the United States <span class="citation" data-cites="vanness2021">(<a href="#ref-vanness2021" role="doc-biblioref">Vanness et al. 2021</a>)</span>.</li>
+<li>Model-specific evidence: <code>references/literature-review.md</code>.</li>
+</ul>
+
+
+<!-- -->
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-black1990" class="csl-entry" role="listitem">
+Black, William C. 1990. <span>“<span class="nocase">The CE plane: a graphic representation of cost-effectiveness</span>.”</span> <em>Med Decis Making</em> 10 (3): 212–14. <a href="https://doi.org/10.1177/0272989X9001000308">https://doi.org/10.1177/0272989X9001000308</a>.
+</div>
+<div id="ref-bowring2018" class="csl-entry" role="listitem">
+Bowring, Mary G, Courtenay M Holscher, Sheng Zhou, et al. 2018. <span>“<span class="nocase">Turn down for what? Patient outcomes associated with declining increased infectious risk kidneys</span>.”</span> <em>Am J Transplant</em> 18 (3): 617–24. <a href="https://doi.org/10.1111/ajt.14577">https://doi.org/10.1111/ajt.14577</a>.
+</div>
+<div id="ref-briggs2012" class="csl-entry" role="listitem">
+Briggs, Andrew H, Milton C Weinstein, Elisabeth A L Fenwick, Jonathan Karnon, Mark J Sculpher, and A David Paltiel. 2012. <span>“<span class="nocase">Model parameter estimation and uncertainty analysis: a report of the ISPOR-SMDM Modeling Good Research Practices Task Force Working Group-6</span>.”</span> <em>Med Decis Making</em> 32 (5): 722–32. <a href="https://doi.org/10.1177/0272989X12458348">https://doi.org/10.1177/0272989X12458348</a>.
+</div>
+<div id="ref-cohen2019" class="csl-entry" role="listitem">
+Cohen, Jordana B, Vishnu Potluri, Paige M Porrett, et al. 2019. <span>“<span class="nocase">Leveraging marginal structural modeling with Cox regression to assess the survival benefit of accepting vs declining kidney allograft offers</span>.”</span> <em>Am J Transplant</em> 19 (7): 1999–2008. <a href="https://doi.org/10.1111/ajt.15290">https://doi.org/10.1111/ajt.15290</a>.
+</div>
+<div id="ref-eckman2020" class="csl-entry" role="listitem">
+Eckman, Mark H, E Steve Woodle, Charuhas V Thakar, Rita R Alloway, and Kenneth E Sherman. 2020. <span>“<span class="nocase">Cost-effectiveness of Using Kidneys From HCV-Viremic Donors for Transplantation Into HCV-Uninfected Recipients</span>.”</span> <em>Am J Kidney Dis</em> 75 (6): 857–67. <a href="https://doi.org/10.1053/j.ajkd.2019.11.005">https://doi.org/10.1053/j.ajkd.2019.11.005</a>.
+</div>
+<div id="ref-fenwick2001" class="csl-entry" role="listitem">
+Fenwick, Elisabeth, Karl Claxton, and Mark Sculpher. 2001. <span>“<span class="nocase">Representing uncertainty: the role of cost-effectiveness acceptability curves</span>.”</span> <em>Health Econ</em> 10 (8): 779–87. <a href="https://doi.org/10.1002/hec.635">https://doi.org/10.1002/hec.635</a>.
+</div>
+<div id="ref-vanhout1994" class="csl-entry" role="listitem">
+Hout, Ben A van, Maiwenn J Al, Gilad S Gordon, and Frans F Rutten. 1994. <span>“<span class="nocase">Costs, effects and C/E-ratios alongside a clinical trial</span>.”</span> <em>Health Econ</em> 3 (5): 309–19. <a href="https://doi.org/10.1002/hec.4730030505">https://doi.org/10.1002/hec.4730030505</a>.
+</div>
+<div id="ref-husain2019" class="csl-entry" role="listitem">
+Husain, S Ali, Kristen L King, Stephen Pastan, et al. 2019. <span>“<span class="nocase">Association Between Declined Offers of Deceased Donor Kidney Allograft and Outcomes in Kidney Transplant Candidates</span>.”</span> <em>JAMA Netw Open</em> 2 (8): e1910312. <a href="https://doi.org/10.1001/jamanetworkopen.2019.10312">https://doi.org/10.1001/jamanetworkopen.2019.10312</a>.
+</div>
+<div id="ref-husereau2022" class="csl-entry" role="listitem">
+Husereau, Don, Michael Drummond, Federico Augustovski, et al. 2022. <span>“<span class="nocase">Consolidated Health Economic Evaluation Reporting Standards 2022 (CHEERS 2022) Statement: Updated Reporting Guidance for Health Economic Evaluations</span>.”</span> <em>Value Health</em> 25 (1): 3–9. <a href="https://doi.org/10.1016/j.jval.2021.11.1351">https://doi.org/10.1016/j.jval.2021.11.1351</a>.
+</div>
+<div id="ref-kadatz2018" class="csl-entry" role="listitem">
+Kadatz, Matthew, Scott Klarenbach, Jagbir Gill, and John S Gill. 2018. <span>“<span class="nocase">Cost-effectiveness of using kidneys from hepatitis C nucleic acid test-positive donors for transplantation in hepatitis C-negative recipients</span>.”</span> <em>Am J Transplant</em> 18 (10): 2457–64. <a href="https://doi.org/10.1111/ajt.14929">https://doi.org/10.1111/ajt.14929</a>.
+</div>
+<div id="ref-mohan2025" class="csl-entry" role="listitem">
+Mohan, Sumit, Miko Yu, Lindsey M Maclay, et al. 2025. <span>“<span class="nocase">Outcomes for Patients With a Deceased Donor Kidney Offer in the New Allocation System</span>.”</span> <em>Kidney Int Rep</em> 10 (4): 1111–21. <a href="https://doi.org/10.1016/j.ekir.2025.01.021">https://doi.org/10.1016/j.ekir.2025.01.021</a>.
+</div>
+<div id="ref-neumann2014" class="csl-entry" role="listitem">
+Neumann, Peter J, Joshua T Cohen, and Milton C Weinstein. 2014. <span>“<span class="nocase">Updating cost-effectiveness–the curious resilience of the $50,000-per-QALY threshold</span>.”</span> <em>N Engl J Med</em> 371 (9): 796–97. <a href="https://doi.org/10.1056/NEJMp1405158">https://doi.org/10.1056/NEJMp1405158</a>.
+</div>
+<div id="ref-penumarthi2021" class="csl-entry" role="listitem">
+Penumarthi, Lasya R, Ricardo M La Hoz, Cameron R Wolfe, et al. 2021. <span>“<span class="nocase">Cryptococcus transmission through solid organ transplantation in the United States: A report from the Ad Hoc Disease Transmission Advisory Committee</span>.”</span> <em>Am J Transplant</em> 21 (5): 1911–23. <a href="https://doi.org/10.1111/ajt.16433">https://doi.org/10.1111/ajt.16433</a>.
+</div>
+<div id="ref-sanders2016" class="csl-entry" role="listitem">
+Sanders, Gillian D, Peter J Neumann, Anirban Basu, et al. 2016. <span>“<span class="nocase">Recommendations for Conduct, Methodological Practices, and Reporting of Cost-effectiveness Analyses: Second Panel on Cost-Effectiveness in Health and Medicine</span>.”</span> <em>JAMA</em> 316 (10): 1093–103. <a href="https://doi.org/10.1001/jama.2016.12195">https://doi.org/10.1001/jama.2016.12195</a>.
+</div>
+<div id="ref-santos2019atc" class="csl-entry" role="listitem">
+Santos, C, E Ritz, Y Rhee, et al. 2019. <em><span class="nocase">Preventing donor-derived cryptococcal infections: should we screen potential organ donors with a serum cryptococcal antigen? A cost analysis</span></em>. Am J Transplant 2019;19(Suppl 3). American Transplant Congress 2019, abstract A329. <a href="https://atcmeetingabstracts.com/?p=17405">https://atcmeetingabstracts.com/?p=17405</a>.
+</div>
+<div id="ref-stinnett1998" class="csl-entry" role="listitem">
+Stinnett, Aaron A, and John Mullahy. 1998. <span>“<span class="nocase">Net health benefits: a new framework for the analysis of uncertainty in cost-effectiveness analysis</span>.”</span> <em>Med Decis Making</em> 18 (2 Suppl): S68–80. <a href="https://doi.org/10.1177/0272989X98018002S09">https://doi.org/10.1177/0272989X98018002S09</a>.
+</div>
+<div id="ref-vanness2021" class="csl-entry" role="listitem">
+Vanness, David J, James Lomas, and Hannah Ahn. 2021. <span>“<span class="nocase">A Health Opportunity Cost Threshold for Cost-Effectiveness Analysis in the United States</span>.”</span> <em>Ann Intern Med</em> 174 (1): 25–32. <a href="https://doi.org/10.7326/M20-1392">https://doi.org/10.7326/M20-1392</a>.
+</div>
+<div id="ref-wilson2015" class="csl-entry" role="listitem">
+Wilson, Edward C F. 2015. <span>“<span class="nocase">A practical guide to value of information analysis</span>.”</span> <em>Pharmacoeconomics</em> 33 (2): 105–21. <a href="https://doi.org/10.1007/s40273-014-0219-x">https://doi.org/10.1007/s40273-014-0219-x</a>.
+</div>
+<div id="ref-wyld2012" class="csl-entry" role="listitem">
+Wyld, Melanie, Rachael Lisa Morton, Andrew Hayen, Kirsten Howard, and Angela Claire Webster. 2012. <span>“<span class="nocase">A systematic review and meta-analysis of utility-based quality of life in chronic kidney disease treatments</span>.”</span> <em>PLoS Med</em> 9 (9): e1001307. <a href="https://doi.org/10.1371/journal.pmed.1001307">https://doi.org/10.1371/journal.pmed.1001307</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/vagishhemmige\.github\.io\/Cryptococcus-donor-screening-CEA\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../quarto/results_psa.html" class="pagination-link" aria-label="Probabilistic sensitivity">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Probabilistic sensitivity</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../quarto/architecture.html" class="pagination-link" aria-label="Architecture">
+        <span class="nav-page-text">Architecture</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">pagetitle:</span><span class="co"> "Analysis plan"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">from:</span><span class="co"> markdown+gfm_auto_identifiers</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">This page only shows analysis-plan.md from the repository root, which is the one source:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">edit that file, not this page. Its first heading is the page title.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">The plan links its own sections GitHub's way (for example #3-design). Quarto's</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">default heading IDs drop leading numbers (#design), so `from:` above</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">gives this page GitHub-style IDs and those links work on both.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../analysis-plan.md &gt;}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/edit/master/quarto/analysis-plan.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
