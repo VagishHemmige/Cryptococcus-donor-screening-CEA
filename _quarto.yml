@@ -38,20 +38,20 @@ website:
           - href: quarto/background.qmd
             text: Clinical background
             icon: book
-      - section: Methods
-        contents:
           - href: quarto/cea_primer.qmd
             text: Cost-effectiveness analysis for clinicians
             icon: book
+          - href: quarto/uncertainty_methods.qmd
+            text: Sensitivity analyses explained
+            icon: book
+      - section: Study design and methods
+        contents:
           - href: quarto/model_structure.qmd
             text: The decision model
             icon: diagram-3
           - href: quarto/model_inputs.qmd
             text: How the inputs are chosen
             icon: diagram-3
-          - href: quarto/uncertainty_methods.qmd
-            text: Sensitivity analyses explained
-            icon: book
           - href: references/literature-review.md
             text: Evidence base for parameters
             icon: diagram-3
