@@ -9,7 +9,7 @@
 [![Methods](https://img.shields.io/badge/methods-under_development-blue)](#)
 [![Not for
 Citation](https://img.shields.io/badge/use-not_for_citation-lightgrey)](#)
-[![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE.md)
 <!-- badges: end -->
 
 The goal of Cryptococcus donor screening CEA is to perform a CEA. The
