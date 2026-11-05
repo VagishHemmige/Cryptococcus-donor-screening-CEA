@@ -102,7 +102,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-aade7b2294effb6f0ad8f1cba2010aba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,17 +131,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
-  background-image: none;
-}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -151,6 +140,17 @@ div.callout-Rcode.callout-style-default > .callout-header {
 div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
   content: '💻';
+  background-image: none;
+}
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 div.callout-Results.callout {
@@ -529,7 +529,7 @@ gives this page GitHub-style IDs and those links work on both.
 <section id="health-economic-analysis-plan-donor-serum-cryptococcal-antigen-screening-in-us-deceased-donor-kidney-transplantation" class="level1">
 <h1>Health Economic Analysis Plan: Donor Serum Cryptococcal Antigen Screening in US Deceased-Donor Kidney Transplantation</h1>
 <p><strong>Version:</strong> 0.1 (draft) · <strong>Date:</strong> 2026-10-25 · <strong>Author:</strong> Vagish Hemmige</p>
-<p>This plan states the intended design of the cost-effectiveness analysis. It does not describe the current code: <code>ARCHITECTURE.md</code> describes what is implemented, and <code>TODO.md</code> lists where the code does not yet match this plan. Items marked <strong>Decision D<em>n</em></strong> are intended choices not yet made; they are collected in <a href="#14-open-decisions">Open decisions</a>.</p>
+<p>This plan states the intended design of the cost-effectiveness analysis. It does not describe the current code: <code>ARCHITECTURE.md</code> describes what is implemented, and <code>TODO.md</code> lists where the code does not yet match this plan. Items marked <strong>Decision D<em>n</em></strong> are intended choices not yet made; they are collected in <a href="#14-open-decisions">Open decisions</a>, each with its decision issue on GitHub.</p>
 <p>Reporting will follow the Consolidated Health Economic Evaluation Reporting Standards 2022 (CHEERS 2022) <span class="citation" data-cites="husereau2022">(<a href="#ref-husereau2022" role="doc-biblioref">Husereau et al. 2022</a>)</span>, and methods will follow the recommendations of the Second Panel on Cost-Effectiveness in Health and Medicine <span class="citation" data-cites="sanders2016">(<a href="#ref-sanders2016" role="doc-biblioref">Sanders et al. 2016</a>)</span> and the ISPOR-SMDM Modeling Good Research Practices Task Force. This document is the health economic analysis plan referred to in CHEERS 2022 item 4. The <a href="#13-reporting-map">reporting map</a> links each CHEERS item to a section of this plan.</p>
 <p>The evidence for each input is summarized in <code>references/literature-review.md</code>. This plan defines what each input means and how its uncertainty is represented; the numbers themselves live in <code>R/setup.R</code> and are justified on that page.</p>
 <hr>
@@ -579,7 +579,7 @@ The unit fixes what the organ-use probability means, where the test cost is char
 <ul>
 <li><strong>Perspective.</strong> <strong>Decision D3.</strong> Proposed: US health care sector perspective for the reference case, with an impact inventory listing the societal-perspective items that are excluded or not quantified, as the Second Panel recommends <span class="citation" data-cites="sanders2016">(<a href="#ref-sanders2016" role="doc-biblioref">Sanders et al. 2016</a>)</span>.</li>
 <li><strong>Time horizon.</strong> <strong>Decision D4.</strong> The horizon must cover every important difference between strategies. For an accept-now-versus-decline decision this extends to the life of the graft or recipient. One horizon applies to every input: background cryptococcosis risk, the cost and QALY consequences of transplant or decline, and the consequences of cryptococcosis. An input that refers to a different period is converted to the model horizon before use, and the conversion is documented.</li>
-<li><strong>Discounting.</strong> Costs and QALYs are discounted at the same annual rate. Proposed: 3% in the reference case, with 0% and 5% in scenario analyses <span class="citation" data-cites="sanders2016">(<a href="#ref-sanders2016" role="doc-biblioref">Sanders et al. 2016</a>)</span>. Because the model is a decision tree without cycles, discounting is applied inside the inputs that summarize future streams (for example, the QALYs and costs of accepting now), and each such input records the rate used.</li>
+<li><strong>Discounting.</strong> <strong>Decision D4</strong>, with the time horizon. Costs and QALYs are discounted at the same annual rate. Proposed: 3% in the reference case, with 0% and 5% in scenario analyses <span class="citation" data-cites="sanders2016">(<a href="#ref-sanders2016" role="doc-biblioref">Sanders et al. 2016</a>)</span>. Because the model is a decision tree without cycles, discounting is applied inside the inputs that summarize future streams (for example, the QALYs and costs of accepting now), and each such input records the rate used.</li>
 <li><strong>Currency and price year.</strong> <strong>Decision D5.</strong> Proposed: 2025 US dollars, with costs adjusted by the CPI-U Medical Care index (BLS series CUUR0000SAM), matching the method of <code>usRds::adjust_costs_for_inflation()</code>. The PCE Health price index is a sensitivity analysis. Each cost input records its original value, price year, index, and whether it is a cost, payment or charge. Charges are not used as costs without a cost-to-charge conversion.</li>
 </ul>
 </section>
@@ -1033,16 +1033,12 @@ The unit fixes what the organ-use probability means, where the test cost is char
 <section id="14-open-decisions" class="level2">
 <h2 class="anchored" data-anchor-id="14-open-decisions">14. Open decisions</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>ID</th>
 <th>Decision</th>
 <th>Section</th>
+<th>Issue</th>
 </tr>
 </thead>
 <tbody>
@@ -1050,91 +1046,109 @@ The unit fixes what the organ-use probability means, where the test cost is char
 <td>D1</td>
 <td>Unit of analysis (potential donor, donor with a kidney recovered, or kidney offer), and how two recipients of one donor are counted</td>
 <td>3, 5.2</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/5">#5</a></td>
 </tr>
 <tr class="even">
 <td>D2</td>
 <td>Screened population (all donors, non-traumatic deaths, or donors with CNS signs), and whether targeted screening is a third strategy</td>
 <td>2, 3</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/6">#6</a></td>
 </tr>
 <tr class="odd">
 <td>D3</td>
 <td>Perspective, and the impact inventory</td>
 <td>4</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/7">#7</a></td>
 </tr>
 <tr class="even">
 <td>D4</td>
-<td>Time horizon shared by every input</td>
+<td>Time horizon shared by every input, and the discount rate</td>
 <td>4</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/8">#8</a></td>
 </tr>
 <tr class="odd">
 <td>D5</td>
 <td>Price year and inflation index</td>
 <td>4</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/9">#9</a></td>
 </tr>
 <tr class="even">
 <td>D6</td>
 <td>Reference endpoint: decline and wait, or dialysis indefinitely</td>
 <td>7.1</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/10">#10</a></td>
 </tr>
 <tr class="odd">
 <td>D7</td>
 <td>Timing of the result relative to allocation and implantation</td>
 <td>5.2</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/11">#11</a></td>
 </tr>
 <tr class="even">
 <td>D8</td>
 <td>Positive-screen protocol: single positive, titer threshold, or confirmatory test</td>
 <td>5.2, 9.2</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/12">#12</a></td>
 </tr>
 <tr class="odd">
 <td>D9</td>
 <td>Decline versus discard, and how reallocation is valued</td>
 <td>5.2</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/13">#13</a></td>
 </tr>
 <tr class="even">
 <td>D10</td>
 <td>Prophylaxis regimen (drug, dose, duration, renal adjustment, monitoring); uptake under the protocol and under current practice</td>
 <td>2, 6.1, 8</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/14">#14</a></td>
 </tr>
 <tr class="odd">
 <td>D11</td>
 <td>Effect of prophylaxis on background infection: none, or efficacy × window share</td>
 <td>5.2</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/15">#15</a></td>
 </tr>
 <tr class="even">
 <td>D12</td>
 <td>Target condition for prevalence, sensitivity and transmission</td>
 <td>5.3</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/16">#16</a></td>
 </tr>
 <tr class="odd">
 <td>D13</td>
 <td>Titer- or stage-dependent transmission and prophylaxis efficacy</td>
 <td>5.3</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/17">#17</a></td>
 </tr>
 <tr class="even">
 <td>D14</td>
 <td>Inputs to be elicited, and the elicitation method</td>
 <td>6.2</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/18">#18</a></td>
 </tr>
 <tr class="odd">
 <td>D15</td>
 <td>Joint sampling method for each correlated pair</td>
 <td>6.3</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/19">#19</a></td>
 </tr>
 <tr class="even">
 <td>D16</td>
 <td>Whether the OPO program cost of testing is in scope</td>
 <td>8</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/20">#20</a></td>
 </tr>
 <tr class="odd">
 <td>D17</td>
 <td>Litigation cost scenario: keep as labelled scenario, or drop</td>
 <td>8</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/21">#21</a></td>
 </tr>
 <tr class="even">
 <td>D18</td>
 <td>Range of willingness-to-pay thresholds reported</td>
 <td>9.1</td>
+<td><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/22">#22</a></td>
 </tr>
 </tbody>
 </table>
