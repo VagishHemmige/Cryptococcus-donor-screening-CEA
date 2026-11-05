@@ -3,6 +3,7 @@ project:
   output-dir: docs
   render:
     - index.qmd
+    - 404.qmd
     - quarto/*.qmd
     - references/literature-review.md
 
@@ -18,75 +19,128 @@ website:
   repo-branch: master
   repo-actions: [edit, issue]
   title: "Cryptococcus donor screening cost effectiveness analysis"
-  
 
+
+  # Each kind of page has one icon, coloured in styles.css: book = background,
+  # diagram-3 = study design and methods, laptop = R code, clipboard-data =
+  # results, file-earmark-ruled = project documents.
   sidebar:
     style: "docked"
+    # Every section starts open, including those inside Code
+    collapse-level: 3
     search: true
     contents:
       - href: index.qmd
         text: Home
+        icon: house
       - section: Background
         contents:
           - href: quarto/background.qmd
             text: Clinical background
+            icon: book
       - section: Methods
         contents:
           - href: quarto/cea_primer.qmd
             text: Cost-effectiveness analysis for clinicians
+            icon: book
           - href: quarto/model_structure.qmd
             text: The decision model
+            icon: diagram-3
           - href: quarto/model_inputs.qmd
             text: How the inputs are chosen
+            icon: diagram-3
           - href: quarto/uncertainty_methods.qmd
             text: Sensitivity analyses explained
+            icon: book
           - href: references/literature-review.md
             text: Evidence base for parameters
-      - section: Setup and helper functions
+            icon: diagram-3
+      - section: Code
         contents:
-          - href: quarto/setup.qmd
-            text: Setup and parameters
-          - href: quarto/functions.qmd
-            text: Functions
-      - section: Model code
-        contents:
-          - href: quarto/base_case_tree.qmd
-            text: Base-case tree
-          - href: quarto/scenario_trees.qmd
-            text: Scenario trees
-          - href: quarto/sensitivity_analyses.qmd
-            text: Sensitivity analyses
+          - section: Setup and helper functions
+            contents:
+              - href: quarto/setup.qmd
+                text: Setup and parameters
+                icon: laptop
+              - href: quarto/functions.qmd
+                text: Functions
+                icon: laptop
+          - section: Model code
+            contents:
+              - href: quarto/base_case_tree.qmd
+                text: Base-case tree
+                icon: laptop
+              - href: quarto/scenario_trees.qmd
+                text: Scenario trees
+                icon: laptop
+              - href: quarto/sensitivity_analyses.qmd
+                text: Sensitivity analyses
+                icon: laptop
       - section: Results
         contents:
           - href: quarto/results_base_case.qmd
             text: Base case
+            icon: clipboard-data
           - href: quarto/results_scenarios.qmd
             text: Scenario analyses
+            icon: clipboard-data
           - href: quarto/results_tornado.qmd
             text: One-way sensitivity (tornado)
+            icon: clipboard-data
           - href: quarto/results_psa.qmd
             text: Probabilistic sensitivity
+            icon: clipboard-data
+      - section: Project documents
+        contents:
+          - href: quarto/analysis-plan.qmd
+            text: Analysis plan
+            icon: file-earmark-ruled
+          - href: quarto/architecture.qmd
+            text: Architecture
+            icon: file-earmark-ruled
+          - href: quarto/agents.qmd
+            text: AGENTS.md
+            icon: file-earmark-ruled
+          - href: quarto/repository-blueprint.qmd
+            text: Repository blueprint
+            icon: file-earmark-ruled
       - href: quarto/about.qmd
         text: About
+        icon: info-circle
   page-navigation: true
 
 bibliography: references.bib
 
+# Each kind of content has one callout, in its kind's colour: Rcode for code,
+# Results for results, Pending for provisional content (added by
+# quarto/_pending.lua).
 custom-callout:
   Rcode:
     icon: true
-    icon-symbol: "💻 "
-    color: "pink"
+    icon-symbol: "💻"
+    color: "#d63384"
+  Results:
+    icon: true
+    icon-symbol: "📊"
+    color: "#198754"
+  Pending:
+    icon: true
+    icon-symbol: "⏳"
+    color: "#f0c400"
 
 filters:
-- custom-callout
+  # Yellow marks for provisional content, and their Pending callout. It runs
+  # before custom-callout, which turns the callout it adds into a styled box.
+  - quarto/_pending.lua
+  - custom-callout
 
 format:
   html:
     theme: cosmo
+    css: styles.css
     toc: true
     code-fold: true
     code-tools: true
     page-layout: full
-    code-summary: "Click to show/hide R Code"    
+    code-summary: "Click to show/hide R Code"
     lightbox: true
