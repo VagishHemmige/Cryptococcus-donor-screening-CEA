@@ -2,7 +2,7 @@
 
 **Version:** 0.1 (draft) · **Date:** 2026-10-25 · **Author:** Vagish Hemmige
 
-This plan states the intended design of the cost-effectiveness analysis. It does not describe the current code: `ARCHITECTURE.md` describes what is implemented, and `TODO.md` lists where the code does not yet match this plan. Items marked **Decision D*n*** are intended choices not yet made; they are collected in [Open decisions](#14-open-decisions).
+This plan states the intended design of the cost-effectiveness analysis. It does not describe the current code: `ARCHITECTURE.md` describes what is implemented, and `TODO.md` lists where the code does not yet match this plan. Items marked **Decision D*n*** are intended choices not yet made; they are collected in [Open decisions](#14-open-decisions), each with its decision issue on GitHub.
 
 Reporting will follow the Consolidated Health Economic Evaluation Reporting Standards 2022 (CHEERS 2022) [@husereau2022], and methods will follow the recommendations of the Second Panel on Cost-Effectiveness in Health and Medicine [@sanders2016] and the ISPOR-SMDM Modeling Good Research Practices Task Force. This document is the health economic analysis plan referred to in CHEERS 2022 item 4. The [reporting map](#13-reporting-map) links each CHEERS item to a section of this plan.
 
@@ -46,7 +46,7 @@ With more than two strategies, results are reported as a fully incremental analy
 
 - **Perspective.** **Decision D3.** Proposed: US health care sector perspective for the reference case, with an impact inventory listing the societal-perspective items that are excluded or not quantified, as the Second Panel recommends [@sanders2016].
 - **Time horizon.** **Decision D4.** The horizon must cover every important difference between strategies. For an accept-now-versus-decline decision this extends to the life of the graft or recipient. One horizon applies to every input: background cryptococcosis risk, the cost and QALY consequences of transplant or decline, and the consequences of cryptococcosis. An input that refers to a different period is converted to the model horizon before use, and the conversion is documented.
-- **Discounting.** Costs and QALYs are discounted at the same annual rate. Proposed: 3% in the reference case, with 0% and 5% in scenario analyses [@sanders2016]. Because the model is a decision tree without cycles, discounting is applied inside the inputs that summarize future streams (for example, the QALYs and costs of accepting now), and each such input records the rate used.
+- **Discounting.** **Decision D4**, with the time horizon. Costs and QALYs are discounted at the same annual rate. Proposed: 3% in the reference case, with 0% and 5% in scenario analyses [@sanders2016]. Because the model is a decision tree without cycles, discounting is applied inside the inputs that summarize future streams (for example, the QALYs and costs of accepting now), and each such input records the rate used.
 - **Currency and price year.** **Decision D5.** Proposed: 2025 US dollars, with costs adjusted by the CPI-U Medical Care index (BLS series CUUR0000SAM), matching the method of `usRds::adjust_costs_for_inflation()`. The PCE Health price index is a sensitivity analysis. Each cost input records its original value, price year, index, and whether it is a cost, payment or charge. Charges are not used as costs without a cost-to-charge conversion.
 
 ## 5. Model
@@ -266,26 +266,26 @@ Validation follows the ISPOR-SMDM guidance on model transparency and validation,
 
 ## 14. Open decisions
 
-| ID | Decision | Section |
-|---|---|---|
-| D1 | Unit of analysis (potential donor, donor with a kidney recovered, or kidney offer), and how two recipients of one donor are counted | 3, 5.2 |
-| D2 | Screened population (all donors, non-traumatic deaths, or donors with CNS signs), and whether targeted screening is a third strategy | 2, 3 |
-| D3 | Perspective, and the impact inventory | 4 |
-| D4 | Time horizon shared by every input | 4 |
-| D5 | Price year and inflation index | 4 |
-| D6 | Reference endpoint: decline and wait, or dialysis indefinitely | 7.1 |
-| D7 | Timing of the result relative to allocation and implantation | 5.2 |
-| D8 | Positive-screen protocol: single positive, titer threshold, or confirmatory test | 5.2, 9.2 |
-| D9 | Decline versus discard, and how reallocation is valued | 5.2 |
-| D10 | Prophylaxis regimen (drug, dose, duration, renal adjustment, monitoring); uptake under the protocol and under current practice | 2, 6.1, 8 |
-| D11 | Effect of prophylaxis on background infection: none, or efficacy × window share | 5.2 |
-| D12 | Target condition for prevalence, sensitivity and transmission | 5.3 |
-| D13 | Titer- or stage-dependent transmission and prophylaxis efficacy | 5.3 |
-| D14 | Inputs to be elicited, and the elicitation method | 6.2 |
-| D15 | Joint sampling method for each correlated pair | 6.3 |
-| D16 | Whether the OPO program cost of testing is in scope | 8 |
-| D17 | Litigation cost scenario: keep as labelled scenario, or drop | 8 |
-| D18 | Range of willingness-to-pay thresholds reported | 9.1 |
+| ID | Decision | Section | Issue |
+|---|---|---|---|
+| D1 | Unit of analysis (potential donor, donor with a kidney recovered, or kidney offer), and how two recipients of one donor are counted | 3, 5.2 | [#5](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/5) |
+| D2 | Screened population (all donors, non-traumatic deaths, or donors with CNS signs), and whether targeted screening is a third strategy | 2, 3 | [#6](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/6) |
+| D3 | Perspective, and the impact inventory | 4 | [#7](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/7) |
+| D4 | Time horizon shared by every input, and the discount rate | 4 | [#8](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/8) |
+| D5 | Price year and inflation index | 4 | [#9](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/9) |
+| D6 | Reference endpoint: decline and wait, or dialysis indefinitely | 7.1 | [#10](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/10) |
+| D7 | Timing of the result relative to allocation and implantation | 5.2 | [#11](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/11) |
+| D8 | Positive-screen protocol: single positive, titer threshold, or confirmatory test | 5.2, 9.2 | [#12](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/12) |
+| D9 | Decline versus discard, and how reallocation is valued | 5.2 | [#13](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/13) |
+| D10 | Prophylaxis regimen (drug, dose, duration, renal adjustment, monitoring); uptake under the protocol and under current practice | 2, 6.1, 8 | [#14](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/14) |
+| D11 | Effect of prophylaxis on background infection: none, or efficacy × window share | 5.2 | [#15](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/15) |
+| D12 | Target condition for prevalence, sensitivity and transmission | 5.3 | [#16](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/16) |
+| D13 | Titer- or stage-dependent transmission and prophylaxis efficacy | 5.3 | [#17](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/17) |
+| D14 | Inputs to be elicited, and the elicitation method | 6.2 | [#18](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/18) |
+| D15 | Joint sampling method for each correlated pair | 6.3 | [#19](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/19) |
+| D16 | Whether the OPO program cost of testing is in scope | 8 | [#20](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/20) |
+| D17 | Litigation cost scenario: keep as labelled scenario, or drop | 8 | [#21](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/21) |
+| D18 | Range of willingness-to-pay thresholds reported | 9.1 | [#22](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/22) |
 
 ## References
 

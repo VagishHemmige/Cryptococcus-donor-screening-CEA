@@ -2,16 +2,9 @@
 
 Open work for the cryptococcus donor screening CEA, from the parameter literature review (evidence cutoff 19 Oct 2026). The evidence itself is in `references/literature-review.md`. When an item is done, delete it here and record the outcome there or in the code.
 
-## 1. Decisions to make (these belong in the analysis plan)
+## 1. Decisions to make
 
-- [ ] **Unit of analysis.** Per potential donor, per deceased donor with kidneys recovered, or per kidney offer. This decides what `p_usage` means, whether two kidneys share one test, and how outcomes for two recipients are counted.
-- [ ] **Screened population.** All deceased donors, or only potential donors dying of non-traumatic CNS disease. National figures in `evidence.md` describe all donors.
-- [ ] **Time horizon and discounting**, shared by `p_spont_cryptococcus`, costs and QALYs.
-- [ ] **Perspective and price year** (for example US healthcare sector, 2025 USD, CPI-U Medical Care to match `usRds::adjust_costs_for_inflation`).
-- [ ] **Reference arm.** Decline-and-wait (with possible later transplant) or dialysis forever. `q_nocryptococcus`, `cost_nocryptococcus` and `q_loss_cryptococcus` must all use the same one.
-- [ ] **Positive-screen protocol.** Act on a single positive, a titer threshold, or a confirmatory test before any decline.
-- [ ] **Prophylaxis regimen** (dose, duration, renal adjustment) that `cost_fluconazole` represents.
-- [ ] **WTP range** to report, in addition to $100,000.
+The open design decisions are listed in the analysis plan's [Open decisions](analysis-plan.md#14-open-decisions) table, each with its decision issue ([D1 to D18](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues?q=is%3Aissue)). Options and evidence go in the issue.
 
 ## 2. Document the source of current values
 

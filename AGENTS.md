@@ -2,13 +2,14 @@
 
 Guidance for everyone working on this repository: the maintainer, collaborators, and any AI coding agents working for them. It covers how to work here: conventions, unpublished material, and checks.
 
-Four places divide the documentation:
+Five places divide the documentation:
 
 | Where | Covers |
 |---|---|
 | `analysis-plan.md` | Study design: what the cost-effectiveness analysis is meant to do |
 | `ARCHITECTURE.md` | Code structure: scripts, data flow, and the objects passed between them |
 | `AGENTS.md` (this file) | How to work in the repository: rules, conventions, and checks |
+| [GitHub Issues](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues) | Open design decisions (one decision issue per Decision D*n*) |
 | `TODO.md` | Implementation status: where the code does not yet match the plan, and known defects |
 
 Read the three files before making changes. Each covers its own topic and does not repeat the others. The evidence for every model input is in `references/literature-review.md`, with citations in `references.bib`.
@@ -20,7 +21,7 @@ This repository evaluates donor serum cryptococcal antigen (CrAg) screening in U
 - **`analysis-plan.md` is the source of truth for design.** It covers the comparators, population, unit of analysis, perspective, time horizon, model structure, input definitions, and sensitivity analyses. Code implements the plan; it does not redefine it.
   - If the code needs to depart from the plan, change the plan in the same pull request.
   - Plan changes are tracked in git, not in a change log inside the plan. Commit each design change on its own, with a message that gives the reason and says whether any results that depend on it had already been seen.
-  - The plan lists open design choices as **Decision D*n*** in its "Open decisions" table. Do not settle one in code. Raise it with the decider.
+  - The plan lists open design choices as **Decision D*n*** in its "Open decisions" table, each linked to its decision issue. Options and evidence go in the issue. Do not settle one in code. Raise it with the decider.
 - **Deciders.** Scientific decisions are made by Vagish Hemmige (all areas). Anyone may contribute options and evidence to an open decision; only a decider settles it (see "Working with agents").
 - **This is an analysis project, not an R package**, even though the scripts live in `R/` and there is an `.Rbuildignore`. Do not add DESCRIPTION, NAMESPACE, roxygen, or pkgdown infrastructure. Do not apply CRAN conventions.
 - **Default branch:** `master`, protected. Changes reach it only through pull requests.

@@ -236,7 +236,7 @@ The PSA is reproducible only when `R/main.R` runs in full. The seed is set once 
 | Tornado | `R/sensitivity_analyses.R` | `PSA_parameters`, `tornado_parameters`, `tornado_parameters_final` |
 | PSA | `R/sensitivity_analyses.R` | `PSA_simulation_unnested`, `ceac_df`, `evpi_at_wtp`, `PSA_summary_df`, `bcea_object` |
 | Site configuration | `_quarto.yml`, `styles.css`, `quarto/_pending.lua` | `project.render`, `website.sidebar`, `custom-callout`, `filters` |
-| Open work | `TODO.md` | pending analysis decisions and model changes |
+| Open work | GitHub Issues, `TODO.md` | decision issues D1 to D18; model changes and other pending work |
 | Evidence | `references/literature-review.md`, `references.bib` | evidence for each parameter |
 
 ## Glossary
