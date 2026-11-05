@@ -36,9 +36,9 @@ Four documents describe the project. In short: the plan is the scientific intent
 
 -   [**Clinical background**](background.qmd): donor-derived cryptococcosis in kidney transplantation, and why donor screening is debated.
 -   [**Cost-effectiveness analysis for clinicians**](cea_primer.qmd): costs, QALYs, the ICER and net monetary benefit, in general terms.
+-   [**Sensitivity analyses explained**](uncertainty_methods.qmd): scenario, one-way and probabilistic sensitivity analyses, and how to read their figures.
 -   [**The decision model**](model_structure.qmd): the tree, its pathways, the unit of analysis and the model's known limitations.
 -   [**How the inputs are chosen**](model_inputs.qmd): best estimates, the distributions that describe their uncertainty, and the parameter table.
--   [**Sensitivity analyses explained**](uncertainty_methods.qmd): scenario, one-way and probabilistic sensitivity analyses, and how to read their figures.
 -   [**Evidence base for parameters**](../references/literature-review.md): the published evidence for every input, compared with the values the model uses.
 -   [**Setup and parameters**](setup.qmd): packages, every model parameter, the willingness-to-pay threshold, the seed and the number of simulations.
 -   [**Functions**](functions.qmd): the functions that compute and draw the decision tree.

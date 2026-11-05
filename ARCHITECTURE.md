@@ -2,7 +2,7 @@
 
 This document describes how the Cryptococcus donor screening cost-effectiveness analysis is organized: the R pipeline that builds the decision tree and runs the sensitivity analyses, and the Quarto website that presents the results. It is written for people reading or modifying the code and for AI agents working in the repository.
 
-> **Code state.** Written against commit `17a01ff` on `master` (25 October 2026). File paths and symbol names are stable references; check the source for current details.
+> **Code state.** Written against commit `17a01ff` on `master` (25 October 2026); the website sections updated for `842a10b` (4 November 2026). The R scripts are unchanged between the two. File paths and symbol names are stable references; check the source for current details.
 
 ## Overview
 
@@ -169,10 +169,12 @@ flowchart LR
     fig --> res
     fig --> meth
     fig --> narr["Narrative pages"]
+    rootdocs["analysis-plan.md, ARCHITECTURE.md<br/>AGENTS.md, REPOSITORY-BLUEPRINT.md"] -- "included at render" --> pdocs["Project-document pages"]
     code --> docs["GitHub Actions: quarto render"]
     meth --> docs
     res --> docs
     narr --> docs
+    pdocs --> docs
     docs --> gh["gh-pages branch → GitHub Pages"]
 ```
 
@@ -180,10 +182,11 @@ flowchart LR
 
 | Type | Pages | How content gets there |
 |---|---|---|
-| Narrative | `index.qmd`, `quarto/background.qmd`, `quarto/cea_primer.qmd`, `quarto/about.qmd`, `references/literature-review.md` | Written text and embedded figures. `cea_primer.qmd` draws one explanatory figure when rendered |
+| Narrative | `index.qmd`, `404.qmd`, `quarto/background.qmd`, `quarto/cea_primer.qmd`, `quarto/about.qmd`, `references/literature-review.md` | Written text and embedded figures. `cea_primer.qmd` draws one explanatory figure when rendered |
 | Methods | `quarto/model_structure.qmd`, `quarto/model_inputs.qmd`, `quarto/uncertainty_methods.qmd` | Run the `R/setup.R` parameter chunks for inline values; `model_inputs.qmd` computes prior intervals itself |
 | Code | `quarto/setup.qmd`, `quarto/functions.qmd`, `quarto/base_case_tree.qmd`, `quarto/scenario_trees.qmd`, `quarto/sensitivity_analyses.qmd` | `knitr::read_chunk()` on the matching R script; chunks shown with `eval: false` inside the `.Rcode` callout. `setup.qmd` also runs the parameter chunks and builds a parameter summary table |
 | Results | `quarto/results_base_case.qmd`, `quarto/results_scenarios.qmd`, `quarto/results_tornado.qmd`, `quarto/results_psa.qmd` | Read `output/*.csv` for inline numbers, embed `figures/`, and run the `R/setup.R` chunks for `expected_value`, `wtp` and `nsim` |
+| Project documents | `quarto/analysis-plan.qmd`, `quarto/architecture.qmd`, `quarto/agents.qmd`, `quarto/repository-blueprint.qmd` | Include the root file of the same name, which stays the only copy. `architecture.qmd` instead reads `ARCHITECTURE.md` as text in one chunk so that its mermaid diagrams are drawn; `analysis-plan.qmd` uses GitHub-style heading IDs so the plan's section links work |
 
 ### Chunk-label contract
 
@@ -197,11 +200,11 @@ Rendering the site does not rerun the analysis. Values that come from `R/setup.R
 
 `_quarto.yml` sets:
 
-- the render list (`index.qmd`, `quarto/*.qmd`, `references/literature-review.md`) and `output-dir: docs` (the local render, not committed)
-- the docked sidebar, in the order Home, Background, Methods, Setup and helper functions, Model code, Results, About
+- the render list (`index.qmd`, `404.qmd`, `quarto/*.qmd`, `references/literature-review.md`) and `output-dir: docs` (the local render, not committed)
+- the docked sidebar, in the order Home, Background, Study design and methods, Code (Setup and helper functions, Model code), Results, Project documents, About, with every section open (`collapse-level: 3`) and one icon per kind of page
 - the bibliography, `references.bib`
-- the `custom-callout` filter (`_extensions/coatless-quarto/custom-callout/`), which defines the `.Rcode` callout used on the code pages
-- HTML options: cosmo theme, table of contents, folded code, lightbox
+- two filters, in order: `quarto/_pending.lua`, which highlights provisional text and adds a Pending callout to pages that have any, then `custom-callout` (`_extensions/coatless-quarto/custom-callout/`), which defines the `Rcode`, `Results` and `Pending` callouts
+- HTML options: cosmo theme, `styles.css` (sidebar icon colours, section rules and the provisional-text highlight), table of contents, folded code, lightbox
 
 There is no `freeze` setting.
 
@@ -232,7 +235,7 @@ The PSA is reproducible only when `R/main.R` runs in full. The seed is set once 
 | Scenarios | `R/scenario_trees.R` | `alternative_tree_1` to `alternative_tree_4`, `scenario_results` |
 | Tornado | `R/sensitivity_analyses.R` | `PSA_parameters`, `tornado_parameters`, `tornado_parameters_final` |
 | PSA | `R/sensitivity_analyses.R` | `PSA_simulation_unnested`, `ceac_df`, `evpi_at_wtp`, `PSA_summary_df`, `bcea_object` |
-| Site configuration | `_quarto.yml` | `project.render`, `website.sidebar`, `custom-callout` |
+| Site configuration | `_quarto.yml`, `styles.css`, `quarto/_pending.lua` | `project.render`, `website.sidebar`, `custom-callout`, `filters` |
 | Open work | `TODO.md` | pending analysis decisions and model changes |
 | Evidence | `references/literature-review.md`, `references.bib` | evidence for each parameter |
 
