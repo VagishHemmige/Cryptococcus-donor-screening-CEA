@@ -20,9 +20,28 @@ This repository evaluates donor serum cryptococcal antigen (CrAg) screening in U
 - **`analysis-plan.md` is the source of truth for design.** It covers the comparators, population, unit of analysis, perspective, time horizon, model structure, input definitions, and sensitivity analyses. Code implements the plan; it does not redefine it.
   - If the code needs to depart from the plan, change the plan in the same pull request.
   - Plan changes are tracked in git, not in a change log inside the plan. Commit each design change on its own, with a message that gives the reason and says whether any results that depend on it had already been seen.
-  - The plan lists open design choices as **Decision D*n*** in its "Open decisions" table. Do not settle one in code. Raise it with the maintainer.
+  - The plan lists open design choices as **Decision D*n*** in its "Open decisions" table. Do not settle one in code. Raise it with the decider.
+- **Deciders.** Scientific decisions are made by Vagish Hemmige (all areas). Anyone may contribute options and evidence to an open decision; only a decider settles it (see "Working with agents").
 - **This is an analysis project, not an R package**, even though the scripts live in `R/` and there is an `.Rbuildignore`. Do not add DESCRIPTION, NAMESPACE, roxygen, or pkgdown infrastructure. Do not apply CRAN conventions.
+- **Default branch:** `master`, protected. Changes reach it only through pull requests.
 - **Implementation status lives in `TODO.md`**, not in these files. When you find a gap between the code and the plan, or a defect, add it there. When an item is done, delete it and record the outcome in the code, the plan or the evidence page.
+
+## Data sources
+
+This project uses no data set. Its inputs are values taken from published literature, guidelines and registry reports, and every one is entered as a named constant in `R/setup.R`.
+
+| Source | Accessed through | Package documentation | Package maintained by | Access | What AI agents may do |
+|---|---|---|---|---|---|
+| Published literature, guidelines and registry reports, as listed in `references/literature-review.md` | No package: values entered by hand in `R/setup.R` | — | — | Public (paywalled full texts are not copied into the repository) | No restriction on the published values; follow "Unpublished material" below |
+| Inputs that rest on unpublished data | No package: values entered by hand in `R/setup.R`, described as "source to be documented" | — | — | Not public | None beyond the values already in `R/setup.R`; never add the underlying material |
+
+To allow more for a source, a person changes its row through a pull request, naming the agreement or permission that allows it and exactly what agents may do. Agents never propose or make this change themselves.
+
+**For a source with no package:** record each value's source, release or access date, and any processing in `references/literature-review.md`, and check it against the original publication.
+
+## Exploration and definitive analysis
+
+Exploration is welcome on branches or forks. Experimental scripts need not be sourced from `R/main.R` or have Quarto pages, and their findings are labelled preliminary. A script becomes part of the definitive analysis when it is sourced from `R/main.R`; from then on every rule below applies to it.
 
 ## R scripts
 
@@ -139,15 +158,14 @@ Before opening a pull request, check the items below that apply to your change.
 
 ## Working with agents
 
-- **Autonomy.** The person directing an agent decides how much it may do. That person may also give the agent stricter rules of their own, and those take precedence over this section. By default, an agent may:
-  - edit code and documentation
-  - add scripts and tests
-  - run code and render the site
-  - commit to a branch and open a pull request
+- **Autonomy.** The person directing an agent sets its working style (review only, step by step, or hands-off) in their own instructions, and may add stricter rules; those take precedence. Without a style, an agent works step by step. At most, an agent may edit code and documentation, add scripts and tests, run code and render the site, and commit to a branch and open a pull request.
 - **Collaborators:** `master` is protected. Changes reach it only through a pull request that the maintainer reviews.
+- **Decisions.** Anyone, including an agent, may add options and evidence to an open decision. A decider states the choice. Agents implement decisions; they never choose among options on their own, in the plan or the code.
 - **Every agent, under any level of autonomy:**
+  - never merges a pull request
   - follows the unpublished-material rules above
   - asks before running the full pipeline (including the full PSA) or making expensive calls
-  - does not settle an open decision in the plan
+  - shows a person the exact text before posting or sending anything as them, unless that person's own instructions waive this
+  - proposes another way of writing something already agreed before committing it
 - Keep pull requests focused. In each one, state which section of the plan or which `TODO.md` item it addresses, and what was checked. Say whether it was checked by running code or by reading only. Never describe results from a reduced number of PSA draws as results.
 - For references, use OPTN/SRTR, CDC, AST and global cryptococcosis guidelines, FDA labeling, USRDS, and PubMed. Cite what you used.
