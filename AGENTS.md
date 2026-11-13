@@ -23,7 +23,7 @@ This repository evaluates donor serum cryptococcal antigen (CrAg) screening in U
   - Plan changes are tracked in git, not in a change log inside the plan. Commit each design change on its own, with a message that gives the reason and says whether any results that depend on it had already been seen.
   - The plan lists open design choices as **Decision D*n*** in its "Open decisions" table, each linked to its decision issue. Options and evidence go in the issue. Do not settle one in code. Raise it with the decider.
 - **Deciders.** Scientific decisions are made by Vagish Hemmige (all areas). Anyone may contribute options and evidence to an open decision; only a decider settles it (see "Working with agents").
-- **This is an analysis project, not an R package**, even though the scripts live in `R/` and there is an `.Rbuildignore`. Do not add DESCRIPTION, NAMESPACE, roxygen, or pkgdown infrastructure. Do not apply CRAN conventions.
+- **This is an analysis project, not an R package**, even though the scripts live in `R/` and there is an `.Rbuildignore`. Do not add DESCRIPTION, NAMESPACE, roxygen, or [{pkgdown}](https://pkgdown.r-lib.org/) infrastructure. Do not apply CRAN conventions.
 - **Default branch:** `master`, protected. Changes reach it only through pull requests.
 - **Implementation status lives in `TODO.md`**, not in these files. When you find a gap between the code and the plan, or a defect, add it there. When an item is done, delete it and record the outcome in the code, the plan or the evidence page.
 

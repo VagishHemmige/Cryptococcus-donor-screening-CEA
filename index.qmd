@@ -39,6 +39,8 @@ This project uses [**decision-analytic modeling**](https://pmc.ncbi.nlm.nih.gov/
 
 Rather than focusing on individual cases, the model estimates **average outcomes across a large hypothetical cohort of transplants**, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs.
 
+[Braces](https://forum.posit.co/t/curly-braces-around-package-name-convention/122547) identify R packages throughout this site.
+
 
 ## Strategies evaluated
 

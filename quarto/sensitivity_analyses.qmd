@@ -80,7 +80,7 @@ Each parameter is drawn `nsim` times from its prior. The derived probabilities a
 
 ## Acceptability curve, EVPI and BCEA
 
-The acceptability curve gives the share of draws in which screening has positive net monetary benefit at each willingness-to-pay value from \$0 to \$200,000 per QALY, and is saved as `figures/PSA_CEAC_plot.svg`. The expected value of perfect information is computed at the willingness-to-pay threshold. A summary table is saved as `figures/PSA_summary_table.png` and `tables/PSA_summary_table.docx`. The same draws are then passed to the BCEA package.
+The acceptability curve gives the share of draws in which screening has positive net monetary benefit at each willingness-to-pay value from \$0 to \$200,000 per QALY, and is saved as `figures/PSA_CEAC_plot.svg`. The expected value of perfect information is computed at the willingness-to-pay threshold. A summary table is saved as `figures/PSA_summary_table.png` and `tables/PSA_summary_table.docx`. The same draws are then passed to the [{BCEA}](https://CRAN.R-project.org/package=BCEA) package.
 
 ```{r}
 #| label: ceac-bcea
