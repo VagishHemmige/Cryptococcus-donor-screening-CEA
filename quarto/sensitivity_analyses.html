@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0545e8c5e8523b0718d443a37e44dd9d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.js"></script>
 <link href="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -114,6 +114,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -134,17 +145,6 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
-  background-image: none;
-}
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
   background-image: none;
 }
 </style>
@@ -1129,7 +1129,7 @@ window.Quarto = {
 </section>
 <section id="acceptability-curve-evpi-and-bcea" class="level2">
 <h2 class="anchored" data-anchor-id="acceptability-curve-evpi-and-bcea">Acceptability curve, EVPI and BCEA</h2>
-<p>The acceptability curve gives the share of draws in which screening has positive net monetary benefit at each willingness-to-pay value from $0 to $200,000 per QALY, and is saved as <code>figures/PSA_CEAC_plot.svg</code>. The expected value of perfect information is computed at the willingness-to-pay threshold. A summary table is saved as <code>figures/PSA_summary_table.png</code> and <code>tables/PSA_summary_table.docx</code>. The same draws are then passed to the BCEA package.</p>
+<p>The acceptability curve gives the share of draws in which screening has positive net monetary benefit at each willingness-to-pay value from $0 to $200,000 per QALY, and is saved as <code>figures/PSA_CEAC_plot.svg</code>. The expected value of perfect information is computed at the willingness-to-pay threshold. A summary table is saved as <code>figures/PSA_summary_table.png</code> and <code>tables/PSA_summary_table.docx</code>. The same draws are then passed to the <a href="https://CRAN.R-project.org/package=BCEA">{BCEA}</a> package.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -1788,7 +1788,7 @@ window.Quarto = {
 <span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Acceptability curve, EVPI and BCEA</span></span>
 <span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>The acceptability curve gives the share of draws in which screening has positive net monetary benefit at each willingness-to-pay value from \$0 to \$200,000 per QALY, and is saved as <span class="in">`figures/PSA_CEAC_plot.svg`</span>. The expected value of perfect information is computed at the willingness-to-pay threshold. A summary table is saved as <span class="in">`figures/PSA_summary_table.png`</span> and <span class="in">`tables/PSA_summary_table.docx`</span>. The same draws are then passed to the BCEA package.</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>The acceptability curve gives the share of draws in which screening has positive net monetary benefit at each willingness-to-pay value from \$0 to \$200,000 per QALY, and is saved as <span class="in">`figures/PSA_CEAC_plot.svg`</span>. The expected value of perfect information is computed at the willingness-to-pay threshold. A summary table is saved as <span class="in">`figures/PSA_summary_table.png`</span> and <span class="in">`tables/PSA_summary_table.docx`</span>. The same draws are then passed to the <span class="co">[</span><span class="ot">{BCEA}</span><span class="co">](https://CRAN.R-project.org/package=BCEA)</span> package.</span>
 <span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: ceac-bcea</span></span>

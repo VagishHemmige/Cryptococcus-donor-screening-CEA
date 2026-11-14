@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0545e8c5e8523b0718d443a37e44dd9d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.js"></script>
 <link href="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -117,6 +117,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <style>
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -137,17 +148,6 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
-  background-image: none;
-}
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
   background-image: none;
 }
 </style>
@@ -551,7 +551,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <h3 class="anchored" data-anchor-id="setup">Setup</h3>
 <p><strong>Location</strong>: <code>R/setup.R</code></p>
 <p><strong>Purpose</strong>: Loads packages and defines every model input.</p>
-<p><strong>Key objects</strong> (chunk labels in parentheses): - <code>libraries</code> — DiagrammeR, DiagrammeRsvg, glue, tibble, gt, tidyverse, ggtext, xml2, BCEA, ellipse, svglite, webshot2. Saving <code>.png</code> tables with <code>gtsave()</code> needs a Chrome or Chromium installation. - <code>expected_value</code> (<code>expected-values</code>) — the base-case value of each parameter. - <code>shape_parameter</code> (<code>shape-parameters</code>) — the Beta α for probabilities and the gamma shape k for costs and QALYs. <code>NA</code> means the input is fixed in the sensitivity analyses. - <code>wtp</code>, <code>set.seed()</code>, <code>nsim</code> (<code>simulation-settings</code>) — the willingness-to-pay threshold, the random seed and the number of PSA draws.</p>
+<p><strong>Key objects</strong> (chunk labels in parentheses): - <code>libraries</code> — <a href="https://rich-iannone.github.io/DiagrammeR/">{DiagrammeR}</a>, <a href="https://CRAN.R-project.org/package=DiagrammeRsvg">{DiagrammeRsvg}</a>, <a href="https://glue.tidyverse.org/">{glue}</a>, <a href="https://tibble.tidyverse.org/">{tibble}</a>, <a href="https://gt.rstudio.com/">{gt}</a>, <a href="https://www.tidyverse.org/">{tidyverse}</a>, <a href="https://wilkelab.org/ggtext/">{ggtext}</a>, <a href="https://xml2.r-lib.org/">{xml2}</a>, <a href="https://CRAN.R-project.org/package=BCEA">{BCEA}</a>, <a href="https://CRAN.R-project.org/package=ellipse">{ellipse}</a>, <a href="https://svglite.r-lib.org/">{svglite}</a>, <a href="https://CRAN.R-project.org/package=webshot2">{webshot2}</a>. Saving <code>.png</code> tables with <code>gtsave()</code> needs a Chrome or Chromium installation. - <code>expected_value</code> (<code>expected-values</code>) — the base-case value of each parameter. - <code>shape_parameter</code> (<code>shape-parameters</code>) — the Beta α for probabilities and the gamma shape k for costs and QALYs. <code>NA</code> means the input is fixed in the sensitivity analyses. - <code>wtp</code>, <code>set.seed()</code>, <code>nsim</code> (<code>simulation-settings</code>) — the willingness-to-pay threshold, the random seed and the number of PSA draws.</p>
 </section>
 <section id="model-engine" class="level3">
 <h3 class="anchored" data-anchor-id="model-engine">Model engine</h3>

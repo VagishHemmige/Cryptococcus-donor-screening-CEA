@@ -101,7 +101,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0545e8c5e8523b0718d443a37e44dd9d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.js"></script>
 <link href="site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -135,17 +135,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
-  background-image: none;
-}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -166,6 +155,17 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
+  background-image: none;
+}
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 </style>
@@ -555,6 +555,7 @@ window.Quarto = {
 <p><em>If we adopt a particular donor screening or management strategy, what are the expected clinical outcomes and costs across many transplants?</em></p>
 </blockquote>
 <p>Rather than focusing on individual cases, the model estimates <strong>average outcomes across a large hypothetical cohort of transplants</strong>, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs.</p>
+<p><a href="https://forum.posit.co/t/curly-braces-around-package-name-convention/122547">Braces</a> identify R packages throughout this site.</p>
 </section>
 <section id="strategies-evaluated" class="level2">
 <h2 class="anchored" data-anchor-id="strategies-evaluated">Strategies evaluated</h2>
@@ -1100,38 +1101,40 @@ Wolfe, Cameron R, and Michael G and Ison. 2019. <span>“<span class="nocase">Do
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Rather than focusing on individual cases, the model estimates **average outcomes across a large hypothetical cohort of transplants**, incorporating uncertainty in infection risk, test performance, treatment effectiveness, and costs.</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Strategies evaluated</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Braces</span><span class="co">](https://forum.posit.co/t/curly-braces-around-package-name-convention/122547)</span> identify R packages throughout this site.</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>The analysis compares:</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Strategies evaluated</span></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>no routine screening *vs.*</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>donor screening with cryptococcal antigen testing, combined with recipient prophylaxis,</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## What “cost-effectiveness” means here</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>The analysis compares:</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>no routine screening *vs.*</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>donor screening with cryptococcal antigen testing, combined with recipient prophylaxis,</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>Cost-effectiveness analysis estimates:</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## What “cost-effectiveness” means here</span></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional **cost** is associated with a strategy, and</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional health benefit that strategy produces measured in <span class="co">[</span><span class="ot">**quality-adjusted life years**</span><span class="co">](https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219)</span>.</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional health benefit it produces, compared to the baseline strategy, in <span class="co">[</span><span class="ot">**Net Monetary Benefit**</span><span class="co">](https://www.yhec.co.uk/glossary-term/net-monetary-benefit/)</span>.  This parameter, in turn, depends on the <span class="co">[</span><span class="ot">**willingness-to-pay**</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC8853086/)</span>, the amount of money a health system is willing to spend for a single QALY.  Our analysis, like many, assumes a willingness to pay of $100,000 per QALY, yielding an equation for NMB:</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>\text{NMB} = WTP \times \Delta Q - \Delta C</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>Cost-effectiveness analysis estimates:</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional **cost** is associated with a strategy, and</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional health benefit that strategy produces measured in <span class="co">[</span><span class="ot">**quality-adjusted life years**</span><span class="co">](https://www.cambridge.org/core/journals/international-journal-of-technology-assessment-in-health-care/article/abs/use-of-qualityadjusted-life-years-for-the-estimation-of-effectiveness-of-health-care-a-systematic-literature-review/BC49C883502D9FD601136FB90316C219)</span>.</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>how much additional health benefit it produces, compared to the baseline strategy, in <span class="co">[</span><span class="ot">**Net Monetary Benefit**</span><span class="co">](https://www.yhec.co.uk/glossary-term/net-monetary-benefit/)</span>.  This parameter, in turn, depends on the <span class="co">[</span><span class="ot">**willingness-to-pay**</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC8853086/)</span>, the amount of money a health system is willing to spend for a single QALY.  Our analysis, like many, assumes a willingness to pay of $100,000 per QALY, yielding an equation for NMB:</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reproducibility</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>\text{NMB} = WTP \times \Delta Q - \Delta C</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>All analyses presented on this website are fully reproducible.  </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reproducibility</span></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>The complete source code used to generate the decision trees, sensitivity analyses, and figures is publicly available at this <span class="co">[</span><span class="ot">GitHub repo</span><span class="co">](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/tree/master)</span>.  The R script <span class="in">`R/main.R`</span> will run the R subscripts needed for this analysis in the order they are to be run.  Model assumptions, parameter values, and analytic workflows are documented in the repository to facilitate transparency and reuse.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>All analyses presented on this website are fully reproducible.  </span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abstracts/manuscripts</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>The complete source code used to generate the decision trees, sensitivity analyses, and figures is publicly available at this <span class="co">[</span><span class="ot">GitHub repo</span><span class="co">](https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/tree/master)</span>.  The R script <span class="in">`R/main.R`</span> will run the R subscripts needed for this analysis in the order they are to be run.  Model assumptions, parameter values, and analytic workflows are documented in the repository to facilitate transparency and reuse.</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>This analysis is based on a prior abstract <span class="co">[</span><span class="ot">presented at American Transplant Congress</span><span class="co">](https://atcmeetingabstracts.com/abstract/preventing-donor-derived-cryptococcal-infections-should-we-screen-potential-organ-donors-with-a-serum-cryptococcal-antigen-a-cost-analysis/)</span> in 2019.  It has yet to be published to date.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abstracts/manuscripts</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>This analysis is based on a prior abstract <span class="co">[</span><span class="ot">presented at American Transplant Congress</span><span class="co">](https://atcmeetingabstracts.com/abstract/preventing-donor-derived-cryptococcal-infections-should-we-screen-potential-organ-donors-with-a-serum-cryptococcal-antigen-a-cost-analysis/)</span> in 2019.  It has yet to be published to date.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/edit/master/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Cryptococcus-donor-screening-CEA/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
