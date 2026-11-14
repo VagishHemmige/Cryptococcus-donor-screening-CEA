@@ -48,7 +48,7 @@ All scripts run in one shared global environment. Functions in `R/functions.R` t
 **Purpose**: Loads packages and defines every model input.
 
 **Key objects** (chunk labels in parentheses):
-- `libraries` — DiagrammeR, DiagrammeRsvg, glue, tibble, gt, tidyverse, ggtext, xml2, BCEA, ellipse, svglite, webshot2. Saving `.png` tables with `gtsave()` needs a Chrome or Chromium installation.
+- `libraries` — [{DiagrammeR}](https://rich-iannone.github.io/DiagrammeR/), [{DiagrammeRsvg}](https://CRAN.R-project.org/package=DiagrammeRsvg), [{glue}](https://glue.tidyverse.org/), [{tibble}](https://tibble.tidyverse.org/), [{gt}](https://gt.rstudio.com/), [{tidyverse}](https://www.tidyverse.org/), [{ggtext}](https://wilkelab.org/ggtext/), [{xml2}](https://xml2.r-lib.org/), [{BCEA}](https://CRAN.R-project.org/package=BCEA), [{ellipse}](https://CRAN.R-project.org/package=ellipse), [{svglite}](https://svglite.r-lib.org/), [{webshot2}](https://CRAN.R-project.org/package=webshot2). Saving `.png` tables with `gtsave()` needs a Chrome or Chromium installation.
 - `expected_value` (`expected-values`) — the base-case value of each parameter.
 - `shape_parameter` (`shape-parameters`) — the Beta α for probabilities and the gamma shape k for costs and QALYs. `NA` means the input is fixed in the sensitivity analyses.
 - `wtp`, `set.seed()`, `nsim` (`simulation-settings`) — the willingness-to-pay threshold, the random seed and the number of PSA draws.
